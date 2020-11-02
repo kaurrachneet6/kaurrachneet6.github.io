@@ -1,0 +1,250 @@
+<html>
+  <head>
+	  	<link rel="shortcut icon" type="image/png" href="./icon.png" />
+		<title>A Cordial Sync: Going Beyond Marginal Policies for Multi-Agent Embodied Tasks</title>
+  </head>
+
+  <body>
+    <br>
+          <center>
+          	<span style="font-size:38px">A Cordial Sync: Going Beyond Marginal Policies<br>For Multi-Agent Embodied Tasks<br></span>
+			  <br>
+	  		  <table align=center width=700px>
+	  			  <tr>
+					  <td align=center>
+						  <span style="font-size:25px">
+							  <a href="https://unnat.github.io/">Unnat Jain</a>*,
+							  <a href="https://lucaweihs.github.io/">Luca Weihs</a>*,
+							  <a href="https://github.com/ekolve">Eric Kolve</a>,
+							  <a href="https://homes.cs.washington.edu/~ali/">Ali Farhadi</a>,
+							  <br>
+							  <a href="http://slazebni.cs.illinois.edu/">Svetlana Lazebnik</a>,
+							  <a href="http://anikem.github.io/">Aniruddha Kembhavi</a>,
+							  <a href="http://alexander-schwing.de/">Alexander Schwing</a>
+						  </span>
+					  </td>
+				  </tr>
+				  <tr>
+					  <td align="center">
+						  <span style="font-size:22px">
+							  University of Illinois at Urbana-Champaign,
+							  <br>Allen Institute for AI, University of Washington<br>
+						  </span>
+						  <br>
+						  <span style="font-size:25px">
+							  To appear at <a href="https://eccv2020.eu/">ECCV 2020</a> (Spotlight)
+						  </span>
+						  <br>
+						  <br>
+					  </td>
+				  </tr>
+			  </table>
+
+	  		  <table align=center width=600px>
+	  			  <tr>
+	  	              <td align=center width=140px>
+	  					<center>
+	  						<span style="font-size:22px"><a href='https://github.com/allenai/cordial-sync' target="_blank"> [Code]</a></span>
+		  		  		</center>
+		  		  	  </td>
+	  	              
+<!--	  	              <td align=center width=150px>-->
+<!--	  					<center>-->
+<!--	  						<span style="font-size:22px"><a href='./index.html' target="_blank"> [Slides]</a></span>-->
+<!--		  		  		</center>-->
+<!--		  		  	  </td>-->
+
+		  		  	  <td align=center width=200px>
+	  					<center>
+	  						<span style="font-size:22px"><a href='https://youtu.be/EnYwCX5E9gk' target="_blank"> [Teaser Video]</a></span>
+		  		  		</center>
+		  		  	  </td>
+
+					  <td align=center width=200px>
+	  					<center>
+	  						<span style="font-size:22px"><a href='https://youtu.be/xM3auncA06A' target="_blank"> [Detailed Video]</a></span>
+		  		  		</center>
+		  		  	  </td>
+
+	  	              <td align=center width=100px>
+	  					<center>
+	  						<span style="font-size:22px"><a href='https://arxiv.org/pdf/2007.04979.pdf' target="_blank"> [Paper]</a></span>
+		  		  		</center>
+		  		  	  </td>
+
+		  		  	 </tr>
+	  			  <tr>
+			  </table>
+          </center>
+
+          <table align=center width=850px>
+  			  <tr>
+				  <td>
+					  <br>
+					  <center>
+							<img class="round" width="800px" src="./teaser_furnmove.png"/>
+					  </center>
+					  <br>
+				  </td>
+			  </tr>
+			  <tr>
+				  <td style="font-size:15pt; text-align:justify">
+					  Autonomous agents must learn to collaborate. It is not scalable to develop a new centralized agent every time a task's difficulty outpaces a single agent's abilities. While multi-agent collaboration research has flourished in gridworld-like environments, relatively little work has considered visually rich domains. Addressing this, we introduce the novel task FurnMove in which agents work together to move a piece of furniture through a living room to a goal. Unlike existing tasks, FurnMove requires agents to coordinate at every timestep. We identify two challenges when training agents to complete FurnMove: existing decentralized action sampling procedures do not permit expressive joint action policies and, in tasks requiring close coordination, the number of failed actions dominates successful actions. To confront these challenges we introduce SYNC-policies (synchronize your actions coherently) and CORDIAL (coordination loss). Using SYNC-policies and CORDIAL, our agents achieve a 58% completion rate on FurnMove, an impressive absolute gain of 25 percentage points over competitive decentralized baselines.
+				  </td>
+			  </tr>
+			  <tr>
+				  <td>
+					  <br>
+					  <center>
+							<img class="round" width="900px" src="./FloorPlan229_physics__15__video.gif"/>
+					  </center>
+					  <br>
+				  </td>
+			  </tr>
+  		  </table>
+
+          <hr>
+
+  		  <table align=center width=850px>
+	  		  <tr><td><center><h1>SYNC-Policies</h1></center></td></tr>
+			  <tr>
+	  		  	<td style="font-size:15pt; text-align:justify">
+					Previous multi-agent RL methods consist of a communicative backbone followed by a single marginal policy per agent. This limits the joint policy that these methods can capture. The joint policy is a rank one matrix, particularly, the outer product of the marginal policies of the two agents. For the general case of <i>N</i> agents, this is a rank one tensor.
+					<span style="font-size:28px">
+						$$\Pi_{\text{marginal}} = \pi^1\otimes\cdots \otimes \pi^N$$
+					</span>
+					We leverage the communication band to move beyond this rank one joint policy. SYNC policies weave
+					<i>m</i> marginal policies per agent using synchronized sampling (details in the paper). This leads to a more expressive joint policy as a mixture of marginal policies. For the <i>N</i> agent setup, the joint policy becomes:
+					<span style="font-size:28px">
+						$$\Pi_{\text{SYNC}} = \sum_{j=1}^m \alpha_j \cdot \pi^1_{j} \otimes \ldots \otimes \pi^N_{j}$$
+					</span>
+	  		    </td>
+	  		  </tr>
+			  <tr>
+				  <td>
+					  <center>
+							<img class="round" width="600px" src="./sync_policies.png"/>
+					  </center>
+				  </td>
+			  </tr>
+			</table>
+  		  <br>
+		  <hr>
+			<table align=center width=800px>
+				<tr><td><center><h1>Explanatory videos</h1></center></td></tr>
+				<tr>
+					<td style="font-size:15pt; text-align:justify">
+						<center>
+							A quick overview (1.5 min) video, corresponding slides: <a href='./teaser-slides.pdf' target="_blank"> [Teaser slides]</a>.
+						</center>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<center>
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/EnYwCX5E9gk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</center>
+					</td>
+				</tr>
+				<tr>
+					<td style="font-size:15pt; text-align:justify">
+						<center>
+							<br>
+							A detailed (10 min) video, corresponding slides: <a href='./detailed-slides.pdf' target="_blank"> [Detailed slides]</a>.
+						</center>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<center>
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/xM3auncA06A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</center>
+					</td>
+				</tr>
+			</table>
+			<br>
+			<hr>
+			<table align=center width=800px>
+				<tr><td><center><h1>Qualitative Results</h1></center></td></tr>
+				<tr>
+					<td style="font-size:15pt; text-align:justify">
+						<span>
+							This video highlighting policy roll-outs of marginal policies vs. SYNC-policies. Additionally, we include a way to <i>experience</i> what the agents 'tell' each other (enable audio for this clip).
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<center>
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/I_Evs5Bol6k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</center>
+					</td>
+				</tr>
+			</table>
+
+			<br>
+			<hr>
+
+
+
+			<table align=center width=800px>
+				<tr><td><center><h1>References</h1></center></td></tr>
+				<tr>
+					<td style="font-size:15pt; text-align:justify">
+						<span>
+							(1) Unnat Jain*, Luca Weihs*, Eric Kolve, Ali Farhadi, Svetlana Lazebnik, Aniruddha Kembhavi, Alexander Schwing. <b>A Cordial Sync: Going Beyond Marginal Policies For Multi-Agent Embodied Tasks</b>. In <i>ECCV</i> 2020 <a href="./sync_bibtex.txt" target="_blank" style="font-size:15pt;">[Bibtex]</a>
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<center>
+							<a href="https://arxiv.org/abs/2007.04979">
+								<img class="round" width="600px" src="./sync_thumbnail.png"/>
+							</a>
+						</center>
+					</td>
+				</tr>
+				<tr>
+					<td style="font-size:15pt; text-align:justify">
+						<span>
+							(2) Unnat Jain*, Luca Weihs*, Eric Kolve, Mohammad Rategari, Svetlana Lazebnik, Ali Farhadi, Alexander Schwing, Aniruddha Kembhavi. <b>Two Body Problem: Collaborative Visual Task Completion</b>. In <i>CVPR</i> 2019 <a href="./tbone_bibtex.txt" target="_blank" style="font-size:15pt;">[Bibtex]</a>
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<center>
+							<a href="https://arxiv.org/abs/1904.05879">
+								<img class="round" width="700px" src="./tbone_thumbnail.png"/>
+							</a>
+						</center>
+					</td>
+				</tr>
+			</table>
+
+  		  <br>
+		  <hr>
+
+			<table align=center width=900px>
+				<tr><td><center><h1>Acknowledgements</h1></center></td></tr>
+				<tr>
+					<td style="font-size:15pt; text-align:justify">
+						<span>
+							This material is based upon work supported in part by the National Science Foundation under Grants No. 1563727, 1718221, 1637479, 165205, 1703166, Samsung, 3M, Sloan Fellowship, NVIDIA Artificial Intelligence Lab, Allen Institute for AI, Amazon, and AWS Research Awards. UJ is thankful to Thomas & Stacey Siebel Foundation for Siebel Scholars Award. We thank <a href="https://mitchellnw.github.io">Mitchell Wortsman</a> and <a href="https://homes.cs.washington.edu/~khzeng/">Kuo-Hao Zeng</a> for their insightful suggestions on how to clarify and structure this work.
+						</span>
+					</td>
+				</tr>
+			</table>
+
+		<hr>
+        <table style="font-size:14px" align=center>
+        <tr>
+        <td>
+            Website adapted from <a href="https://deanplayerljx.github.io/tabvcr/">Jingxiang</a>, <a href="https://richzhang.github.io/colorization">Richard</a> and <a href="https://pathak22.github.io/modular-assemblies/">Deepak</a>.
+        </td>
+        </tr>
+        </table>
+              
+</body>
+</html>
