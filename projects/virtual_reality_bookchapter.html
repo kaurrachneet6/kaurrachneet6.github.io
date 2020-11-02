@@ -1,0 +1,223 @@
+<html>
+  <head>
+	  	<link rel="shortcut icon" type="image/png" href="./icon.png" />
+		<title>Virtual Reality and Movement Disorders</title>
+  </head>
+
+  <body>
+    <br>
+          <center>
+          	<span style="font-size:38px">Virtual Reality and Movement Disorders<br></span>
+			  <br>
+	  		  <table align=center width=700px>
+	  			  <tr>
+					  <td align=center>
+						  <span style="font-size:25px">
+							  <a href="https://kaurrachneet6.github.io/">Rachneet Kaur</a>,
+                <a href="https://ahs.illinois.edu/hernandez">Manuel Hernandez</a>,
+                <br> <a href="https://ise.illinois.edu/directory/profile/r-sowers">Richard Sowers</a>		  
+						  </span>
+					  </td>
+				  </tr>
+				  <tr>
+					  <td align="center">
+						  <span style="font-size:22px">
+							  University of Illinois at Urbana-Champaign
+						  </span>
+						  <br>
+						  <span style="font-size:25px">
+							  <a href="https://ieeexplore.ieee.org/document/9035020">IEEE Humanoids 2019</a>
+						  </span>
+						  <br>
+						  <br>
+					  </td>
+				  </tr>
+			  </table>
+
+	  		  <table align=center width=600px>
+	  			  <tr>
+	  	              <td align=center width=140px>
+	  					<center>
+	  						<span style="font-size:22px"><a href='https://github.com/kaurrachneet6' target="_blank"> [Code]</a></span>
+		  		  		</center>
+		  		  	  </td>
+	  	              
+	  	              <td align=center width=150px>
+	  					<center>
+	  						<span style="font-size:22px"><a href='./EMBC2020_BF_ML_slides_pdf.pdf' target="_blank"> [Slides]</a></span>
+		  		  		</center>
+		  		  	  </td>
+ 
+<!-- 		  		  	  <td align=center width=200px>
+	  					<center>
+	  						<span style="font-size:22px"><a href='https://youtu.be/EnYwCX5E9gk' target="_blank"> [Teaser Video]</a></span>
+		  		  		</center>
+		  		  	  </td> -->
+					  
+					  <td align=center width=200px>
+	  					<center>
+	  						<span style="font-size:22px"><a href='https://www.youtube.com/watch?v=5nKx9IGo3SA&feature=youtu.be&ab_channel=HernandezLab' target="_blank"> [Video]</a></span>
+		  		  		</center>
+		  		  	  </td>
+
+	  	              <td align=center width=100px>
+	  					<center>
+	  						<span style="font-size:22px"><a href='https://ieeexplore.ieee.org/document/9035020' target="_blank"> [Paper]</a></span>
+		  		  		</center>
+		  		  	  </td>
+
+		  		  	 </tr>
+	  			  <tr>
+			  </table>
+          </center>
+	  <br>
+		<table align=center width=800px>
+				<tr><td><center><h1>Abstract</h1></center></td></tr>  
+			  <tr>
+				  <td style="font-size:15pt; text-align:justify">
+					 We examine the feasibility and effectiveness of a virtual reality (VR) based experimental setup to monitor and modify the neural and physiological anxiety-related responses to balance-demanding target-reaching whole body leaning tasks. In our system, electroencephalography (EEG) and electrocardiography (EKG) signals are used to analyze the subjects' real-time neural and cardiac activities, respectively, while subjects perform accuracy-constrained whole body movements as quickly and as accurately as possible in high fall-risk VR conditions. Salient features of neural and cardiac responses are analyzed to monitor anxiety-related changes in subjects during the performance of balance-demanding tasks. Validation of the proposed framework, integrating VR and sensor-based monitoring, may pave the way to smart and intuitive human-robot or brain-computer interface systems that can detect anxiety in human users during the performance of demanding motor tasks. The application of linear and radial basis function support vector machine classifiers suggest good performance in detecting anxiety using power of the alpha band from F3 and F4 channels of the EEG head cap. Our results suggest that frontal alpha asymmetry (FAA) may be used as bio-marker for quantifying both trait and state anxiety, and further conclude that state anxiety is correlated with motor task performance.
+				  </td>
+			  </tr>
+	  </table>
+
+          <table align=center width=850px>
+  			  <tr>
+				  <td>
+					  <br>
+					  <center>
+							<img class="round" width="480" height="620" src="./Accelerometer_EMBC2020_image"/>
+					  
+				  <div style='width: 700px; text-align: center;'> 
+					  <b>Figure:</b> Filtered acceleration coordinates. Comparing 10 seconds of x, y, z-acceleration coordinates from the two accelerometers at hip (H) and knee (K) for a subject with low (A) and high (B) balance.
+				</div>
+				  </center>	  
+				<br>
+				  </td>
+			  </tr>
+	</table>
+<!-- 			  <tr>
+				  <td>
+					  <br>
+					  <center>
+							<img class="round" width="900px" src="./FloorPlan229_physics__15__video.gif"/>
+					  </center>
+					  <br>
+				  </td>
+			  </tr> -->
+  		  </table>
+
+          <hr>
+
+<!--   		  <table align=center width=850px>
+	  		  <tr><td><center><h1>SYNC-Policies</h1></center></td></tr>
+			  <tr>
+	  		  	<td style="font-size:15pt; text-align:justify">
+					Previous multi-agent RL methods consist of a communicative backbone followed by a single marginal policy per agent. This limits the joint policy that these methods can capture. The joint policy is a rank one matrix, particularly, the outer product of the marginal policies of the two agents. For the general case of <i>N</i> agents, this is a rank one tensor.
+					<span style="font-size:28px">
+						$$\Pi_{\text{marginal}} = \pi^1\otimes\cdots \otimes \pi^N$$
+					</span>
+					We leverage the communication band to move beyond this rank one joint policy. SYNC policies weave
+					<i>m</i> marginal policies per agent using synchronized sampling (details in the paper). This leads to a more expressive joint policy as a mixture of marginal policies. For the <i>N</i> agent setup, the joint policy becomes:
+					<span style="font-size:28px">
+						$$\Pi_{\text{SYNC}} = \sum_{j=1}^m \alpha_j \cdot \pi^1_{j} \otimes \ldots \otimes \pi^N_{j}$$
+					</span>
+	  		    </td>
+	  		  </tr>
+			  <tr>
+				  <td>
+					  <center>
+							<img class="round" width="600px" src="./sync_policies.png"/>
+					  </center>
+				  </td>
+			  </tr>
+			</table> -->
+<!--   		  <br> -->
+<!-- 		  <hr> -->
+			<table align=center width=800px>
+				<tr><td><center><h1>Explanatory video</h1></center></td></tr>
+				<tr>
+					<td style="font-size:15pt; text-align:justify">
+						<center>
+							A detailed video, corresponding slides: <a href='./EMBC2020_BF_ML_slides_pdf.pdf' target="_blank"> [Detailed slides]</a>.
+						</center>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<center>
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/5nKx9IGo3SA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</center>
+					</td>
+				</tr>
+			</table>
+			<br>
+			<hr>
+<!-- 			<table align=center width=800px>
+				<tr><td><center><h1>Qualitative Results</h1></center></td></tr>
+				<tr>
+					<td style="font-size:15pt; text-align:justify">
+						<span>
+							This video highlighting policy roll-outs of marginal policies vs. SYNC-policies. Additionally, we include a way to <i>experience</i> what the agents 'tell' each other (enable audio for this clip).
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<center>
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/I_Evs5Bol6k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</center>
+					</td>
+				</tr>
+			</table>
+
+			<br>
+			<hr> -->
+
+
+
+			<table align=center width=800px>
+				<tr><td><center><h1>References</h1></center></td></tr>
+				<tr>
+					<td style="font-size:15pt; text-align:justify">
+						<span>
+							(1) Yang Hu*, Alka Bishnoi*, Rachneet Kaur, Richard Sowers, Manuel E Hernandez. <b>Exploration of Machine Learning to Identify Community Dwelling Older Adults with Balance Dysfunction Using Short Duration Accelerometer Data</b>. In <i>IEEE EMBC</i> 2020 <a href="../Data/Accelerometer_EMBC2020.bib" target="_blank" style="font-size:15pt;">[Bibtex]</a>
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<center>
+							<a href="https://ieeexplore.ieee.org/document/9175871">
+								<img class="round" width= "200" src="./Accelerometer_EMBC2020_thumbnail.png"/>
+							</a>
+						</center>
+					</td>
+				</tr>
+			</table>
+
+  		  <br>
+		  <hr>
+
+			<table align=center width=900px>
+				<tr><td><center><h1>Acknowledgements</h1></center></td></tr>
+				<tr>
+					<td style="font-size:15pt; text-align:justify">
+						<span>
+							We would like to thank all of the subjects who participated in this study. We would also like to thank Yanqing Lyu, Nicole Cho and members of the <a href="http://mfp.kch.illinois.edu/">Mobility and Fall Prevention Lab</a> for their contributions to the study, and the Campus Research Board for financial support of this work. RK is thankful to William Chittenden for the William A. Chittenden Award.
+						</span>
+					</td>
+				</tr>
+			</table>
+
+		<hr>
+        <table style="font-size:14px" align=center>
+        <tr>
+        <td>
+            Website adapted from <a href="https://deanplayerljx.github.io/tabvcr/">Jingxiang</a>, <a href="https://richzhang.github.io/colorization">Richard</a> and <a href="https://pathak22.github.io/modular-assemblies/">Deepak</a>.
+        </td>
+        </tr>
+        </table>
+              
+</body>
+</html>
+
