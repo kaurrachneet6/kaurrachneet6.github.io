@@ -1,4 +1,3 @@
-  
 @INPROCEEDINGS{9175871,
   author={Y. {Hu} and A. {Bishnoi} and R. {Kaur} and R. {Sowers} and M. E. {Hernandez}},
   booktitle={2020 42nd Annual International Conference of the IEEE Engineering in Medicine   Biology Society (EMBC)}, 
