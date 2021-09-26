@@ -1,0 +1,223 @@
+<html>
+  <head>
+	  	<link rel="shortcut icon" type="image/png" href="./icon.png" />
+		<title>Machine learning and price-based load scheduling for an optimal IoT control in the smart and frugal home</title>
+  </head>
+
+  <body>
+    <br>
+          <center>
+          	<span style="font-size:38px">Machine learning and price-based load scheduling for an optimal IoT control in the smart and frugal home <br></span>
+			  <br>
+	  		  <table align=center width=700px>
+	  			  <tr>
+					  <td align=center>
+						  <span style="font-size:25px">
+							  <a href="https://www.researchgate.net/profile/Yang_Hu143">Yang Hu</a>*,
+							  <a href="https://www.researchgate.net/profile/Alka_Bishnoi">Alka Bishnoi</a>*,
+							  <a href="https://kaurrachneet6.github.io/">Rachneet Kaur</a>,
+							  <br> <a href="https://ise.illinois.edu/directory/profile/r-sowers">Richard Sowers</a>,
+							  <a href="https://ahs.illinois.edu/hernandez">Manuel Hernandez</a>
+						  </span>
+					  </td>
+				  </tr>
+				  <tr>
+					  <td align="center">
+						  <span style="font-size:22px">
+							  University of Illinois at Urbana-Champaign
+						  </span>
+						  <br>
+						  <span style="font-size:25px">
+							  <a href="https://ieeexplore.ieee.org/document/9175871">IEEE EMBC 2020</a>
+						  </span>
+						  <br>
+						  <br>
+					  </td>
+				  </tr>
+			  </table>
+
+	  		  <table align=center width=600px>
+	  			  <tr>
+	  	              <td align=center width=140px>
+	  					<center>
+	  						<span style="font-size:22px"><a href='https://github.com/kaurrachneet6' target="_blank"> [Code]</a></span>
+		  		  		</center>
+		  		  	  </td>
+	  	              
+	  	              <td align=center width=150px>
+	  					<center>
+	  						<span style="font-size:22px"><a href='./EMBC2020_BF_ML_slides_pdf.pdf' target="_blank"> [Slides]</a></span>
+		  		  		</center>
+		  		  	  </td>
+ 
+<!-- 		  		  	  <td align=center width=200px>
+	  					<center>
+	  						<span style="font-size:22px"><a href='https://youtu.be/EnYwCX5E9gk' target="_blank"> [Teaser Video]</a></span>
+		  		  		</center>
+		  		  	  </td> -->
+					  
+					  <td align=center width=200px>
+	  					<center>
+	  						<span style="font-size:22px"><a href='https://www.youtube.com/watch?v=5nKx9IGo3SA&feature=youtu.be&ab_channel=HernandezLab' target="_blank"> [Video]</a></span>
+		  		  		</center>
+		  		  	  </td>
+
+	  	              <td align=center width=100px>
+	  					<center>
+	  						<span style="font-size:22px"><a href='https://ieeexplore.ieee.org/document/9175871' target="_blank"> [Paper]</a></span>
+		  		  		</center>
+		  		  	  </td>
+
+		  		  	 </tr>
+	  			  <tr>
+			  </table>
+          </center>
+	  <br>
+		<table align=center width=800px>
+				<tr><td><center><h1>Abstract</h1></center></td></tr>  
+			  <tr>
+				  <td style="font-size:15pt; text-align:justify">
+					  The incidence of fall-related injuries in older adults is high. Given the significant and adverse outcomes that arise from injurious falls in older adults, it is of the utmost importance to identify older adults at greater risk for falls as early as possible. Given that balance dysfunction provides a significant risk factor for falls, an automated and objective identification of balance dysfunction in community dwelling older adults using wearable sensor data when walking may be beneficial. In this study, we examine the feasibility of using wearable sensors, when walking, to identify older adults who have trouble with balance at an early stage using state-of-the-art machine learning techniques. We recruited 21 community dwelling older women. The experimental paradigm consisted of two tasks: Normal walking with a self-selected comfortable speed on an instrumented treadmill and a test of reflexive postural response, using the motor control test (MCT). Based on the MCT, identification of older women with low or high balance function was performed. Using short duration accelerometer data from sensors placed on the knee and hip while walking, supervised machine learning was carried out to classify subjects with low and high balance function. Using a Gradient Boosting Machine (GBM) algorithm, we classified balance function in older adults using 60 seconds of accelerometer data with an average cross validation accuracy of 91.5% and area under the receiver operating characteristic curve (AUC) of 0.97. Early diagnosis of balance dysfunction in community dwelling older adults through the use of user friendly and inexpensive wearable sensors may help in reducing future fall risk in older adults through earlier interventions and treatments, and thereby significantly reduce associated healthcare costs.
+				  </td>
+			  </tr>
+	  </table>
+
+          <table align=center width=850px>
+  			  <tr>
+				  <td>
+					  <br>
+					  <center>
+							<img class="round" width="480" height="620" src="./Accelerometer_EMBC2020_image"/>
+					  
+				  <div style='width: 700px; text-align: center;'> 
+					  <b>Figure:</b> Filtered acceleration coordinates. Comparing 10 seconds of x, y, z-acceleration coordinates from the two accelerometers at hip (H) and knee (K) for a subject with low (A) and high (B) balance.
+				</div>
+				  </center>	  
+				<br>
+				  </td>
+			  </tr>
+	</table>
+<!-- 			  <tr>
+				  <td>
+					  <br>
+					  <center>
+							<img class="round" width="900px" src="./FloorPlan229_physics__15__video.gif"/>
+					  </center>
+					  <br>
+				  </td>
+			  </tr> -->
+  		  </table>
+
+          <hr>
+
+<!--   		  <table align=center width=850px>
+	  		  <tr><td><center><h1>SYNC-Policies</h1></center></td></tr>
+			  <tr>
+	  		  	<td style="font-size:15pt; text-align:justify">
+					Previous multi-agent RL methods consist of a communicative backbone followed by a single marginal policy per agent. This limits the joint policy that these methods can capture. The joint policy is a rank one matrix, particularly, the outer product of the marginal policies of the two agents. For the general case of <i>N</i> agents, this is a rank one tensor.
+					<span style="font-size:28px">
+						$$\Pi_{\text{marginal}} = \pi^1\otimes\cdots \otimes \pi^N$$
+					</span>
+					We leverage the communication band to move beyond this rank one joint policy. SYNC policies weave
+					<i>m</i> marginal policies per agent using synchronized sampling (details in the paper). This leads to a more expressive joint policy as a mixture of marginal policies. For the <i>N</i> agent setup, the joint policy becomes:
+					<span style="font-size:28px">
+						$$\Pi_{\text{SYNC}} = \sum_{j=1}^m \alpha_j \cdot \pi^1_{j} \otimes \ldots \otimes \pi^N_{j}$$
+					</span>
+	  		    </td>
+	  		  </tr>
+			  <tr>
+				  <td>
+					  <center>
+							<img class="round" width="600px" src="./sync_policies.png"/>
+					  </center>
+				  </td>
+			  </tr>
+			</table> -->
+<!--   		  <br> -->
+<!-- 		  <hr> -->
+			<table align=center width=800px>
+				<tr><td><center><h1>Explanatory video</h1></center></td></tr>
+				<tr>
+					<td style="font-size:15pt; text-align:justify">
+						<center>
+							A detailed video, corresponding slides: <a href='./EMBC2020_BF_ML_slides_pdf.pdf' target="_blank"> [Detailed slides]</a>.
+						</center>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<center>
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/5nKx9IGo3SA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</center>
+					</td>
+				</tr>
+			</table>
+			<br>
+			<hr>
+<!-- 			<table align=center width=800px>
+				<tr><td><center><h1>Qualitative Results</h1></center></td></tr>
+				<tr>
+					<td style="font-size:15pt; text-align:justify">
+						<span>
+							This video highlighting policy roll-outs of marginal policies vs. SYNC-policies. Additionally, we include a way to <i>experience</i> what the agents 'tell' each other (enable audio for this clip).
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<center>
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/I_Evs5Bol6k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</center>
+					</td>
+				</tr>
+			</table>
+			<br>
+			<hr> -->
+
+
+
+			<table align=center width=800px>
+				<tr><td><center><h1>References</h1></center></td></tr>
+				<tr>
+					<td style="font-size:15pt; text-align:justify">
+						<span>
+							Yang Hu*, Alka Bishnoi*, Rachneet Kaur, Richard Sowers, Manuel E Hernandez. <b>Exploration of Machine Learning to Identify Community Dwelling Older Adults with Balance Dysfunction Using Short Duration Accelerometer Data</b>. In <i>IEEE EMBC</i> 2020 <a href="../Data/Accelerometer_EMBC2020.bib" target="_blank" style="font-size:15pt;">[BibTex]</a> <a href="../Data/Accelerometer_EMBC2020.txt" target="_blank" style="font-size:15pt;">[Text]</a>
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<center>
+							<a href="https://ieeexplore.ieee.org/document/9175871">
+								<img class="round" width= "200" src="./Accelerometer_EMBC2020_thumbnail.png"/>
+							</a>
+						</center>
+					</td>
+				</tr>
+			</table>
+
+  		  <br>
+		  <hr>
+
+			<table align=center width=900px>
+				<tr><td><center><h1>Acknowledgements</h1></center></td></tr>
+				<tr>
+					<td style="font-size:15pt; text-align:justify">
+						<span>
+							We would like to thank all of the subjects who participated in this study. We would also like to thank Yanqing Lyu, Nicole Cho and members of the <a href="http://mfp.kch.illinois.edu/">Mobility and Fall Prevention Lab</a> for their contributions to the study, and the Campus Research Board for financial support of this work. RK is thankful to William Chittenden for the William A. Chittenden Award.
+						</span>
+					</td>
+				</tr>
+			</table>
+
+		<hr>
+        <table style="font-size:14px" align=center>
+        <tr>
+        <td>
+            Website adapted from <a href="https://deanplayerljx.github.io/tabvcr/">Jingxiang</a>, <a href="https://richzhang.github.io/colorization">Richard</a> and <a href="https://pathak22.github.io/modular-assemblies/">Deepak</a>.
+        </td>
+        </tr>
+        </table>
+              
+</body>
+</html>
