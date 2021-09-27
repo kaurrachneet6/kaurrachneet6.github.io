@@ -175,3 +175,6 @@ span.highlight {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
+tr.bordered {
+    border-bottom: 1px solid #000;
+}
