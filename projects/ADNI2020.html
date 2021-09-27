@@ -1,0 +1,218 @@
+<html>
+  <head>
+	  	<link rel="shortcut icon" type="image/png" href="./icon.png" />
+		<title>Predicting Alzheimer's disease progression trajectory and clinical subtypes using machine learning</title>
+  </head>
+
+  <body>
+    <br>
+          <center>
+          	<span style="font-size:38px">Predicting Alzheimer's Disease Progression Trajectory and Clinical Subtypes Using Machine Learning</span>
+			  <br>
+	  		  <table align=center width=700px>
+	  			  <tr>
+					  <td align=center>
+						  <span style="font-size:25px">
+					              <strong>Rachneet Kaur</strong>,		    
+						      <a href="https://www.linkedin.com/in/clara-schaye/" style="text-decoration: none">Clara Schaye</a>,
+						      <a href="https://www.linkedin.com/in/kevthompson97/" style="text-decoration: none">Kevin Thompson</a>,
+						       Daniel C Yee,
+						      <a href="https://www.linkedin.com/in/rachel-zilz-9455298a/" style="text-decoration: none">Rachel Zilz</a>,
+						      <a href="https://scholar.google.com/citations?user=BUOJNbgAAAAJ&hl=en" style="text-decoration: none">RS Sreenivas</a>,
+						      <a href="https://ise.illinois.edu/directory/profile/r-sowers" style="text-decoration: none">Richard Sowers</a>
+						     </span>
+					  </td>
+				  </tr>
+				  <tr>
+					  <td align="center">
+						  <span style="font-size:22px">
+							  University of Illinois at Urbana-Champaign
+						  </span>
+						  <br>
+						  <span style="font-size:25px">
+							  <a href="https://www.sciencedirect.com/journal/energy-and-ai" style="text-decoration: none">Energy and AI, Elsevier 2021</a>
+						  </span>
+						  <br>
+						  <br>
+					  </td>
+				  </tr>
+			  </table>
+
+	  		  <table align=center width=600px>
+	  			  <tr>
+<!-- 	  	              <td align=center width=140px>
+	  					<center>
+	  						<span style="font-size:22px"><a href='https://github.com/kaurrachneet6' style="text-decoration: none" target="_blank"> [Code]</a></span>
+		  		  		</center>
+		  		  	  </td> -->
+	  	              
+	  	              <td align=center width=150px>
+	  					<center>
+	  						<span style="font-size:22px"><a href='./../posters_and_talks/MottierPresentation.pdf' style="text-decoration: none" target="_blank"> [Slides]</a></span>
+		  		  		</center>
+		  		  	  </td>
+ 
+		  		  	  <td align=center width=200px>
+	  					<center>
+	  						<span style="font-size:22px"><a href='https://www.youtube.com/watch?v=YIdqtpFE2ls&t=4s&ab_channel=IllinoisDept.ofMath' style="text-decoration: none" target="_blank"> [Teaser Video]</a></span>
+		  		  		</center>
+		  		  	  </td> 
+					  
+<!-- 					  <td align=center width=200px>
+	  					<center>
+	  						<span style="font-size:22px"><a href='https://www.youtube.com/watch?v=5nKx9IGo3SA&feature=youtu.be&ab_channel=HernandezLab' style="text-decoration: none" target="_blank"> [Video]</a></span>
+		  		  		</center>
+		  		  	  </td> -->
+
+	  	              <td align=center width=100px>
+	  					<center>
+	  						<span style="font-size:22px"><a href='https://www.sciencedirect.com/science/article/pii/S2666546820300422' style="text-decoration: none" target="_blank"> [Paper]</a></span>
+		  		  		</center>
+		  		  	  </td>
+
+		  		  	 </tr>
+	  			  <tr>
+			  </table>
+          </center>
+	  <br>
+		<table align=center width=800px>
+				<tr><td><center><h1>Abstract</h1></center></td></tr>  
+			  <tr>
+				  <td style="font-size:15pt; text-align:justify">
+					 We pose and study a scheduling problem for an electric load to develop an Internet of Things (IoT) control system for power appliances, which takes advantage of real-time dynamic energy pricing. Using historical pricing data from a large U.S. power supplier, we study and compare several dynamic scheduling policies, which can be implemented in a smart home to activate a major appliance (dishwasher, washing machine, clothes dryer) at an optimal time of the day, to minimize electricity costs. We formulate our scheduling task as a supervised machine learning classification problem which activates the load during one of two preferred time bins. The features used in the machine learning problem are hourly market, spot and day-ahead prices along with delayed label of the prior day. We find that boosting tree-based algorithms outperform any other classification approach with measurable reduction of energy costs over certain types of naive and static policies. We observe that the delayed label has most predictive power across features, followed, on average, by spot, hourly market, and day-ahead energy prices. We further discuss implementation issues using a micro controller system coupled with cloud-based serverless computing and dynamic data storage. Our test system includes an interactive voice interface via an intelligent personal assistant.
+				  </td>
+			  </tr>
+	  </table>
+
+          <table align=center width=850px>
+  			  <tr>
+				  <td>
+					  <br>
+					  <center>
+							<img class="round" width="1000" height="500" src="./graphical_abstract.png"/>
+					  
+				  <div style='width: 700px; text-align: center;'> 
+					  <b>Figure:</b> Proposed IoT ecosystem for optimal energy savings in power appliances.
+				</div>
+				  </center>	  
+				<br>
+				  </td>
+			  </tr>
+	</table>
+<!-- 			  <tr>
+				  <td>
+					  <br>
+					  <center>
+							<img class="round" width="900px" src="./FloorPlan229_physics__15__video.gif"/>
+					  </center>
+					  <br>
+				  </td>
+			  </tr> -->
+  		  </table>
+
+          <hr>
+
+<!--   		  <table align=center width=850px>
+	  		  <tr><td><center><h1>SYNC-Policies</h1></center></td></tr>
+			  <tr>
+	  		  	<td style="font-size:15pt; text-align:justify">
+					Previous multi-agent RL methods consist of a communicative backbone followed by a single marginal policy per agent. This limits the joint policy that these methods can capture. The joint policy is a rank one matrix, particularly, the outer product of the marginal policies of the two agents. For the general case of <i>N</i> agents, this is a rank one tensor.
+					<span style="font-size:28px">
+						$$\Pi_{\text{marginal}} = \pi^1\otimes\cdots \otimes \pi^N$$
+					</span>
+					We leverage the communication band to move beyond this rank one joint policy. SYNC policies weave
+					<i>m</i> marginal policies per agent using synchronized sampling (details in the paper). This leads to a more expressive joint policy as a mixture of marginal policies. For the <i>N</i> agent setup, the joint policy becomes:
+					<span style="font-size:28px">
+						$$\Pi_{\text{SYNC}} = \sum_{j=1}^m \alpha_j \cdot \pi^1_{j} \otimes \ldots \otimes \pi^N_{j}$$
+					</span>
+	  		    </td>
+	  		  </tr>
+			  <tr>
+				  <td>
+					  <center>
+							<img class="round" width="600px" src="./sync_policies.png"/>
+					  </center>
+				  </td>
+			  </tr>
+			</table> -->
+<!--   		  <br> -->
+<!-- 		  <hr> -->
+			<table align=center width=800px>
+				<tr><td><center><h1>Teaser video</h1></center></td></tr>
+				<tr>
+					<td>
+						<center>
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/YIdqtpFE2ls" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</center>
+					</td>
+				</tr>
+			</table>
+			<br>
+			<hr>
+<!-- 			<table align=center width=800px>
+				<tr><td><center><h1>Qualitative Results</h1></center></td></tr>
+				<tr>
+					<td style="font-size:15pt; text-align:justify">
+						<span>
+							This video highlighting policy roll-outs of marginal policies vs. SYNC-policies. Additionally, we include a way to <i>experience</i> what the agents 'tell' each other (enable audio for this clip).
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<center>
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/YIdqtpFE2ls" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</center>
+					</td>
+				</tr>
+			</table>
+			<br>
+			<hr> -->
+
+
+
+			<table align=center width=800px>
+				<tr><td><center><h1>References</h1></center></td></tr>
+				<tr>
+					<td style="font-size:15pt; text-align:justify">
+						<span>
+							Rachneet Kaur, Clara Schaye, Kevin Thompson, Daniel C Yee, Rachel Zilz, RS Sreenivas, Richard Sowers. <b>Machine learning and price-based load scheduling for an optimal IoT control in the smart and frugal home</b>. In <i>Energy and AI, Elsevier </i> 2021 <a href="../Data/EnergyAndAI2021.bib" target="_blank" style="font-size:15pt;">[BibTex]</a> <a href="../Data/EnergyAndAI2021.txt" target="_blank" style="font-size:15pt;">[Text]</a>
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<center>
+							<a href="https://www.sciencedirect.com/science/article/pii/S2666546820300422">
+								<img class="round" width= "200" src="./energy_and_ai_2021.PNG"/>
+							</a>
+						</center>
+					</td>
+				</tr>
+			</table>
+
+  		  <br>
+		  <hr>
+
+			<table align=center width=900px>
+				<tr><td><center><h1>Acknowledgements</h1></center></td></tr>
+				<tr>
+					<td style="font-size:15pt; text-align:justify">
+						<span>
+						    The authors would also like to thank John Nguyen for assisting in the implementation of these ideas. RK is thankful to William Chittenden for the William A. Chittenden Award.
+						</span>
+					</td>
+				</tr>
+			</table>
+
+		<hr>
+        <table style="font-size:14px" align=center>
+        <tr>
+        <td>
+            Website adapted from <a href="https://deanplayerljx.github.io/tabvcr/">Jingxiang</a>, <a href="https://richzhang.github.io/colorization">Richard</a> and <a href="https://pathak22.github.io/modular-assemblies/">Deepak</a>.
+        </td>
+        </tr>
+        </table>
+              
+</body>
+</html>
