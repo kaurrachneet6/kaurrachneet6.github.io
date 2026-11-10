@@ -194,7 +194,7 @@ body {
   .intern-rows{width:calc(0.9 * (100% - 40px));margin:8px 0 26px 20px}
   .intern-row{display:flex;justify-content:space-around;align-items:flex-start}
   .intern-row + .intern-row{margin-top:26px}
-  .intern{display:flex;flex-direction:column;align-items:center;text-align:center}
+  .intern{display:flex;flex-direction:column;align-items:center;text-align:center;flex-shrink:0}
   .intern-logo{height:46px;display:flex;align-items:center;justify-content:center;margin-bottom:8px}
   .intern-logo img{display:block;max-height:46px;max-width:100px;width:auto;height:auto}
   /* second-row logos are detailed emblems/small text, so give them a bit more room to look as big as row 1 */
@@ -214,35 +214,53 @@ body {
   }
 </style>
 <div class="intern-rows">
-<div class="intern-row">
+<div class="intern-row" data-space=".intern-logo img">
     <div class="intern"><div class="intern-logo"><a href="https://www.jpmorgan.com/technology/artificial-intelligence" target="_blank"><img src="Images/logos/jpm.png" alt="J.P. Morgan Chase logo"></a></div><div class="intern-text"><div><div class="intern-inst">J.P. Morgan Chase</div><div class="intern-team">AI Research</div><div class="intern-when">Summer 2022</div></div></div></div>
     <div class="intern" title="Mentors: Carolina Barcenas, Chiranjeet Chetia, Shubham Agrawal"><div class="intern-logo"><a href="https://usa.visa.com/about-visa/visa-research.html" target="_blank"><img src="Images/logos/visa.png" alt="Visa logo"></a></div><div class="intern-text"><div><div class="intern-inst">Visa</div><div class="intern-team">AI Research</div><div class="intern-when">Summer 2019</div></div></div></div>
     <div class="intern" title="Mentors: David Redinger, Brian J. Stankiewicz"><div class="intern-logo"><a href="https://www.3m.com/3M/en_US/company-us/about-3m/research-development/" target="_blank"><img src="Images/logos/3m.png" alt="3M logo"></a></div><div class="intern-text"><div><div class="intern-inst">3M</div><div class="intern-team">Software &amp; AI Research</div><div class="intern-when">Summer 2018</div></div></div></div>
     <div class="intern" title="Mentors: Areez Mody, Matteo Nicoli"><div class="intern-logo"><a href="https://www.quantlab.com/" target="_blank"><img src="Images/logos/quantlab.png" alt="Quantlab Financial logo"></a></div><div class="intern-text"><div><div class="intern-inst">Quantlab Financial</div><div class="intern-team">Quantitative Research</div><div class="intern-when">Summer 2017</div></div></div></div>
 </div>
-<div class="intern-row wide">
+<div class="intern-row wide" data-space=".intern-inst">
     <div class="intern" title="Mentor: Julien Randon Furling"><div class="intern-logo"><img src="Images/logos/paris1.png" alt="Université Paris 1 Panthéon-Sorbonne, Paris, France logo"></div><div class="intern-text"><div><div class="intern-inst">Université Paris 1 Panthéon-Sorbonne, Paris, France</div><div class="intern-team">Statistics, Analysis &amp; Multidisciplinary Modeling</div><div class="intern-when">Summer 2015</div></div></div></div>
     <div class="intern" title="Mentor: Mythily Ramaswamy"><div class="intern-logo"><a href="https://www.math.tifrbng.res.in/" target="_blank"><img src="Images/logos/tifr.png" alt="Tata Institute of Fundamental Research (TIFR), India logo"></a></div><div class="intern-text"><div><div class="intern-inst">Tata Institute of Fundamental Research (TIFR), India</div><div class="intern-team">Centre for Applicable Mathematics</div><div class="intern-when">Summer 2014</div></div></div></div>
     <div class="intern" title="Mentors: Satyananda Panda, T. Suman Kumar"><div class="intern-logo"><a href="http://www.npde-tca.math.iitb.ac.in/" target="_blank"><img src="Images/logos/nit.svg" alt="National Institute of Technology (NIT), Calicut, India logo"></a></div><div class="intern-text"><div><div class="intern-inst">National Institute of Technology<br>(NIT), Calicut, India</div><div class="intern-team">Department of Mathematics</div><div class="intern-when">Winter 2013</div></div></div></div>
 </div>
 <script>
-/* Center each internship row by its visible content (logos + text), keeping the equal gaps between logos */
+/* Internship rows: equal visible gaps between neighbouring entries, then the row is centred.
+   Each row says what to space by (data-space): logos for row 1 (short names, logos dominate),
+   institution names for row 2 (long names dominate). Phones (<=700px) use the simple 2-column layout. */
 (function(){
-  function center(){
+  function rects(el){ if(el.tagName==="IMG") return [el.getBoundingClientRect()]; var r=document.createRange(); r.selectNodeContents(el); return Array.prototype.filter.call(r.getClientRects(), function(q){return q.width>0;}); }
+  function extent(nodes){ var L=1e9,R=-1e9; nodes.forEach(function(el){ rects(el).forEach(function(q){ L=Math.min(L,q.left); R=Math.max(R,q.right); }); }); return [L,R]; }
+  function layout(){
     document.querySelectorAll(".intern-row").forEach(function(row){
-      row.style.transform="";
+      var cards=Array.prototype.slice.call(row.children);
+      row.style.justifyContent=""; cards.forEach(function(c){ c.style.marginLeft=""; });
       if (window.innerWidth <= 700) return;
-      var box=row.getBoundingClientRect(), L=1e9, R=-1e9;
-      row.querySelectorAll(".intern-logo img, .intern-inst, .intern-team, .intern-when").forEach(function(el){
-        var rects = el.tagName==="IMG" ? [el.getBoundingClientRect()] : (function(){var r=document.createRange(); r.selectNodeContents(el); return r.getClientRects();})();
-        for (var i=0;i<rects.length;i++){ if(rects[i].width){ L=Math.min(L,rects[i].left); R=Math.max(R,rects[i].right); } }
+      row.style.justifyContent="flex-start";
+      var sel=row.getAttribute("data-space")||".intern-logo img";
+      var W=row.clientWidth;
+      var info=cards.map(function(c){
+        var b=c.getBoundingClientRect(), cx=(b.left+b.right)/2, half=b.width/2;
+        c.querySelectorAll(sel).forEach(function(el){ rects(el).forEach(function(q){ half=Math.max(half, cx-q.left, q.right-cx); }); });
+        return {w:b.width, fp:2*half};
       });
-      if (R > L) row.style.transform="translateX("+Math.round((box.left+box.right)/2-(L+R)/2)+"px)";
+      var total=info.reduce(function(a,x){return a+x.fp;},0);
+      var gap=Math.max(0,(W-total)/cards.length), x=gap/2, prevRight=0;
+      cards.forEach(function(c,i){
+        var left=x+(info[i].fp-info[i].w)/2;
+        c.style.marginLeft=(left-prevRight)+"px";
+        prevRight=left+info[i].w; x+=info[i].fp+gap;
+      });
+      var box=row.getBoundingClientRect();
+      var all=extent(Array.prototype.slice.call(row.querySelectorAll(".intern-logo img, .intern-inst, .intern-team, .intern-when")));
+      var shift=(box.left+box.right)/2-(all[0]+all[1])/2;
+      cards[0].style.marginLeft=(parseFloat(cards[0].style.marginLeft)+shift)+"px";
     });
   }
-  window.addEventListener("load", center);
-  window.addEventListener("resize", center);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(center);
+  window.addEventListener("load", layout);
+  window.addEventListener("resize", layout);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
 })();
 </script>
 </div>
