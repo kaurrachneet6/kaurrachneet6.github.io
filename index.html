@@ -182,23 +182,24 @@ body {
      To add one: copy a <div class="intern">...</div> line, change the logo, link, institution, team and dates.
      Hover a logo to see mentors (the title="..." text). -->
 <style>
-  /* 4 per row on wide screens (7 = two rows: 4 + 3, second row centered), 2 per row on phones */
-  .intern-grid{display:flex;flex-wrap:wrap;justify-content:center;row-gap:26px;margin:8px 20px 26px 20px;text-align:center}
-  .intern{flex:0 0 25%;box-sizing:border-box;padding:0 9px}
-  .intern img{height:56px;max-width:100%;object-fit:contain;display:block;margin:0 auto 10px}
-  .intern-inst{font-size:14px;font-weight:bold;line-height:1.3}
-  .intern-team{font-size:13px;line-height:1.3;color:#555;margin-top:3px}
-  .intern-when{font-size:13px;color:#888;margin-top:3px}
+  /* 4 per row on wide screens (7 = two rows: 4 + 3, second row centered), 2 per row on phones.
+     Logos sit in same-size boxes and each text line has a fixed height, so names, teams and dates line up across a row. */
+  .intern-grid{display:flex;flex-wrap:wrap;justify-content:center;row-gap:28px;margin:8px 20px 26px 20px;text-align:center}
+  .intern{flex:0 0 25%;box-sizing:border-box;padding:0 10px}
+  .intern img{height:60px;width:100%;max-width:150px;object-fit:contain;display:block;margin:0 auto 10px}
+  .intern-inst{font-size:14px;font-weight:bold;line-height:1.3;min-height:2.6em}
+  .intern-team{font-size:13px;line-height:1.3;color:#555;min-height:2.6em}
+  .intern-when{font-size:13px;color:#888;margin-top:2px}
   @media (max-width:700px){.intern{flex-basis:50%}}
 </style>
 <div class="intern-grid">
-    <div class="intern"><a href="https://www.jpmorgan.com/technology/artificial-intelligence" target="_blank"><img src="Images/jpmorganchase_logo.jpeg" alt="J.P. Morgan Chase logo"></a><div class="intern-inst">J.P. Morgan Chase</div><div class="intern-team">AI Research</div><div class="intern-when">Summer 2022</div></div>
+    <div class="intern"><a href="https://www.jpmorgan.com/technology/artificial-intelligence" target="_blank"><img src="Images/jpm_logo.png" alt="J.P. Morgan Chase logo"></a><div class="intern-inst">J.P. Morgan Chase</div><div class="intern-team">AI Research</div><div class="intern-when">Summer 2022</div></div>
     <div class="intern" title="Mentors: Carolina Barcenas, Chiranjeet Chetia, Shubham Agrawal"><a href="https://usa.visa.com/about-visa/visa-research.html" target="_blank"><img src="Images/Visa_logo.png" alt="Visa logo"></a><div class="intern-inst">Visa</div><div class="intern-team">Visa Research</div><div class="intern-when">Summer 2019</div></div>
     <div class="intern" title="Mentors: David Redinger, Brian J. Stankiewicz"><a href="https://www.3m.com/3M/en_US/company-us/about-3m/research-development/" target="_blank"><img src="Images/3M_logo.png" alt="3M logo"></a><div class="intern-inst">3M</div><div class="intern-team">Software &amp; AI Research</div><div class="intern-when">Summer 2018</div></div>
     <div class="intern" title="Mentors: Areez Mody, Matteo Nicoli"><a href="https://www.quantlab.com/" target="_blank"><img src="Images/quantlab_logo.png" alt="Quantlab Financial logo"></a><div class="intern-inst">Quantlab Financial</div><div class="intern-team">Quantitative Research</div><div class="intern-when">Summer 2017</div></div>
-    <div class="intern" title="Mentor: Julien Randon Furling"><img src="Images/samm_logo.jpg" alt="Université Paris 1 Panthéon-Sorbonne, France logo"><div class="intern-inst">Université Paris 1 Panthéon-Sorbonne, France</div><div class="intern-team">Statistics, Analysis and Multidisciplinary Modeling (SAMM)</div><div class="intern-when">Summer 2015</div></div>
-    <div class="intern" title="Mentor: Mythily Ramaswamy"><a href="https://www.math.tifrbng.res.in/" target="_blank"><img src="Images/tifr_logo.jpg" alt="Tata Institute of Fundamental Research (TIFR), India logo"></a><div class="intern-inst">Tata Institute of Fundamental Research (TIFR), India</div><div class="intern-team">Centre for Applicable Mathematics</div><div class="intern-when">Summer 2014</div></div>
-    <div class="intern" title="Mentors: Satyananda Panda, T. Suman Kumar"><a href="http://www.npde-tca.math.iitb.ac.in/" target="_blank"><img src="Images/nit_logo.jpg" alt="National Institute of Technology (NIT), Calicut, India logo"></a><div class="intern-inst">National Institute of Technology (NIT), Calicut, India</div><div class="intern-team">Department of Mathematics</div><div class="intern-when">Winter 2013</div></div>
+    <div class="intern" title="Mentor: Julien Randon Furling"><img src="Images/samm_logo.jpg" alt="Université Paris 1 Panthéon-Sorbonne logo"><div class="intern-inst" title="Université Paris 1 Panthéon-Sorbonne">Paris 1 Panthéon-Sorbonne, France</div><div class="intern-team">Statistics, Analysis &amp; Multidisciplinary Modeling</div><div class="intern-when">Summer 2015</div></div>
+    <div class="intern" title="Mentor: Mythily Ramaswamy"><a href="https://www.math.tifrbng.res.in/" target="_blank"><img src="Images/tifr_logo.jpg" alt="Tata Institute of Fundamental Research logo"></a><div class="intern-inst" title="Tata Institute of Fundamental Research">TIFR, India</div><div class="intern-team">Centre for Applicable Mathematics</div><div class="intern-when">Summer 2014</div></div>
+    <div class="intern" title="Mentors: Satyananda Panda, T. Suman Kumar"><a href="http://www.npde-tca.math.iitb.ac.in/" target="_blank"><img src="Images/nit_logo.jpg" alt="National Institute of Technology Calicut logo"></a><div class="intern-inst" title="National Institute of Technology Calicut">NIT Calicut, India</div><div class="intern-team">Department of Mathematics</div><div class="intern-when">Winter 2013</div></div>
 </div>
 	<p  style="padding-left:1em;">See some excerpts from my journey <a href = "gallery">here.</a></p>	    
            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;" id="publications"><tbody>
