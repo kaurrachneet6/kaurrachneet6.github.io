@@ -847,11 +847,12 @@ html.two-col-on .topnav{width:min(1050px, calc(100% - 48px))}
 <style>
   .patents{width:calc(100% - 40px);margin:0 0 10px 20px}
   .patents ul{list-style:none;margin:0;padding:0}
-  /* one row per patent: date chip | title | company | patent number */
-  .patents li{display:grid;grid-template-columns:60px minmax(0,1fr) 104px 110px;column-gap:11px;align-items:baseline;padding:7px 0;border-top:1px solid #f0f0f2}
+  /* one row per patent: date chip | title | patent number with the company underneath */
+  .patents li{display:grid;grid-template-columns:60px minmax(0,1fr) 112px;column-gap:12px;align-items:baseline;padding:7px 0;border-top:1px solid #f0f0f2}
   .patents li:first-child{border-top:0}
   .patents .p-title{color:#1a1a2e;line-height:1.4;font-size:15px}
   .patents .p-date{justify-self:start;font-size:10.5px;font-weight:600;color:#1772d0;background:#eef4fb;border-radius:3px;padding:1px 6px;line-height:1.6;white-space:nowrap}
+  .patents .p-right{display:flex;flex-direction:column;align-items:flex-end;gap:2px;text-align:right}
   .patents .p-org{font-size:12.5px;color:#888;white-space:nowrap}
   .patents .p-id{font-size:12.5px;font-weight:600;color:#1772d0;white-space:nowrap;text-align:right}
   .patents .p-id.pending{color:#999;font-weight:400}
@@ -861,16 +862,16 @@ html.two-col-on .topnav{width:min(1050px, calc(100% - 48px))}
 </tbody></table>
 <div class="patents">
   <ul>
-    <li><span class="p-date">Dec 2025</span><span class="p-title">Hierarchical Agentic Framework for Multi-Page Visual Document Understanding</span><span class="p-org">J.P. Morgan Chase</span><span class="p-id pending">Application</span></li>
-    <li><span class="p-date">Oct 2025</span><span class="p-title">Multimodal Agent for Performing Tasks Associated with Charts</span><span class="p-org">J.P. Morgan Chase</span><span class="p-id pending">Application</span></li>
-    <li><span class="p-date">Jul 2025</span><span class="p-title">Generating a Large Language Model Modular Framework that Constructs a Digital Time Series Analytics Report</span><span class="p-org">J.P. Morgan Chase</span><span class="p-id pending">Application</span></li>
-    <li><span class="p-date">Apr 2025</span><span class="p-title">Generating a Multimodal Large Language Model Web Agent for Autonomous Execution of a Virtual Action</span><span class="p-org">J.P. Morgan Chase</span><span class="p-id pending">Application</span></li>
-    <li><span class="p-date">Aug 2024</span><span class="p-title">Leveraging Language Embeddings for Time Series Classification</span><span class="p-org">J.P. Morgan Chase</span><a class="p-id" href="https://patents.google.com/patent/US20260044760A1/en" target="_blank">US 2026/0044760</a></li>
-    <li><span class="p-date">Jul 2024</span><span class="p-title">Evaluating Large Language Models for Time Series Feature Understanding</span><span class="p-org">J.P. Morgan Chase</span><a class="p-id" href="https://patents.google.com/patent/US20250342353A1/en" target="_blank">US 2025/0342353</a></li>
-    <li><span class="p-date">Dec 2023</span><span class="p-title">Using Image Analysis for Time Series Forecasting</span><span class="p-org">J.P. Morgan Chase</span><a class="p-id" href="https://patents.google.com/patent/US20250209049A1/en" target="_blank">US 2025/0209049</a></li>
-    <li><span class="p-date">Oct 2023</span><span class="p-title">Time-Series Adaptive Domain-Aware Captioning</span><span class="p-org">J.P. Morgan Chase</span><a class="p-id" href="https://patents.google.com/patent/US20250111165A1/en" target="_blank">US 2025/0111165</a></li>
-    <li><span class="p-date">Aug 2023</span><span class="p-title">Convolutional Neural Network and Transformer-Based Time Series Modeling</span><span class="p-org">J.P. Morgan Chase</span><a class="p-id" href="https://patents.google.com/patent/US20250045566A1/en" target="_blank">US 2025/0045566</a></li>
-    <li><span class="p-date">2024</span><span class="p-title">Methods and systems for path-based mapping and routing</span><span class="p-org">3M</span><a class="p-id" href="https://patentimages.storage.googleapis.com/bc/85/53/64dcace174998b/US12031826.pdf" target="_blank">US 12,031,826</a></li>
+    <li><span class="p-date">Dec 2025</span><span class="p-title">Hierarchical Agentic Framework for Multi-Page Visual Document Understanding</span><span class="p-right"><span class="p-id pending">Application</span><span class="p-org">J.P. Morgan Chase</span></span></li>
+    <li><span class="p-date">Oct 2025</span><span class="p-title">Multimodal Agent for Performing Tasks Associated with Charts</span><span class="p-right"><span class="p-id pending">Application</span><span class="p-org">J.P. Morgan Chase</span></span></li>
+    <li><span class="p-date">Jul 2025</span><span class="p-title">Generating a Large Language Model Modular Framework that Constructs a Digital Time Series Analytics Report</span><span class="p-right"><span class="p-id pending">Application</span><span class="p-org">J.P. Morgan Chase</span></span></li>
+    <li><span class="p-date">Apr 2025</span><span class="p-title">Generating a Multimodal Large Language Model Web Agent for Autonomous Execution of a Virtual Action</span><span class="p-right"><span class="p-id pending">Application</span><span class="p-org">J.P. Morgan Chase</span></span></li>
+    <li><span class="p-date">Aug 2024</span><span class="p-title">Leveraging Language Embeddings for Time Series Classification</span><span class="p-right"><a class="p-id" href="https://patents.google.com/patent/US20260044760A1/en" target="_blank">US 2026/0044760</a><span class="p-org">J.P. Morgan Chase</span></span></li>
+    <li><span class="p-date">Jul 2024</span><span class="p-title">Evaluating Large Language Models for Time Series Feature Understanding</span><span class="p-right"><a class="p-id" href="https://patents.google.com/patent/US20250342353A1/en" target="_blank">US 2025/0342353</a><span class="p-org">J.P. Morgan Chase</span></span></li>
+    <li><span class="p-date">Dec 2023</span><span class="p-title">Using Image Analysis for Time Series Forecasting</span><span class="p-right"><a class="p-id" href="https://patents.google.com/patent/US20250209049A1/en" target="_blank">US 2025/0209049</a><span class="p-org">J.P. Morgan Chase</span></span></li>
+    <li><span class="p-date">Oct 2023</span><span class="p-title">Time-Series Adaptive Domain-Aware Captioning</span><span class="p-right"><a class="p-id" href="https://patents.google.com/patent/US20250111165A1/en" target="_blank">US 2025/0111165</a><span class="p-org">J.P. Morgan Chase</span></span></li>
+    <li><span class="p-date">Aug 2023</span><span class="p-title">Convolutional Neural Network and Transformer-Based Time Series Modeling</span><span class="p-right"><a class="p-id" href="https://patents.google.com/patent/US20250045566A1/en" target="_blank">US 2025/0045566</a><span class="p-org">J.P. Morgan Chase</span></span></li>
+    <li><span class="p-date">2024</span><span class="p-title">Methods and systems for path-based mapping and routing</span><span class="p-right"><a class="p-id" href="https://patentimages.storage.googleapis.com/bc/85/53/64dcace174998b/US12031826.pdf" target="_blank">US 12,031,826</a><span class="p-org">3M</span></span></li>
   </ul>
 </div>
 	
