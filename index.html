@@ -77,10 +77,13 @@ body,td,th,tr,p,a,strong,papertitle,div{font-family:"Figtree",Verdana,Helvetica,
 /* Your name: same font as the section headings */
 name{font-family:"Newsreader",Georgia,"Times New Roman",serif;font-weight:600;color:#1a1a2e;letter-spacing:-0.3px}
 
-/* Page content: up to 950px wide, centred in the space to the right of the fixed left menu (12% wide),
-   so the white gap between the menu and the content equals the white gap on the right */
+/* Page content, centred in the space to the right of the fixed left menu (12% wide), so the white gap beside
+   the menu equals the white gap on the right. 950px for the one-column layout (phones, narrower windows);
+   1150px when the two-column layout is on (windows 1300px and wider). */
 #home{max-width:950px !important;width:min(950px, calc(88% - 12px)) !important;margin-right:0 !important;
       margin-left:max(calc(12% + 6px), calc(12% + (88% - 950px) / 2)) !important}
+html.two-col-on #home{max-width:1150px !important;width:min(1150px, calc(88% - 12px)) !important;
+      margin-left:max(calc(12% + 6px), calc(12% + (88% - 1150px) / 2)) !important}
 </style>
 </head>
 
@@ -135,7 +138,8 @@ name{font-family:"Newsreader",Georgia,"Times New Roman",serif;font-weight:600;co
 <!-- ===== Affiliations: logo row (organisation, team or degree, dates) — same style and spacing script as the internships ===== -->
 <style>
   .intern-title{margin:30px 0 14px 20px}
-  .intern-title.first{margin-top:9px} /* 30px below the header photo */
+  .intern-title.first{margin-top:9px} /* one-column: 30px below the header photo */
+  html.two-col-on .intern-title.first{margin-top:-10px} /* two-column: 30px below the intro text */
   .intern-rows.edu{margin-bottom:0}
   /* every affiliation name is written on 2 lines so names, degrees and dates line up across the row */
   .intern-rows.edu .intern-logo{height:52px}
@@ -1425,6 +1429,45 @@ name{font-family:"Newsreader",Georgia,"Times New Roman",serif;font-weight:600;co
       </td>
     </tr>
   </table>
+<!-- ===== Two-column layout (windows 1300px and wider): main content on the left; photo + Highlights and News in a right sidebar =====
+     The news and photo are still edited in their usual places above; this script only moves them into the sidebar. -->
+<style>
+  .two-col{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:40px;align-items:start}
+  .two-col > .side{position:sticky;top:18px;padding-top:24px}
+  .side .side-photo img{width:100%;height:auto;border-radius:10px;display:block}
+  .side .side-title{margin:22px 0 10px}
+  .side .news-scroll{height:420px;margin:0;padding-right:8px}
+  .side .news-table td{display:block;padding:0}
+  .side .news-table tr{display:block;padding:7px 0}
+  .side .news-table tr + tr{border-top:1px solid #f0f0f2}
+  .side .news-table tr + tr td{border-top:0}
+  .side .news-date{width:auto;min-width:0;padding:0 !important;font-size:12.5px;color:#888 !important;font-weight:600}
+  .side .news-text{font-size:14px;line-height:1.4}
+</style>
+<script>
+(function(){
+  if (window.innerWidth < 1300) return;   /* phones and narrower windows keep the one-column layout */
+  document.documentElement.classList.add("two-col-on");
+  var root=document.getElementById("home").rows[0].cells[0];
+  var grid=document.createElement("div"); grid.className="two-col";
+  var main=document.createElement("div"); main.className="main";
+  var side=document.createElement("div"); side.className="side";
+  while (root.firstChild) main.appendChild(root.firstChild);
+  grid.appendChild(main); grid.appendChild(side); root.appendChild(grid);
+  var header=main.querySelector("table");
+  var cells=header.rows[0].cells, textCell=cells[0], photoCell=cells[1];
+  var photo=document.createElement("div"); photo.className="side-photo";
+  while (photoCell.firstChild) photo.appendChild(photoCell.firstChild);
+  photoCell.remove(); textCell.style.width="100%";
+  var img=photo.querySelector("img"); if(img){ img.removeAttribute("style"); }
+  side.appendChild(photo);
+  var hl=document.getElementById("highlights_and_news");
+  var title=document.createElement("div"); title.className="side-title"; title.id="highlights_and_news";
+  title.appendChild(hl.querySelector("heading")); hl.remove();
+  side.appendChild(title);
+  side.appendChild(main.querySelector(".news-scroll"));
+})();
+</script>
 </body>
 
 </html>
