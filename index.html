@@ -72,7 +72,10 @@ body {
 heading{font-family:"Newsreader",Georgia,"Times New Roman",serif;font-weight:600;font-size:23px;color:#1a1a2e;letter-spacing:-0.2px;display:inline-block;padding-bottom:4px;border-bottom:2px solid #1772d0;line-height:1.2}
 
 /* Body text: Figtree (overrides Lato from stylesheet.css; headings keep Newsreader) */
-body,td,th,tr,p,a,strong,papertitle,name,div{font-family:"Figtree",Verdana,Helvetica,sans-serif}
+body,td,th,tr,p,a,strong,papertitle,div{font-family:"Figtree",Verdana,Helvetica,sans-serif}
+
+/* Your name: same font as the section headings */
+name{font-family:"Newsreader",Georgia,"Times New Roman",serif;font-weight:600;color:#1a1a2e;letter-spacing:-0.3px}
 
 /* Keep page content clear of the fixed left menu (12% wide) on narrower windows */
 @media (max-width:1250px){
@@ -129,71 +132,10 @@ body,td,th,tr,p,a,strong,papertitle,name,div{font-family:"Figtree",Verdana,Helve
             </td>
           </tr>
         </tbody></table>
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;" id="highlights_and_news"><tbody>
-            <tr>
-            <td style="padding:20px;width:100%;vertical-align:middle">
-              <heading>Highlights and News</heading>
-            </td>
-            </tr>
-            </tbody></table>
-
-<!-- ===== Highlights and News: scrollable box =====
-     To add news: copy one <tr>...</tr> line to the top and change the date and text. -->
-<style>
-  .news-scroll{height:400px;overflow-y:auto;margin:0 20px 10px 20px;padding-right:12px}
-  /* light, always-visible scrollbar so it's clear the box scrolls */
-  .news-scroll::-webkit-scrollbar{width:5px}
-  .news-scroll::-webkit-scrollbar-track{background:#f2f2f2;border-radius:5px}
-  .news-scroll::-webkit-scrollbar-thumb{background:#cfcfcf;border-radius:5px}
-  .news-scroll::-webkit-scrollbar-thumb:hover{background:#b5b5b5}
-  @-moz-document url-prefix(){.news-scroll{scrollbar-width:thin;scrollbar-color:#cfcfcf #f2f2f2}}
-  .news-table{width:100%;border-collapse:collapse}
-  .news-table td{padding:10px 0;vertical-align:top}
-  .news-date{width:15%;min-width:80px;padding-right:20px !important;font-weight:bold;white-space:nowrap}
-</style>
-<div class="news-scroll">
-  <table class="news-table"><tbody>
-      <tr><td class="news-date">Mar 2024</td><td class="news-text">Organizing the tutorial on <a href = "https://sites.google.com/view/raasta2024icaif/home">Rating AI Trustworthiness</a> at ACM International Conference on AI in Finance 2024.</td></tr>
-      <tr><td class="news-date">Mar 2024</td><td class="news-text">Invited talk on 'Mathematics and AI in the Financial Industry' at Punjab Engineering College, India.</td></tr>
-      <tr><td class="news-date">Feb 2024</td><td class="news-text">Organizing the first workshop on <a href = "https://sites.google.com/view/aifin-aaai2024/home">AI in Finance for Social Impact</a> at AAAI 2024.</td></tr>
-      <tr><td class="news-date">Nov 2023</td><td class="news-text">Organizing <a href = "https://sites.google.com/view/icaif23-womenaifin/home">Women in AI and Finance</a> workshop at ACM International Conference on AI in Finance 2023.</td></tr>
-      <tr><td class="news-date">Apr 2021</td><td class="news-text">Recieved the 2021 <a href = "https://ise.illinois.edu/newsroom/2021-grad-awards">UIUC ISE Sharp Outstanding Graduate Student Award</a></td></tr>
-      <tr><td class="news-date">Dec 2020</td><td class="news-text"><a href = "https://ieeexplore.ieee.org/abstract/document/9311191">Paper</a> accepted at the <a href = "https://www.embs.org/tbme/">IEEE Transactions on Biomedical Engineering (TBME)</a> journal</td></tr>
-      <tr><td class="news-date">Aug 2020</td><td class="news-text">Renamed the <a href = "https://grainger.illinois.edu/alumni/hall-of-fame/9647">William A. Chittenden II</a> Graduate Fellow for academic year 2020-2021</td></tr>
-      <tr><td class="news-date">Oct 2019</td><td class="news-text">Recieved the <a href = "https://humanoids2019.loria.fr/index.html%3Fp=338.html">Kanako Miura Award</a> by the IEEE RAS Technical Committee on Humanoid Robotics</td></tr>
-      <tr><td class="news-date">Aug 2019</td><td class="news-text">Renamed the <a href = "https://grainger.illinois.edu/alumni/hall-of-fame/9647">William A. Chittenden II</a> Graduate Fellow for academic year 2019-2020</td></tr>
-      <tr><td class="news-date">Aug 2018</td><td class="news-text">Awarded the <a href = "https://grainger.illinois.edu/alumni/hall-of-fame/9647">William A. Chittenden II</a> Graduate Fellowship for academic year 2018-2019</td></tr>
-      <tr><td class="news-date">Mar 2018</td><td class="news-text">Recieved the 2018 <a href = "https://math.illinois.edu/research/igl">Illinois Geometry Lab</a> Research Award. Thanks Department of Mathematics@UIUC!</td></tr>
-      <tr><td class="news-date">Dec 2017</td><td class="news-text">Selected as the 1<sup>st</sup> runner up for <a href = "https://ise.illinois.edu/mottier/index.html">Mottier Innovation Challenge in Systems Engineering Award</a></td></tr>
-      <tr><td class="news-date">Mar 2015</td><td class="news-text">Awarded the <a href = "https://www.inde.campusfrance.org/charpak-lab-scholarship">Charpak Research Intern Scholarship</a> for summer of 2015</td></tr>
-      <tr><td class="news-date">Dec 2012</td><td class="news-text">Won the <a href = "http://ramanujancompetition.du.ac.in/">Legacy of Srinivasa Ramanujan Coding Competition</a> <br> (Awarded at the International conference on Legacy of Srinivasa Ramanujan, 2012)</td></tr>
-  </tbody></table>
-</div>
-<!-- 	  <table style="width:100%;border:0px;border-spacing:0px;border-collapse:collapse;margin-top:0px;margin-bottom:0px;margin-right:auto;margin-left:auto;cellpadding:0;cellspacing:0;padding-top:0px"><tbody>
-          <tr style = "border-spacing:0px;border-collapse:collapse;cellpadding:0;cellspacing:0;padding-top:0px; padding-bottom:0px">
-            <td style="padding-top:10px;padding-bottom:10px;padding-left:20px;padding-right:20px;width:15%;max-width:50%;height:2%;max-height:2%;vertical-align:center"><strong>Mar 2021</strong></td>
-            <td width="85%" valign="center">
-              <a href = "https://ieeexplore.ieee.org/abstract/document/9311191">Paper</a> accepted at the <a href = "https://www.embs.org/tbme/">Elsevier Energy and AI</a> journal
-            </td>
-            </td>
-            </tr> -->
-
-        
-            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;margin-bottom:0px;" id = "about_me"><tbody>
-            <tr>
-            <td style="padding:20px;width:100%;vertical-align:middle">
-            <br>
-	    <heading>About Me</heading>
-	    <p style="width:90%;">I am currently a Ph.D. student in the <a href = "https://ise.illinois.edu/">Department of Industrial Engineering</a> at the <a href = "https://illinois.edu/">University of Illinois at Urbana-Champaign</a>. I am advised by <a href = "http://publish.illinois.edu/r-sowers/">Richard Sowers</a> and also collaborated closely with <a href = "https://ahs.illinois.edu/hernandez"> Manuel Hernandez.</a> My current research is focused on applications of machine learning for unfolding problems in health and finance domain.</p>
-	   <p style="width:90%;">Prior to joining PhD, I have earned a B.S. (with honours) in Mathematics from the <a href = "http://app.ramjas.du.ac.in/app/college/web/index.php">University of Delhi</a> and an M.S. in Mathematics from the <a href = "https://home.iitd.ac.in/">Indian Institute of Technology (IIT), Delhi.</a> During my masters, my thesis was advised by <a href = "https://web.iitd.ac.in/~apmehra/">Aparna Mehra.</a></p>
-            </td>
-            </tr>
-            </tbody></table>
-		    
 <!-- ===== Affiliations: logo row (organisation, team or degree, dates) — same style and spacing script as the internships ===== -->
 <style>
   .intern-title{margin:30px 0 14px 20px}
-  .intern-title.first{margin-top:-5px} /* the About block above already adds 35px */
+  .intern-title.first{margin-top:9px} /* 30px below the header photo */
   .intern-rows.edu{margin-bottom:0}
   /* every affiliation name is written on 2 lines so names, degrees and dates line up across the row */
   .intern-rows.edu .intern-logo{height:52px}
@@ -217,7 +159,7 @@ body,td,th,tr,p,a,strong,papertitle,name,div{font-family:"Figtree",Verdana,Helve
      Logos are trimmed to their content (Images/logos/) and fit the same 100x46 box.
      Each row spreads the logos so the gaps between neighbouring logos are equal (half that gap at each end);
      the text under each logo is centred on it without changing that spacing. */
-  .intern-rows{width:calc(0.9 * (100% - 40px));margin:0 0 26px 20px}
+  .intern-rows{width:calc(0.9 * (100% - 40px));margin:0 0 10px 20px} /* + the next heading block padding = 30px */
   .intern-row{display:flex;justify-content:space-around;align-items:flex-start}
   .intern-row + .intern-row{margin-top:26px}
   .intern{display:flex;flex-direction:column;align-items:center;text-align:center;flex-shrink:0}
@@ -297,6 +239,67 @@ body,td,th,tr,p,a,strong,papertitle,name,div{font-family:"Figtree",Verdana,Helve
 })();
 </script>
 </div>
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;" id="highlights_and_news"><tbody>
+            <tr>
+            <td style="padding:20px;width:100%;vertical-align:middle">
+              <heading>Highlights and News</heading>
+            </td>
+            </tr>
+            </tbody></table>
+
+<!-- ===== Highlights and News: scrollable box =====
+     To add news: copy one <tr>...</tr> line to the top and change the date and text. -->
+<style>
+  .news-scroll{height:400px;overflow-y:auto;margin:0 20px 10px 20px;padding-right:12px}
+  /* light, always-visible scrollbar so it's clear the box scrolls */
+  .news-scroll::-webkit-scrollbar{width:5px}
+  .news-scroll::-webkit-scrollbar-track{background:#f2f2f2;border-radius:5px}
+  .news-scroll::-webkit-scrollbar-thumb{background:#cfcfcf;border-radius:5px}
+  .news-scroll::-webkit-scrollbar-thumb:hover{background:#b5b5b5}
+  @-moz-document url-prefix(){.news-scroll{scrollbar-width:thin;scrollbar-color:#cfcfcf #f2f2f2}}
+  .news-table{width:100%;border-collapse:collapse}
+  .news-table td{padding:10px 0;vertical-align:top}
+  .news-date{width:15%;min-width:80px;padding-right:20px !important;font-weight:bold;white-space:nowrap}
+</style>
+<div class="news-scroll">
+  <table class="news-table"><tbody>
+      <tr><td class="news-date">Mar 2024</td><td class="news-text">Organizing the tutorial on <a href = "https://sites.google.com/view/raasta2024icaif/home">Rating AI Trustworthiness</a> at ACM International Conference on AI in Finance 2024.</td></tr>
+      <tr><td class="news-date">Mar 2024</td><td class="news-text">Invited talk on 'Mathematics and AI in the Financial Industry' at Punjab Engineering College, India.</td></tr>
+      <tr><td class="news-date">Feb 2024</td><td class="news-text">Organizing the first workshop on <a href = "https://sites.google.com/view/aifin-aaai2024/home">AI in Finance for Social Impact</a> at AAAI 2024.</td></tr>
+      <tr><td class="news-date">Nov 2023</td><td class="news-text">Organizing <a href = "https://sites.google.com/view/icaif23-womenaifin/home">Women in AI and Finance</a> workshop at ACM International Conference on AI in Finance 2023.</td></tr>
+      <tr><td class="news-date">Apr 2021</td><td class="news-text">Recieved the 2021 <a href = "https://ise.illinois.edu/newsroom/2021-grad-awards">UIUC ISE Sharp Outstanding Graduate Student Award</a></td></tr>
+      <tr><td class="news-date">Dec 2020</td><td class="news-text"><a href = "https://ieeexplore.ieee.org/abstract/document/9311191">Paper</a> accepted at the <a href = "https://www.embs.org/tbme/">IEEE Transactions on Biomedical Engineering (TBME)</a> journal</td></tr>
+      <tr><td class="news-date">Aug 2020</td><td class="news-text">Renamed the <a href = "https://grainger.illinois.edu/alumni/hall-of-fame/9647">William A. Chittenden II</a> Graduate Fellow for academic year 2020-2021</td></tr>
+      <tr><td class="news-date">Oct 2019</td><td class="news-text">Recieved the <a href = "https://humanoids2019.loria.fr/index.html%3Fp=338.html">Kanako Miura Award</a> by the IEEE RAS Technical Committee on Humanoid Robotics</td></tr>
+      <tr><td class="news-date">Aug 2019</td><td class="news-text">Renamed the <a href = "https://grainger.illinois.edu/alumni/hall-of-fame/9647">William A. Chittenden II</a> Graduate Fellow for academic year 2019-2020</td></tr>
+      <tr><td class="news-date">Aug 2018</td><td class="news-text">Awarded the <a href = "https://grainger.illinois.edu/alumni/hall-of-fame/9647">William A. Chittenden II</a> Graduate Fellowship for academic year 2018-2019</td></tr>
+      <tr><td class="news-date">Mar 2018</td><td class="news-text">Recieved the 2018 <a href = "https://math.illinois.edu/research/igl">Illinois Geometry Lab</a> Research Award. Thanks Department of Mathematics@UIUC!</td></tr>
+      <tr><td class="news-date">Dec 2017</td><td class="news-text">Selected as the 1<sup>st</sup> runner up for <a href = "https://ise.illinois.edu/mottier/index.html">Mottier Innovation Challenge in Systems Engineering Award</a></td></tr>
+      <tr><td class="news-date">Mar 2015</td><td class="news-text">Awarded the <a href = "https://www.inde.campusfrance.org/charpak-lab-scholarship">Charpak Research Intern Scholarship</a> for summer of 2015</td></tr>
+      <tr><td class="news-date">Dec 2012</td><td class="news-text">Won the <a href = "http://ramanujancompetition.du.ac.in/">Legacy of Srinivasa Ramanujan Coding Competition</a> <br> (Awarded at the International conference on Legacy of Srinivasa Ramanujan, 2012)</td></tr>
+  </tbody></table>
+</div>
+<!-- 	  <table style="width:100%;border:0px;border-spacing:0px;border-collapse:collapse;margin-top:0px;margin-bottom:0px;margin-right:auto;margin-left:auto;cellpadding:0;cellspacing:0;padding-top:0px"><tbody>
+          <tr style = "border-spacing:0px;border-collapse:collapse;cellpadding:0;cellspacing:0;padding-top:0px; padding-bottom:0px">
+            <td style="padding-top:10px;padding-bottom:10px;padding-left:20px;padding-right:20px;width:15%;max-width:50%;height:2%;max-height:2%;vertical-align:center"><strong>Mar 2021</strong></td>
+            <td width="85%" valign="center">
+              <a href = "https://ieeexplore.ieee.org/abstract/document/9311191">Paper</a> accepted at the <a href = "https://www.embs.org/tbme/">Elsevier Energy and AI</a> journal
+            </td>
+            </td>
+            </tr> -->
+
+        
+            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;margin-bottom:0px;" id = "about_me"><tbody>
+            <tr>
+            <td style="padding:20px;width:100%;vertical-align:middle">
+            <br>
+	    <heading>About Me</heading>
+	    <p style="width:90%;">I am currently a Ph.D. student in the <a href = "https://ise.illinois.edu/">Department of Industrial Engineering</a> at the <a href = "https://illinois.edu/">University of Illinois at Urbana-Champaign</a>. I am advised by <a href = "http://publish.illinois.edu/r-sowers/">Richard Sowers</a> and also collaborated closely with <a href = "https://ahs.illinois.edu/hernandez"> Manuel Hernandez.</a> My current research is focused on applications of machine learning for unfolding problems in health and finance domain.</p>
+	   <p style="width:90%;">Prior to joining PhD, I have earned a B.S. (with honours) in Mathematics from the <a href = "http://app.ramjas.du.ac.in/app/college/web/index.php">University of Delhi</a> and an M.S. in Mathematics from the <a href = "https://home.iitd.ac.in/">Indian Institute of Technology (IIT), Delhi.</a> During my masters, my thesis was advised by <a href = "https://web.iitd.ac.in/~apmehra/">Aparna Mehra.</a></p>
+            </td>
+            </tr>
+            </tbody></table>
+		    
 	<p  style="padding-left:1em;">See some excerpts from my journey <a href = "gallery">here.</a></p>	    
            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;" id="publications"><tbody>
             <tr>    
