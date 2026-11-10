@@ -197,6 +197,9 @@ body {
   .intern{display:flex;flex-direction:column;align-items:center;text-align:center}
   .intern-logo{height:46px;display:flex;align-items:center;justify-content:center;margin-bottom:8px}
   .intern-logo img{display:block;max-height:46px;max-width:100px;width:auto;height:auto}
+  /* second-row logos are detailed emblems/small text, so give them a bit more room to look as big as row 1 */
+  .intern-row.wide .intern-logo{height:58px}
+  .intern-row.wide .intern-logo img{max-height:58px;max-width:125px}
   .intern-text{width:0;display:flex;justify-content:center}
   .intern-text > div{flex:0 0 150px}
   .intern-row.wide .intern-text > div{flex-basis:225px}
