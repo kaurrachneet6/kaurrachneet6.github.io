@@ -189,17 +189,17 @@ body {
 <style>
   /* Internship logos: two rows (4 on top, 3 below), 2 per row on phones.
      Logos are trimmed to their content (Images/logos/) and fit the same 100x46 box.
-     Each row spreads the logos so the gaps between neighbouring logos, and at both ends, are equal;
+     Each row spreads the logos so the gaps between neighbouring logos are equal (half that gap at each end);
      the text under each logo is centred on it without changing that spacing. */
   .intern-rows{width:calc(0.9 * (100% - 40px));margin:8px 0 26px 20px}
-  .intern-row{display:flex;justify-content:space-evenly;align-items:flex-start}
+  .intern-row{display:flex;justify-content:space-around;align-items:flex-start}
   .intern-row + .intern-row{margin-top:26px}
   .intern{display:flex;flex-direction:column;align-items:center;text-align:center}
   .intern-logo{height:46px;display:flex;align-items:center;justify-content:center;margin-bottom:8px}
   .intern-logo img{display:block;max-height:46px;max-width:100px;width:auto;height:auto}
   .intern-text{width:0;display:flex;justify-content:center}
   .intern-text > div{flex:0 0 150px}
-  .intern-row.wide .intern-text > div{flex-basis:190px}
+  .intern-row.wide .intern-text > div{flex-basis:225px}
   .intern-inst{font-size:14px;font-weight:bold;line-height:1.15}
   .intern-team{font-size:13px;line-height:1.15;color:#555}
   .intern-when{font-size:13px;line-height:1.15;color:#888}
@@ -220,7 +220,7 @@ body {
 <div class="intern-row wide">
     <div class="intern" title="Mentor: Julien Randon Furling"><div class="intern-logo"><img src="Images/logos/samm.png" alt="Université Paris 1 Panthéon-Sorbonne, Paris, France logo"></div><div class="intern-text"><div><div class="intern-inst">Université Paris 1 Panthéon-Sorbonne, Paris, France</div><div class="intern-team">Statistics, Analysis &amp; Multidisciplinary Modeling</div><div class="intern-when">Summer 2015</div></div></div></div>
     <div class="intern" title="Mentor: Mythily Ramaswamy"><div class="intern-logo"><a href="https://www.math.tifrbng.res.in/" target="_blank"><img src="Images/logos/tifr.png" alt="Tata Institute of Fundamental Research (TIFR), India logo"></a></div><div class="intern-text"><div><div class="intern-inst">Tata Institute of Fundamental Research (TIFR), India</div><div class="intern-team">Centre for Applicable Mathematics</div><div class="intern-when">Summer 2014</div></div></div></div>
-    <div class="intern" title="Mentors: Satyananda Panda, T. Suman Kumar"><div class="intern-logo"><a href="http://www.npde-tca.math.iitb.ac.in/" target="_blank"><img src="Images/logos/nit.png" alt="National Institute of Technology (NIT), Calicut, India logo"></a></div><div class="intern-text"><div><div class="intern-inst">National Institute of Technology (NIT), Calicut, India</div><div class="intern-team">Department of Mathematics</div><div class="intern-when">Winter 2013</div></div></div></div>
+    <div class="intern" title="Mentors: Satyananda Panda, T. Suman Kumar"><div class="intern-logo"><a href="http://www.npde-tca.math.iitb.ac.in/" target="_blank"><img src="Images/logos/nit.svg" alt="National Institute of Technology (NIT), Calicut, India logo"></a></div><div class="intern-text"><div><div class="intern-inst">National Institute of Technology<br>(NIT), Calicut, India</div><div class="intern-team">Department of Mathematics</div><div class="intern-when">Winter 2013</div></div></div></div>
 </div>
 </div>
 	<p  style="padding-left:1em;">See some excerpts from my journey <a href = "gallery">here.</a></p>	    
