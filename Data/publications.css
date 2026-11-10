@@ -1,0 +1,61 @@
+/* Publications: shared styles for the homepage "Selected Publications"
+   and the full list on publications.html. Data lives in Data/publications.js. */
+
+.pubs{width:calc(100% - 40px);margin:0 0 10px 20px;font-family:"Figtree",sans-serif}
+.pubs-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.pubs-sub{font-size:13px;color:#888;margin:2px 0 6px}
+.pubs-sub a{color:#1772d0;text-decoration:none}
+.pubs-all{font-size:13.5px;font-weight:600;color:#1772d0;text-decoration:none;white-space:nowrap}
+.pubs-all:hover{text-decoration:underline}
+
+/* one paper */
+.pub{padding:16px 0;border-top:1px solid #f0f0f2}
+.pub:first-child{border-top:0}
+.pub-title{display:block;font-size:15.5px;font-weight:600;line-height:1.35;color:#1a1a2e;text-decoration:none;margin:5px 0 3px}
+a.pub-title:hover{color:#1772d0}
+.pub-authors{font-size:13.5px;line-height:1.45;color:#555}
+.pub-authors b{color:#1a1a2e;font-weight:700}
+.pub-venue{font-size:13px;line-height:1.45;color:#777;font-style:italic;margin-top:1px}
+.pub-note{font-size:12.5px;line-height:1.45;color:#888;margin-top:2px}
+
+/* chips: venue (blue, like the Updates dates) and highlights (gold) */
+.pub-chips{display:flex;flex-wrap:wrap;gap:5px;align-items:center}
+.pub-tag{font-size:10.5px;font-weight:600;color:#1772d0;background:#eef4fb;border-radius:3px;padding:1px 6px;line-height:1.6;white-space:nowrap}
+.pub-badge{font-size:10.5px;font-weight:600;color:#8a5a00;background:#fbf1dc;border-radius:3px;padding:1px 6px;line-height:1.6;white-space:nowrap}
+
+/* link buttons */
+.pub-links{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.pub-links a,.pub-links button{font:600 11.5px/1 "Figtree",sans-serif;color:#1772d0;background:#fff;border:1px solid #d5e3f3;border-radius:4px;
+  padding:4px 8px;text-decoration:none;cursor:pointer;letter-spacing:.01em}
+.pub-links a:hover,.pub-links button:hover,.pub-links button[aria-expanded="true"]{background:#eef4fb;border-color:#b9d1ec}
+.pub-links button .caret{display:inline-block;margin-left:4px;font-size:9px;transition:transform .15s}
+.pub-links button[aria-expanded="true"] .caret{transform:rotate(180deg)}
+
+/* press coverage, shown when "Media" is clicked */
+.pub-media{display:none;margin-top:8px;padding:8px 12px;background:#fafafb;border:1px solid #efeff3;border-radius:6px}
+.pub-media.open{display:block}
+.pub-media ul{list-style:none;margin:0;padding:0}
+.pub-media li{font-size:13px;line-height:1.45;color:#333;padding:3px 0}
+.pub-media li + li{border-top:1px dashed #ebebef}
+.pub-media .src{font-size:12.5px;color:#888}
+.pub-media .src a{color:#1772d0;text-decoration:none;font-size:12.5px}
+.pub-media .src a:hover{text-decoration:underline}
+
+/* homepage: figure on the left, text on the right */
+.pubs-selected .pub{display:grid;grid-template-columns:190px minmax(0,1fr);column-gap:20px;align-items:start}
+.pub-fig{display:flex;align-items:center;justify-content:center;width:190px;height:120px;background:#fff;border:1px solid #ececf1;border-radius:6px;overflow:hidden}
+.pub-fig img{max-width:100%;max-height:100%;object-fit:contain;padding:6px;box-sizing:border-box;transition:transform .2s}
+.pub-fig:hover img{transform:scale(1.04)}
+.pubs-selected .pub-body{min-width:0}
+
+/* full list: year headings, filters */
+.pubs-filter{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 4px}
+.pubs-filter button{font:600 12.5px/1 "Figtree",sans-serif;color:#555;background:#fff;border:1px solid #e1e1e8;border-radius:999px;padding:6px 12px;cursor:pointer}
+.pubs-filter button .n{color:#999;font-weight:400;margin-left:3px}
+.pubs-filter button:hover{border-color:#b9d1ec;color:#1772d0}
+.pubs-filter button.on{background:#1772d0;border-color:#1772d0;color:#fff}
+.pubs-filter button.on .n{color:#d6e6f8}
+.pubs-year{font-family:"Newsreader",Georgia,serif;font-size:19px;font-weight:600;color:#1e2a44;margin:22px 0 2px;padding-bottom:4px;border-bottom:1px solid #f0e6d2}
+.pubs-full .pub{padding:12px 0}
+.pubs-full .pub-title{font-size:15px;margin-top:4px}
+.pubs-empty{color:#888;font-size:14px;padding:16px 0}
