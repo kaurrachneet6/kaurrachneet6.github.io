@@ -183,21 +183,22 @@ body {
 		    
 <!-- ===== Affiliations: logo row (organisation, team or degree, dates) — same style and spacing script as the internships ===== -->
 <style>
-  .intern-rows.edu{margin-top:14px}
+  .intern-title{margin:30px 0 14px 20px}
+  .intern-title.first{margin-top:-5px} /* the About block above already adds 35px */
+  .intern-rows.edu{margin-bottom:0}
   .intern-rows.edu .intern-logo{height:52px}
   .intern-rows.edu .intern-logo img{max-height:52px;max-width:165px}
   .intern-rows.edu .intern-text > div{flex-basis:225px}
-  .intern-lead{width:calc(0.9 * (100% - 40px));margin:6px 0 12px 20px}
 </style>
+<div class="intern-title first"><heading>Affiliations</heading></div>
 <div class="intern-rows edu">
 <div class="intern-row" data-space=".intern-inst">
-    <div class="intern"><div class="intern-logo"><a href="https://www.jpmorgan.com/technology/artificial-intelligence" target="_blank"><img src="Images/logos/jpm.png" alt="J.P. Morgan Chase logo"></a></div><div class="intern-text"><div><div class="intern-inst">J.P. Morgan Chase</div><div class="intern-team">AI Research</div><div class="intern-when">2022 – Present</div></div></div></div>
+    <div class="intern"><div class="intern-logo"><a href="https://www.jpmorgan.com/technology/artificial-intelligence" target="_blank"><img src="Images/logos/jpm.png" alt="J.P. Morgan Chase logo"></a></div><div class="intern-text"><div><div class="intern-inst">J.P. Morgan<br>Chase</div><div class="intern-team">AI Research</div><div class="intern-when">2022 – Present</div></div></div></div>
     <div class="intern"><div class="intern-logo"><a href="https://illinois.edu/" target="_blank"><img src="Images/logos/uiuc.png" alt="University of Illinois at Urbana-Champaign logo"></a></div><div class="intern-text"><div><div class="intern-inst">University of Illinois<br>at Urbana-Champaign</div><div class="intern-team">Ph.D., Industrial Engineering</div><div class="intern-when">2016 – 2022</div></div></div></div>
     <div class="intern"><div class="intern-logo"><a href="https://home.iitd.ac.in/" target="_blank"><img src="Images/logos/iitd.svg" alt="Indian Institute of Technology (IIT) Delhi logo"></a></div><div class="intern-text"><div><div class="intern-inst">Indian Institute of<br>Technology (IIT) Delhi</div><div class="intern-team">M.Sc., Mathematics</div><div class="intern-when">2013 – 2015</div></div></div></div>
-    <div class="intern"><div class="intern-logo"><a href="http://www.du.ac.in/" target="_blank"><img src="Images/logos/du.png" alt="University of Delhi logo"></a></div><div class="intern-text"><div><div class="intern-inst">University of Delhi</div><div class="intern-team">B.Sc. (Hons.), Mathematics</div><div class="intern-when">2010 – 2013</div></div></div></div>
+    <div class="intern"><div class="intern-logo"><a href="http://www.du.ac.in/" target="_blank"><img src="Images/logos/du.png" alt="University of Delhi logo"></a></div><div class="intern-text"><div><div class="intern-inst">University<br>of Delhi</div><div class="intern-team">B.Sc. (Hons.), Mathematics</div><div class="intern-when">2010 – 2013</div></div></div></div>
 </div>
 </div>
-<p class="intern-lead">To pursue my interests in quantitative finance and AI, I have spent time as a research intern at:</p>
 <!-- ===== Internships: logo row (name and dates under each logo) =====
      To add one: copy a <div class="intern">...</div> line, change the logo, link, institution, team and dates.
      Hover a logo to see mentors (the title="..." text). -->
@@ -206,7 +207,7 @@ body {
      Logos are trimmed to their content (Images/logos/) and fit the same 100x46 box.
      Each row spreads the logos so the gaps between neighbouring logos are equal (half that gap at each end);
      the text under each logo is centred on it without changing that spacing. */
-  .intern-rows{width:calc(0.9 * (100% - 40px));margin:8px 0 26px 20px}
+  .intern-rows{width:calc(0.9 * (100% - 40px));margin:0 0 26px 20px}
   .intern-row{display:flex;justify-content:space-around;align-items:flex-start}
   .intern-row + .intern-row{margin-top:26px}
   .intern{display:flex;flex-direction:column;align-items:center;text-align:center;flex-shrink:0}
@@ -228,6 +229,7 @@ body {
     .intern-text > div,.intern-row.wide .intern-text > div{flex:1 1 auto}
   }
 </style>
+<div class="intern-title"><heading>Internships</heading></div>
 <div class="intern-rows">
 <div class="intern-row" data-space=".intern-logo img">
     <div class="intern"><div class="intern-logo"><a href="https://www.jpmorgan.com/technology/artificial-intelligence" target="_blank"><img src="Images/logos/jpm.png" alt="J.P. Morgan Chase logo"></a></div><div class="intern-text"><div><div class="intern-inst">J.P. Morgan Chase</div><div class="intern-team">AI Research</div><div class="intern-when">Summer 2022</div></div></div></div>
