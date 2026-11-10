@@ -64,6 +64,11 @@ body {
     }
 }
 	  
+
+/* Keep page content clear of the fixed left menu (12% wide) on narrower windows */
+@media (max-width:1250px){
+  #home{margin-left:calc(12% + 6px) !important;margin-right:0 !important;width:calc(88% - 12px) !important}
+}
 </style>
 </head>
 
@@ -191,7 +196,7 @@ body {
   .intern-inst{font-size:14px;font-weight:bold;line-height:1.15}
   .intern-team{font-size:13px;line-height:1.15;color:#555}
   .intern-when{font-size:13px;line-height:1.15;color:#888}
-  @media (min-width:1100px){.intern-team.one-line{white-space:nowrap;margin:0 -24px}}
+  @media (min-width:970px){.intern-team.one-line{white-space:nowrap;margin:0 -24px}}
   @media (max-width:700px){.intern,.intern:nth-child(n+5){grid-column:span 6}}
 </style>
 <div class="intern-grid">
