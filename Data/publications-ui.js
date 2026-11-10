@@ -28,7 +28,7 @@
     var id = "pub-media-" + (++uid);
     var h = '<div class="pub" data-type="' + esc(p.type) + '">';
     if (withFig) {
-      h += '<a class="pub-fig" href="' + esc(p.fig || p.img || main || "#") + '" target="_blank" rel="noopener">' +
+      h += '<a class="pub-fig" href="' + esc(p.fig || p.img || main || "#") + '" data-title="' + esc(p.title) + '" target="_blank" rel="noopener" aria-label="View figure">' +
            (p.img ? '<img src="' + esc(p.img) + '" alt="" loading="lazy">' : '') + '</a>';
     }
     h += '<div class="pub-body">';
@@ -61,12 +61,54 @@
     });
   }
 
-  function renderSelected(el) {
+/* Clicking a thumbnail shows the full figure on top of the page.
+   Close with Esc, the x button, or a click anywhere outside the figure. */
+var box = null, lastFocus = null;
+function openBox(src, caption) {
+  if (!box) {
+    box = document.createElement("div");
+    box.className = "pub-lightbox";
+    box.setAttribute("role", "dialog");
+    box.setAttribute("aria-modal", "true");
+    box.innerHTML = '<button type="button" class="pub-lightbox-close" aria-label="Close">&times;</button>' +
+                    '<figure><img alt=""><figcaption></figcaption></figure>';
+    document.body.appendChild(box);
+    box.addEventListener("click", function (e) {
+      if (e.target.tagName !== "IMG") closeBox();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && box.classList.contains("open")) closeBox();
+    });
+  }
+  box.querySelector("img").src = src;
+  box.querySelector("img").alt = caption;
+  box.querySelector("figcaption").textContent = caption;
+  lastFocus = document.activeElement;
+  box.classList.add("open");
+  document.documentElement.classList.add("pub-lightbox-on");
+  box.querySelector(".pub-lightbox-close").focus();
+}
+function closeBox() {
+  box.classList.remove("open");
+  document.documentElement.classList.remove("pub-lightbox-on");
+  if (lastFocus) lastFocus.focus();
+}
+function wireLightbox(root) {
+  root.addEventListener("click", function (e) {
+    var a = e.target.closest("a.pub-fig");
+    if (!a || e.metaKey || e.ctrlKey || e.shiftKey) return;   /* Cmd/Ctrl-click still opens a new tab */
+    e.preventDefault();
+    openBox(a.getAttribute("href"), a.getAttribute("data-title") || "");
+  });
+}
+
+function renderSelected(el) {
     var list = window.PUBLICATIONS.filter(function (p) { return p.selected; });
     var figs = el.getAttribute("data-figures") !== "off";   /* data-figures="off" hides the figures */
     el.classList.toggle("pubs-nofig", !figs);
     el.innerHTML = list.map(function (p) { return paper(p, figs); }).join("");
     wireMedia(el);
+    wireLightbox(el);
     var n = document.querySelectorAll("[data-pubs-count]");
     for (var i = 0; i < n.length; i++) n[i].textContent = window.PUBLICATIONS.length;
   }

@@ -63,3 +63,18 @@ a.pub-title:hover{color:#1772d0}
 .pubs-full .pub{padding:12px 0}
 .pubs-full .pub-title{font-size:15px;margin-top:4px}
 .pubs-empty{color:#888;font-size:14px;padding:16px 0}
+
+/* full-size figure overlay */
+.pub-lightbox{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;padding:40px;
+  background:rgba(18,22,34,.78);backdrop-filter:blur(2px);cursor:zoom-out}
+.pub-lightbox.open{display:flex;animation:pub-fade .15s ease-out}
+.pub-lightbox figure{margin:0;max-width:min(1100px,100%);max-height:100%;display:flex;flex-direction:column;align-items:center;gap:10px}
+.pub-lightbox img{max-width:100%;max-height:calc(100vh - 130px);object-fit:contain;background:#fff;border-radius:8px;padding:10px;
+  box-shadow:0 20px 60px rgba(0,0,0,.35);cursor:default}
+.pub-lightbox figcaption{color:#e9ecf3;font:600 14px/1.4 "Figtree",sans-serif;text-align:center;max-width:800px}
+.pub-lightbox-close{position:absolute;top:16px;right:20px;width:40px;height:40px;border:0;border-radius:50%;cursor:pointer;
+  background:rgba(255,255,255,.14);color:#fff;font-size:28px;line-height:40px;padding:0}
+.pub-lightbox-close:hover{background:rgba(255,255,255,.28)}
+html.pub-lightbox-on{overflow:hidden}
+.pub-fig{cursor:zoom-in}
+@keyframes pub-fade{from{opacity:0}to{opacity:1}}
