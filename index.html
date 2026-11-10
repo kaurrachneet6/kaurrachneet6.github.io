@@ -159,7 +159,7 @@ name{font-family:"Newsreader",Georgia,"Times New Roman",serif;font-weight:600;co
      Logos are trimmed to their content (Images/logos/) and fit the same 100x46 box.
      Each row spreads the logos so the gaps between neighbouring logos are equal (half that gap at each end);
      the text under each logo is centred on it without changing that spacing. */
-  .intern-rows{width:calc(0.9 * (100% - 40px));margin:0 0 10px 20px} /* + the next heading block padding = 30px */
+  .intern-rows{width:calc(100% - 40px);margin:0 0 10px 20px} /* + the next heading block padding = 30px */
   .intern-row{display:flex;justify-content:space-around;align-items:flex-start}
   .intern-row + .intern-row{margin-top:26px}
   .intern{display:flex;flex-direction:column;align-items:center;text-align:center;flex-shrink:0}
@@ -827,7 +827,7 @@ name{font-family:"Newsreader",Georgia,"Times New Roman",serif;font-weight:600;co
 <!-- ===== Patents: compact list (title, organisation · date, patent number linking to the patent) =====
      To add one: copy an <li>...</li> line to the top. Unpublished applications show "Application" instead of a number. -->
 <style>
-  .patents{width:calc(0.9 * (100% - 40px));margin:0 0 10px 20px}
+  .patents{width:calc(100% - 40px);margin:0 0 10px 20px}
   .patents .p-summary{color:#555;margin:0 0 8px}
   .patents ul{list-style:none;margin:0;padding:0}
   .patents li{display:flex;align-items:baseline;gap:16px;padding:7px 0;border-top:1px solid #f0f0f2}
