@@ -225,6 +225,26 @@ body {
     <div class="intern" title="Mentor: Mythily Ramaswamy"><div class="intern-logo"><a href="https://www.math.tifrbng.res.in/" target="_blank"><img src="Images/logos/tifr.png" alt="Tata Institute of Fundamental Research (TIFR), India logo"></a></div><div class="intern-text"><div><div class="intern-inst">Tata Institute of Fundamental Research (TIFR), India</div><div class="intern-team">Centre for Applicable Mathematics</div><div class="intern-when">Summer 2014</div></div></div></div>
     <div class="intern" title="Mentors: Satyananda Panda, T. Suman Kumar"><div class="intern-logo"><a href="http://www.npde-tca.math.iitb.ac.in/" target="_blank"><img src="Images/logos/nit.svg" alt="National Institute of Technology (NIT), Calicut, India logo"></a></div><div class="intern-text"><div><div class="intern-inst">National Institute of Technology<br>(NIT), Calicut, India</div><div class="intern-team">Department of Mathematics</div><div class="intern-when">Winter 2013</div></div></div></div>
 </div>
+<script>
+/* Center each internship row by its visible content (logos + text), keeping the equal gaps between logos */
+(function(){
+  function center(){
+    document.querySelectorAll(".intern-row").forEach(function(row){
+      row.style.transform="";
+      if (window.innerWidth <= 700) return;
+      var box=row.getBoundingClientRect(), L=1e9, R=-1e9;
+      row.querySelectorAll(".intern-logo img, .intern-inst, .intern-team, .intern-when").forEach(function(el){
+        var rects = el.tagName==="IMG" ? [el.getBoundingClientRect()] : (function(){var r=document.createRange(); r.selectNodeContents(el); return r.getClientRects();})();
+        for (var i=0;i<rects.length;i++){ if(rects[i].width){ L=Math.min(L,rects[i].left); R=Math.max(R,rects[i].right); } }
+      });
+      if (R > L) row.style.transform="translateX("+Math.round((box.left+box.right)/2-(L+R)/2)+"px)";
+    });
+  }
+  window.addEventListener("load", center);
+  window.addEventListener("resize", center);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(center);
+})();
+</script>
 </div>
 	<p  style="padding-left:1em;">See some excerpts from my journey <a href = "gallery">here.</a></p>	    
            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;" id="publications"><tbody>
