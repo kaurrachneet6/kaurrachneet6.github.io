@@ -177,12 +177,26 @@ body {
 	    <heading>About Me</heading>
 	    <p style="width:90%;">I am currently a Ph.D. student in the <a href = "https://ise.illinois.edu/">Department of Industrial Engineering</a> at the <a href = "https://illinois.edu/">University of Illinois at Urbana-Champaign</a>. I am advised by <a href = "http://publish.illinois.edu/r-sowers/">Richard Sowers</a> and also collaborated closely with <a href = "https://ahs.illinois.edu/hernandez"> Manuel Hernandez.</a> My current research is focused on applications of machine learning for unfolding problems in health and finance domain.</p>
 	   <p style="width:90%;">Prior to joining PhD, I have earned a B.S. (with honours) in Mathematics from the <a href = "http://app.ramjas.du.ac.in/app/college/web/index.php">University of Delhi</a> and an M.S. in Mathematics from the <a href = "https://home.iitd.ac.in/">Indian Institute of Technology (IIT), Delhi.</a> During my masters, my thesis was advised by <a href = "https://web.iitd.ac.in/~apmehra/">Aparna Mehra.</a></p>
-	   
-	   <p style="width:90%;">To pursue my interests in quantitative finance and AI, I have spent time as a research intern at:</p>
             </td>
             </tr>
             </tbody></table>
 		    
+<!-- ===== Education: logo row (institution, degree, dates) — same style and spacing script as the internships ===== -->
+<style>
+  .intern-rows.edu{margin-top:14px}
+  .intern-rows.edu .intern-logo{height:52px}
+  .intern-rows.edu .intern-logo img{max-height:52px;max-width:165px}
+  .intern-rows.edu .intern-text > div{flex-basis:225px}
+  .intern-lead{width:calc(0.9 * (100% - 40px));margin:6px 0 12px 20px}
+</style>
+<div class="intern-rows edu">
+<div class="intern-row" data-space=".intern-inst">
+    <div class="intern"><div class="intern-logo"><a href="https://illinois.edu/" target="_blank"><img src="Images/logos/uiuc.png" alt="University of Illinois Urbana-Champaign logo"></a></div><div class="intern-text"><div><div class="intern-inst">University of Illinois<br>Urbana-Champaign</div><div class="intern-team">Ph.D., Industrial Engineering</div><div class="intern-when">2016 – 2022</div></div></div></div>
+    <div class="intern"><div class="intern-logo"><a href="https://home.iitd.ac.in/" target="_blank"><img src="Images/logos/iitd.png" alt="Indian Institute of Technology (IIT) Delhi logo"></a></div><div class="intern-text"><div><div class="intern-inst">Indian Institute of<br>Technology (IIT) Delhi</div><div class="intern-team">M.S., Mathematics</div><div class="intern-when">2013 – 2015</div></div></div></div>
+    <div class="intern"><div class="intern-logo"><a href="http://www.du.ac.in/" target="_blank"><img src="Images/logos/du.png" alt="University of Delhi logo"></a></div><div class="intern-text"><div><div class="intern-inst">University of Delhi</div><div class="intern-team">B.Sc. (Hons.), Mathematics</div><div class="intern-when">2010 – 2013</div></div></div></div>
+</div>
+</div>
+<p class="intern-lead">To pursue my interests in quantitative finance and AI, I have spent time as a research intern at:</p>
 <!-- ===== Internships: logo row (name and dates under each logo) =====
      To add one: copy a <div class="intern">...</div> line, change the logo, link, institution, team and dates.
      Hover a logo to see mentors (the title="..." text). -->
@@ -241,8 +255,9 @@ body {
       var sel=row.getAttribute("data-space")||".intern-logo img";
       var W=row.clientWidth;
       var info=cards.map(function(c){
-        var b=c.getBoundingClientRect(), cx=(b.left+b.right)/2, half=b.width/2;
+        var b=c.getBoundingClientRect(), cx=(b.left+b.right)/2, half=0;
         c.querySelectorAll(sel).forEach(function(el){ rects(el).forEach(function(q){ half=Math.max(half, cx-q.left, q.right-cx); }); });
+        if (!half) half=b.width/2;
         return {w:b.width, fp:2*half};
       });
       var total=info.reduce(function(a,x){return a+x.fp;},0);
