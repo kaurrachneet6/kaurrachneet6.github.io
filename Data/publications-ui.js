@@ -28,7 +28,7 @@
     var id = "pub-media-" + (++uid);
     var h = '<div class="pub" data-type="' + esc(p.type) + '">';
     if (withFig) {
-      h += '<a class="pub-fig" href="' + esc(p.img || main || "#") + '" target="_blank" rel="noopener">' +
+      h += '<a class="pub-fig" href="' + esc(p.fig || p.img || main || "#") + '" target="_blank" rel="noopener">' +
            (p.img ? '<img src="' + esc(p.img) + '" alt="" loading="lazy">' : '') + '</a>';
     }
     h += '<div class="pub-body">';

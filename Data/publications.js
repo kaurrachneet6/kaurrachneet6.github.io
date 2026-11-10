@@ -8,7 +8,8 @@
      type     : "conference" | "journal" | "workshop" | "preprint" | "chapter" | "thesis"
      tag      : the short venue label shown in the chip, e.g. "ACL 2026"
      selected : true  -> also shown on the homepage (keep ~10)
-     img      : figure for the homepage (only needed when selected)
+     img      : small 16:10 thumbnail for the homepage (Images/pubs/thumbs/, 480x300)
+     fig      : the full-size figure that opens when the thumbnail is clicked
      badges   : short highlights shown in gold, e.g. "Oral"
      notes    : "Also presented at ..." lines
      links    : [label, url] pairs, shown as small buttons
@@ -20,7 +21,7 @@ window.PUBLICATIONS = [
   /* ---------------- 2026 ---------------- */
   {
     year: 2026, type: "conference", tag: "ACL 2026", selected: true,
-    img: "Images/pubs/chartagent.png",
+    img: "Images/pubs/thumbs/chartagent.png", fig: "Images/pubs/chartagent.png",
     title: "ChartAgent: A Multimodal Agent for Visually Grounded Reasoning in Complex Chart Question Answering",
     authors: "Rachneet Kaur, Nishan Srishankar, Zhen Zeng, Sumitra Ganesh",
     venue: "Annual Meeting of the Association for Computational Linguistics (ACL), 2026",
@@ -33,7 +34,7 @@ window.PUBLICATIONS = [
   },
   {
     year: 2026, type: "conference", tag: "ACL 2026", selected: true,
-    img: "Images/pubs/slideagent.png",
+    img: "Images/pubs/thumbs/slideagent.png", fig: "Images/pubs/slideagent.png",
     title: "SlideAgent: Hierarchical Agentic Framework for Multi-Page Visual Document Understanding",
     authors: "Yiqiao Jin, Rachneet Kaur, Zhen Zeng, Sumitra Ganesh, Srijan Kumar",
     venue: "Annual Meeting of the Association for Computational Linguistics (ACL), 2026",
@@ -61,7 +62,7 @@ window.PUBLICATIONS = [
   /* ---------------- 2025 ---------------- */
   {
     year: 2025, type: "conference", tag: "ACL 2025", selected: true,
-    img: "Images/pubs/adaptagent.png",
+    img: "Images/pubs/thumbs/adaptagent.png", fig: "Images/pubs/adaptagent.png",
     title: "AdaptAgent: Adapting Multimodal Web Agents with Few-Shot Learning from Human Demonstrations",
     authors: "Gaurav Verma, Rachneet Kaur, Nishan Srishankar, Zhen Zeng, Tucker Balch, Manuela Veloso",
     venue: "Annual Meeting of the Association for Computational Linguistics (ACL), 2025",
@@ -75,7 +76,7 @@ window.PUBLICATIONS = [
   },
   {
     year: 2025, type: "conference", tag: "ACL 2025", selected: true,
-    img: "Images/pubs/letsc.png",
+    img: "Images/pubs/thumbs/letsc.png", fig: "Images/pubs/letsc.png",
     title: "LETS-C: Leveraging Language Embedding for Time Series Classification",
     authors: "Rachneet Kaur, Zhen Zeng, Tucker Balch, Manuela Veloso",
     venue: "Annual Meeting of the Association for Computational Linguistics (ACL), 2025",
@@ -103,7 +104,7 @@ window.PUBLICATIONS = [
   /* ---------------- 2024 ---------------- */
   {
     year: 2024, type: "conference", tag: "EMNLP 2024", selected: true,
-    img: "Images/pubs/tsfeatures.png",
+    img: "Images/pubs/thumbs/tsfeatures.png", fig: "Images/pubs/tsfeatures.png",
     title: "Evaluating Large Language Models on Time Series Feature Understanding: A Comprehensive Taxonomy and Benchmark",
     authors: "Elizabeth Fons, Rachneet Kaur, Soham Palande, Zhen Zeng, Tucker Balch, Manuela Veloso, Svitlana Vyetrenko",
     venue: "Conference on Empirical Methods in Natural Language Processing (EMNLP), 2024",
@@ -115,7 +116,7 @@ window.PUBLICATIONS = [
   },
   {
     year: 2024, type: "conference", tag: "ICAIF 2024", selected: true,
-    img: "Images/pubs/tadacap.png",
+    img: "Images/pubs/thumbs/tadacap.png", fig: "Images/pubs/tadacap.png",
     title: "TADACap: Time-series Adaptive Domain-Aware Captioning",
     authors: "Elizabeth Fons, Rachneet Kaur, Zhen Zeng, Soham Palande, Tucker Balch, Svitlana Vyetrenko, Manuela Veloso",
     venue: "ACM International Conference on AI in Finance (ICAIF), 2024",
@@ -143,7 +144,7 @@ window.PUBLICATIONS = [
   /* ---------------- 2023 ---------------- */
   {
     year: 2023, type: "conference", tag: "ICAIF 2023", selected: true,
-    img: "Images/pubs/pixels.png",
+    img: "Images/pubs/thumbs/pixels.png", fig: "Images/pubs/pixels.png",
     title: "From Pixels to Predictions: Spectrogram and Vision Transformer for Better Time Series Forecasting",
     authors: "Zhen Zeng, Rachneet Kaur, Suchetha Siddagangappa, Tucker Balch, Manuela Veloso",
     venue: "ACM International Conference on AI in Finance (ICAIF), 2023",
@@ -167,7 +168,7 @@ window.PUBLICATIONS = [
   },
   {
     year: 2023, type: "journal", tag: "IEEE-JBHI 2023", selected: true,
-    img: "projects/JBHI2022_graphical_abstract.jpeg",
+    img: "Images/pubs/thumbs/jbhi.png", fig: "projects/JBHI2022_graphical_abstract.jpeg",
     title: "A Vision-Based Framework for Predicting Multiple Sclerosis and Parkinson's Disease Gait Dysfunctions — A Deep Learning Approach",
     authors: "Rachneet Kaur, Robert W Motl, Richard Sowers, Manuel E Hernandez",
     venue: "IEEE Journal of Biomedical and Health Informatics, 2023",
@@ -237,7 +238,7 @@ window.PUBLICATIONS = [
   /* ---------------- 2022 ---------------- */
   {
     year: 2022, type: "journal", tag: "npj Parkinson's Disease 2022", selected: true,
-    img: "Images/pubs/pdsubtypes.png",
+    img: "Images/pubs/thumbs/pdsubtypes.png", fig: "Images/pubs/pdsubtypes.png",
     title: "Identification and prediction of Parkinson's disease subtypes and progression using machine learning in two cohorts",
     authors: "Anant Dadu, Vipul Satone, Rachneet Kaur, Sayed Hadi Hashemi, Hampton Leonard, Hirotaka Iwaki, Mary B Makarious, Kimberley J Billingsley, Sara Bandres-Ciga, Lana J Sargent, Alastair J Noyce, Ali Daneshmand, Cornelis Blauwendraat, Ken Marek, Sonja W Scholz, Andrew B Singleton, Mike A Nalls, Roy H Campbell, Faraz Faghri",
     venue: "npj Parkinson's Disease, Nature Publishing Group, 2022",
@@ -279,7 +280,7 @@ window.PUBLICATIONS = [
   },
   {
     year: 2021, type: "journal", tag: "IEEE-TBME 2021", selected: true,
-    img: "projects/images/tbme_figure.PNG",
+    img: "Images/pubs/thumbs/tbme.png", fig: "projects/images/tbme_figure.PNG",
     title: "Predicting Multiple Sclerosis From Gait Dynamics Using an Instrumented Treadmill: A Machine Learning Approach",
     authors: "Rachneet Kaur, Zizhang Chen, Robert Motl, Manuel E Hernandez, Richard Sowers",
     venue: "IEEE Transactions on Biomedical Engineering, 2021",
