@@ -78,14 +78,14 @@ body,td,th,tr,p,a,strong,papertitle,div{font-family:"Figtree",Verdana,Helvetica,
 name{font-family:"Newsreader",Georgia,"Times New Roman",serif;font-weight:600;color:#1a1a2e;letter-spacing:-0.3px}
 
 /* Page content, centred on the window. 950px for the one-column layout (phones, narrower windows);
-   1030px when the two-column layout is on (windows 1300px and wider). */
+   1050px when the two-column layout is on (windows 1300px and wider). */
 #home{max-width:950px !important;width:min(950px, calc(100% - 48px)) !important;margin-left:auto !important;margin-right:auto !important}
-html.two-col-on #home{max-width:1030px !important;width:min(1030px, calc(100% - 48px)) !important}
+html.two-col-on #home{max-width:1050px !important;width:min(1050px, calc(100% - 48px)) !important}
 
 /* Top bar of section links (replaces the old pink side menu) */
 .topnav{width:min(950px, calc(100% - 48px));margin:0 auto;padding:16px 0 12px;border-bottom:1px solid #ececf0;
         display:flex;flex-wrap:wrap;justify-content:center;gap:6px 26px}
-html.two-col-on .topnav{width:min(1030px, calc(100% - 48px))}
+html.two-col-on .topnav{width:min(1050px, calc(100% - 48px))}
 .topnav a{font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;color:#6b6b7b;text-decoration:none;font-weight:500}
 .topnav a:hover{color:#1772d0}
 </style>
@@ -1435,7 +1435,7 @@ html.two-col-on .topnav{width:min(1030px, calc(100% - 48px))}
 <!-- ===== Two-column layout (windows 1300px and wider): main content on the left; photo + Highlights and News in a right sidebar =====
      The news and photo are still edited in their usual places above; this script only moves them into the sidebar. -->
 <style>
-  .two-col{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:40px;align-items:start}
+  .two-col{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:40px;align-items:start;padding-right:20px} /* same 20px inset as the left-hand text */
   .two-col > .side{position:sticky;top:18px;padding-top:24px}
   .side .side-photo img{width:100%;height:auto;border-radius:10px;display:block}
   .side .side-title{margin:22px 0 10px}
