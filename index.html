@@ -244,37 +244,42 @@ body {
     <div class="intern" title="Mentors: Satyananda Panda, T. Suman Kumar"><div class="intern-logo"><a href="http://www.npde-tca.math.iitb.ac.in/" target="_blank"><img src="Images/logos/nit.svg" alt="National Institute of Technology (NIT), Calicut, India logo"></a></div><div class="intern-text"><div><div class="intern-inst">National Institute of Technology<br>(NIT), Calicut, India</div><div class="intern-team">Department of Mathematics</div><div class="intern-when">Winter 2013</div></div></div></div>
 </div>
 <script>
-/* Internship rows: equal visible gaps between neighbouring entries, then the row is centred.
-   Each row says what to space by (data-space): logos for row 1 (short names, logos dominate),
-   institution names for row 2 (long names dominate). Phones (<=700px) use the simple 2-column layout. */
+/* Affiliation / internship rows: every row starts at the same left edge (the section headings)
+   and ends at the same right edge, with equal gaps between neighbouring entries in between.
+   data-space on a row says what the gaps are measured between (logos, names, or all text).
+   Phones (<=700px) use the simple 2-column layout. */
 (function(){
   function rects(el){ if(el.tagName==="IMG") return [el.getBoundingClientRect()]; var r=document.createRange(); r.selectNodeContents(el); return Array.prototype.filter.call(r.getClientRects(), function(q){return q.width>0;}); }
-  function extent(nodes){ var L=1e9,R=-1e9; nodes.forEach(function(el){ rects(el).forEach(function(q){ L=Math.min(L,q.left); R=Math.max(R,q.right); }); }); return [L,R]; }
+  function halfExtents(card, sel){
+    var b=card.getBoundingClientRect(), cx=(b.left+b.right)/2, l=0, r=0;
+    card.querySelectorAll(sel).forEach(function(el){ rects(el).forEach(function(q){ l=Math.max(l,cx-q.left); r=Math.max(r,q.right-cx); }); });
+    return [l,r];
+  }
+  var ALL=".intern-logo img, .intern-inst, .intern-team, .intern-when";
   function layout(){
     document.querySelectorAll(".intern-row").forEach(function(row){
       var cards=Array.prototype.slice.call(row.children);
       row.style.justifyContent=""; cards.forEach(function(c){ c.style.marginLeft=""; });
-      if (window.innerWidth <= 700) return;
+      if (window.innerWidth <= 700 || cards.length < 2) return;
       row.style.justifyContent="flex-start";
       var sel=row.getAttribute("data-space")||".intern-logo img";
       var W=row.clientWidth;
       var info=cards.map(function(c){
-        var b=c.getBoundingClientRect(), cx=(b.left+b.right)/2, half=0;
-        c.querySelectorAll(sel).forEach(function(el){ rects(el).forEach(function(q){ half=Math.max(half, cx-q.left, q.right-cx); }); });
-        if (!half) half=b.width/2;
-        return {w:b.width, fp:2*half};
+        var w=c.getBoundingClientRect().width, sp=halfExtents(c, sel), al=halfExtents(c, ALL);
+        var h=Math.max(sp[0],sp[1]) || w/2;            /* footprint used for the gaps */
+        return {w:w, h:h, allL:al[0], allR:al[1]};      /* full content, for the two outer edges */
       });
-      var total=info.reduce(function(a,x){return a+x.fp;},0);
-      var gap=Math.max(0,(W-total)/cards.length), x=gap/2, prevRight=0;
+      var n=cards.length, first=info[0], last=info[n-1];
+      var spanFootprints=info.reduce(function(a,x){return a+2*x.h;},0);
+      var outerL=Math.max(first.allL, first.h), outerR=Math.max(last.allR, last.h);
+      var gap=(W - spanFootprints - (outerL-first.h) - (outerR-last.h)) / (n-1);
+      var centre=outerL, prevRight=0;
       cards.forEach(function(c,i){
-        var left=x+(info[i].fp-info[i].w)/2;
+        if (i>0) centre += info[i-1].h + gap + info[i].h;
+        var left=centre - info[i].w/2;
         c.style.marginLeft=(left-prevRight)+"px";
-        prevRight=left+info[i].w; x+=info[i].fp+gap;
+        prevRight=left+info[i].w;
       });
-      var box=row.getBoundingClientRect();
-      var all=extent(Array.prototype.slice.call(row.querySelectorAll(".intern-logo img, .intern-inst, .intern-team, .intern-when")));
-      var shift=(box.left+box.right)/2-(all[0]+all[1])/2;
-      cards[0].style.marginLeft=(parseFloat(cards[0].style.marginLeft)+shift)+"px";
     });
   }
   window.addEventListener("load", layout);
