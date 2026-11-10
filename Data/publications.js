@@ -10,7 +10,7 @@
      selected : true  -> also shown on the homepage (keep ~10)
      img      : small 16:10 thumbnail for the homepage (Images/pubs/thumbs/, 480x300)
      fig      : the full-size figure that opens when the thumbnail is clicked
-     badges   : short highlights shown in gold, e.g. "Oral"
+     badges   : short highlights shown in gold, e.g. "Oral" or "NeurIPS 2024 Workshop"
      notes    : "Also presented at ..." lines
      links    : [label, url] pairs, shown as small buttons
      media    : press coverage; shown behind a "Media" button
@@ -26,7 +26,7 @@ window.PUBLICATIONS = [
     authors: "Rachneet Kaur, Nishan Srishankar, Zhen Zeng, Sumitra Ganesh",
     venue: "Annual Meeting of the Association for Computational Linguistics (ACL), 2026",
     notes: ["Also presented at NeurIPS Workshop on Multimodal Algorithmic Reasoning, 2025 (Oral; ~15% of accepted papers)"],
-    badges: ["NeurIPS workshop oral"],
+    badges: ["NeurIPS 2025 Workshop Oral"],
     links: [["PDF", "https://aclanthology.org/2026.acl-long.843.pdf"],
             ["arXiv", "https://arxiv.org/abs/2510.04514"],
             ["Slides", "https://drive.google.com/file/d/1OYQCQDBNmMGkQEwc9grvLxQXUau_gq67/view?usp=sharing"],
@@ -38,6 +38,7 @@ window.PUBLICATIONS = [
     title: "SlideAgent: Hierarchical Agentic Framework for Multi-Page Visual Document Understanding",
     authors: "Yiqiao Jin, Rachneet Kaur, Zhen Zeng, Sumitra Ganesh, Srijan Kumar",
     venue: "Annual Meeting of the Association for Computational Linguistics (ACL), 2026",
+    badges: ["NeurIPS 2025 Workshop"],
     notes: ["Also presented at NeurIPS Workshop on Multimodal Algorithmic Reasoning, 2025"],
     links: [["PDF", "https://aclanthology.org/2026.acl-long.677.pdf"],
             ["arXiv", "https://arxiv.org/abs/2510.26615"],
@@ -66,6 +67,7 @@ window.PUBLICATIONS = [
     title: "AdaptAgent: Adapting Multimodal Web Agents with Few-Shot Learning from Human Demonstrations",
     authors: "Gaurav Verma, Rachneet Kaur, Nishan Srishankar, Zhen Zeng, Tucker Balch, Manuela Veloso",
     venue: "Annual Meeting of the Association for Computational Linguistics (ACL), 2025",
+    badges: ["NeurIPS 2024 Workshop"],
     notes: ["Also presented at NeurIPS Workshop on Adaptive Foundation Models (AFM), 2024"],
     links: [["PDF", "https://aclanthology.org/2025.acl-long.1008.pdf"],
             ["arXiv", "https://arxiv.org/abs/2411.13451"],
@@ -80,6 +82,7 @@ window.PUBLICATIONS = [
     title: "LETS-C: Leveraging Language Embedding for Time Series Classification",
     authors: "Rachneet Kaur, Zhen Zeng, Tucker Balch, Manuela Veloso",
     venue: "Annual Meeting of the Association for Computational Linguistics (ACL), 2025",
+    badges: ["NeurIPS 2024 Workshop"],
     notes: ["Also presented at NeurIPS Workshop on Time Series in the Age of Large Models (TSALM), 2024"],
     links: [["PDF", "https://aclanthology.org/2025.acl-long.1557.pdf"],
             ["arXiv", "https://arxiv.org/abs/2407.06533"],
@@ -108,6 +111,7 @@ window.PUBLICATIONS = [
     title: "Evaluating Large Language Models on Time Series Feature Understanding: A Comprehensive Taxonomy and Benchmark",
     authors: "Elizabeth Fons, Rachneet Kaur, Soham Palande, Zhen Zeng, Tucker Balch, Manuela Veloso, Svitlana Vyetrenko",
     venue: "Conference on Empirical Methods in Natural Language Processing (EMNLP), 2024",
+    badges: ["ICML 2024 Workshop"],
     notes: ["Also presented at ICML Workshop on Data-centric Machine Learning Research (DMLR): Datasets for Foundation Models, 2024"],
     links: [["PDF", "https://aclanthology.org/2024.emnlp-main.1204.pdf"],
             ["arXiv", "https://arxiv.org/abs/2404.16563"],
@@ -172,7 +176,7 @@ window.PUBLICATIONS = [
     title: "A Vision-Based Framework for Predicting Multiple Sclerosis and Parkinson's Disease Gait Dysfunctions — A Deep Learning Approach",
     authors: "Rachneet Kaur, Robert W Motl, Richard Sowers, Manuel E Hernandez",
     venue: "IEEE Journal of Biomedical and Health Informatics, 2023",
-    badges: ["Top 50 most popular IEEE-JBHI articles"],
+    badges: ["Top 50 most popular IEEE-JBHI articles", "NeurIPS 2021 WiML Workshop"],
     notes: ["Also presented at NeurIPS Women in Machine Learning (WiML) Workshop, 2021"],
     links: [["PDF", "https://ieeexplore.ieee.org/abstract/document/9896159"],
             ["Code", "https://github.com/kaurrachneet6/Vision-Based-Gait-Analysis-Framework-for-Predicting-Multiple-Sclerosis"],
