@@ -77,10 +77,10 @@ body,td,th,tr,p,a,strong,papertitle,div{font-family:"Figtree",Verdana,Helvetica,
 /* Your name: same font as the section headings */
 name{font-family:"Newsreader",Georgia,"Times New Roman",serif;font-weight:600;color:#1a1a2e;letter-spacing:-0.3px}
 
-/* Keep page content clear of the fixed left menu (12% wide) on narrower windows */
-@media (max-width:1250px){
-  #home{margin-left:calc(12% + 6px) !important;margin-right:0 !important;width:calc(88% - 12px) !important}
-}
+/* Page content: up to 900px wide, centred in the space to the right of the fixed left menu (12% wide),
+   so the white gap between the menu and the content equals the white gap on the right */
+#home{max-width:900px !important;width:min(900px, calc(88% - 12px)) !important;margin-right:0 !important;
+      margin-left:max(calc(12% + 6px), calc(12% + (88% - 900px) / 2)) !important}
 </style>
 </head>
 
