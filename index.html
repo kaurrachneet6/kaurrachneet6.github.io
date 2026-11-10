@@ -79,11 +79,11 @@ name{font-family:"Newsreader",Georgia,"Times New Roman",serif;font-weight:600;co
 
 /* Page content, centred in the space to the right of the fixed left menu (12% wide), so the white gap beside
    the menu equals the white gap on the right. 950px for the one-column layout (phones, narrower windows);
-   1150px when the two-column layout is on (windows 1300px and wider). */
+   1000px when the two-column layout is on (windows 1300px and wider). */
 #home{max-width:950px !important;width:min(950px, calc(88% - 12px)) !important;margin-right:0 !important;
       margin-left:max(calc(12% + 6px), calc(12% + (88% - 950px) / 2)) !important}
-html.two-col-on #home{max-width:1150px !important;width:min(1150px, calc(88% - 12px)) !important;
-      margin-left:max(calc(12% + 6px), calc(12% + (88% - 1150px) / 2)) !important}
+html.two-col-on #home{max-width:1000px !important;width:min(1000px, calc(88% - 12px)) !important;
+      margin-left:max(calc(12% + 6px), calc(12% + (88% - 1000px) / 2)) !important}
 </style>
 </head>
 
@@ -1432,7 +1432,7 @@ html.two-col-on #home{max-width:1150px !important;width:min(1150px, calc(88% - 1
 <!-- ===== Two-column layout (windows 1300px and wider): main content on the left; photo + Highlights and News in a right sidebar =====
      The news and photo are still edited in their usual places above; this script only moves them into the sidebar. -->
 <style>
-  .two-col{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:40px;align-items:start}
+  .two-col{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:40px;align-items:start}
   .two-col > .side{position:sticky;top:18px;padding-top:24px}
   .side .side-photo img{width:100%;height:auto;border-radius:10px;display:block}
   .side .side-title{margin:22px 0 10px}
