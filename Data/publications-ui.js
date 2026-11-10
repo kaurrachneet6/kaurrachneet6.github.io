@@ -63,7 +63,9 @@
 
   function renderSelected(el) {
     var list = window.PUBLICATIONS.filter(function (p) { return p.selected; });
-    el.innerHTML = list.map(function (p) { return paper(p, true); }).join("");
+    var figs = el.getAttribute("data-figures") !== "off";   /* data-figures="off" hides the figures */
+    el.classList.toggle("pubs-nofig", !figs);
+    el.innerHTML = list.map(function (p) { return paper(p, figs); }).join("");
     wireMedia(el);
     var n = document.querySelectorAll("[data-pubs-count]");
     for (var i = 0; i < n.length; i++) n[i].textContent = window.PUBLICATIONS.length;
