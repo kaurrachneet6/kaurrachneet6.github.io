@@ -183,10 +183,9 @@ body {
      Hover a logo to see mentors (the title="..." text). -->
 <style>
   /* Two rows on wide screens: 4 on top, 3 below (the 3 get wider columns so long names wrap less); 2 per row on phones.
-     Each card shares 4 row lines (logo, institution, team, dates) through subgrid, so text lines up
-     across a row and each line is only as tall as the longest text in that row. */
-  .intern-grid{display:grid;grid-template-columns:repeat(12,1fr);column-gap:16px;row-gap:28px;width:calc(0.9 * (100% - 40px));margin:8px 0 26px 20px;text-align:center}
-  .intern{grid-column:span 3;grid-row:span 4;display:grid;grid-template-rows:subgrid;row-gap:0;align-content:start}
+     Logos sit in same-size boxes so names start at the same height; name, team and dates stack with no extra space. */
+  .intern-grid{display:grid;grid-template-columns:repeat(12,1fr);column-gap:16px;row-gap:26px;width:calc(0.9 * (100% - 40px));margin:8px 0 26px 20px;text-align:center}
+  .intern{grid-column:span 3}
   .intern:nth-child(n+5){grid-column:span 4}
   .intern img{height:56px;width:100%;max-width:105px;object-fit:contain;display:block;margin:0 auto 6px}
   .intern-inst{font-size:14px;font-weight:bold;line-height:1.25}
