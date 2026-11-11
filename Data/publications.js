@@ -25,7 +25,7 @@ window.PUBLICATIONS = [
     img: "Images/pubs/thumbs/chartagent.png", fig: "Images/pubs/chartagent.png",
     title: "ChartAgent: A Multimodal Agent for Visually Grounded Reasoning in Complex Chart Question Answering",
     authors: "Rachneet Kaur, Nishan Srishankar, Zhen Zeng, Sumitra Ganesh",
-    venue: "64th Annual Meeting of the Association for Computational Linguistics",
+    venue: "Annual Meeting of the Association for Computational Linguistics",
     notes: ["Also presented at NeurIPS Workshop on Multimodal Algorithmic Reasoning, 2025 (Oral; ~15% of accepted papers)"],
     badges: ["NeurIPS 2025 Workshop Oral"],
     links: [["PDF", "https://aclanthology.org/2026.acl-long.843.pdf"],
@@ -38,7 +38,7 @@ window.PUBLICATIONS = [
     img: "Images/pubs/thumbs/slideagent.png", fig: "Images/pubs/slideagent.png",
     title: "SlideAgent: Hierarchical Agentic Framework for Multi-Page Visual Document Understanding",
     authors: "Yiqiao Jin, Rachneet Kaur, Zhen Zeng, Sumitra Ganesh, Srijan Kumar",
-    venue: "64th Annual Meeting of the Association for Computational Linguistics",
+    venue: "Annual Meeting of the Association for Computational Linguistics",
     badges: ["NeurIPS 2025 Workshop"],
     notes: ["Also presented at NeurIPS Workshop on Multimodal Algorithmic Reasoning, 2025"],
     links: [["PDF", "https://aclanthology.org/2026.acl-long.677.pdf"],
@@ -50,7 +50,7 @@ window.PUBLICATIONS = [
     year: 2026, type: "conference", tag: "ACL 2026 Industry",
     title: "MM-BizRAG: Rethinking Multimodal Retrieval-Augmented Generation for General Purpose Enterprise Q&A",
     authors: "Hanoz Bhathena, Parin Rajesh Jhaveri, Rohan Mittal, Prateek Singh, Aymen Kallala, Rachneet Kaur, Yiqiao Jin, Zhen Zeng, Adwait Ratnaparkhi, Denis Kochedykov",
-    venue: "64th Annual Meeting of the Association for Computational Linguistics, Industry Track",
+    venue: "Annual Meeting of the Association for Computational Linguistics, Industry Track",
     links: [["PDF", "https://aclanthology.org/2026.acl-industry.134.pdf"]]
   },
   {
