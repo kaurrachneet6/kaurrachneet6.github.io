@@ -84,7 +84,7 @@ window.PUBLICATIONS = [
               s: [["Agents of Tomorrow Podcast", "https://podcasts.apple.com/ca/podcast/ep5-multimodal-ai-agents-benchmarking-adapting-and/id1776144369?i=1000678161711"]] }]
   },
   {
-    year: 2025, type: "conference", tag: "ACL 2025", selected: true,
+    year: 2025, type: "conference", tag: "ACL 2025", selected: true, featured: true,
     img: "Images/pubs/thumbs/letsc.png", fig: "Images/pubs/letsc.png",
     title: "LETS-C: Leveraging Language Embedding for Time Series Classification",
     authors: "Rachneet Kaur, Zhen Zeng, Tucker Balch, Manuela Veloso",
@@ -115,7 +115,7 @@ window.PUBLICATIONS = [
 
   /* ---------------- 2024 ---------------- */
   {
-    year: 2024, type: "conference", tag: "EMNLP 2024", selected: true,
+    year: 2024, type: "conference", tag: "EMNLP 2024", selected: true, featured: true,
     img: "Images/pubs/thumbs/tsfeatures.png", fig: "Images/pubs/tsfeatures.png",
     title: "Evaluating Large Language Models on Time Series Feature Understanding: A Comprehensive Taxonomy and Benchmark",
     authors: "Elizabeth Fons, Rachneet Kaur, Soham Palande, Zhen Zeng, Tucker Balch, Manuela Veloso, Svitlana Vyetrenko",
@@ -157,7 +157,7 @@ window.PUBLICATIONS = [
 
   /* ---------------- 2023 ---------------- */
   {
-    year: 2023, type: "journal", tag: "IEEE-JBHI 2023", selected: true,
+    year: 2023, type: "journal", tag: "IEEE-JBHI 2023", selected: true, featured: true,
     img: "Images/pubs/thumbs/jbhi.png", fig: "projects/JBHI2022_graphical_abstract.jpeg",
     title: "A Vision-Based Framework for Predicting Multiple Sclerosis and Parkinson's Disease Gait Dysfunctions — A Deep Learning Approach",
     authors: "Rachneet Kaur, Robert W Motl, Richard Sowers, Manuel E Hernandez",
