@@ -18,6 +18,11 @@
             display:flex;flex-wrap:wrap;justify-content:center;gap:6px 20px}
     .topnav a{font-size:12.5px;letter-spacing:.07em;text-transform:uppercase;color:#6b6b7b;text-decoration:none;font-weight:500}
     .topnav a:hover{color:#1772d0}
+    /* the top bar stays pinned while scrolling; white band runs edge to edge */
+    .topnav{position:sticky;top:0;z-index:50;background:#fff;box-shadow:0 0 0 100vmax #fff;clip-path:inset(0 -100vmax);transition:box-shadow .2s}
+    html.nav-stuck .topnav{box-shadow:0 0 0 100vmax #fff,0 6px 12px -8px rgba(0,0,0,.18);clip-path:inset(0 -100vmax -14px)}
+    html{scroll-behavior:smooth}
+    [id]{scroll-margin-top:64px}   /* menu jumps land below the pinned bar */
     main{width:min(820px, calc(100% - 48px));margin:0 auto;padding:28px 0 60px}
     h1{font-family:"Newsreader",Georgia,"Times New Roman",serif;font-weight:600;font-size:30px;color:#1e2a44;letter-spacing:-0.3px;
        display:inline-block;margin:0 0 6px;padding-bottom:4px;border-bottom:2px solid #e2c79a;line-height:1.2}
@@ -36,6 +41,8 @@
   <a href="index.html#patents">Patents</a>
   <a href="index.html#posters_and_talks">Posters and Talks</a>
 </nav>
+<script>/* faint shadow under the pinned menu once the page has scrolled */
+(function(){var h=document.documentElement;function f(){h.classList.toggle("nav-stuck",window.scrollY>4);}window.addEventListener("scroll",f,{passive:true});f();})();</script>
 
 <main>
   <h1>Publications</h1>

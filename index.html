@@ -103,6 +103,11 @@ html.two-col-on #home{max-width:1050px !important;width:min(1050px, calc(100% - 
 html.two-col-on .topnav{width:min(1050px, calc(100% - 48px))}
 .topnav a{font-size:12.5px;letter-spacing:.07em;text-transform:uppercase;color:#6b6b7b;text-decoration:none;font-weight:500}
 .topnav a:hover{color:#1772d0}
+/* the top bar stays pinned while scrolling; white band runs edge to edge */
+.topnav{position:sticky;top:0;z-index:50;background:#fff;box-shadow:0 0 0 100vmax #fff;clip-path:inset(0 -100vmax);transition:box-shadow .2s}
+html.nav-stuck .topnav{box-shadow:0 0 0 100vmax #fff,0 6px 12px -8px rgba(0,0,0,.18);clip-path:inset(0 -100vmax -14px)}
+html{scroll-behavior:smooth}
+[id]{scroll-margin-top:64px}   /* menu jumps land below the pinned bar */
 </style>
 </head>
 
@@ -117,6 +122,8 @@ html.two-col-on .topnav{width:min(1050px, calc(100% - 48px))}
 <a href="#collaborations">Collaborations</a>
 <a href="gallery">Image gallery</a>
 </nav>
+<script>/* faint shadow under the pinned menu once the page has scrolled */
+(function(){var h=document.documentElement;function f(){h.classList.toggle("nav-stuck",window.scrollY>4);}window.addEventListener("scroll",f,{passive:true});f();})();</script>
 	
 	
   <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;" id="home"><tbody>
@@ -648,10 +655,7 @@ html.two-col-on .topnav{width:min(1050px, calc(100% - 48px))}
           </tr> 
 -->
 
-          <tr onmouseout="nerfw_stop()" onmouseover="nerfw_start()">
-            <td style="padding:20px;width:25%;vertical-align:middle">
-                <a href = "projects/leaning_data_collection_setup.PNG"><img src='projects/leaning_data_collection_setup.PNG' width="190"></a> 
-              <script type="text/javascript">
+          <script type="text/javascript">
                 function nerfw_start() {
                   document.getElementById('nerfw_image').style.opacity = "1";
                 }
@@ -661,6 +665,10 @@ html.two-col-on .topnav{width:min(1050px, calc(100% - 48px))}
                 }
                 nerfw_stop()
               </script>
+<!-- OLD entry, hidden (kept for later): Humanoids 2019 VR anxiety leaning paper. Inner comments written as <!~~ ~~>.
+          <tr onmouseout="nerfw_stop()" onmouseover="nerfw_start()">
+            <td style="padding:20px;width:25%;vertical-align:middle">
+                <a href = "projects/leaning_data_collection_setup.PNG"><img src='projects/leaning_data_collection_setup.PNG' width="190"></a> 
             </td>
             <td style="padding:20px;width:75%;vertical-align:middle">
               <a href="https://ieeexplore.ieee.org/document/9035020">
@@ -684,6 +692,7 @@ html.two-col-on .topnav{width:min(1050px, calc(100% - 48px))}
               <p>Letting NeRF reason about occluders and appearance variation produces photorealistic view synthesis using only unstructured internet photos.</p>
             </td>
           </tr> 
+-->
 
           <tr onmouseout="ff_stop()" onmouseover="ff_start()">
             <td style="padding:20px;width:25%;vertical-align:middle">
@@ -1488,7 +1497,7 @@ html.two-col-on .topnav{width:min(1050px, calc(100% - 48px))}
      The news and photo are still edited in their usual places above; this script only moves them into the sidebar. -->
 <style>
   .two-col{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:40px;align-items:start;padding-right:20px} /* same 20px inset as the left-hand text */
-  .two-col > .side{position:sticky;top:18px;padding-top:24px}
+  .two-col > .side{position:sticky;top:66px;padding-top:24px}
   .side .side-photo img{height:auto;border-radius:10px;display:block}
   .side .side-title{margin:22px 0 10px}
   .side .news-scroll{height:420px;margin:0;padding-right:8px}
