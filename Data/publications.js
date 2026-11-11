@@ -73,7 +73,8 @@ window.PUBLICATIONS = [
     links: [["PDF", "https://aclanthology.org/2025.acl-long.1008.pdf"],
             ["arXiv", "https://arxiv.org/abs/2411.13451"],
             ["Slides", "https://drive.google.com/file/d/1L2pzL8NAhrTUBbg5zYlfTGuz7kQFw2zc/view?usp=sharing"],
-            ["Poster", "https://drive.google.com/file/d/1_CX9dIgDlwESJ-L2ngJ0Mf13_AUeDRZH/view?usp=sharing"]],
+            ["Poster", "https://drive.google.com/file/d/1_CX9dIgDlwESJ-L2ngJ0Mf13_AUeDRZH/view?usp=sharing"],
+            ["Video", "https://underline.io/lecture/121382-adaptagent-adapting-multimodal-web-agents-with-few-shot-learning-from-human-demonstrations"]],
     media: [{ t: "Ep5: Multimodal AI Agents: Benchmarking, Adapting, and Adversarial attacks",
               s: [["Agents of Tomorrow Podcast", "https://podcasts.apple.com/ca/podcast/ep5-multimodal-ai-agents-benchmarking-adapting-and/id1776144369?i=1000678161711"]] }]
   },
