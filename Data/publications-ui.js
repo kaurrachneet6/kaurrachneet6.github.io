@@ -107,12 +107,7 @@ function renderSelected(el) {
     var list = window.PUBLICATIONS.filter(function (p) { return p.selected; });
     var figs = el.getAttribute("data-figures") !== "off";   /* data-figures="off" hides the figures */
     el.classList.toggle("pubs-nofig", !figs);
-    /* representative work (featured: true) goes first, in one panel under a single label */
-    var rep = list.filter(function (p) { return p.featured; });
-    var rest = list.filter(function (p) { return !p.featured; });
-    var html = function (ps) { return ps.map(function (p) { return paper(p, figs); }).join(""); };
-    el.innerHTML = (rep.length ? '<div class="pubs-rep"><div class="pubs-rep-head">&#9733; Representative work</div>' + html(rep) + '</div>' : '') +
-                   html(rest);
+    el.innerHTML = list.map(function (p) { return paper(p, figs); }).join("");
     wireMedia(el);
     wireLightbox(el);
     var n = document.querySelectorAll("[data-pubs-count]");

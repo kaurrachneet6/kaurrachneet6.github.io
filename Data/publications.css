@@ -79,12 +79,12 @@ html.pub-lightbox-on{overflow:hidden}
 .pub-fig{cursor:zoom-in}
 @keyframes pub-fade{from{opacity:0}to{opacity:1}}
 
-/* representative work (violet, to stand apart from the site's blue links)
-   homepage: one panel with a single label; full list: a soft tint on each */
-.pubs-rep{background:#f8f5fc;border:1px solid #e6dcf2;border-left:4px solid #6b46a8;border-radius:10px;padding:12px 18px 4px 16px;margin:4px 0 14px}
-.pubs-rep-head{font-size:13px;font-weight:700;color:#6b46a8;letter-spacing:.02em;text-transform:uppercase;margin-bottom:2px}
-.pubs-rep .pub{border-top-color:#e9e1f3}
-.pubs-rep-head + .pub{border-top:0;padding-top:10px}
-.pubs-rep + .pub{border-top:0}
-.pubs-full .pub.pub-featured{background:#f8f5fc;border:1px solid #e6dcf2;border-left:3px solid #6b46a8;border-radius:8px;padding:14px 16px 14px 14px;margin:6px 0}
-.pubs-full .pub.pub-featured + .pub{border-top:0}
+/* representative work (featured: true): a violet box on each such paper, explained once by
+   the "Representative work" key next to the "Full list on ..." line */
+.pub.pub-featured{background:#f8f5fc;border:1px solid #e6dcf2;border-left:3px solid #6b46a8;border-radius:8px;
+  padding:9px 14px 10px 12px;margin:10px 0}
+.pub.pub-featured + .pub{border-top:0}
+.pubs-sub-row{display:flex;justify-content:space-between;align-items:baseline;gap:6px 16px;flex-wrap:wrap;margin:2px 0 6px}
+.pubs-sub-row .pubs-sub{margin:0}
+.pubs-key{font-size:13px;font-weight:600;color:#6b46a8;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.pubs-key i{display:inline-block;width:14px;height:11px;background:#f8f5fc;border:1px solid #e6dcf2;border-left:3px solid #6b46a8;border-radius:2px}
