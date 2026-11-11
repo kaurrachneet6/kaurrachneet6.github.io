@@ -169,7 +169,8 @@ window.PUBLICATIONS = [
                   ["Medium, Part 2", "https://medium.com/correll-lab/spectrograms-vision-transformers-for-time-series-forecasting-part-2-828733259da0"]] }]
   },
   {
-    year: 2023, type: "journal", tag: "IEEE-TBME 2023",
+    year: 2023, type: "journal", tag: "IEEE-TBME 2023", selected: true,
+    img: "Images/pubs/thumbs/msstride.png", fig: "Images/pubs/msstride.png",
     title: "Deep Learning for Multiple Sclerosis Differentiation Using Multi-Stride Dynamics in Gait",
     authors: "Rachneet Kaur, Joshua Levy, Robert W Motl, Richard Sowers, Manuel E Hernandez",
     venue: "IEEE Transactions on Biomedical Engineering",
@@ -183,7 +184,7 @@ window.PUBLICATIONS = [
     title: "A Vision-Based Framework for Predicting Multiple Sclerosis and Parkinson's Disease Gait Dysfunctions — A Deep Learning Approach",
     authors: "Rachneet Kaur, Robert W Motl, Richard Sowers, Manuel E Hernandez",
     venue: "IEEE Journal of Biomedical and Health Informatics",
-    badges: ["Top 50 IEEE-JBHI article", "NeurIPS 2021 WiML Workshop"],
+    badges: ["Top 50 IEEE-JBHI article", "NeurIPS 2021 Workshop"],
     notes: ["Also presented at NeurIPS Women in Machine Learning (WiML) Workshop, 2021"],
     links: [["PDF", "https://ieeexplore.ieee.org/abstract/document/9896159"],
             ["Code", "https://github.com/kaurrachneet6/Vision-Based-Gait-Analysis-Framework-for-Predicting-Multiple-Sclerosis"],
