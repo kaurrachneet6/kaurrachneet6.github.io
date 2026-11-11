@@ -259,6 +259,7 @@ window.PUBLICATIONS = [
     authors: "Anant Dadu, Vipul Satone, Rachneet Kaur, Sayed Hadi Hashemi, Hampton Leonard, Hirotaka Iwaki, Mary B Makarious, Kimberley J Billingsley, Sara Bandres-Ciga, Lana J Sargent, Alastair J Noyce, Ali Daneshmand, Cornelis Blauwendraat, Ken Marek, Sonja W Scholz, Andrew B Singleton, Mike A Nalls, Roy H Campbell, Faraz Faghri",
     venue: "Nature Publishing Group",
     links: [["PDF", "https://www.nature.com/articles/s41531-022-00439-z"],
+            ["bioRxiv", "https://www.biorxiv.org/content/10.1101/2022.08.04.502846v1"],
             ["Code", "https://github.com/anant-dadu/PDProgressionSubtypes"],
             ["Dashboard", "https://pdprogressionsubtypes.streamlit.app/"]],
     media: [{ t: "Machine Learning Models Help Identify Subtypes of Parkinson Disease",
