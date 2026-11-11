@@ -9,6 +9,7 @@
      tag      : the short venue label shown in the chip, e.g. "ACL 2026"
      venue    : the full venue name without acronym or year; the tag is added in brackets automatically
      selected : true  -> also shown on the homepage (keep ~10)
+     featured : true highlights it as representative work (homepage and full list)
      img      : small 16:10 thumbnail for the homepage (Images/pubs/thumbs/, 480x300)
      fig      : the full-size figure that opens when the thumbnail is clicked
      badges   : short highlights shown in gold, e.g. "Oral" or "NeurIPS 2024 Workshop"
@@ -21,7 +22,7 @@ window.PUBLICATIONS = [
 
   /* ---------------- 2026 ---------------- */
   {
-    year: 2026, type: "conference", tag: "ACL 2026", selected: true,
+    year: 2026, type: "conference", tag: "ACL 2026", selected: true, featured: true,
     img: "Images/pubs/thumbs/chartagent.png", fig: "Images/pubs/chartagent.png",
     title: "ChartAgent: A Multimodal Agent for Visually Grounded Reasoning in Complex Chart Question Answering",
     authors: "Rachneet Kaur, Nishan Srishankar, Zhen Zeng, Sumitra Ganesh",
@@ -34,7 +35,7 @@ window.PUBLICATIONS = [
             ["Poster", "https://drive.google.com/file/d/1zMNfstQ8HJazS4ooTWrSETKRjksJAC3Y/view?usp=sharing"]]
   },
   {
-    year: 2026, type: "conference", tag: "ACL 2026", selected: true,
+    year: 2026, type: "conference", tag: "ACL 2026", selected: true, featured: true,
     img: "Images/pubs/thumbs/slideagent.png", fig: "Images/pubs/slideagent.png",
     title: "SlideAgent: Hierarchical Agentic Framework for Multi-Page Visual Document Understanding",
     authors: "Yiqiao Jin, Rachneet Kaur, Zhen Zeng, Sumitra Ganesh, Srijan Kumar",
@@ -65,7 +66,7 @@ window.PUBLICATIONS = [
 
   /* ---------------- 2025 ---------------- */
   {
-    year: 2025, type: "conference", tag: "ACL 2025", selected: true,
+    year: 2025, type: "conference", tag: "ACL 2025", selected: true, featured: true,
     img: "Images/pubs/thumbs/adaptagent.png", fig: "Images/pubs/adaptagent.png",
     title: "AdaptAgent: Adapting Multimodal Web Agents with Few-Shot Learning from Human Demonstrations",
     authors: "Gaurav Verma, Rachneet Kaur, Nishan Srishankar, Zhen Zeng, Tucker Balch, Manuela Veloso",
@@ -293,6 +294,7 @@ window.PUBLICATIONS = [
   },
   {
     year: 2021, type: "journal", tag: "IEEE-TBME 2021", selected: true,
+    badges: ["Grace Hopper 2020", "IEEE NER 2019"],
     img: "Images/pubs/thumbs/tbme.png", fig: "projects/images/tbme_figure.PNG",
     title: "Predicting Multiple Sclerosis From Gait Dynamics Using an Instrumented Treadmill: A Machine Learning Approach",
     authors: "Rachneet Kaur, Zizhang Chen, Robert Motl, Manuel E Hernandez, Richard Sowers",

@@ -26,13 +26,14 @@
     var links = p.links || [];
     var main = links.length ? links[0][1] : null;
     var id = "pub-media-" + (++uid);
-    var h = '<div class="pub" data-type="' + esc(p.type) + '">';
+    var h = '<div class="pub' + (p.featured ? ' pub-featured' : '') + '" data-type="' + esc(p.type) + '">';
     if (withFig) {
       h += '<a class="pub-fig" href="' + esc(p.fig || p.img || main || "#") + '" data-title="' + esc(p.title) + '" target="_blank" rel="noopener" aria-label="View figure">' +
            (p.img ? '<img src="' + esc(p.img) + '" alt="" loading="lazy">' : '') + '</a>';
     }
     h += '<div class="pub-body">';
-    h += '<div class="pub-chips"><span class="pub-tag">' + esc(p.tag) + '</span>' +
+    h += '<div class="pub-chips">' + (p.featured ? '<span class="pub-rep">&#9733; Representative work</span>' : '') +
+         '<span class="pub-tag">' + esc(p.tag) + '</span>' +
          (p.badges || []).map(function (b) { return '<span class="pub-badge">' + esc(b) + '</span>'; }).join("") + '</div>';
     h += main ? link(main, esc(p.title), "pub-title") : '<span class="pub-title">' + esc(p.title) + '</span>';
     h += '<div class="pub-authors">' + authors(p.authors) + '</div>';
