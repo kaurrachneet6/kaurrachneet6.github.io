@@ -13,10 +13,10 @@
 .pub:first-child{border-top:0}
 .pub-title{display:block;font-size:15.5px;font-weight:600;line-height:1.35;color:#1a1a2e;text-decoration:none;margin:5px 0 3px}
 a.pub-title:hover{color:#1772d0}
-.pub-authors{font-size:13.5px;line-height:1.45;color:#555}
+.pub-authors{font-size:14px;line-height:1.45;color:#555}
 .pub-authors b{color:#1a1a2e;font-weight:700}
-.pub-venue{font-size:13px;line-height:1.45;color:#777;font-style:italic;margin-top:1px}
-.pub-note{font-size:13px;line-height:1.45;color:#888;margin-top:2px}
+.pub-venue{font-size:13.5px;line-height:1.45;color:#777;font-style:italic;margin-top:1px}
+.pub-note{font-size:13.5px;line-height:1.45;color:#888;margin-top:2px}
 
 /* chips: venue (blue, like the Updates dates) and highlights (gold) */
 .pub-chips{display:flex;flex-wrap:wrap;gap:5px;align-items:center}
