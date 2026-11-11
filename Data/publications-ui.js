@@ -14,7 +14,7 @@
   function isExternal(u) { return /^https?:/.test(u); }
   function link(u, text, cls) {
     return '<a' + (cls ? ' class="' + cls + '"' : '') + ' href="' + esc(u) + '"' +
-           (isExternal(u) ? ' target="_blank" rel="noopener"' : '') + '>' + text + '</a>';
+           ' target="_blank"' + (isExternal(u) ? ' rel="noopener"' : '') + '>' + text + '</a>';   /* every paper link opens in a new tab */
   }
   function authors(s) { return esc(s).split(esc(ME)).join("<b>" + esc(ME) + "</b>"); }
   function mediaCount(p) {
