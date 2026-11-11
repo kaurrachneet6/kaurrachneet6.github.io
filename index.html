@@ -116,6 +116,7 @@ html{scroll-behavior:smooth}
 <nav class="topnav">
   <a href="#about_me">About Me</a>
   <a href="#publications">Publications</a>
+  <a href="#awards">Awards</a>
   <a href="#posters_and_talks">Posters and Talks</a>
   <!-- <a href="#projects">Projects</a> -->
 <a href="#service">Service</a>
@@ -345,6 +346,43 @@ html{scroll-behavior:smooth}
 <div class="pubs pubs-selected" data-pubs="selected" data-figures="on"></div> <!-- data-figures="off" hides the figures -->
 <script src="Data/publications.js?v=21"></script>
 <script src="Data/publications-ui.js?v=9"></script>
+
+<!-- ===== Awards and Honors (draft from the CV) =====
+     One <li> per award: year, name (linked when there is a page), optional grey note. Newest first. -->
+<style>
+  .aw-list{list-style:none;margin:6px 20px 10px;padding:0}
+  .aw-list li{display:grid;grid-template-columns:70px minmax(0,1fr);column-gap:14px;padding:7px 0;border-top:1px solid #f0f0f2}
+  .aw-list li:first-child{border-top:0}
+  .aw-year{font-size:13px;font-weight:600;color:#6b6b7b;white-space:nowrap;padding-top:1px}
+  .aw-name,.aw-name a{font-size:14.5px;line-height:1.4;color:#1a1a2e}
+  .aw-name a{color:#1772d0}
+  .aw-note,.aw-note a{font-size:13px;line-height:1.4;color:#888}
+  .aw-note a{color:#1772d0}
+</style>
+<table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;" id="awards"><tbody>
+<tr><td style="padding:20px 20px 0;width:100%;vertical-align:middle"><br>
+  <heading>Awards and Honors</heading>
+</td></tr>
+</tbody></table>
+<ul class="aw-list">
+    <li><span class="aw-year">2025</span><div><div class="aw-name">JPMorgan Chase &amp; Co. Prolific Inventor, Class of 2025</div><div class="aw-note">For innovative contributions and a high number of patent applications</div></div></li>
+    <li><span class="aw-year">2023</span><div><div class="aw-name">Best Presentation Award, JPMorgan Chase &amp; Co. AI Summit</div><div class="aw-note">For <i>From Pixels to Predictions</i> (ICAIF 2023)</div></div></li>
+    <li><span class="aw-year">2023</span><div><div class="aw-name"><a href="https://ieeexplore.ieee.org/xpl/topAccessedArticles.jsp?punumber=6221020&amp;topArticlesDate=January%202023" target="_blank" rel="noopener">Top 50 most popular IEEE-JBHI articles</a></div><div class="aw-note">For the vision-based gait framework for MS and PD</div></div></li>
+    <li><span class="aw-year">2021</span><div><div class="aw-name"><a href="https://ise.illinois.edu/newsroom/2021-grad-awards" target="_blank" rel="noopener">Sharp Outstanding Graduate Student Award, UIUC ISE</a></div><div class="aw-note">One student a year in Industrial &amp; Enterprise Systems Engineering; <a href="https://youtu.be/MVa2HqaPe1c?si=kgFpWZjmcJaD3TfS" target="_blank" rel="noopener">video</a></div></div></li>
+    <li><span class="aw-year">2018&ndash;21</span><div><div class="aw-name"><a href="https://ise.illinois.edu/graduate/financial-support/william-a-chittenden-ii-award" target="_blank" rel="noopener">William A. Chittenden II Graduate Fellowship, UIUC ISE</a></div><div class="aw-note">Awarded three consecutive years ($15,000 each)</div></div></li>
+    <li><span class="aw-year">2018, 20</span><div><div class="aw-name"><a href="https://ghc.anitab.org/" target="_blank" rel="noopener">ACM Invitation &amp; Travel Award, Grace Hopper Celebration</a></div><div class="aw-note">About 20 students selected from all GHC poster applicants</div></div></li>
+    <li><span class="aw-year">2019</span><div><div class="aw-name"><a href="https://humanoids2019.loria.fr/index.html%3Fp=338.html" target="_blank" rel="noopener">Kanako Miura Award, IEEE RAS Technical Committee on Humanoid Robotics</a></div><div class="aw-note">Travel award honoring five women researchers in humanoid robotics</div></div></li>
+    <li><span class="aw-year">2019</span><div><div class="aw-name">Graduate College Fellowship, UIUC ISE</div></div></li>
+    <li><span class="aw-year">2018</span><div><div class="aw-name"><a href="https://uofi.app.box.com/s/otervk5n35lw317mdw2rqh9novcwkt0w" target="_blank" rel="noopener">Illinois Geometry Lab Research Award, UIUC Mathematics</a></div><div class="aw-note">One research team a year; graduate lead mentoring 13 undergraduates</div></div></li>
+    <li><span class="aw-year">2018</span><div><div class="aw-name">1st Runner-up, Graduate Student Poster Competition, UIUC ISE</div></div></li>
+    <li><span class="aw-year">2017</span><div><div class="aw-name"><a href="https://ise.illinois.edu/mottier" target="_blank" rel="noopener">1st Runner-up, Mottier Innovation Challenge in Systems Engineering, UIUC</a></div><div class="aw-note">Graduate lead of the team, mentoring 2 undergraduates</div></div></li>
+    <li><span class="aw-year">2016</span><div><div class="aw-name"><a href="https://www.worldquant.com/brain/" target="_blank" rel="noopener">Top 10 (Gold Level), WorldQuant Summer Challenge on Algorithmic Trading</a></div></div></li>
+    <li><span class="aw-year">2015</span><div><div class="aw-name"><a href="https://www.inde.campusfrance.org/france-excellence-charpak-summer-training-scholarship" target="_blank" rel="noopener">Charpak Research Intern Scholarship, French Embassy in India</a></div><div class="aw-note">Awarded to 30 students across India for research at a French lab</div></div></li>
+    <li><span class="aw-year">2015</span><div><div class="aw-name">All India Rank 218, IIT GATE Mathematics, and GATE PhD Scholarship</div></div></li>
+    <li><span class="aw-year">2013</span><div><div class="aw-name">All India Rank 40 (Mathematics) and 39 (Statistics), IIT JAM</div></div></li>
+    <li><span class="aw-year">2012</span><div><div class="aw-name"><a href="https://www.hindustantimes.com/delhi/du-celebrates-maths-genius-ramanujan-s-125th-birthday/story-gJU5NN2hbdPN891T1BtBfN.html" target="_blank" rel="noopener">Winner, Legacy of Srinivasa Ramanujan Coding Competition, University of Delhi</a></div><div class="aw-note">Sponsored trip to London, Oxford and Cambridge; <a href="https://dubeat.com/2013/07/11/du-mathematics-students-visit-kings-college-and-newton-institute-uk/" target="_blank" rel="noopener">DU Beat</a></div></div></li>
+    <li><span class="aw-year">2010&ndash;13</span><div><div class="aw-name">Academic Excellence Awards, Ramjas College &amp; University of Delhi</div><div class="aw-note">1st at Ramjas College; 3rd in the University of Delhi among 64 colleges</div></div></li>
+</ul>
 
 <!-- ===== OLD publication sections below (Journal Publications, Conference Proceedings, Book Chapters) =====
      Kept for now; remove them (but keep Patents, which sits between them) once the new section is approved. -->
