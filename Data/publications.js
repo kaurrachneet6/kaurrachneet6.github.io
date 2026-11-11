@@ -202,7 +202,8 @@ window.PUBLICATIONS = [
               s: [["Medilogy", "https://www.medilogy.it/html/news/video-e-ai-per-la-diagnosi-di-malattie-neurologiche.asp"]] }]
   },
   {
-    year: 2023, type: "journal", tag: "Patterns 2023",
+    year: 2023, type: "journal", tag: "Patterns 2023", selected: true,
+    img: "Images/pubs/thumbs/alignedumap.png", fig: "Images/pubs/alignedumap.png",
     title: "Application of Aligned-UMAP to longitudinal biomedical studies",
     authors: "Anant Dadu, Vipul K Satone, Rachneet Kaur, Mathew J Koretsky, Hirotaka Iwaki, Yue A Qi, Daniel M Ramos, Brian Avants, Jacob Hesterman, Roger Gunn, Mark R Cookson, Michael E Ward, Andrew B Singleton, Roy H Campbell, Mike A Nalls, Faraz Faghri",
     venue: "Cell Press",
