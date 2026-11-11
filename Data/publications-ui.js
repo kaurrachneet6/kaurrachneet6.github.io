@@ -32,8 +32,7 @@
            (p.img ? '<img src="' + esc(p.img) + '" alt="" loading="lazy">' : '') + '</a>';
     }
     h += '<div class="pub-body">';
-    h += '<div class="pub-chips">' + (p.featured ? '<span class="pub-rep">&#9733; Representative work</span>' : '') +
-         '<span class="pub-tag">' + esc(p.tag) + '</span>' +
+    h += '<div class="pub-chips"><span class="pub-tag">' + esc(p.tag) + '</span>' +
          (p.badges || []).map(function (b) { return '<span class="pub-badge">' + esc(b) + '</span>'; }).join("") + '</div>';
     h += main ? link(main, esc(p.title), "pub-title") : '<span class="pub-title">' + esc(p.title) + '</span>';
     h += '<div class="pub-authors">' + authors(p.authors) + '</div>';
@@ -108,7 +107,12 @@ function renderSelected(el) {
     var list = window.PUBLICATIONS.filter(function (p) { return p.selected; });
     var figs = el.getAttribute("data-figures") !== "off";   /* data-figures="off" hides the figures */
     el.classList.toggle("pubs-nofig", !figs);
-    el.innerHTML = list.map(function (p) { return paper(p, figs); }).join("");
+    /* representative work (featured: true) goes first, in one panel under a single label */
+    var rep = list.filter(function (p) { return p.featured; });
+    var rest = list.filter(function (p) { return !p.featured; });
+    var html = function (ps) { return ps.map(function (p) { return paper(p, figs); }).join(""); };
+    el.innerHTML = (rep.length ? '<div class="pubs-rep"><div class="pubs-rep-head">&#9733; Representative work</div>' + html(rep) + '</div>' : '') +
+                   html(rest);
     wireMedia(el);
     wireLightbox(el);
     var n = document.querySelectorAll("[data-pubs-count]");
