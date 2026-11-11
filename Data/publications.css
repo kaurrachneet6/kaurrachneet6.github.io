@@ -20,8 +20,8 @@ a.pub-title:hover{color:#1772d0}
 
 /* chips: venue (blue, like the Updates dates) and highlights (gold) */
 .pub-chips{display:flex;flex-wrap:wrap;gap:5px;align-items:center}
-.pub-tag{font-size:10.5px;font-weight:600;color:#1772d0;background:#eef4fb;border-radius:3px;padding:1px 6px;line-height:1.6;white-space:nowrap}
-.pub-badge{font-size:10.5px;font-weight:600;color:#8a5a00;background:#fbf1dc;border-radius:3px;padding:1px 6px;line-height:1.6;white-space:nowrap}
+.pub-tag{font-size:11.5px;font-weight:600;color:#1772d0;background:#eef4fb;border-radius:3px;padding:1px 7px;line-height:1.6;white-space:nowrap}
+.pub-badge{font-size:11.5px;font-weight:600;color:#8a5a00;background:#fbf1dc;border-radius:3px;padding:1px 7px;line-height:1.6;white-space:nowrap}
 
 /* link buttons */
 .pub-links{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}

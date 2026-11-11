@@ -177,7 +177,7 @@ window.PUBLICATIONS = [
     title: "A Vision-Based Framework for Predicting Multiple Sclerosis and Parkinson's Disease Gait Dysfunctions — A Deep Learning Approach",
     authors: "Rachneet Kaur, Robert W Motl, Richard Sowers, Manuel E Hernandez",
     venue: "IEEE Journal of Biomedical and Health Informatics",
-    badges: ["Top 50 most popular IEEE-JBHI articles", "NeurIPS 2021 WiML Workshop"],
+    badges: ["Top 50 IEEE-JBHI article", "NeurIPS 2021 WiML Workshop"],
     notes: ["Also presented at NeurIPS Women in Machine Learning (WiML) Workshop, 2021"],
     links: [["PDF", "https://ieeexplore.ieee.org/abstract/document/9896159"],
             ["Code", "https://github.com/kaurrachneet6/Vision-Based-Gait-Analysis-Framework-for-Predicting-Multiple-Sclerosis"],
