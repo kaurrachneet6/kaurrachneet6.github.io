@@ -254,7 +254,7 @@ window.PUBLICATIONS = [
   /* ---------------- 2022 ---------------- */
   {
     year: 2022, type: "journal", tag: "npj Parkinson's Disease 2022", selected: true,
-    img: "Images/pubs/thumbs/pdsubtypes.png", fig: "projects/images/AD_progression_space.png",
+    img: "Images/pubs/thumbs/pdsubtypes.png", fig: "Images/pubs/pdsubtypes.png",
     title: "Identification and prediction of Parkinson's disease subtypes and progression using machine learning in two cohorts",
     authors: "Anant Dadu, Vipul Satone, Rachneet Kaur, Sayed Hadi Hashemi, Hampton Leonard, Hirotaka Iwaki, Mary B Makarious, Kimberley J Billingsley, Sara Bandres-Ciga, Lana J Sargent, Alastair J Noyce, Ali Daneshmand, Cornelis Blauwendraat, Ken Marek, Sonja W Scholz, Andrew B Singleton, Mike A Nalls, Roy H Campbell, Faraz Faghri",
     venue: "Nature Publishing Group",
