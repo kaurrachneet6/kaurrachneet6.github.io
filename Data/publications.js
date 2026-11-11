@@ -7,7 +7,7 @@
 
      type     : "conference" | "journal" | "workshop" | "preprint" | "chapter" | "thesis"
      tag      : the short venue label shown in the chip, e.g. "ACL 2026"
-     venue    : the full venue name; acronym and year are in the chip, so leave them out
+     venue    : the full venue name without acronym or year; the tag is added in brackets automatically
      selected : true  -> also shown on the homepage (keep ~10)
      img      : small 16:10 thumbnail for the homepage (Images/pubs/thumbs/, 480x300)
      fig      : the full-size figure that opens when the thumbnail is clicked
@@ -111,7 +111,7 @@ window.PUBLICATIONS = [
     img: "Images/pubs/thumbs/tsfeatures.png", fig: "Images/pubs/tsfeatures.png",
     title: "Evaluating Large Language Models on Time Series Feature Understanding: A Comprehensive Taxonomy and Benchmark",
     authors: "Elizabeth Fons, Rachneet Kaur, Soham Palande, Zhen Zeng, Tucker Balch, Manuela Veloso, Svitlana Vyetrenko",
-    venue: "Conference on Empirical Methods in Natural Language Processing",
+    venue: "Empirical Methods in Natural Language Processing",
     badges: ["ICML 2024 Workshop"],
     notes: ["Also presented at ICML Workshop on Data-centric Machine Learning Research (DMLR): Datasets for Foundation Models, 2024"],
     links: [["PDF", "https://aclanthology.org/2024.emnlp-main.1204.pdf"],
@@ -135,7 +135,7 @@ window.PUBLICATIONS = [
     year: 2024, type: "journal", tag: "Sensors 2024",
     title: "Tai Chi Expertise Classification in Older Adults Using Wrist Wearables and Machine Learning",
     authors: "Yang Hu, Mengyue Huang, Jonathan Cerna, Rachneet Kaur, Manuel E Hernandez",
-    venue: "MDPI Sensors",
+    venue: "MDPI",
     links: [["PDF", "https://www.mdpi.com/1424-8220/24/15/4955"]]
   },
   {
@@ -202,7 +202,7 @@ window.PUBLICATIONS = [
     year: 2023, type: "journal", tag: "Patterns 2023",
     title: "Application of Aligned-UMAP to longitudinal biomedical studies",
     authors: "Anant Dadu, Vipul K Satone, Rachneet Kaur, Mathew J Koretsky, Hirotaka Iwaki, Yue A Qi, Daniel M Ramos, Brian Avants, Jacob Hesterman, Roger Gunn, Mark R Cookson, Michael E Ward, Andrew B Singleton, Roy H Campbell, Mike A Nalls, Faraz Faghri",
-    venue: "Cell Press Patterns",
+    venue: "Cell Press",
     links: [["PDF", "https://www.cell.com/patterns/fulltext/S2666-3899(23)00081-8"],
             ["Code", "https://github.com/NIH-CARD/AlignedUMAP-BiomedicalData"],
             ["Dashboard", "https://alignedumap-biomedicaldata.streamlit.app/"]],
@@ -213,7 +213,7 @@ window.PUBLICATIONS = [
     year: 2023, type: "journal", tag: "Sensors 2023",
     title: "A Deep Learning Approach for Automatic and Objective Grading of the Motor Impairment Severity in Parkinson's Disease for Use in Tele-Assessments",
     authors: "Mehar Singh, Prithvi Prakash, Rachneet Kaur, Richard Sowers, James Robert Brašić, Manuel Enrique Hernandez",
-    venue: "MDPI Sensors",
+    venue: "MDPI",
     links: [["PDF", "https://www.mdpi.com/1424-8220/23/21/9004"]],
     media: [{ t: "Wearable sensors for Parkinson's can improve with machine learning, data from healthy adults",
               s: [["Illinois News Bureau", "https://news.illinois.edu/view/6367/1109984968"],
@@ -246,7 +246,7 @@ window.PUBLICATIONS = [
     img: "Images/pubs/thumbs/pdsubtypes.png", fig: "Images/pubs/pdsubtypes.png",
     title: "Identification and prediction of Parkinson's disease subtypes and progression using machine learning in two cohorts",
     authors: "Anant Dadu, Vipul Satone, Rachneet Kaur, Sayed Hadi Hashemi, Hampton Leonard, Hirotaka Iwaki, Mary B Makarious, Kimberley J Billingsley, Sara Bandres-Ciga, Lana J Sargent, Alastair J Noyce, Ali Daneshmand, Cornelis Blauwendraat, Ken Marek, Sonja W Scholz, Andrew B Singleton, Mike A Nalls, Roy H Campbell, Faraz Faghri",
-    venue: "npj Parkinson's Disease, Nature Publishing Group",
+    venue: "Nature Publishing Group",
     links: [["PDF", "https://www.nature.com/articles/s41531-022-00439-z"],
             ["Code", "https://github.com/anant-dadu/PDProgressionSubtypes"],
             ["Dashboard", "https://pdprogressionsubtypes.streamlit.app/"]],
@@ -272,7 +272,7 @@ window.PUBLICATIONS = [
     img: "projects/graphical_abstract.png",
     title: "Machine learning and price-based load scheduling for an optimal IoT control in the smart and frugal home",
     authors: "Rachneet Kaur, Clara Schaye, Kevin Thompson, Daniel C Yee, Rachel Zilz, RS Sreenivas, Richard B Sowers",
-    venue: "Elsevier Energy and AI",
+    venue: "Elsevier",
     badges: ["1st Runner-Up, Mottier Innovation Challenge"],
     notes: ["Also presented at INFORMS Annual Meeting, 2018 (Oral)"],
     links: [["PDF", "https://www.sciencedirect.com/science/article/pii/S2666546820300422"],

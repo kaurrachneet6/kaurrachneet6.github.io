@@ -15,7 +15,7 @@
 a.pub-title:hover{color:#1772d0}
 .pub-authors{font-size:13.5px;line-height:1.45;color:#555}
 .pub-authors b{color:#1a1a2e;font-weight:700}
-.pub-venue{font-size:13px;line-height:1.45;color:#777;font-style:italic;margin-top:1px}
+.pub-venue{font-size:12.5px;line-height:1.45;color:#777;font-style:italic;margin-top:1px}
 .pub-note{font-size:12.5px;line-height:1.45;color:#888;margin-top:2px}
 
 /* chips: venue (blue, like the Updates dates) and highlights (gold) */
@@ -43,8 +43,8 @@ a.pub-title:hover{color:#1772d0}
 
 /* homepage: figure on the left, text on the right */
 /* thumbnails are pre-cropped to 16:10, so every card is the same size */
-.pubs-selected .pub{display:grid;grid-template-columns:200px minmax(0,1fr);column-gap:22px;align-items:start}
-.pub-fig{display:block;width:200px;aspect-ratio:16/10;margin-top:3px;background:#fff;border:1px solid #e6e8ee;border-radius:8px;overflow:hidden;
+.pubs-selected .pub{display:grid;grid-template-columns:180px minmax(0,1fr);column-gap:20px;align-items:start}
+.pub-fig{display:block;width:180px;aspect-ratio:16/10;margin-top:3px;background:#fff;border:1px solid #e6e8ee;border-radius:8px;overflow:hidden;
   box-shadow:0 1px 2px rgba(20,30,60,.06),0 4px 12px rgba(20,30,60,.06);transition:box-shadow .2s,transform .2s,border-color .2s}
 .pub-fig img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .3s}
 .pub-fig:hover{border-color:#c9daef;transform:translateY(-1px);box-shadow:0 2px 4px rgba(20,30,60,.08),0 10px 22px rgba(20,30,60,.10)}

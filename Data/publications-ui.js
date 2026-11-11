@@ -36,7 +36,8 @@
          (p.badges || []).map(function (b) { return '<span class="pub-badge">' + esc(b) + '</span>'; }).join("") + '</div>';
     h += main ? link(main, esc(p.title), "pub-title") : '<span class="pub-title">' + esc(p.title) + '</span>';
     h += '<div class="pub-authors">' + authors(p.authors) + '</div>';
-    h += '<div class="pub-venue">' + esc(p.venue) + '</div>';
+    var withTag = /^(conference|journal|workshop)$/.test(p.type);   /* e.g. "Annual Meeting of ... (ACL 2026)" */
+    h += '<div class="pub-venue">' + esc(p.venue) + (withTag ? ' (' + esc(p.tag) + ')' : '') + '</div>';
     (p.notes || []).forEach(function (n) { h += '<div class="pub-note">' + esc(n) + '</div>'; });
     var btns = links.map(function (l) { return link(l[1], esc(l[0])); });
     var mc = mediaCount(p);
