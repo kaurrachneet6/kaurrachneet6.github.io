@@ -89,7 +89,8 @@ window.PUBLICATIONS = [
     links: [["PDF", "https://aclanthology.org/2025.acl-long.1557.pdf"],
             ["arXiv", "https://arxiv.org/abs/2407.06533"],
             ["Slides", "https://drive.google.com/file/d/1Vi_fJ81NxMtiUtVKslsmzLrRHQdbulDJ/view?usp=sharing"],
-            ["Poster", "https://drive.google.com/file/d/1PUJFqz2a76b9Ryuq9aQfQReFaGggHXDu/view?usp=sharing"]]
+            ["Poster", "https://drive.google.com/file/d/1PUJFqz2a76b9Ryuq9aQfQReFaGggHXDu/view?usp=sharing"],
+            ["Video", "https://underline.io/lecture/123303-lets-c-leveraging-text-embedding-for-time-series-classification"]]
   },
   {
     year: 2025, type: "conference", tag: "COLING 2025 Industry",
@@ -118,7 +119,8 @@ window.PUBLICATIONS = [
     links: [["PDF", "https://aclanthology.org/2024.emnlp-main.1204.pdf"],
             ["arXiv", "https://arxiv.org/abs/2404.16563"],
             ["Slides", "https://drive.google.com/file/d/1qQSvOom7xjhzk38tSuje3DnRLYKOWvw5/view?usp=sharing"],
-            ["Poster", "https://drive.google.com/file/d/1xG2PWuTHwKz5xKS6IIxi6eZyCE_w0S0n/view?usp=sharing"]]
+            ["Poster", "https://drive.google.com/file/d/1xG2PWuTHwKz5xKS6IIxi6eZyCE_w0S0n/view?usp=sharing"],
+            ["Video", "https://underline.io/lecture/108161-evaluating-large-language-models-on-time-series-feature-understanding-a-comprehensive-taxonomy-and-benchmark"]]
   },
   {
     year: 2024, type: "conference", tag: "ICAIF 2024", selected: true,
