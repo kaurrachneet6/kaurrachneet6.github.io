@@ -53,7 +53,8 @@ window.PUBLICATIONS = [
     title: "MM-BizRAG: Rethinking Multimodal Retrieval-Augmented Generation for General Purpose Enterprise Q&A",
     authors: "Hanoz Bhathena, Parin Rajesh Jhaveri, Rohan Mittal, Prateek Singh, Aymen Kallala, Rachneet Kaur, Yiqiao Jin, Zhen Zeng, Adwait Ratnaparkhi, Denis Kochedykov",
     venue: "Annual Meeting of the Association for Computational Linguistics, Industry Track",
-    links: [["PDF", "https://aclanthology.org/2026.acl-industry.134.pdf"]]
+    links: [["PDF", "https://aclanthology.org/2026.acl-industry.134.pdf"],
+            ["arXiv", "https://arxiv.org/abs/2606.04231"]]
   },
   {
     year: 2026, type: "conference", tag: "LREC 2026", selected: true,
@@ -61,7 +62,8 @@ window.PUBLICATIONS = [
     title: "Systematic Multi-Aspect Evaluation of Time Series-Based Report Generation: The Case of Financial Analysis from Stock Data",
     authors: "Elizabeth Fons*, Elena Kochkina*, Rachneet Kaur, Zhen Zeng, Berowne Hlavaty, Charese Smiley, Svitlana Vyetrenko, Manuela Veloso",
     venue: "15th Language Resources and Evaluation Conference",
-    links: [["PDF", "http://www.lrec-conf.org/proceedings/lrec2026/pdf/2026.lrec2026-1.305.pdf"]]
+    links: [["PDF", "http://www.lrec-conf.org/proceedings/lrec2026/pdf/2026.lrec2026-1.305.pdf"],
+            ["arXiv", "https://arxiv.org/abs/2507.00718"]]
   },
 
   /* ---------------- 2025 ---------------- */

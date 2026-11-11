@@ -21,7 +21,116 @@
     return (p.media || []).reduce(function (n, m) { return n + m.s.length; }, 0);
   }
 
-  var uid = 0;
+/* ---------- citations (the "Cite" button) ----------
+   Papers with a hand-written .bib file (a "BibTeX" link) use it; the rest get BibTeX
+   generated from their entry. "Plain text" is a one-line reference. */
+var PUBLISHERS = /^(MDPI|Cell Press|Elsevier|Nature Publishing Group|IEEE|ACM|Springer)$/;
+var STOP = /^(a|an|the|on|of|for|in|to|from|and|using|with)$/i;
+function cleanAuthors(p) { return p.authors.replace(/\*/g, "").split(/\s*,\s*/); }
+function bibName(n) { var w = n.trim().split(/\s+/); return w.length < 2 ? n : w.pop() + ", " + w.join(" "); }
+function texEsc(t) { return String(t).replace(/\u2014/g, "---").replace(/\u2013/g, "--").replace(/([&%$#_])/g, "\\$1"); }
+function plainVenue(p) { return p.venue.replace(/\.\s*(Committee|Advisor):.*$/, ""); }
+function journalName(p) { return PUBLISHERS.test(p.venue) ? p.tag.replace(/\s*\d{4}$/, "") : p.venue; }
+function arxivId(p) {
+  var l = (p.links || []).filter(function (l) { return /arxiv\.org\/abs\//.test(l[1]); })[0];
+  return l ? l[1].split("/abs/")[1].replace(/v\d+$/, "") : null;
+}
+function bibKey(p) {
+  var last = cleanAuthors(p)[0].trim().split(/\s+/).pop().normalize("NFD").replace(/[^A-Za-z]/g, "").toLowerCase();
+  var word = (p.title.split(/[\s:\-\u2014]+/).filter(function (w) { return w && !STOP.test(w); })[0] || "paper");
+  return last + p.year + word.normalize("NFD").replace(/[^A-Za-z0-9]/g, "").toLowerCase();
+}
+function bibtex(p) {
+  var f = [["title", "{" + texEsc(p.title) + "}"], ["author", cleanAuthors(p).map(bibName).join(" and ")]];
+  var type = "misc", id = arxivId(p);
+  if (p.type === "conference" || p.type === "workshop") {
+    type = "inproceedings";
+    f.push(["booktitle", (p.type === "conference" && !/^Proceedings/.test(p.venue) ? "Proceedings of the " : "") + texEsc(p.venue)]);
+  } else if (p.type === "journal") {
+    type = "article";
+    f.push(["journal", texEsc(journalName(p))]);
+    if (PUBLISHERS.test(p.venue)) f.push(["publisher", texEsc(p.venue)]);
+  } else if (p.type === "chapter") {
+    type = "incollection";
+    f.push(["booktitle", texEsc(p.venue)]);
+  } else if (p.type === "thesis") {
+    type = /^PhD/.test(p.tag) ? "phdthesis" : "mastersthesis";
+    var m = p.venue.match(/,\s*([^,]+?),\s*[A-Z][a-z]{2,} \d{4}/);
+    if (m) f.push(["school", texEsc(m[1])]);
+  } else if (id) {
+    type = "article";
+    f.push(["journal", "arXiv preprint arXiv:" + id]);
+  }
+  f.push(["year", String(p.year)]);
+  var main = (p.links || [])[0];
+  if (main && isExternal(main[1])) f.push(["url", main[1]]);
+  return "@" + type + "{" + bibKey(p) + ",\n" +
+         f.map(function (x) { return "  " + x[0] + " = {" + x[1] + "}"; }).join(",\n") + "\n}";
+}
+function plainCite(p) {
+  var v = plainVenue(p), id = arxivId(p);
+  var where = /^(conference|journal|workshop)$/.test(p.type) ? v + " (" + p.tag + ")" :
+              p.type === "preprint" && id ? "arXiv:" + id + ", " + p.year : v;
+  return cleanAuthors(p).join(", ") + ". " + p.title.replace(/[.?!]?$/, ".") + " " + where + ".";
+}
+function bibFile(p) {
+  var l = (p.links || []).filter(function (l) { return l[0] === "BibTeX"; })[0];
+  return l ? l[1] : null;
+}
+function legacyCopy(t) {
+  var ta = document.createElement("textarea");
+  ta.value = t; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.opacity = "0";
+  document.body.appendChild(ta); ta.select();
+  var ok = false;
+  try { ok = document.execCommand("copy"); } catch (e) {} finally { document.body.removeChild(ta); }
+  return ok;
+}
+/* resolves true if the text reached the clipboard */
+function copyText(t) {
+  if (navigator.clipboard && window.isSecureContext) {
+    return navigator.clipboard.writeText(t).then(function () { return true; }, function () { return legacyCopy(t); });
+  }
+  return Promise.resolve(legacyCopy(t));
+}
+/* fill a cite panel the first time it opens */
+function fillCite(panel) {
+  if (panel.getAttribute("data-ready")) return;
+  panel.setAttribute("data-ready", "1");
+  var p = window.PUBLICATIONS[+panel.getAttribute("data-i")];
+  var texts = { bib: bibtex(p), txt: plainCite(p) };
+  panel.innerHTML =
+    '<div class="cite-bar"><div class="cite-tabs" role="tablist">' +
+    '<button type="button" role="tab" data-fmt="bib" aria-selected="true">BibTeX</button>' +
+    '<button type="button" role="tab" data-fmt="txt" aria-selected="false">Plain text</button></div>' +
+    '<button type="button" class="cite-copy">Copy</button></div><pre class="cite-text"></pre>';
+  var pre = panel.querySelector(".cite-text"), fmt = "bib";
+  function show() { pre.textContent = texts[fmt]; }
+  show();
+  var file = bibFile(p);
+  if (file) fetch(file).then(function (r) { return r.ok ? r.text() : null; }).then(function (t) {
+    if (t && /^\s*@/.test(t)) { texts.bib = t.trim(); show(); }
+  }).catch(function () {});
+  panel.addEventListener("click", function (e) {
+    var tab = e.target.closest("[data-fmt]");
+    if (tab) {
+      fmt = tab.getAttribute("data-fmt");
+      panel.querySelectorAll("[data-fmt]").forEach(function (b) { b.setAttribute("aria-selected", b === tab); });
+      show();
+    }
+    var c = e.target.closest(".cite-copy");
+    if (c) copyText(texts[fmt]).then(function (ok) {
+      if (!ok) {   /* clipboard blocked: select the text so Ctrl/Cmd+C works */
+        var r = document.createRange(); r.selectNodeContents(pre);
+        var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+      }
+      c.textContent = ok ? "Copied \u2713" : "Selected \u2014 press \u2318/Ctrl+C";
+      c.classList.add("done");
+      setTimeout(function () { c.textContent = "Copy"; c.classList.remove("done"); }, ok ? 1600 : 3000);
+    });
+  });
+}
+
+var uid = 0;
   function paper(p, withFig) {
     var links = p.links || [];
     var main = links.length ? links[0][1] : null;
@@ -39,7 +148,9 @@
     var withTag = /^(conference|journal|workshop)$/.test(p.type);   /* e.g. "Annual Meeting of ... (ACL 2026)" */
     h += '<div class="pub-venue">' + esc(p.venue) + (withTag ? ' (' + esc(p.tag) + ')' : '') + '</div>';
     (p.notes || []).forEach(function (n) { h += '<div class="pub-note">' + esc(n) + '</div>'; });
-    var btns = links.map(function (l) { return link(l[1], esc(l[0])); });
+    var btns = links.filter(function (l) { return l[0] !== "BibTeX"; }).map(function (l) { return link(l[1], esc(l[0])); });
+    var cid = "pub-cite-" + uid;
+    btns.push('<button type="button" class="pub-cite-btn" aria-expanded="false" aria-controls="' + cid + '">Cite<span class="caret">&#9662;</span></button>');
     var mc = mediaCount(p);
     if (mc) btns.push('<button type="button" aria-expanded="false" aria-controls="' + id + '">Media (' + mc + ')<span class="caret">&#9662;</span></button>');
     if (btns.length) h += '<div class="pub-links">' + btns.join("") + '</div>';
@@ -49,6 +160,7 @@
                m.s.map(function (s) { return link(s[1], esc(s[0])); }).join(", ") + '</span></li>';
       }).join("") + '</ul></div>';
     }
+    h += '<div class="pub-media pub-cite" id="' + cid + '" data-i="' + window.PUBLICATIONS.indexOf(p) + '"></div>';
     return h + '</div></div>';
   }
 
@@ -58,7 +170,9 @@
       if (!b) return;
       var open = b.getAttribute("aria-expanded") !== "true";
       b.setAttribute("aria-expanded", open);
-      document.getElementById(b.getAttribute("aria-controls")).classList.toggle("open", open);
+      var panel = document.getElementById(b.getAttribute("aria-controls"));
+      if (open && panel.classList.contains("pub-cite")) fillCite(panel);
+      panel.classList.toggle("open", open);
     });
   }
 
