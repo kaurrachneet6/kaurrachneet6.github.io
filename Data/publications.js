@@ -115,7 +115,7 @@ window.PUBLICATIONS = [
     authors: "Elizabeth Fons, Rachneet Kaur, Soham Palande, Zhen Zeng, Tucker Balch, Manuela Veloso, Svitlana Vyetrenko",
     venue: "Empirical Methods in Natural Language Processing",
     badges: ["ICML 2024 Workshop"],
-    notes: ["Also presented at ICML Workshop on Data-centric Machine Learning Research (DMLR): Datasets for Foundation Models, 2024"],
+    notes: ["Also presented at ICML Workshop on Data-centric Machine Learning Research: Datasets for Foundation Models, 2024"],
     links: [["PDF", "https://aclanthology.org/2024.emnlp-main.1204.pdf"],
             ["arXiv", "https://arxiv.org/abs/2404.16563"],
             ["Slides", "https://drive.google.com/file/d/1qQSvOom7xjhzk38tSuje3DnRLYKOWvw5/view?usp=sharing"],
