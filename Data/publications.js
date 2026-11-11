@@ -155,31 +155,6 @@ window.PUBLICATIONS = [
 
   /* ---------------- 2023 ---------------- */
   {
-    year: 2023, type: "conference", tag: "ICAIF 2023", selected: true,
-    img: "Images/pubs/thumbs/pixels.png", fig: "Images/pubs/pixels.png",
-    title: "From Pixels to Predictions: Spectrogram and Vision Transformer for Better Time Series Forecasting",
-    authors: "Zhen Zeng, Rachneet Kaur, Suchetha Siddagangappa, Tucker Balch, Manuela Veloso",
-    venue: "4th ACM International Conference on AI in Finance",
-    badges: ["Oral (~18% of submissions)", "Best Presentation, JPMC AI Summit"],
-    notes: ["Also presented at JPMorgan Chase & Co. AI Summit, 2023 (Best Presentation award)"],
-    links: [["PDF", "https://dl.acm.org/doi/10.1145/3604237.3626905"],
-            ["arXiv", "https://arxiv.org/abs/2403.11047"],
-            ["Slides", "https://drive.google.com/file/d/1SsU3orgavbooFA2Oda0IhbfiJ_HIyGB2/view?usp=sharing"]],
-    media: [{ t: "Spectrograms & Vision Transformers for (Financial) Time Series Forecasting",
-              s: [["Medium, Part 1", "https://medium.com/correll-lab/spectrograms-vision-transformers-for-time-series-forecasting-929163fd8c52"],
-                  ["Medium, Part 2", "https://medium.com/correll-lab/spectrograms-vision-transformers-for-time-series-forecasting-part-2-828733259da0"]] }]
-  },
-  {
-    year: 2023, type: "journal", tag: "IEEE-TBME 2023", selected: true,
-    img: "Images/pubs/thumbs/msstride.png", fig: "Images/pubs/msstride.png",
-    title: "Deep Learning for Multiple Sclerosis Differentiation Using Multi-Stride Dynamics in Gait",
-    authors: "Rachneet Kaur, Joshua Levy, Robert W Motl, Richard Sowers, Manuel E Hernandez",
-    venue: "IEEE Transactions on Biomedical Engineering",
-    links: [["PDF", "https://ieeexplore.ieee.org/abstract/document/10023977"],
-            ["Code", "https://github.com/kaurrachneet6/Deep-Learning-for-Multiple-Sclerosis-Differentiation-Using-Multi-Stride-Dynamics-in-Gait/"],
-            ["Slides", "https://drive.google.com/file/d/121JZH-9B93Q2VLxtplGyNZG-hP4LdmCo/view?usp=sharing"]]
-  },
-  {
     year: 2023, type: "journal", tag: "IEEE-JBHI 2023", selected: true,
     img: "Images/pubs/thumbs/jbhi.png", fig: "projects/JBHI2022_graphical_abstract.jpeg",
     title: "A Vision-Based Framework for Predicting Multiple Sclerosis and Parkinson's Disease Gait Dysfunctions — A Deep Learning Approach",
@@ -207,6 +182,16 @@ window.PUBLICATIONS = [
               s: [["Medilogy", "https://www.medilogy.it/html/news/video-e-ai-per-la-diagnosi-di-malattie-neurologiche.asp"]] }]
   },
   {
+    year: 2023, type: "journal", tag: "IEEE-TBME 2023", selected: true,
+    img: "Images/pubs/thumbs/msstride.png", fig: "Images/pubs/msstride.png",
+    title: "Deep Learning for Multiple Sclerosis Differentiation Using Multi-Stride Dynamics in Gait",
+    authors: "Rachneet Kaur, Joshua Levy, Robert W Motl, Richard Sowers, Manuel E Hernandez",
+    venue: "IEEE Transactions on Biomedical Engineering",
+    links: [["PDF", "https://ieeexplore.ieee.org/abstract/document/10023977"],
+            ["Code", "https://github.com/kaurrachneet6/Deep-Learning-for-Multiple-Sclerosis-Differentiation-Using-Multi-Stride-Dynamics-in-Gait/"],
+            ["Slides", "https://drive.google.com/file/d/121JZH-9B93Q2VLxtplGyNZG-hP4LdmCo/view?usp=sharing"]]
+  },
+  {
     year: 2023, type: "journal", tag: "Patterns 2023", selected: true,
     img: "Images/pubs/thumbs/alignedumap.png", fig: "Images/pubs/alignedumap.png",
     title: "Application of Aligned-UMAP to longitudinal biomedical studies",
@@ -217,6 +202,21 @@ window.PUBLICATIONS = [
             ["Dashboard", "https://alignedumap-biomedicaldata.streamlit.app/"]],
     media: [{ t: "Application of Aligned-UMAP to longitudinal biomedical studies",
               s: [["Health & Medicine Week, NewsRx", "https://go.gale.com/ps/i.do?id=GALE%7CA731091008&sid=sitemap&v=2.1&it=r&p=HRCA&sw=w"]] }]
+  },
+  {
+    year: 2023, type: "conference", tag: "ICAIF 2023", selected: true,
+    img: "Images/pubs/thumbs/pixels.png", fig: "Images/pubs/pixels.png",
+    title: "From Pixels to Predictions: Spectrogram and Vision Transformer for Better Time Series Forecasting",
+    authors: "Zhen Zeng, Rachneet Kaur, Suchetha Siddagangappa, Tucker Balch, Manuela Veloso",
+    venue: "4th ACM International Conference on AI in Finance",
+    badges: ["Oral (~18% of submissions)", "Best Presentation, JPMC AI Summit"],
+    notes: ["Also presented at JPMorgan Chase & Co. AI Summit, 2023 (Best Presentation award)"],
+    links: [["PDF", "https://dl.acm.org/doi/10.1145/3604237.3626905"],
+            ["arXiv", "https://arxiv.org/abs/2403.11047"],
+            ["Slides", "https://drive.google.com/file/d/1SsU3orgavbooFA2Oda0IhbfiJ_HIyGB2/view?usp=sharing"]],
+    media: [{ t: "Spectrograms & Vision Transformers for (Financial) Time Series Forecasting",
+              s: [["Medium, Part 1", "https://medium.com/correll-lab/spectrograms-vision-transformers-for-time-series-forecasting-929163fd8c52"],
+                  ["Medium, Part 2", "https://medium.com/correll-lab/spectrograms-vision-transformers-for-time-series-forecasting-part-2-828733259da0"]] }]
   },
   {
     year: 2023, type: "journal", tag: "Sensors 2023",
