@@ -203,7 +203,7 @@ html{scroll-behavior:smooth}
   .intern-rows.edu .intern-logo img{max-height:52px;max-width:140px}
   .intern-rows.edu .intern-text > div{flex-basis:225px}
 </style>
-<div class="intern-title first"><heading>Affiliations</heading></div>
+<div class="intern-label first"><span>Affiliations</span><i></i></div>
 <div class="intern-rows edu">
 <div class="intern-row" data-space=".intern-inst, .intern-team, .intern-when">
     <div class="intern"><div class="intern-logo"><a href="https://www.jpmorgan.com/technology/artificial-intelligence" target="_blank"><img src="Images/logos/jpm.png" alt="J.P. Morgan Chase logo"></a></div><div class="intern-text"><div><div class="intern-inst">J.P. Morgan<br>Chase</div><div class="intern-team">AI Research Lead</div><div class="intern-when">2022 – Present</div></div></div></div>
@@ -241,8 +241,23 @@ html{scroll-behavior:smooth}
     .intern-text{width:auto}
     .intern-text > div,.intern-row.wide .intern-text > div{flex:1 1 auto}
   }
+
+  /* logo rows read as part of the intro: small labels with a rule instead of big headings, smaller logos, tighter spacing */
+  .intern-label{display:flex;align-items:center;gap:10px;margin:22px 20px 14px}
+  .intern-label.first{margin-top:8px}
+  .intern-label span{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8a7a5c}
+  .intern-label i{flex:1;height:1px;background:linear-gradient(90deg,#e2c79a,transparent)}
+  .intern-rows.edu .intern-logo{height:42px}
+  .intern-rows.edu .intern-logo img{max-height:42px;max-width:120px}
+  .intern-logo{height:38px}
+  .intern-logo img{max-height:38px;max-width:88px}
+  .intern-row.wide .intern-logo{height:46px}
+  .intern-row.wide .intern-logo img{max-height:46px;max-width:105px}
+  .intern-inst{font-size:13px}
+  .intern-team,.intern-when{font-size:12px}
+  .intern-row + .intern-row{margin-top:20px}
 </style>
-<div class="intern-title"><heading>Internships</heading></div>
+<div class="intern-label"><span>Internships</span><i></i></div>
 <div class="intern-rows">
 <div class="intern-row" data-space=".intern-logo img">
     <div class="intern"><div class="intern-logo"><a href="https://www.jpmorgan.com/technology/artificial-intelligence" target="_blank"><img src="Images/logos/jpm.png" alt="J.P. Morgan Chase logo"></a></div><div class="intern-text"><div><div class="intern-inst">J.P. Morgan Chase</div><div class="intern-team">AI Research</div><div class="intern-when">Summer 2022</div></div></div></div>
