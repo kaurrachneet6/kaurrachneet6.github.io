@@ -81,6 +81,11 @@ name{font-family:"Newsreader",Georgia,"Times New Roman",serif;font-weight:600;co
 
 /* Photo + link icons */
 .side .side-photo img{width:240px;max-width:100%;margin:0 auto}
+.side-bio{text-align:center;margin-top:14px;font-size:13.5px;line-height:1.5;color:#555}
+.side-bio div{font-size:13.5px}
+.side-bio a{font-size:inherit;color:#1772d0;text-decoration:none}
+.side-bio a:hover{text-decoration:underline}
+.side-bio .side-bio-name{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:21px;color:#1a1a2e;margin-bottom:3px;letter-spacing:-0.2px}
 .side-icons{display:flex;gap:9px;justify-content:center;margin-top:14px;flex-wrap:wrap}
 .side-icons a{width:36px;height:36px;border:1px solid #e3e3e8;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#5d5d6e;background:#fff;transition:color .15s,border-color .15s,transform .15s}
 .side-icons a:hover{color:#1772d0;border-color:#1772d0;transform:translateY(-1px)}
@@ -145,6 +150,12 @@ html{scroll-behavior:smooth}
             </td>
             <td style="padding:2.5%;width:40%;max-width:40%">
               <a href="Images/professional_photo_beckman_cropped.jpeg"><img style="width:90%;max-width:100%;height:70%" alt="profile photo" src="Images/professional_photo_beckman_cropped.jpeg" class="hoverZoomLink"></a>
+              <!-- Short bio card under the photo -->
+              <div class="side-bio">
+                <div class="side-bio-name">Rachneet Kaur</div>
+                <div>Vice President, AI Research Lead at <a href="https://www.jpmorgan.com/technology/artificial-intelligence" target="_blank" rel="noopener">J.P. Morgan AI Research</a></div>
+                <div>PhD from <a href="https://ise.illinois.edu/" target="_blank" rel="noopener">UIUC</a></div>
+              </div>
               <!-- Link icons under the photo (Email, Google Scholar, GitHub, LinkedIn, Twitter/X), then a separate CV button -->
               <div class="side-icons">
                 <a href="mailto:kaurrachneet6@gmail.com" title="Email" aria-label="Email" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
