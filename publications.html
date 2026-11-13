@@ -30,6 +30,22 @@
     .intro a{color:#1772d0;text-decoration:none}
     .intro a:hover{text-decoration:underline}
     main .pubs{width:100%;margin:0}
+/* Talks & Presentations */
+.talks{margin-top:40px}
+.talks h2{font-family:"Newsreader",Georgia,"Times New Roman",serif;font-weight:600;font-size:26px;color:#1e2a44;letter-spacing:-0.2px;display:inline-block;margin:0 0 4px;padding-bottom:4px;border-bottom:2px solid #e2c79a;line-height:1.2}
+.tk-group{font-family:"Newsreader",Georgia,serif;font-size:19px;font-weight:600;color:#1e2a44;margin:22px 0 2px;padding-bottom:4px;border-bottom:1px solid #f0e6d2}
+.talks ul{list-style:none;margin:0;padding:0}
+.talks li{display:grid;grid-template-columns:78px minmax(0,1fr);column-gap:14px;padding:12px 0;border-top:1px solid #f0f0f2}
+.talks li:first-child{border-top:0}
+.tk-date{justify-self:start;align-self:start;margin-top:2px;font-size:11.5px;font-weight:600;color:#1772d0;background:#eef4fb;border-radius:3px;padding:1px 7px;line-height:1.6;white-space:nowrap}
+.tk-title{font-size:15px;font-weight:600;line-height:1.35;color:#1a1a2e}
+.tk-kind{display:inline-block;margin-left:8px;vertical-align:1px;font-size:11px;font-weight:600;color:#8a5a00;background:#fbf1dc;border-radius:3px;padding:0 6px;line-height:1.6}
+.tk-venue{font-size:13.5px;line-height:1.45;color:#777;margin-top:2px}
+.tk-venue a{color:#1772d0;text-decoration:none}
+.tk-venue a:hover{text-decoration:underline}
+.tk-links{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.tk-btn{font:600 11.5px/1 "Figtree",sans-serif;color:#1772d0;background:#fff;border:1px solid #d5e3f3;border-radius:4px;padding:4px 7px;text-decoration:none}
+.tk-btn:hover{background:#eef4fb;border-color:#b9d1ec}
   </style>
 </head>
 <body>
@@ -52,15 +68,49 @@
     <a href="https://www.semanticscholar.org/author/Rachneet-Kaur/51512382" target="_blank" rel="noopener">Semantic Scholar</a>,
     <a href="https://dblp.org/pid/229/0658" target="_blank" rel="noopener">DBLP</a> and
     <a href="https://orcid.org/0000-0002-9223-4546" target="_blank" rel="noopener">ORCID</a>.
-    * equal contribution.
+    * equal contribution. Talks and posters are listed <a href="#talks">below the papers</a>.
   </p>
   <p class="intro"><span class="pubs-key"><i aria-hidden="true"></i>&#9733; Representative work</span></p>
 
   <!-- The list is drawn from Data/publications.js (edit papers there). -->
   <div class="pubs pubs-full" data-pubs="all"></div>
+
+<!-- ===== Talks & Presentations (moved here from the homepage's Posters and Talks). Newest first; copy an <li> to add one. ===== -->
+<section class="talks" id="talks">
+<h2>Talks &amp; Presentations</h2>
+<div class="tk-group">Invited talks &amp; panels</div>
+<ul>
+    <li><span class="tk-date">Fall 2026</span><div><div class="tk-title">Multimodal AI Agents for Visual Intelligence and Reasoning<span class="tk-kind">Upcoming</span></div><div class="tk-venue"><a href="https://www.heinz.cmu.edu/about/" target="_blank" rel="noopener">Heinz College, Carnegie Mellon University</a> and <a href="https://ischool.illinois.edu/" target="_blank" rel="noopener">School of Information Sciences, UIUC</a> (virtual)</div></div></li>
+    <li><span class="tk-date">Nov 2024</span><div><div class="tk-title">Rating Financial Time-series Forecasting Models for Robustness and Bias</div><div class="tk-venue"><a href="https://sites.google.com/view/raasta2024icaif/home" target="_blank" rel="noopener">Tutorial on Evaluating and Rating AI Systems for Trust and Its Application to Finance</a>, ACM International Conference on AI in Finance (ICAIF), New York</div><div class="tk-links"><a class="tk-btn" href="https://drive.google.com/file/d/1cIQ1PcLQTqndSpMPyqTbugLuxqO_Kapv/view" target="_blank" rel="noopener">Slides</a></div></div></li>
+    <li><span class="tk-date">Mar 2024</span><div><div class="tk-title">Mathematics and AI in the Financial Industry</div><div class="tk-venue">Department of Mathematics, Punjab Engineering College, India</div></div></li>
+    <li><span class="tk-date">Nov 2023</span><div><div class="tk-title">Journey from Academic Research to Industry Research<span class="tk-kind">Panelist</span></div><div class="tk-venue">Panel discussion, <a href="https://ai-finance.org/icaif-23/" target="_blank" rel="noopener">ACM International Conference on AI in Finance (ICAIF)</a></div></div></li>
+    <li><span class="tk-date">Nov 2020</span><div><div class="tk-title">Predicting Multiple Sclerosis from Dynamics of Gait Variability</div><div class="tk-venue">Graduate Seminar Series, <a href="https://ise.illinois.edu/" target="_blank" rel="noopener">Industrial &amp; Enterprise Systems Engineering</a>, UIUC</div><div class="tk-links"><a class="tk-btn" href="https://mediaspace.illinois.edu/media/1_79ckpq9e" target="_blank" rel="noopener">Video</a></div></div></li>
+    <li><span class="tk-date">Feb 2018</span><div><div class="tk-title">Virtual Reality, Visual Cliffs and Movement Disorders</div><div class="tk-venue">Machine Learning in Hardware session, <a href="https://publish.illinois.edu/cslstudentconference2018/" target="_blank" rel="noopener">Coordinated Science Laboratory Student Conference</a>, UIUC</div></div></li>
+    <li><span class="tk-date">2016</span><div><div class="tk-title">Training Session on Quantitative Finance &amp; Algorithmic Trading</div><div class="tk-venue">Invited webinars, WorldQuant Summer Alphathon and WorldQuant Summer Training Program</div></div></li>
+    <li><span class="tk-date">2013</span><div><div class="tk-title">Retrieving the Playfair Matrix in Cryptography from Plain Text and Cipher Text</div><div class="tk-venue">Winning solution of the Legacy of Srinivasa Ramanujan Competition, presented at the Universities of Cambridge and Oxford, UK</div><div class="tk-links"><a class="tk-btn" href="https://dubeat.com/2013/07/11/du-mathematics-students-visit-kings-college-and-newton-institute-uk/" target="_blank" rel="noopener">DU Beat</a></div></div></li>
+</ul>
+<div class="tk-group">Posters, abstracts &amp; demos</div>
+<ul>
+    <li><span class="tk-date">Sep 2021</span><div><div class="tk-title">Deep Learning for Multiple Sclerosis Prediction using Multi-Stride Dynamics in Gait</div><div class="tk-venue"><a href="https://www.chhs.colostate.edu/hes-hpcrl/11th-international-symposium-on-gait-and-balance-in-multiple-sclerosis/" target="_blank" rel="noopener">11th International Symposium on Gait and Balance in Multiple Sclerosis</a></div></div></li>
+    <li><span class="tk-date">Aug 2021</span><div><div class="tk-title">Adaptive Control of Stride Length in Response to Perturbations While Walking in Older Women with Osteoarthritis</div><div class="tk-venue"><a href="https://asb2021.me.gatech.edu/" target="_blank" rel="noopener">American Society of Biomechanics (ASB) Annual Meeting</a></div></div></li>
+    <li><span class="tk-date">Sep 2020</span><div><div class="tk-title">Predicting Multiple Sclerosis from Gait Dynamics</div><div class="tk-venue">ACM poster session, <a href="https://ghc.anitab.org/" target="_blank" rel="noopener">Virtual Grace Hopper Celebration</a></div><div class="tk-links"><a class="tk-btn" href="https://vghc-anitab.ipostersessions.com/default.aspx?s=DA-C1-04-24-92-40-13-AB-FF-57-C3-32-1E-FD-10-AD&amp;guestview=true" target="_blank" rel="noopener">Poster</a></div></div></li>
+    <li><span class="tk-date">Nov 2019</span><div><div class="tk-title">Using Virtual Reality High Fall-Risk Condition Training to Improve Postural Control Accuracy and Speed</div><div class="tk-venue"><a href="https://acrm.org/meetings/2019-annual-conference/" target="_blank" rel="noopener">96th Annual Conference of the American Congress of Rehabilitation Medicine (ACRM)</a>, Progress in Rehabilitation Research</div></div></li>
+    <li><span class="tk-date">Oct 2019</span><div><div class="tk-title">Using Virtual Reality to Examine the Correlation between Balance Function and Anxiety in a Quiet Stance</div><div class="tk-venue"><a href="https://www.bmes.org/annualmeeting19" target="_blank" rel="noopener">Biomedical Engineering Society (BMES) Annual Meeting</a></div></div></li>
+    <li><span class="tk-date">May 2019</span><div><div class="tk-title">Predicting Multiple Sclerosis Disorder from Gait Patterns</div><div class="tk-venue"><a href="https://math.illinois.edu/research/igl" target="_blank" rel="noopener">Illinois Geometry Lab Poster Session</a>, Department of Mathematics, UIUC</div><div class="tk-links"><a class="tk-btn" href="https://drive.google.com/file/d/1WmaZDulsKx-pSOeg98ckKm_TAOodNgiK/view?usp=sharing" target="_blank" rel="noopener">Slides</a></div></div></li>
+    <li><span class="tk-date">Mar 2019</span><div><div class="tk-title">Predicting Multiple Sclerosis Disorder from Gait Patterns</div><div class="tk-venue"><a href="https://neuro.embs.org/2019/" target="_blank" rel="noopener">9th International IEEE EMBS Conference on Neural Engineering (NER)</a></div><div class="tk-links"><a class="tk-btn" href="https://drive.google.com/file/d/1WmaZDulsKx-pSOeg98ckKm_TAOodNgiK/view?usp=sharing" target="_blank" rel="noopener">Slides</a></div></div></li>
+    <li><span class="tk-date">Sep 2018</span><div><div class="tk-title">Visual Cliffs, Virtual Reality and Movement Disorders</div><div class="tk-venue">ACM poster session, <a href="https://ghc.anitab.org/" target="_blank" rel="noopener">Grace Hopper Celebration</a></div><div class="tk-links"><a class="tk-btn" href="posters_and_talks/ghc2018.pdf" target="_blank" rel="noopener">Poster</a></div></div></li>
+    <li><span class="tk-date">Apr 2018</span><div><div class="tk-title">Predicting the Progressions of Alzheimer&rsquo;s Disease using Machine Learning</div><div class="tk-venue"><a href="https://healthdataanalytics.illinois.edu/events/summit-2018/" target="_blank" rel="noopener">2nd Illinois Health Data Analytics Summit</a></div><div class="tk-links"><a class="tk-btn" href="posters_and_talks/Poster_HDA_PRINTNEW.pdf" target="_blank" rel="noopener">Poster</a></div></div></li>
+    <li><span class="tk-date">Feb 2018</span><div><div class="tk-title">Optimal IoT Control for Power Consumption</div><div class="tk-venue"><a href="https://publish.illinois.edu/cslstudentconference2018/" target="_blank" rel="noopener">Coordinated Science Laboratory Student Conference</a>, UIUC and <a href="https://www.ieee-pels.org/pels-news/437-2018-ieee-power-and-energy-conference-at-illinois-peci" target="_blank" rel="noopener">IEEE Power and Energy Conference at Illinois (PECI)</a></div><div class="tk-links"><a class="tk-btn" href="posters_and_talks/Kaur_Rachneet_CSLPoster.pdf" target="_blank" rel="noopener">CSL poster</a><a class="tk-btn" href="posters_and_talks/poster-24x36-PECI2018.ppt" target="_blank" rel="noopener">PECI poster</a></div></div></li>
+    <li><span class="tk-date">2017&ndash;19</span><div><div class="tk-title">IoT Dishwasher<span class="tk-kind">Demo</span></div><div class="tk-venue">Demos at the <a href="https://ise.illinois.edu/mottier/2017/index.html" target="_blank" rel="noopener">Mottier Innovation Challenge</a> (Nov 2017) and for John Deere&rsquo;s visit to ISE (Apr 2018); presented by ISE undergraduates at the <a href="http://undergradresearch.illinois.edu/symposium.html" target="_blank" rel="noopener">Undergraduate Research Symposium</a> and Engineering Open House (Mar 2019), UIUC</div><div class="tk-links"><a class="tk-btn" href="posters_and_talks/MottierPresentation.pdf" target="_blank" rel="noopener">Slides</a></div></div></li>
+    <li><span class="tk-date">Oct 2017</span><div><div class="tk-title">A Brain-Computer Interface Approach to Examine Changes in Anxiety While Walking in a Virtually Infinite World</div><div class="tk-venue"><a href="https://www.bmes.org/content.asp?contentid=162" target="_blank" rel="noopener">Biomedical Engineering Society (BMES) Annual Meeting</a></div><div class="tk-links"><a class="tk-btn" href="https://www.youtube.com/watch?v=aa0kkjqf7ww" target="_blank" rel="noopener">Video</a></div></div></li>
+    <li><span class="tk-date">Apr 2015</span><div><div class="tk-title">Computing with Words</div><div class="tk-venue"><a href="http://openhouse.iitd.ac.in/" target="_blank" rel="noopener">Engineering Open House, IIT Delhi</a></div><div class="tk-links"><a class="tk-btn" href="posters_and_talks/postersiitrevised.pdf" target="_blank" rel="noopener">Poster</a></div></div></li>
+</ul>
+</section>
 </main>
 
-<script src="Data/publications.js?v=22"></script>
+<script src="Data/publications.js?v=23"></script>
 <script src="Data/publications-ui.js?v=9"></script>
+<script>/* the list is drawn by script, so re-jump to #talks once it is in place */
+window.addEventListener("load",function(){var t=location.hash&&document.querySelector(location.hash);if(t)t.scrollIntoView();});</script>
 </body>
 </html>
