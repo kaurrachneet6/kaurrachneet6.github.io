@@ -118,15 +118,14 @@ html{scroll-behavior:smooth}
 
 <body>
 
-<nav class="topnav">
-  <a href="#about_me">About Me</a>
+<nav class="topnav"> <!-- same menu on every page -->
+  <a href="#top">Home</a>
   <a href="#publications">Publications</a>
+  <a href="talks.html">Talks</a>
   <a href="#awards">Awards</a>
-  <a href="#posters_and_talks">Posters and Talks</a>
-  <!-- <a href="#projects">Projects</a> -->
-<a href="#service">Service</a>
-<a href="#collaborations">Collaborations</a>
-<a href="gallery">Image gallery</a>
+  <a href="#service">Service</a>
+  <a href="#collaborations">Collaborations</a>
+  <a href="gallery">Image gallery</a>
 </nav>
 <script>/* faint shadow under the pinned menu once the page has scrolled */
 (function(){var h=document.documentElement;function f(){h.classList.toggle("nav-stuck",window.scrollY>4);}window.addEventListener("scroll",f,{passive:true});f();})();</script>
