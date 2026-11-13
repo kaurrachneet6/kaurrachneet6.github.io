@@ -98,7 +98,7 @@ name{font-family:"Newsreader",Georgia,"Times New Roman",serif;font-weight:600;co
 .side-email a:hover{color:#1772d0}
 
 /* Page content, centred on the window. 950px for the one-column layout (phones, narrower windows);
-   1050px when the two-column layout is on (windows 1300px and wider). */
+   1050px when the two-column layout is on (windows 1100px and wider, and phones). */
 #home{max-width:950px !important;width:min(950px, calc(100% - 48px)) !important;margin-left:auto !important;margin-right:auto !important}
 html.two-col-on #home{max-width:1050px !important;width:min(1050px, calc(100% - 48px)) !important}
 
@@ -1752,7 +1752,7 @@ html{scroll-behavior:smooth}
 </style>
 <script>
 (function(){
-  if (window.innerWidth < 1300) return;   /* phones and narrower windows keep the one-column layout */
+  if (window.innerWidth < 1100) return;   /* narrow windows keep the one-column layout; phones draw the page 1100px wide (see the viewport tag), so they get the desktop layout */
   document.documentElement.classList.add("two-col-on");
   var root=document.getElementById("home").rows[0].cells[0];
   var grid=document.createElement("div"); grid.className="two-col";
