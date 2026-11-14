@@ -203,6 +203,7 @@ window.PUBLICATIONS = [
     authors: "Anant Dadu, Vipul K Satone, Rachneet Kaur, Mathew J Koretsky, Hirotaka Iwaki, Yue A Qi, Daniel M Ramos, Brian Avants, Jacob Hesterman, Roger Gunn, Mark R Cookson, Michael E Ward, Andrew B Singleton, Roy H Campbell, Mike A Nalls, Faraz Faghri",
     venue: "Cell Press",
     links: [["PDF", "https://www.cell.com/patterns/fulltext/S2666-3899(23)00081-8"],
+            ["Webpage", "projects/PATTERNS2023.html"],
             ["Code", "https://github.com/NIH-CARD/AlignedUMAP-BiomedicalData"],
             ["Dashboard", "https://alignedumap-biomedicaldata.streamlit.app/"]],
     media: [{ t: "Application of Aligned-UMAP to longitudinal biomedical studies",
