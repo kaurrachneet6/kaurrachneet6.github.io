@@ -263,6 +263,7 @@ window.PUBLICATIONS = [
     venue: "Nature Publishing Group",
     links: [["PDF", "https://www.nature.com/articles/s41531-022-00439-z"],
             ["bioRxiv", "https://www.biorxiv.org/content/10.1101/2022.08.04.502846v1"],
+            ["Webpage", "projects/NPJPD2022.html"],
             ["Code", "https://github.com/anant-dadu/PDProgressionSubtypes"],
             ["Dashboard", "https://pdprogressionsubtypes.streamlit.app/"]],
     media: [{ t: "Machine Learning Models Help Identify Subtypes of Parkinson Disease",
