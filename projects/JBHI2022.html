@@ -27,7 +27,8 @@
     .chip{font-size:12px;font-weight:600;border-radius:4px;padding:2px 9px;line-height:1.6;white-space:nowrap}
     .chip.blue{color:var(--blue);background:var(--blue-bg)}
     .chip.gold{color:var(--gold-ink);background:var(--gold-bg)}
-    h1{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:clamp(28px,4.2vw,42px);line-height:1.15;letter-spacing:-.4px;margin:0 0 6px;color:#1e2a44}
+    h1{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:clamp(26px,3.4vw,38px);line-height:1.18;letter-spacing:-.4px;margin:0 -90px 6px;color:#1e2a44;text-wrap:balance}
+    @media (max-width:1100px){ h1{margin:0 0 6px} h1 br.wide{display:none} }  /* narrow screens: let the title wrap naturally */
     .subtitle{font-family:"Newsreader",Georgia,serif;font-weight:500;font-size:clamp(19px,2.4vw,24px);color:#4a5068;margin:0 0 20px}
     .authors{font-size:17px;margin:0 0 4px}
     .authors a{color:var(--blue);margin:0 6px;white-space:nowrap}
@@ -112,7 +113,7 @@
     <span class="chip gold">Top 50 IEEE-JBHI article</span>
     <span class="chip gold">NeurIPS 2021 WiML Workshop</span>
   </div>
-  <h1>A Vision-Based Framework for Predicting Multiple Sclerosis and Parkinson&rsquo;s Disease Gait Dysfunctions</h1>
+  <h1>A Vision-Based Framework for Predicting Multiple Sclerosis<br class="wide"> and Parkinson&rsquo;s Disease Gait Dysfunctions</h1>
   <p class="subtitle">A Deep Learning Approach</p>
   <p class="authors">
     <a class="me" href="../index.html">Rachneet Kaur</a>
