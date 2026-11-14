@@ -212,7 +212,7 @@
     <li><b><span class="k">2</span>MS vs. PD vs. healthy</b>A three-way classifier for people with MS, people with PD and healthy older adults, where earlier work typically separated one disease from healthy controls.</li>
     <li><b><span class="k">3</span>Tested on new tasks and new people</b>Three evaluation settings of rising difficulty: a new walking task, new people, and new people in a new task, the closest to real use.</li>
     <li><b><span class="k">4</span>16 models compared</b>Nine traditional classifiers and seven deep-learning models (convolutional and recurrent), evaluated across all three evaluation settings.</li>
-    <li><b><span class="k">5</span>Explainable predictions</b>Ablations, permutation importance and SHAP show which joints drive each decision, and errors are linked to physical performance (SPPB).</li>
+    <li><b><span class="k">5</span>Explainable predictions</b>Ablations, permutation importance and SHAP show which joints drive each decision, and errors are linked to physical performance, measured by the Short Physical Performance Battery (SPPB), a standard clinical test of walking speed, balance and rising from a chair.</li>
     <li><b><span class="k">6</span>Validated and open source</b>Video poses are checked against an instrumented treadmill, and the full workflow is released on <a href="https://github.com/kaurrachneet6/Vision-Based-Gait-Analysis-Framework-for-Predicting-Multiple-Sclerosis" target="_blank" rel="noopener">GitHub</a>.</li>
   </ul>
 </section>
@@ -223,7 +223,7 @@
       <h3 id="design"><span class="n">1</span>Study design</h3>
       <p>People with MS (mild to moderate disability), people with PD (mild to moderate severity, on medication) and matched healthy older adults walked on a treadmill at their own pace, both normally and while talking (reciting every other letter of the alphabet), <mark>a dual task that mimics the distractions of everyday walking</mark>. A front camera and a side camera recorded each trial at 30 frames per second, alongside standard clinical measures of mobility and disease severity. In all, <mark>33 people took part (14 healthy older adults, 10 with MS, 9 with PD)</mark>, giving 116 one-minute gait videos.</p>
       <figure><img src="jbhi2022/step1.jpg" alt="Inclusion criteria, gait data acquisition with front and side cameras, and clinical measurements" loading="lazy">
-        <figcaption>Inclusion criteria, the two-camera treadmill setup, and the clinical scales recorded (SPPB, EDSS for MS, Hoehn &amp; Yahr for PD).</figcaption></figure>
+        <figcaption>Inclusion criteria, the two-camera treadmill setup, and the clinical scales recorded: Short Physical Performance Battery (SPPB) for lower-limb function, Expanded Disability Status Scale (EDSS) for MS, and Hoehn &amp; Yahr stage for PD.</figcaption></figure>
 
       <h3 id="video"><span class="n">2</span>From video to 3D pose</h3>
       <p>OpenPose finds 2D body keypoints in every frame: 12 markers (hips, knees, ankles, feet) from the front camera and 8 foot and ankle markers from the side camera. Camera calibration lifts each view into 3D, measured in centimetres from the treadmill, and <mark>the two views are fused into one 3D pose per frame</mark>.</p>
