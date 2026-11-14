@@ -100,6 +100,14 @@
     .contrib .k{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--blue-bg);color:var(--blue);font-size:12px;font-weight:700;margin-right:7px;vertical-align:1px}
     @media (max-width:700px){ .contrib{grid-template-columns:1fr} }
 
+    /* results takeaways and the full-tables drop-down */
+    ul.takeaways{margin:4px 0 16px;padding-left:20px}
+    ul.takeaways li{margin:5px 0}
+    details.fulltables{margin:4px 0 16px;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+    details.fulltables summary{cursor:pointer;font-size:14.5px;font-weight:600;color:var(--blue)}
+    details.fulltables[open] summary{margin-bottom:6px}
+    details.fulltables figure img{border:0;border-radius:0}
+
     /* results table */
     table.res{width:100%;border-collapse:collapse;font-size:15px;margin:6px 0 10px}
     table.res th,table.res td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
@@ -257,16 +265,28 @@
       <p>The average Euclidean distance between the two was 9.95&nbsp;&plusmn;&nbsp;5.68&nbsp;cm in single support and 8.82&nbsp;&plusmn;&nbsp;5.49&nbsp;cm in double support, with almost no systematic offset sideways or front-to-back. The two measures are not expected to line up exactly, but <mark>their agreement supports the validity of the camera-based 3D poses</mark>.</p>
 
       <h3 id="prediction">Predicting MS and PD</h3>
+      <ul class="takeaways">
+        <li><mark>Deep learning beat traditional machine learning</mark> in almost every setting, and convolutional networks were the top performers throughout.</li>
+        <li><mark>A new walking task alone was easy:</mark> trained on normal walking and tested on walking while talking, the top three deep-learning models classified every person correctly.</li>
+        <li><mark>New people are the real challenge:</mark> the best models reached 75&ndash;79% accuracy on people they had never seen, with an AUC of up to 0.93.</li>
+        <li><mark>Voting across a person&rsquo;s strides beats single strides,</mark> for example from 83.1% to 92% accuracy for XGBoost in task generalization.</li>
+      </ul>
       <p>Best model in each setting, at the level of individual people (healthy older adults vs. MS vs. PD):</p>
       <table class="res">
         <thead><tr><th>Setting</th><th>Best model</th><th>Accuracy</th><th>AUC</th></tr></thead>
         <tbody>
           <tr><td>Task generalization<small>train on walking, test on walking while talking</small></td><td>Multi-scale residual network</td><td class="num">100%</td><td class="num">1.00</td></tr>
           <tr><td>Subject generalization, walking<small>new people</small></td><td>Residual network</td><td class="num">78.1%</td><td class="num">0.87</td></tr>
-          <tr><td>Subject generalization, walking while talking<small>new people</small></td><td>1D CNN</td><td class="num">75%</td><td class="num">&ndash;</td></tr>
+          <tr><td>Subject generalization, walking while talking<small>new people</small></td><td>1D CNN</td><td class="num">75%</td><td class="num">0.77</td></tr>
           <tr><td>Task and subject generalization<small>new people in a new task</small></td><td>1D CNN</td><td class="num">79.3%</td><td class="num">0.93</td></tr>
         </tbody>
       </table>
+      <details class="fulltables">
+        <summary>Show full results (paper Tables I&ndash;III): top three machine-learning and deep-learning models, stride- and person-level</summary>
+        <figure><img src="jbhi2022/table1.jpg" alt="Table I: task generalization results" loading="lazy"></figure>
+        <figure><img src="jbhi2022/table2.jpg" alt="Table II: subject generalization results for walking and walking while talking" loading="lazy"></figure>
+        <figure><img src="jbhi2022/table3.jpg" alt="Table III: task-subject generalization results" loading="lazy"></figure>
+      </details>
       <p><mark>Deep-learning models working directly on pose sequences did best</mark> when the model had to handle new people. The results suggest that <mark>inexpensive camera-based systems could help screen for neurological gait disorders</mark>, for example at home or in clinics far from specialists.</p>
     </section>
 
