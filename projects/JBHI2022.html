@@ -71,7 +71,7 @@
     h3{font-size:18px;font-weight:700;margin:28px 0 8px;color:#1e2a44}
     h3 .n{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--blue-bg);color:var(--blue);font-size:13px;margin-right:8px;vertical-align:1px}
     p{margin:0 0 12px}
-    .abstract{text-align:justify;hyphens:auto}
+    .abstract{text-align:left;hyphens:manual}
     figure{margin:14px 0 6px}
     figure img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:8px}
     figure figcaption{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.5}
@@ -85,8 +85,11 @@
     @media (max-width:700px){ .side-fig,.two-fig{grid-template-columns:1fr} }
 
     /* soft highlighter for the key phrases, so a quick read still gets the story */
-    mark{background:linear-gradient(180deg,transparent 52%,#fbe7a8 52%,#fbe7a8 92%,transparent 92%);color:inherit;padding:0 1px}
-    figcaption mark{background:linear-gradient(180deg,transparent 55%,#fbe7a8 55%)}
+    mark{color:#1a1a2e;font-weight:500;padding:.05em .28em;margin:0 -.12em;border-radius:.5em .25em;
+      -webkit-box-decoration-break:clone;box-decoration-break:clone;
+      background:linear-gradient(104deg,rgba(255,214,102,0) .9%,rgba(255,214,102,.55) 2.4%,rgba(255,221,128,.38) 6%,rgba(255,221,128,.22) 93%,rgba(255,214,102,.5) 96%,rgba(255,214,102,0) 98%),
+                 linear-gradient(183deg,rgba(255,221,128,0) 0%,rgba(255,221,128,.28) 8%,rgba(255,221,128,0) 15%)}
+    figcaption mark{color:#3d4152}
 
     /* core contributions */
     .contrib{list-style:none;margin:6px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
