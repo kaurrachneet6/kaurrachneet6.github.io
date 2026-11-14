@@ -72,6 +72,12 @@
     ul.tight{margin:0 0 12px;padding-left:22px}
     ul.tight li{margin:3px 0}
 
+    /* figure beside text, and two figures side by side */
+    .side-fig{display:grid;grid-template-columns:minmax(0,0.8fr) minmax(0,1.2fr);gap:24px;align-items:start}
+    .side-fig figure{margin-top:4px}
+    .two-fig{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+    @media (max-width:700px){ .side-fig,.two-fig{grid-template-columns:1fr} }
+
     /* results table */
     table.res{width:100%;border-collapse:collapse;font-size:15px;margin:6px 0 10px}
     table.res th,table.res td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
@@ -153,6 +159,9 @@
     <a class="sub" href="#features">Gait features</a>
     <a class="sub" href="#models">Prediction models</a>
     <a href="#results">Results</a>
+    <a class="sub" href="#validation">Pose validation</a>
+    <a class="sub" href="#prediction">Prediction</a>
+    <a href="#analysis">Analysis</a>
     <a href="#press">In the news</a>
     <a href="#bibtex">BibTeX</a>
   </nav>
@@ -167,7 +176,7 @@
       <h2>Method</h2>
 
       <h3 id="design"><span class="n">1</span>Study design</h3>
-      <p>People with MS (mild to moderate disability), people with PD (mild to moderate severity, on medication) and matched healthy older adults walked on a treadmill at their own pace, both normally and while talking (reciting every other letter of the alphabet), a dual task that mimics the distractions of everyday walking. A front camera and a side camera recorded each trial, alongside standard clinical measures of mobility and disease severity.</p>
+      <p>People with MS (mild to moderate disability), people with PD (mild to moderate severity, on medication) and matched healthy older adults walked on a treadmill at their own pace, both normally and while talking (reciting every other letter of the alphabet), a dual task that mimics the distractions of everyday walking. A front camera and a side camera recorded each trial at 30 frames per second, alongside standard clinical measures of mobility and disease severity. In all, 33 people took part (14 healthy older adults, 10 with MS, 9 with PD), giving 116 one-minute gait videos.</p>
       <figure><img src="jbhi2022/step1.jpg" alt="Inclusion criteria, gait data acquisition with front and side cameras, and clinical measurements" loading="lazy">
         <figcaption>Inclusion criteria, the two-camera treadmill setup, and the clinical scales recorded (SPPB, EDSS for MS, Hoehn &amp; Yahr for PD).</figcaption></figure>
 
@@ -191,10 +200,30 @@
       <p>Each stride is classified, then a majority vote over a person&rsquo;s strides gives their prediction. SHAP explanations, feature importance and ablations show which parts of the gait drive the predictions.</p>
       <figure><img src="jbhi2022/step4.jpg" alt="Classification frameworks, model training, model evaluation and post hoc analysis" loading="lazy">
         <figcaption>The three evaluation frameworks, model training and evaluation (stride-level metrics, then subject-level by majority vote), and post hoc analysis.</figcaption></figure>
+
+      <p>The deep-learning models fall into three families, all reading a stride as a sequence of body-coordinate features over time:</p>
+      <figure><img src="jbhi2022/cnn.jpg" alt="Basic and bottleneck residual blocks, residual neural network and multiscale residual neural network" loading="lazy">
+        <figcaption><b>Convolutional networks.</b> Basic and bottleneck residual blocks (left), the residual network with positional encoding (top right), and the multi-scale residual network, which runs two branches with different kernel sizes in parallel (bottom right).</figcaption></figure>
+      <figure><img src="jbhi2022/tcn.jpg" alt="Dilated causal convolution, TCN residual block and the full temporal convolutional network" loading="lazy">
+        <figcaption><b>Temporal convolutional network.</b> Dilated causal convolutions with dilations 1, 2, 4 and 8 (left), one TCN residual block (middle), and the full network of 10 blocks (right).</figcaption></figure>
+      <figure><img src="jbhi2022/rnn.jpg" alt="RNN, LSTM and GRU cells and the corresponding recurrent networks" loading="lazy">
+        <figcaption><b>Recurrent networks.</b> RNN, LSTM and GRU cells (top) and the stacked networks built from them (bottom).</figcaption></figure>
     </section>
 
     <section id="results">
       <h2>Results</h2>
+
+      <h3 id="validation">Can we trust poses from video?</h3>
+      <div class="side-fig">
+        <figure><img src="jbhi2022/bos.jpg" alt="Base of support and its centroid through the phases of a gait cycle" loading="lazy">
+          <figcaption>Base of support (green) and its centroid (&times;) through single- and double-support phases of the gait cycle.</figcaption></figure>
+        <div>
+          <p>Before predicting disease, we checked the video poses against the instrumented treadmill. For each support phase we compared the centre of pressure measured by the treadmill with the centre of the base of support formed by the feet as seen on camera.</p>
+          <p>Across 2,483 strides and 9,768 support phases, the two agreed closely: on average they were within about half a centimetre of each other, with a spread of 3&ndash;9&nbsp;cm. The measures are not identical, but this agreement shows the camera-based poses are reliable enough to build on.</p>
+        </div>
+      </div>
+
+      <h3 id="prediction">Predicting MS and PD</h3>
       <p>Best model in each setting, at the level of individual people (healthy older adults vs. MS vs. PD):</p>
       <table class="res">
         <thead><tr><th>Setting</th><th>Best model</th><th>Accuracy</th><th>AUC</th></tr></thead>
@@ -206,6 +235,17 @@
         </tbody>
       </table>
       <p>Deep-learning models working directly on pose sequences did best when the model had to handle new people. The results suggest that inexpensive camera-based systems could help screen for neurological gait disorders, for example at home or in clinics far from specialists.</p>
+    </section>
+
+    <section id="analysis">
+      <h2>Analysis</h2>
+      <p><b>Which body parts matter?</b> An ablation that adds body regions one at a time (feet, then ankles, then knees, then hips) improved accuracy at every step, so the best models use the whole lower body.</p>
+      <div class="two-fig">
+        <figure><img src="jbhi2022/fi.jpg" alt="Permutation feature importance per joint, as stride-level AUC after shuffling that joint" loading="lazy">
+          <figcaption><b>Permutation feature importance</b> (task generalization). Each bar is the model&rsquo;s AUC after shuffling one joint; lower means that joint matters more. The knees matter most, followed by the heels and big toes.</figcaption></figure>
+        <figure><img src="jbhi2022/shap.jpg" alt="SHAP multi-output decision plot for one stride classified as MS" loading="lazy">
+          <figcaption><b>SHAP explanation</b> for one randomly chosen stride, correctly classified as MS by the best cross-generalization model. Knee coordinates drive the prediction most.</figcaption></figure>
+      </div>
     </section>
 
     <section id="press">
