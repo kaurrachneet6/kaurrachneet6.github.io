@@ -226,12 +226,12 @@
         <figcaption>Inclusion criteria, the two-camera treadmill setup, and the clinical scales recorded: Short Physical Performance Battery (SPPB) for lower-limb function, Expanded Disability Status Scale (EDSS) for MS, and Hoehn &amp; Yahr stage for PD.</figcaption></figure>
 
       <h3 id="video"><span class="n">2</span>From video to 3D pose</h3>
-      <p>OpenPose finds <mark>2D body keypoints in every frame</mark>: 12 markers (hips, knees, ankles, feet) from the front camera and 8 foot and ankle markers from the side camera. Camera calibration lifts each view into 3D, measured in centimetres from the treadmill, and <mark>the two views are fused into one 3D pose per frame</mark>.</p>
+      <p>We used OpenPose to extract <mark>2D body keypoints in every frame</mark>: 12 markers (hips, knees, ankles, feet) from the front camera and 8 foot and ankle markers from the side camera. We then used <mark>camera calibration to lift each view into 3D</mark>, measured in centimetres from the treadmill, and <mark>fused the two views into one 3D pose per frame</mark>.</p>
       <figure><img src="jbhi2022/step2.jpg" alt="OpenPose 2D pose estimation, transformation to 3D space and multi-view fusion" loading="lazy">
         <figcaption>2D pose estimation in each camera, transformation to 3D, and multi-view fusion into more than 99,000 3D poses.</figcaption></figure>
 
       <h3 id="features"><span class="n">3</span>Gait features</h3>
-      <p>Heel strikes, found from the height of the right heel and checked against the treadmill&rsquo;s own record, <mark>split the walking into 2,430 strides</mark>. Each stride is described two ways: 91 summary features (range, variability and left&ndash;right asymmetry of the body coordinates, plus frames per stride) for traditional classifiers, and a 20-step sequence of 36 coordinates for deep-learning models.</p>
+      <p>We detected heel strikes from the height of the right heel, validated them against the treadmill&rsquo;s own record, and used them to <mark>split the walking into 2,430 strides</mark>. We described each stride in two ways: 91 summary features (range, variability and left&ndash;right asymmetry of the body coordinates, plus frames per stride) for traditional classifiers, and a 20-step sequence of 36 coordinates for deep-learning models.</p>
       <figure><img src="jbhi2022/step3.jpg" alt="Heel strike identification and validation, post-processing and feature design" loading="lazy">
         <figcaption>Stride segmentation and validation, smoothing and resampling, and the two feature designs.</figcaption></figure>
 
@@ -242,7 +242,7 @@
         <li><b>Subject generalization:</b> test on people the model has never seen.</li>
         <li><b>Task and subject generalization:</b> new people <i>and</i> a new walking task.</li>
       </ul>
-      <p>Each stride is classified, then <mark>a majority vote over a person&rsquo;s strides gives their prediction</mark>. SHAP explanations, feature importance and ablations show which parts of the gait drive the predictions.</p>
+      <p>We classify each stride, then <mark>a majority vote over a person&rsquo;s strides gives their prediction</mark>. We used SHAP explanations, feature importance and ablations to show which parts of the gait drive the predictions.</p>
       <figure><img src="jbhi2022/step4.jpg" alt="Classification frameworks, model training, model evaluation and post hoc analysis" loading="lazy">
         <figcaption>The three evaluation frameworks, model training and evaluation (stride-level metrics, then subject-level by majority vote), and post hoc analysis.</figcaption></figure>
 
