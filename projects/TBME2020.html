@@ -1,232 +1,380 @@
-<html>
-  <head>
-	  	<link rel="shortcut icon" type="image/png" href="./icon.png" />
-		<title>Predicting multiple sclerosis from gait dynamics using an instrumented treadmill–a machine learning approach</title>
-  </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Predicting MS From Treadmill Gait | Rachneet Kaur</title>
+  <meta name="description" content="Predicting multiple sclerosis from gait dynamics on an instrumented treadmill with machine learning and regression-based normalization. IEEE TBME 2021.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#1a1a2e;--muted:#5d6273;--line:#ececf0;--blue:#1772d0;--blue-bg:#eef4fb;--gold:#e2c79a;--gold-ink:#8a5a00;--gold-bg:#fbf1dc}
+    html{background:#fff;color-scheme:light;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+    body{margin:0;font-family:"Figtree",Helvetica,Arial,sans-serif;color:var(--ink);line-height:1.6;font-size:16.5px}
+    a{color:var(--blue);text-decoration:none}
+    a:hover{text-decoration:underline}
+    [id]{scroll-margin-top:24px}
 
-  <body>
-    <br>
-          <center>
-          	<span style="font-size:38px">Predicting Multiple Sclerosis from Gait Dynamics <br>Using an Instrumented Treadmill – A Machine<br> Learning Approach<br></span>
-			  <br>
-	  		  <table align=center width=700px>
-	  			  <tr>
-					  <td align=center>
-						  <span style="font-size:25px">
-					      <strong>Rachneet Kaur</strong>,
-					      <a href="https://www.researchgate.net/profile/Zizhang-Chen"  style="text-decoration: none">Zizhang Chen</a>,
-					      <a href="https://scholar.google.com/citations?user=jht3pRcAAAAJ&hl=en" style="text-decoration: none">Robert Motl</a>,
-						<a href="https://mfp.hk.illinois.edu/"  style="text-decoration: none">Manuel Hernandez</a>,
-					      <a href="https://ise.illinois.edu/directory/profile/r-sowers"  style="text-decoration: none">Richard Sowers</a>
-						  </span>
-					  </td>
-				  </tr>
-				  <tr>
-					  <td align="center">
-						  <span style="font-size:22px">
-							  University of Illinois at Urbana-Champaign
-						  </span>
-						  <br>
-						  <span style="font-size:25px">
-							  <a href="https://www.embs.org/tbme/" style="text-decoration: none">IEEE Transactions on Biomedical Engineering <em>(TBME)</em>, 2020</a>
-						  </span>
-						  <br>
-						  <br>
-					  </td>
-				  </tr>
-			  </table>
+    /* back link to the homepage */
+    .crumb{max-width:1100px;margin:0 auto;padding:18px 24px 0;font-size:13.5px}
+    .crumb a{color:var(--muted)}
+    .crumb a:hover{color:var(--blue)}
 
-	  		  <table align=center width=600px>
-	  			  <tr>
-	  	              <td align=center width=140px>
-	  					<center>
-	  						<span style="font-size:22px"><a href='https://github.com/kaurrachneet6/GML4MS/tree/GML4MS-v1.0' style="text-decoration: none" target="_blank"> [Code]</a></span>
-		  		  		</center>
-		  		  	  </td>
-	  	              
-	  	              <td align=center width=150px>
-	  					<center>
-	  						<span style="font-size:22px"><a href='./EMBC2020_BF_ML_slides_pdf.pdf' style="text-decoration: none" target="_blank"> [Slides]</a></span>
-		  		  		</center>
-		  		  	  </td>
- 
-<!-- 		  		  	  <td align=center width=200px>
-	  					<center>
-	  						<span style="font-size:22px"><a href='https://youtu.be/r8cfduagJf4' style="text-decoration: none" target="_blank"> [Teaser Video]</a></span>
-		  		  		</center>
-		  		  	  </td>
-					   -->
-					  <td align=center width=200px>
-	  					<center>
-	  						<span style="font-size:22px"><a href='https://www.youtube.com/watch?v=r8cfduagJf4&ab_channel=IllinoisDept.ofMath' style="text-decoration: none" target="_blank"> [Video]</a></span>
-		  		  		</center>
-		  		  	  </td>
+    /* ---------- hero ---------- */
+    .hero{max-width:900px;margin:0 auto;padding:34px 24px 10px;text-align:center}
+    .venue{display:inline-flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-bottom:16px}
+    .chip{font-size:12px;font-weight:600;border-radius:4px;padding:2px 9px;line-height:1.6;white-space:nowrap}
+    .chip.blue{color:var(--blue);background:var(--blue-bg)}
+    .chip.gold{color:var(--gold-ink);background:var(--gold-bg)}
+    .chip.purple{color:#6b46a8;background:#f1ebf8}   /* also presented at */
+    h1{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:clamp(24px,2.6vw,31px);line-height:1.25;letter-spacing:-.3px;margin:0 -80px 18px;color:#1e2a44;text-wrap:balance}
+    @media (max-width:1100px){ h1{margin:0 0 6px} h1 br.wide{display:none} }  /* narrow screens: let the title wrap naturally */
+    .subtitle{font-family:"Newsreader",Georgia,serif;font-weight:500;font-size:clamp(19px,2.4vw,24px);color:#4a5068;margin:0 0 20px}
+    .authors{font-size:18px;margin:0 0 4px}
+    .authors a{color:var(--blue);margin:0 6px;white-space:nowrap}
+    .authors .me{font-weight:700}
+    .authors span{white-space:nowrap;margin:0 6px}
+    .authors span a{margin:0}
+    .authors sup,.affil sup{font-size:12px;color:var(--muted);margin-left:1px}
+    .affil{font-size:16.5px;color:var(--muted);margin:0 0 12px}
+    .pubvenue{font-size:17.5px;color:#2c3248;margin:0 0 22px;line-height:1.5}
+    .pubvenue .also{font-size:16px;color:var(--muted)}
+    .btns{display:flex;flex-wrap:wrap;justify-content:center;gap:9px}
+    .btn{display:inline-flex;align-items:center;gap:7px;background:#1f2330;color:#fff;border-radius:999px;padding:8px 16px 8px 13px;font-size:14.5px;font-weight:600}
+    .btn:hover{background:#363b4d;text-decoration:none}
+    .btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
-	  	              <td align=center width=100px>
-	  					<center>
-	  						<span style="font-size:22px"><a href='https://ieeexplore.ieee.org/abstract/document/9311191' style="text-decoration: none" target="_blank"> [Paper]</a></span>
-		  		  		</center>
-		  		  	  </td>
+    /* teaser */
+    .overview{margin:0 0 34px}
+    .teaser{max-width:900px;margin:30px auto 0;padding:0 24px}
+    .teaser img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:10px}
+    .cap{font-size:14.5px;color:var(--muted);text-align:center;margin:12px auto 0;max-width:820px;line-height:1.5}
+    .cap b{color:var(--ink)}
 
-		  		  	 </tr>
-	  			  <tr>
-			  </table>
-          </center>
-	  <br>
-		<table align=center width=800px>
-				<tr><td><center><h1>Abstract</h1></center></td></tr>  
-			  <tr>
-				  <td style="font-size:15pt; text-align:justify">
-					  <strong>Objective:</strong> Multiple Sclerosis (MS) is a neurological condition which widely affects people 50-60 years of age. While clinical presentations of MS are highly heterogeneous, mobility limitations are one of the most frequent symptoms. This study examines a machine learning (ML) framework for identifying MS through spatiotemporal and kinetic gait features. 
-					  <br>
-				         <strong>Methods:</strong> In this study, gait data during self-paced walking on an instrumented treadmill from 20 persons with MS and 20 age, weight, height, and gender-matched healthy older adults (HOA) were obtained. We explored two strategies to normalize data and minimize dependence on subject demographics; size-normalization (standard body size-based normalization) and regress-normalization (regression-based normalization using scaling factors derived by regressing gait features on multiple subject demographics); and proposed an ML based methodology to classify individual strides of older persons with MS (PwMS) from healthy controls. We generalized both across different walking tasks and subjects. 
-					  <br>
-					  <strong>Results:</strong> We observed that regress-normalization improved the accuracy of identifying pathological gait using ML when compared to size-normalization . When generalizing from comfortable walking to walking while talking, gradient boosting machine achieved the optimal subject classification accuracy and AUC of 94.3% and 1.0, respectively and for subject generalization, a multilayer perceptron resulted in the best accuracy and AUC of 80% and 0.86, respectively, both with regression-normalized data. 
-					  <br>
-					  <strong>Conclusion:</strong> The integration of gait data and ML may provide a viable patient-centric approach to aid clinicians in monitoring MS. 
-					  <br>
-					  <strong>Significance:</strong> The results of this study have future implications for the way regression normalized gait features may be clinically used to design ML-based disease prediction strategies and monitor disease progression in PwMS.
-				  </td>
-			  </tr>
-	  </table>
+    /* key numbers */
+    .stats{max-width:900px;margin:34px auto 0;padding:0 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .stat{text-align:center;border:1px solid var(--line);border-radius:10px;padding:14px 8px 12px;background:linear-gradient(180deg,#fff,#fafbfd)}
+    .stat b{display:block;font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:30px;line-height:1.05;color:#1e2a44}
+    .stat span{display:block;font-size:13px;color:var(--muted);margin-top:5px;line-height:1.35}
 
-          <table align=center width=850px>
-  			  <tr>
-				  <td>
-					  <br>
-					  <center>
-							<img class="round" width="480" height="620" src="./Accelerometer_EMBC2020_image"/>
-					  
-				  <div style='width: 700px; text-align: center;'> 
-					  <b>Figure:</b> Filtered acceleration coordinates. Comparing 10 seconds of x, y, z-acceleration coordinates from the two accelerometers at hip (H) and knee (K) for a subject with low (A) and high (B) balance.
-				</div>
-				  </center>	  
-				<br>
-				  </td>
-			  </tr>
-	</table>
-<!-- 			  <tr>
-				  <td>
-					  <br>
-					  <center>
-							<img class="round" width="900px" src="./FloorPlan229_physics__15__video.gif"/>
-					  </center>
-					  <br>
-				  </td>
-			  </tr> -->
-  		  </table>
+    /* ---------- body: sticky contents + sections ---------- */
+    /* reading column centred on the page (under the title); the contents box sits in the left margin */
+    .layout{margin:40px auto 0;padding:0 24px 70px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,820px) minmax(0,1fr);gap:36px}
+    .toc{grid-column:1;justify-self:end;width:170px;position:sticky;top:24px;align-self:start;font-size:13.5px;border:1px solid var(--line);border-radius:10px;padding:12px 6px 10px}
+    .toc .t{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#9a9aa8;padding:0 10px 6px}
+    .toc a{display:block;color:var(--muted);padding:4px 10px;border-radius:6px;border-left:2px solid transparent}
+    .toc a.sub{padding-left:22px;font-size:12.5px;color:#8a8e9c}
+    .toc a:hover{background:#f6f7f9;text-decoration:none;color:var(--ink)}
+    .toc a.on{color:var(--blue);background:var(--blue-bg);border-left-color:var(--blue)}
+    main{grid-column:2;min-width:0;max-width:820px}
+    section{margin-bottom:46px}
+    h2{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:28px;color:#1e2a44;margin:0 0 14px;padding-bottom:5px;border-bottom:2px solid var(--gold);display:inline-block;line-height:1.2}
+    h3{font-size:18px;font-weight:700;margin:28px 0 8px;color:#1e2a44}
+    h3 .n{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--blue-bg);color:var(--blue);font-size:13px;margin-right:8px;vertical-align:1px}
+    p{margin:0 0 12px}
+    .abstract{text-align:left;hyphens:manual}
+    figure{margin:14px 0 6px}
+    figure img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:8px}
+    figure figcaption{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.5}
+    ul.tight{margin:0 0 12px;padding-left:22px}
+    ul.tight li{margin:3px 0}
 
-          <hr>
+    /* figure beside text, and two figures side by side */
+    .side-fig{display:grid;grid-template-columns:minmax(0,0.8fr) minmax(0,1.2fr);gap:24px;align-items:start}
+    .side-fig figure{margin-top:4px}
+    .two-fig{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+    @media (max-width:700px){ .side-fig,.two-fig{grid-template-columns:1fr} }
 
-<!--   		  <table align=center width=850px>
-	  		  <tr><td><center><h1>SYNC-Policies</h1></center></td></tr>
-			  <tr>
-	  		  	<td style="font-size:15pt; text-align:justify">
-					Previous multi-agent RL methods consist of a communicative backbone followed by a single marginal policy per agent. This limits the joint policy that these methods can capture. The joint policy is a rank one matrix, particularly, the outer product of the marginal policies of the two agents. For the general case of <i>N</i> agents, this is a rank one tensor.
-					<span style="font-size:28px">
-						$$\Pi_{\text{marginal}} = \pi^1\otimes\cdots \otimes \pi^N$$
-					</span>
-					We leverage the communication band to move beyond this rank one joint policy. SYNC policies weave
-					<i>m</i> marginal policies per agent using synchronized sampling (details in the paper). This leads to a more expressive joint policy as a mixture of marginal policies. For the <i>N</i> agent setup, the joint policy becomes:
-					<span style="font-size:28px">
-						$$\Pi_{\text{SYNC}} = \sum_{j=1}^m \alpha_j \cdot \pi^1_{j} \otimes \ldots \otimes \pi^N_{j}$$
-					</span>
-	  		    </td>
-	  		  </tr>
-			  <tr>
-				  <td>
-					  <center>
-							<img class="round" width="600px" src="./sync_policies.png"/>
-					  </center>
-				  </td>
-			  </tr>
-			</table> -->
-<!--   		  <br> -->
-<!-- 		  <hr> -->
-			<table align=center width=800px>
-				<tr><td><center><h1>Explanatory video</h1></center></td></tr>
-				<tr>
-					<td style="font-size:15pt; text-align:justify">
-						<center>
-							A detailed video, corresponding slides: <a href='./EMBC2020_BF_ML_slides_pdf.pdf' target="_blank"> [Detailed slides]</a>.
-						</center>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<center>
-							<iframe width="560" height="315" src="https://www.youtube.com/embed/r8cfduagJf4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						</center>
-					</td>
-				</tr>
-			</table>
-			<br>
-			<hr>
-<!-- 			<table align=center width=800px>
-				<tr><td><center><h1>Qualitative Results</h1></center></td></tr>
-				<tr>
-					<td style="font-size:15pt; text-align:justify">
-						<span>
-							This video highlighting policy roll-outs of marginal policies vs. SYNC-policies. Additionally, we include a way to <i>experience</i> what the agents 'tell' each other (enable audio for this clip).
-						</span>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<center>
-							<iframe width="560" height="315" src="https://www.youtube.com/embed/I_Evs5Bol6k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						</center>
-					</td>
-				</tr>
-			</table>
-			<br>
-			<hr> -->
+    /* soft highlighter for the key phrases, so a quick read still gets the story */
+    mark{color:#1a1a2e;font-weight:500;padding:.05em .28em;margin:0 -.12em;border-radius:.5em .25em;
+      -webkit-box-decoration-break:clone;box-decoration-break:clone;
+      background:linear-gradient(104deg,rgba(255,214,102,0) .9%,rgba(255,214,102,.55) 2.4%,rgba(255,221,128,.38) 6%,rgba(255,221,128,.22) 93%,rgba(255,214,102,.5) 96%,rgba(255,214,102,0) 98%),
+                 linear-gradient(183deg,rgba(255,221,128,0) 0%,rgba(255,221,128,.28) 8%,rgba(255,221,128,0) 15%)}
+    figcaption mark{color:#3d4152}
 
+    /* core contributions */
+    .contrib{list-style:none;margin:6px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .contrib li{border:1px solid var(--line);border-radius:10px;padding:14px 16px 13px;background:linear-gradient(180deg,#fff,#fafbfd);font-size:15px;line-height:1.5}
+    .contrib b{display:block;font-size:15.5px;color:#1e2a44;margin-bottom:3px}
+    .contrib .k{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--blue-bg);color:var(--blue);font-size:12px;font-weight:700;margin-right:7px;vertical-align:1px}
+    @media (max-width:700px){ .contrib{grid-template-columns:1fr} }
 
+    /* results takeaways and the full-tables drop-down */
+    ul.takeaways{margin:4px 0 16px;padding-left:20px}
+    ul.takeaways li{margin:5px 0}
+    details.fulltables{margin:4px 0 16px;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+    details.fulltables summary{cursor:pointer;font-size:14.5px;font-weight:600;color:var(--blue)}
+    details.fulltables[open] summary{margin-bottom:6px}
+    details.fulltables figure img{border:0;border-radius:0}
 
-			<table align=center width=800px>
-				<tr><td><center><h1>References</h1></center></td></tr>
-				<tr>
-					<td style="font-size:15pt; text-align:justify">
-						<span>
-							Rachneet Kaur, Zizhang Chen, Robert Motl, Manuel Enrique Hernandez, Richard Sowers. <b>Predicting Multiple Sclerosis from Gait Fynamics Using an Instrumented Treadmill – A Machine Learning Approach</b>. In IEEE Transactions on Biomedical Engineering <i>(TBME)</i>, 2020 <a href="../Data/TBME2020.bib" target="_blank" style="font-size:15pt;">[BibTex]</a> <a href="../Data/TBME2020.txt" target="_blank" style="font-size:15pt;">[Text]</a>
-						</span>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<center>
-							<a href="https://ieeexplore.ieee.org/document/9175871">
-								<img class="round" width= "200" src="./TBME2020_thumbnail.PNG"/>
-							</a>
-						</center>
-					</td>
-				</tr>
-			</table>
+    /* results table */
+    table.res{width:100%;border-collapse:collapse;font-size:15px;margin:6px 0 10px}
+    table.res th,table.res td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+    table.res th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#8a8e9c;font-weight:600;border-bottom:2px solid var(--line)}
+    table.res td.num{font-weight:700;white-space:nowrap;color:#1e2a44}
+    table.res td small{display:block;color:var(--muted);font-size:13px}
 
-  		  <br>
-		  <hr>
+    /* press */
+    .press{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:22px;align-items:start}
+    .press img{width:100%;border-radius:8px;display:block}
+    .press .credit{font-size:12.5px;color:#999;margin-top:6px}
+    .press ul{list-style:none;margin:0;padding:0}
+    .press li{padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.4}
+    .press li:first-child{border-top:0;padding-top:0}
+    .press li span{display:block;font-size:13px;color:var(--muted)}
 
-			<table align=center width=900px>
-				<tr><td><center><h1>Acknowledgements</h1></center></td></tr>
-				<tr>
-					<td style="font-size:15pt; text-align:justify">
-						<span>
-							The authors would like to thank Gioella Chaparro and other members of the <a href="http://mfp.kch.illinois.edu/">Mobility and Fall Prevention Research Lab</a> for their assistance with data collection and the participants in this study for their contributions.
-							RK is thankful to William Chittenden for the William A. Chittenden Award.
-						</span>
-					</td>
-				</tr>
-			</table>
+    /* bibtex */
+    .bib{position:relative;background:#f7f8fa;border:1px solid var(--line);border-radius:8px;padding:14px 16px;font:13.5px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre;overflow-x:auto;color:#333}
+    .bibpop{max-width:740px;margin:16px auto 0;text-align:left}
+    .bibpop .bib{box-shadow:0 6px 18px -10px rgba(0,0,0,.25)}
+    .btn[aria-expanded="true"]{background:#363b4d}
+    .copy{position:absolute;top:8px;right:8px;font:600 12px "Figtree",sans-serif;border:1px solid #d5e3f3;background:#fff;color:var(--blue);border-radius:5px;padding:4px 9px;cursor:pointer}
+    .copy:hover{background:var(--blue-bg)}
 
-		<hr>
-        <table style="font-size:14px" align=center>
-        <tr>
-        <td>
-            Website adapted from <a href="https://deanplayerljx.github.io/tabvcr/">Jingxiang</a>, <a href="https://richzhang.github.io/colorization">Richard</a> and <a href="https://pathak22.github.io/modular-assemblies/">Deepak</a>.
-        </td>
-        </tr>
-        </table>
-              
+    footer{border-top:1px solid var(--line);text-align:center;font-size:13px;color:#999;padding:22px 24px 30px}
+
+    @media (max-width:1300px){ .toc{display:none} .layout{grid-template-columns:minmax(0,1fr) minmax(0,820px) minmax(0,1fr);gap:0} }  /* no room for the contents box beside the text */
+    @media (max-width:860px){
+      .layout{grid-template-columns:1fr;gap:0}
+      main{grid-column:1}
+      .toc{display:none}
+      .stats{grid-template-columns:repeat(2,1fr)}
+      .press{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+<div class="crumb"><a href="../index.html">&larr; Rachneet Kaur</a> &nbsp;/&nbsp; <a href="../publications.html">Publications</a></div>
+
+<header class="hero">
+  <div class="venue">
+    <span class="chip blue">IEEE TBME 2021</span>
+    <span class="chip purple">Grace Hopper 2020</span>
+    <span class="chip purple">IEEE NER 2019</span>
+  </div>
+  <h1>Predicting Multiple Sclerosis From Gait Dynamics Using an<br class="wide"> Instrumented Treadmill&thinsp;&mdash;&thinsp;A Machine Learning Approach</h1>
+  <p class="authors">
+    <span><a class="me" href="../index.html">Rachneet Kaur</a><sup>1</sup></span>
+    <span><a href="https://www.researchgate.net/profile/Zizhang-Chen" target="_blank" rel="noopener">Zizhang Chen</a><sup>1</sup></span>
+    <span><a href="https://scholar.google.com/citations?user=jht3pRcAAAAJ&amp;hl=en" target="_blank" rel="noopener">Robert Motl</a><sup>2</sup></span>
+    <span><a href="https://mfp.hk.illinois.edu/" target="_blank" rel="noopener">Manuel E. Hernandez</a><sup>1</sup></span>
+    <span><a href="https://ise.illinois.edu/directory/profile/r-sowers" target="_blank" rel="noopener">Richard Sowers</a><sup>1</sup></span>
+  </p>
+  <p class="affil"><sup>1</sup>University of Illinois at Urbana-Champaign &nbsp;&nbsp; <sup>2</sup>University of Alabama at Birmingham</p>
+  <div class="pubvenue">
+    <div><i>IEEE Transactions on Biomedical Engineering (TBME)</i>, 2021</div>
+    <div class="also">Also presented at Grace Hopper Celebration 2020, IEEE EMBS Conference on Neural Engineering (NER) 2019 and the Illinois Geometry Lab Poster Session 2019; invited talk at the ISE Graduate Seminar, UIUC, 2020</div>
+  </div>
+  <div class="btns">
+    <a class="btn" href="https://ieeexplore.ieee.org/abstract/document/9311191" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>Paper</a>
+    <a class="btn" href="https://github.com/kaurrachneet6/Predicting-Multiple-Sclerosis-from-Gait-Dynamics-Using-an-Instrumented-Treadmill" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9 19c-4 1.5-4-2-6-2.5M15 21v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Code</a>
+    <a class="btn" href="https://drive.google.com/file/d/19EBpumDRwJfkq0sUHQ2we9JQSAVO1Cq_/view?usp=sharing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4M8 20h8"/></svg>Slides</a>
+    <a class="btn" href="https://youtu.be/r8cfduagJf4" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3z"/></svg>Video</a>
+    <a class="btn" href="https://mediaspace.illinois.edu/media/1_79ckpq9e" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>Talk</a>
+    <a class="btn" href="#bibtex" id="bibbtn" aria-expanded="false" aria-controls="bibpop"><svg viewBox="0 0 24 24"><path d="M7 8l-4 4 4 4M17 8l4 4-4 4M14 5l-4 14"/></svg>BibTeX</a>
+  </div>
+  <div class="bibpop" id="bibpop" hidden><div class="bib"><button class="copy" type="button">Copy</button><code></code></div></div>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Contents">
+    <div class="t">Contents</div>
+    <a href="#abstract">Abstract</a>
+    <a href="#contributions">Contributions</a>
+    <a href="#method">Method</a>
+    <a class="sub" href="#design">Study design</a>
+    <a class="sub" href="#features">Gait features</a>
+    <a class="sub" href="#normalization">Normalization</a>
+    <a class="sub" href="#models">Prediction models</a>
+    <a href="#results">Results</a>
+    <a class="sub" href="#differences">Gait differences</a>
+    <a class="sub" href="#prediction">Prediction</a>
+    <a href="#analysis">Analysis</a>
+    <a class="sub" href="#importance">Key features</a>
+    <a class="sub" href="#progression">Progression space</a>
+    <a href="#press">In the news</a>
+    <a href="#bibtex">BibTeX</a>
+  </nav>
+
+  <main>
+    <figure class="overview"><img src="tbme2020/fig1.jpg" alt="Task generalization and subject generalization designs" loading="eager">
+      <figcaption><b>Fig. 1. Two ways of testing the model.</b> Top: <mark>task generalization</mark>, trained on normal walking (W) and tested on walking while talking (WT). Bottom: <mark>subject generalization</mark>, tested on people held out from training. Healthy older adults are in green, people with MS in red.</figcaption></figure>
+
+    <section id="abstract">
+      <h2>Abstract</h2>
+      <p class="abstract"><i>Objective:</i> Multiple Sclerosis (MS) is a neurological condition which widely affects people 50-60 years of age. While clinical presentations of MS are highly heterogeneous, mobility limitations are one of the most frequent symptoms. This study examines a <mark>machine learning (ML) framework for identifying MS through spatiotemporal and kinetic gait features</mark>. <i>Methods:</i> In this study, <mark>gait data during self-paced walking on an instrumented treadmill from 20 persons with MS and 20 age, weight, height, and gender-matched healthy older adults (HOA)</mark> were obtained. We explored <mark>two strategies to normalize data and minimize dependence on subject demographics</mark>; <i>size-normalization</i> (standard body size-based normalization) and <i>regress-normalization</i> (regression-based normalization using scaling factors derived by regressing gait features on multiple subject demographics); and proposed an ML based methodology to <mark>classify individual strides of older persons with MS (PwMS) from healthy controls</mark>. We <mark>generalized both across different walking tasks and subjects</mark>. <i>Results:</i> We observed that <mark><i>regress-normalization</i> improved the accuracy of identifying pathological gait</mark> using ML when compared to <i>size-normalization</i>. When <mark>generalizing from comfortable walking to walking while talking</mark>, <mark>gradient boosting machine achieved the optimal subject classification accuracy and AUC of 94.3% and 1.0</mark>, respectively and for <mark>subject generalization</mark>, a <mark>multilayer perceptron resulted in the best accuracy and AUC of 80% and 0.86</mark>, respectively, both with regression-normalized data. <i>Conclusion:</i> The integration of gait data and ML may provide a <mark>viable patient-centric approach to aid clinicians in monitoring MS</mark>. <i>Significance:</i> The results of this study have future implications for the way regression normalized gait features may be clinically used to design ML-based disease prediction strategies and monitor disease progression in PwMS.</p>
+    </section>
+
+    <section id="contributions">
+      <h2>Core contributions</h2>
+      <ul class="contrib">
+        <li><b><span class="k">1</span>Gait-based MS screening</b>A machine-learning pipeline (GML4MS) that classifies single strides of older adults with MS from healthy controls, using 21 spatiotemporal and kinetic features from an instrumented treadmill.</li>
+        <li><b><span class="k">2</span>Regression-based normalization</b>Gait features are normalized with regression models fit on a separate group of 30 healthy older adults, removing the effect of age, weight, height and gender and improving accuracy over standard body-size scaling.</li>
+        <li><b><span class="k">3</span>Tested on new tasks and new people</b>Models are trained on normal walking and tested on walking while talking, and separately tested on people they have never seen.</li>
+        <li><b><span class="k">4</span>Nine classifiers compared</b>Decision trees, random forests, support vector machines, boosting methods, logistic regression and a multilayer perceptron, evaluated in both settings with both normalizations.</li>
+        <li><b><span class="k">5</span>Which features matter</b>Ablations, conditional entropy and feature-domain tests show stride speed, stride length and toe-off forces are the most informative, and that features a wearable could measure come close to the full set.</li>
+        <li><b><span class="k">6</span>MS progression space</b>Unsupervised clustering of gait features reveals three subgroups of people with MS that line up with clinical disability (EDSS), and the code is <a href="https://github.com/kaurrachneet6/Predicting-Multiple-Sclerosis-from-Gait-Dynamics-Using-an-Instrumented-Treadmill" target="_blank" rel="noopener">open source</a>.</li>
+      </ul>
+    </section>
+
+    <section id="method">
+      <h2>Method</h2>
+
+      <h3 id="design"><span class="n">1</span>Study design</h3>
+      <p>We recruited <mark>20 people with MS (mild to moderate disability, EDSS 1&ndash;6) and 20 matched healthy older adults</mark>. Each person walked at their own pace on an <mark>instrumented treadmill with a built-in force plate</mark> for up to 75 seconds, both normally (W) and while reciting alternate letters of the alphabet (WT), a dual task that mimics everyday distractions. The treadmill recorded gait events, ground reaction forces and the centre of pressure at 500&nbsp;Hz. After excluding five people who held the handrails, 35 people remained (18 healthy, 17 with MS).</p>
+
+      <h3 id="features"><span class="n">2</span>Gait features</h3>
+      <p>We split each walk into strides and extracted <mark>21 features per stride</mark>: 7 temporal (such as stride, stance, swing and double-support times, and cadence), 4 spatial (stride length, stride width and foot progression angles), 2 spatiotemporal (stride speed and walk ratio) and 8 kinetic (forces at six gait events, plus two features from the <mark>butterfly diagram</mark> of the centre of pressure). In all, we kept <mark>1,654 strides from normal walking and 1,576 from walking while talking</mark>.</p>
+      <figure><img src="tbme2020/fig2.jpg" alt="Butterfly diagrams of centre-of-pressure trajectories for a healthy older adult and a person with MS" loading="lazy">
+        <figcaption><b>Fig. 2. Butterfly diagram.</b> Centre-of-pressure paths over a whole walk for a healthy older adult (left) and a person with MS (EDSS 5.5, right), during normal walking (top) and walking while talking (bottom). <mark>The MS pattern is wider and less regular</mark>; variability (&sigma;) and asymmetry (&eta;) are in mm.</figcaption></figure>
+
+      <h3 id="normalization"><span class="n">3</span>Normalizing away body size and demographics</h3>
+      <p>Taller or heavier people naturally walk differently, which can hide disease-related changes. We compared two fixes: <mark>size-N</mark>, which scales each feature by body size (for example, stride length by height), and <mark>regress-N</mark>, which predicts each feature from age, weight, height and gender using regression models fit on <mark>a separate group of 30 healthy older adults</mark> (3,923 strides), then scales by that prediction.</p>
+      <figure><img src="tbme2020/fig3.jpg" alt="Absolute correlation of raw, size-normalized and regression-normalized features with physical characteristics" loading="lazy">
+        <figcaption><b>Fig. 3. Correlation with demographics.</b> How strongly features track weight, height and gender before (red) and after size-N (blue) and regress-N (green) normalization, in normal walking. <mark>Regress-N removes most of this dependence.</mark></figcaption></figure>
+
+      <h3 id="models"><span class="n">4</span>Prediction models</h3>
+      <p>We trained <mark>nine classifiers</mark> (decision tree, random forest, linear and RBF support vector machines, gradient boosting, AdaBoost, XGBoost, multilayer perceptron and logistic regression) to label each stride as healthy or MS, in <mark>two settings</mark>:</p>
+      <ul class="tight">
+        <li><b><mark>Task generalization</mark>:</b> train on normal walking, test on walking while talking.</li>
+        <li><b><mark>Subject generalization</mark>:</b> test on people the model has never seen (7-fold cross-validation).</li>
+      </ul>
+      <p>We classify each stride, then <mark>a majority vote over a person&rsquo;s strides gives their prediction</mark>. Every model was run on both size-N and regress-N features.</p>
+    </section>
+
+    <section id="results">
+      <h2>Results</h2>
+
+      <h3 id="differences"><span class="n">1</span>How MS changes gait</h3>
+      <p>People with MS had <mark>longer and more variable stride, stance and double-support times</mark> and shorter single support. They walked with <mark>shorter strides, lower cadence and slower speed</mark>, a wider stance, and larger side-to-side shifts in the butterfly diagram. No single feature separated the groups cleanly, which motivates machine learning.</p>
+      <figure><img src="tbme2020/fig4.jpg" alt="Correlation of raw and normalized gait features with EDSS" loading="lazy">
+        <figcaption><b>Fig. 4. Correlation with disability (EDSS)</b>, normal walking; diamonds mark statistically significant correlations. <mark>Stride length and speed fall, and double-support and stance times rise, as disability increases.</mark></figcaption></figure>
+
+      <h3 id="prediction"><span class="n">2</span>Predicting MS</h3>
+      <ul class="takeaways">
+        <li><mark>Regression-based normalization helps:</mark> almost every classifier did better with regress-N features than with size-N.</li>
+        <li><mark>A new walking task was handled well:</mark> gradient boosting classified 94.3% of people correctly (AUC 1.0) on walking while talking; only two people with MS were missed.</li>
+        <li><mark>New people are harder:</mark> the best model, a multilayer perceptron, reached 80% accuracy (AUC 0.86) on people it had never seen.</li>
+        <li><mark>Voting across a person&rsquo;s strides beats single strides,</mark> for example from 79.2% to 94.3% for a random forest.</li>
+      </ul>
+      <p>Best model in each setting, at the level of individual people (healthy vs. MS), with regress-N features:</p>
+      <table class="res">
+        <thead><tr><th>Setting</th><th>Best model</th><th>Accuracy</th><th>AUC</th></tr></thead>
+        <tbody>
+          <tr><td>Task generalization<small>train on walking, test on walking while talking</small></td><td>Gradient boosting machine</td><td class="num">94.3%</td><td class="num">1.00</td></tr>
+          <tr><td>Subject generalization<small>new people</small></td><td>Multilayer perceptron</td><td class="num">80%</td><td class="num">0.86</td></tr>
+        </tbody>
+      </table>
+      <details class="fulltables">
+        <summary>Show full results (paper Tables II&ndash;III): top five classifiers, stride- and person-level, size-N vs. regress-N</summary>
+        <figure><img src="tbme2020/table2.jpg" alt="Table II: task generalization results for the top five algorithms" loading="lazy"></figure>
+        <figure><img src="tbme2020/table3.jpg" alt="Table III: subject generalization results for the top five algorithms" loading="lazy"></figure>
+      </details>
+    </section>
+
+    <section id="analysis">
+      <h2>Analysis</h2>
+
+      <h3 id="importance"><span class="n">1</span>Which features matter?</h3>
+      <p>We retrained the models on subsets of features (spatial, temporal, kinetic and their combinations), measured how much each feature reduces uncertainty about the label (conditional entropy), and tested a set of features that a wearable sensor could capture.</p>
+      <ul class="takeaways">
+        <li><mark>All 21 features together work best</mark> in both settings; no smaller subset matched them.</li>
+        <li><mark>Stride speed, stride length and toe-off forces are the most informative</mark>, while foot angles and side-to-side deviation are the least.</li>
+        <li><mark>Wearable-measurable features come close:</mark> they reached an AUC of 0.998 for a new walking task, a promising sign for at-home monitoring.</li>
+      </ul>
+      <div class="two-fig">
+        <figure><img src="tbme2020/fig5.jpg" alt="Conditional entropy of labels given each gait feature" loading="lazy">
+          <figcaption><b>Fig. 5.</b> Conditional entropy of the label given each feature, for normal walking (left) and walking while talking (right); <mark>lower means more predictive</mark>.</figcaption></figure>
+        <figure><img src="tbme2020/fig6.jpg" alt="Person-level AUC for feature groups in task and subject generalization" loading="lazy">
+          <figcaption><b>Fig. 6.</b> Person-level AUC using different groups of features, for task (blue) and subject (red) generalization. <mark>Using all features is best.</mark></figcaption></figure>
+      </div>
+      <details class="fulltables">
+        <summary>Show the ablation study (paper Table IV)</summary>
+        <figure><img src="tbme2020/table4.jpg" alt="Table IV: ablation study for task and subject generalization" loading="lazy"></figure>
+      </details>
+
+      <h3 id="progression"><span class="n">2</span>An MS progression space</h3>
+      <p>We reduced the gait features of people with MS to two dimensions and clustered the strides without using any labels.</p>
+      <ul class="takeaways">
+        <li><mark>Three subgroups emerge that track disability:</mark> one cluster is mostly mild and mild-to-moderate MS, while another contains only moderate MS.</li>
+        <li><mark>Speed and force define the space:</mark> the two axes are dominated by stride speed and by forces, the same features that best predict MS.</li>
+      </ul>
+      <div class="two-fig">
+        <figure><img src="tbme2020/fig7.jpg" alt="Two-dimensional MS progression space with three clusters" loading="lazy">
+          <figcaption><b>Fig. 7.</b> The 2D MS progression space for normal walking (left) and walking while talking (right). Three clusters of MS strides (green, blue, red); healthy strides are outlined in black.</figcaption></figure>
+        <figure><img src="tbme2020/table5.jpg" alt="Table V: strides per EDSS group in each cluster" loading="lazy">
+          <figcaption><b>Table V.</b> Number and share of strides from each disability group (EDSS) in each cluster. <mark>Cluster 3 contains only moderate MS.</mark></figcaption></figure>
+      </div>
+    </section>
+
+    <section id="press">
+      <h2>In the news</h2>
+      <div class="press">
+        <div>
+          <img src="../gallery/web/gait_ms_carle_2021.jpg" alt="Rachneet Kaur with Manuel Hernandez and Richard Sowers" loading="lazy">
+          <div class="credit">With Manuel Hernandez and Richard Sowers. Image from the Carle Illinois College of Medicine news story, April 2021.</div>
+        </div>
+        <ul>
+          <li><a href="https://news.illinois.edu/view/6367/715352095" target="_blank" rel="noopener">Machine learning helps spot gait problems in individuals with multiple sclerosis</a><span>Illinois News Bureau; also Carle Illinois College of Medicine, Tech Briefs, News Medical, EurekAlert!, Neuroscience News, Medical Xpress and Neuro Daily</span></li>
+          <li><a href="https://multiplesclerosisnewstoday.com/news-posts/2021/03/31/machine-learning-walking-gait-patterns-predict-progression-multiple-sclerosis-study/" target="_blank" rel="noopener">Machine learning of walking patterns could help predict MS progression</a><span>Multiple Sclerosis News Today</span></li>
+          <li><a href="https://www.techtarget.com/healthtechanalytics/news/366591284/Machine-Learning-Catches-Multiple-Sclerosis-Related-Gait-Issues" target="_blank" rel="noopener">Machine learning catches multiple sclerosis-related gait issues</a><span>TechTarget; also India Next</span></li>
+          <li><a href="https://go.gale.com/ps/i.do?id=GALE%7CA676053230&amp;sid=sitemap&amp;v=2.1&amp;it=r&amp;p=HRCA&amp;sw=w" target="_blank" rel="noopener">Study results from University of Illinois provide new insights into multiple sclerosis</a><span>Health &amp; Medicine Week, NewsRx</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="bibtex">
+      <h2>BibTeX</h2>
+      <div class="bib"><button class="copy" type="button">Copy</button><code id="bibtext">@article{kaur2021predicting,
+  title   = {Predicting Multiple Sclerosis From Gait Dynamics Using an
+             Instrumented Treadmill: A Machine Learning Approach},
+  author  = {Kaur, Rachneet and Chen, Zizhang and Motl, Robert and
+             Hernandez, Manuel E and Sowers, Richard},
+  journal = {IEEE Transactions on Biomedical Engineering},
+  volume  = {68},
+  number  = {9},
+  pages   = {2666--2677},
+  year    = {2021},
+  doi     = {10.1109/TBME.2020.3048142}
+}</code></div>
+    </section>
+  </main>
+</div>
+
+<footer><a href="../index.html">Home</a> &middot; <a href="../publications.html">All publications</a><br><span style="font-size:12px">Page design inspired by <a href="https://nerfies.github.io/" target="_blank" rel="noopener">Nerfies</a>.</span></footer>
+
+<script>
+/* copy BibTeX (both the pop-up panel and the BibTeX section) */
+var bibText = document.getElementById("bibtext").textContent;
+document.querySelector("#bibpop code").textContent = bibText;
+document.querySelectorAll(".copy").forEach(function (b) {
+  b.addEventListener("click", function () {
+    navigator.clipboard.writeText(bibText).then(function () {
+      b.textContent = "Copied"; setTimeout(function () { b.textContent = "Copy"; }, 1500);
+    });
+  });
+});
+/* the BibTeX button opens the citation right under the buttons instead of jumping to the bottom */
+(function () {
+  var btn = document.getElementById("bibbtn"), pop = document.getElementById("bibpop");
+  btn.addEventListener("click", function (e) {
+    e.preventDefault();
+    var open = pop.hidden; pop.hidden = !open; btn.setAttribute("aria-expanded", open);
+  });
+})();
+/* highlight the section in view in the contents */
+(function () {
+  var links = [].slice.call(document.querySelectorAll(".toc a"));
+  var secs = links.map(function (a) { return document.querySelector(a.getAttribute("href")); });
+  function f() {
+    var y = window.scrollY + 120, i = 0;
+    secs.forEach(function (s, k) { if (s && s.offsetTop <= y) i = k; });
+    links.forEach(function (a, k) { a.classList.toggle("on", k === i); });
+  }
+  window.addEventListener("scroll", f, { passive: true }); f();
+})();
+</script>
 </body>
 </html>
