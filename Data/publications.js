@@ -192,6 +192,7 @@ window.PUBLICATIONS = [
     badges: ["MS Gait & Balance Symposium 2021"],
     notes: ["Also presented at the 11th International Symposium on Gait and Balance in Multiple Sclerosis, 2021"],
     links: [["PDF", "https://ieeexplore.ieee.org/abstract/document/10023977"],
+            ["Webpage", "projects/TBME2023.html"],
             ["Code", "https://github.com/kaurrachneet6/Deep-Learning-for-Multiple-Sclerosis-Differentiation-Using-Multi-Stride-Dynamics-in-Gait/"],
             ["Slides", "https://drive.google.com/file/d/121JZH-9B93Q2VLxtplGyNZG-hP4LdmCo/view?usp=sharing"]]
   },
