@@ -210,9 +210,6 @@
   </nav>
 
   <main>
-    <figure class="overview"><img src="tbme2020/fig1.jpg" alt="Task generalization and subject generalization designs" loading="eager">
-      <figcaption><b>Fig. 1. Two ways of testing the model.</b> Top: <mark>task generalization</mark>, trained on normal walking (W) and tested on walking while talking (WT). Bottom: <mark>subject generalization</mark>, tested on people held out from training. Healthy older adults are in green, people with MS in red.</figcaption></figure>
-
     <section id="abstract">
       <h2>Abstract</h2>
       <p class="abstract"><i>Objective:</i> Multiple Sclerosis (MS) is a neurological condition which widely affects people 50-60 years of age. While clinical presentations of MS are highly heterogeneous, mobility limitations are one of the most frequent symptoms. This study examines a <mark>machine learning (ML) framework for identifying MS through spatiotemporal and kinetic gait features</mark>. <i>Methods:</i> In this study, <mark>gait data during self-paced walking on an instrumented treadmill from 20 persons with MS and 20 age, weight, height, and gender-matched healthy older adults (HOA)</mark> were obtained. We explored <mark>two strategies to normalize data and minimize dependence on subject demographics</mark>; <i>size-normalization</i> (standard body size-based normalization) and <i>regress-normalization</i> (regression-based normalization using scaling factors derived by regressing gait features on multiple subject demographics); and proposed an ML based methodology to <mark>classify individual strides of older persons with MS (PwMS) from healthy controls</mark>. We <mark>generalized both across different walking tasks and subjects</mark>. <i>Results:</i> We observed that <mark><i>regress-normalization</i> improved the accuracy of identifying pathological gait</mark> using ML when compared to <i>size-normalization</i>. When <mark>generalizing from comfortable walking to walking while talking</mark>, <mark>gradient boosting machine achieved the optimal subject classification accuracy and AUC of 94.3% and 1.0</mark>, respectively and for <mark>subject generalization</mark>, a <mark>multilayer perceptron resulted in the best accuracy and AUC of 80% and 0.86</mark>, respectively, both with regression-normalized data. <i>Conclusion:</i> The integration of gait data and ML may provide a <mark>viable patient-centric approach to aid clinicians in monitoring MS</mark>. <i>Significance:</i> The results of this study have future implications for the way regression normalized gait features may be clinically used to design ML-based disease prediction strategies and monitor disease progression in PwMS.</p>
@@ -252,6 +249,8 @@
         <li><b><mark>Task generalization</mark>:</b> train on normal walking, test on walking while talking.</li>
         <li><b><mark>Subject generalization</mark>:</b> test on people the model has never seen (7-fold cross-validation).</li>
       </ul>
+        <figure><img src="tbme2020/fig1.jpg" alt="Task generalization and subject generalization designs" loading="lazy">
+            <figcaption><b>Fig. 1. Two ways of testing the model.</b> Top: <mark>task generalization</mark>, trained on normal walking (W) and tested on walking while talking (WT). Bottom: <mark>subject generalization</mark>, tested on people held out from training. Healthy older adults are in green, people with MS in red.</figcaption></figure>
       <p>We classify each stride, then <mark>a majority vote over a person&rsquo;s strides gives their prediction</mark>. Every model was run on both size-N and regress-N features.</p>
     </section>
 
