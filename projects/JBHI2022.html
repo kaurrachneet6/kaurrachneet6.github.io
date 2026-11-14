@@ -234,16 +234,24 @@
       <p>Deep-learning models working directly on pose sequences did best when the model had to handle new people. The results suggest that inexpensive camera-based systems could help screen for neurological gait disorders, for example at home or in clinics far from specialists.</p>
     </section>
 
-    <section id="analysis">
-      <h2>Analysis</h2>
-      <p><b>Which body parts matter?</b> An ablation that adds body regions one at a time (feet, then ankles, then knees, then hips) improved accuracy at every step, so the best models use the whole lower body.</p>
-      <div class="two-fig">
-        <figure><img src="jbhi2022/fi.jpg" alt="Permutation feature importance per joint, as stride-level AUC after shuffling that joint" loading="lazy">
-          <figcaption><b>Fig. 2. Permutation feature importance</b> (task generalization). Each bar is the model&rsquo;s AUC after shuffling one joint; lower means that joint matters more. The knees matter most, followed by the heels and big toes.</figcaption></figure>
-        <figure><img src="jbhi2022/shap.jpg" alt="SHAP multi-output decision plot for one stride classified as MS" loading="lazy">
-          <figcaption><b>Fig. 4. SHAP explanation</b> for one randomly chosen stride, correctly classified as MS by the best task-subject generalization model. Knee coordinates drive the prediction most.</figcaption></figure>
-      </div>
-    </section>
+<section id="analysis">
+  <h2>Analysis</h2>
+  <p><b>Which body parts matter?</b> An ablation that adds body regions one at a time (feet, then ankles, then knees, then hips) improved accuracy at every step, so the best models use the whole lower body. Permutation feature importance then shuffles one joint at a time and measures how much the model&rsquo;s AUC drops: the bigger the drop, the more that joint matters.</p>
+  <div class="two-fig">
+    <figure><img src="jbhi2022/fi.jpg" alt="Permutation feature importance per joint in task generalization" loading="lazy">
+      <figcaption><b>Fig. 2.</b> Permutation feature importance in task generalization (AUC after shuffling each joint). The knees matter most, followed by the heels and big toes; the left hip matters least.</figcaption></figure>
+    <figure><img src="jbhi2022/fig3.jpg" alt="Permutation feature importance per joint in subject and task-subject generalization" loading="lazy">
+      <figcaption><b>Fig. 3.</b> Permutation feature importance for new people (AUC after shuffling, relative to the original). The right knee and hip, then both little toes, matter most. For new people in a new task (triangles), every joint matters.</figcaption></figure>
+  </div>
+
+  <p style="margin-top:22px"><b>Explaining predictions.</b> SHAP shows how each feature pushes a single stride&rsquo;s prediction towards one class or another. We also checked whether the model&rsquo;s mistakes line up with how physically fit people are, using the Short Physical Performance Battery (SPPB, from 0 to 12, where higher means less frail).</p>
+  <div class="two-fig">
+    <figure><img src="jbhi2022/shap.jpg" alt="SHAP multi-output decision plot for one stride classified as MS" loading="lazy">
+      <figcaption><b>Fig. 4.</b> SHAP decision plot for one randomly chosen stride, correctly classified as MS (probability 0.95) by the best task-subject generalization model. Knee coordinates drive the prediction most.</figcaption></figure>
+    <figure><img src="jbhi2022/fig5.jpg" alt="Ternary plot of predicted class probabilities for each person, coloured by SPPB score" loading="lazy">
+      <figcaption><b>Fig. 5.</b> Each person&rsquo;s predicted probabilities (subject generalization, walking) placed on a triangle, coloured by SPPB. Frailer healthy adults tend to be mistaken for MS, fitter people with MS for healthy, and MS and PD are hard to tell apart.</figcaption></figure>
+  </div>
+</section>
 
     <section id="press">
       <h2>In the news</h2>
