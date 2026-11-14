@@ -84,6 +84,17 @@
     .two-fig{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
     @media (max-width:700px){ .side-fig,.two-fig{grid-template-columns:1fr} }
 
+    /* soft highlighter for the key phrases, so a quick read still gets the story */
+    mark{background:linear-gradient(180deg,transparent 52%,#fbe7a8 52%,#fbe7a8 92%,transparent 92%);color:inherit;padding:0 1px}
+    figcaption mark{background:linear-gradient(180deg,transparent 55%,#fbe7a8 55%)}
+
+    /* core contributions */
+    .contrib{list-style:none;margin:6px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .contrib li{border:1px solid var(--line);border-radius:10px;padding:14px 16px 13px;background:linear-gradient(180deg,#fff,#fafbfd);font-size:15px;line-height:1.5}
+    .contrib b{display:block;font-size:15.5px;color:#1e2a44;margin-bottom:3px}
+    .contrib .k{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--blue-bg);color:var(--blue);font-size:12px;font-weight:700;margin-right:7px;vertical-align:1px}
+    @media (max-width:700px){ .contrib{grid-template-columns:1fr} }
+
     /* results table */
     table.res{width:100%;border-collapse:collapse;font-size:15px;margin:6px 0 10px}
     table.res th,table.res td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
@@ -164,6 +175,7 @@
   <nav class="toc" aria-label="Contents">
     <div class="t">Contents</div>
     <a href="#abstract">Abstract</a>
+    <a href="#contributions">Contributions</a>
     <a href="#method">Method</a>
     <a class="sub" href="#design">Study design</a>
     <a class="sub" href="#video">Video to 3D pose</a>
@@ -180,24 +192,36 @@
   <main>
     <section id="abstract">
       <h2>Abstract</h2>
-      <p class="abstract">This study examined the effectiveness of a vision-based framework for multiple sclerosis (MS) and Parkinson&rsquo;s disease (PD) gait dysfunction prediction. We collected gait video data from multi-view digital cameras during self-paced walking from MS, PD patients and age, weight, height and gender-matched healthy older adults (HOA). We then extracted characteristic 3D joint keypoints from the collected videos. In this work, we proposed a data-driven methodology to classify strides in persons with MS (PwMS), persons with PD (PwPD) and HOA that may generalize across different walking tasks and subjects. We presented a comprehensive quantitative comparison of 16 diverse traditional machine and deep learning (DL) algorithms. When generalizing from comfortable walking (W) to walking-while-talking (WT), multi-scale residual neural network achieved perfect accuracy and AUC for classifying individuals with a given gait disorder; for subject generalization in W trials, residual neural network resulted in the highest accuracy and AUC of <b>78.1%</b> and 0.87 (resp.), and 1D convolutional neural network (CNN) had highest accuracy of <b>75%</b> in WT trials. Finally, when generalizing over new subjects in different tasks, again 1D CNN had the top classification accuracy and AUC of <b>79.3%</b> and 0.93 (resp.). This work is the first attempt to apply and demonstrate the potential of DL with a multi-view digital camera-based gait analysis framework for neurological gait dysfunction prediction. This study suggests the viability of inexpensive vision-based systems for diagnosing certain neurological disorders.</p>
+      <p class="abstract">This study examined the effectiveness of a <mark>vision-based framework for multiple sclerosis (MS) and Parkinson&rsquo;s disease (PD) gait dysfunction prediction</mark>. We collected <mark>gait video data from multi-view digital cameras</mark> during self-paced walking from MS, PD patients and age, weight, height and gender-matched healthy older adults (HOA). We then extracted characteristic 3D joint keypoints from the collected videos. In this work, we proposed a data-driven methodology to classify strides in persons with MS (PwMS), persons with PD (PwPD) and HOA that may <mark>generalize across different walking tasks and subjects</mark>. We presented a comprehensive quantitative <mark>comparison of 16 diverse traditional machine and deep learning (DL) algorithms</mark>. When generalizing from comfortable walking (W) to walking-while-talking (WT), <mark>multi-scale residual neural network achieved perfect accuracy and AUC</mark> for classifying individuals with a given gait disorder; for subject generalization in W trials, residual neural network resulted in the highest accuracy and AUC of 78.1% and 0.87 (resp.), and 1D convolutional neural network (CNN) had highest accuracy of 75% in WT trials. Finally, when generalizing over new subjects in different tasks, again 1D CNN had the <mark>top classification accuracy and AUC of 79.3% and 0.93</mark> (resp.). This work is the <mark>first attempt to apply and demonstrate the potential of DL with a multi-view digital camera-based gait analysis framework</mark> for neurological gait dysfunction prediction. This study suggests the <mark>viability of inexpensive vision-based systems</mark> for diagnosing certain neurological disorders.</p>
     </section>
+
+<section id="contributions">
+  <h2>Core contributions</h2>
+  <ul class="contrib">
+    <li><b><span class="k">1</span>Camera-only gait screening</b>An end-to-end pipeline that turns ordinary front and side video into 3D gait poses, with no motion-capture lab, wearables or specialist needed. Low-cost, contact-free and suited to monitoring at home.</li>
+    <li><b><span class="k">2</span>MS vs. PD vs. healthy, not just yes/no</b>A three-way classifier for people with MS, people with PD and healthy older adults, where earlier work typically separated one disease from healthy controls.</li>
+    <li><b><span class="k">3</span>Tested on new tasks and new people</b>Three evaluation settings of rising difficulty: a new walking task, new people, and new people in a new task, the closest to real use.</li>
+    <li><b><span class="k">4</span>16 models compared</b>Nine traditional classifiers and seven deep-learning models (convolutional and recurrent), evaluated stride by stride and person by person.</li>
+    <li><b><span class="k">5</span>Explainable predictions</b>Ablations, permutation importance and SHAP show which joints drive each decision, and errors are linked to physical performance (SPPB).</li>
+    <li><b><span class="k">6</span>Validated and open source</b>Video poses are checked against an instrumented treadmill, and the full workflow is released on <a href="https://github.com/kaurrachneet6/Vision-Based-Gait-Analysis-Framework-for-Predicting-Multiple-Sclerosis" target="_blank" rel="noopener">GitHub</a>.</li>
+  </ul>
+</section>
 
     <section id="method">
       <h2>Method</h2>
 
       <h3 id="design"><span class="n">1</span>Study design</h3>
-      <p>People with MS (mild to moderate disability), people with PD (mild to moderate severity, on medication) and matched healthy older adults walked on a treadmill at their own pace, both normally and while talking (reciting every other letter of the alphabet), a dual task that mimics the distractions of everyday walking. A front camera and a side camera recorded each trial at 30 frames per second, alongside standard clinical measures of mobility and disease severity. In all, 33 people took part (14 healthy older adults, 10 with MS, 9 with PD), giving 116 one-minute gait videos.</p>
+      <p>People with MS (mild to moderate disability), people with PD (mild to moderate severity, on medication) and matched healthy older adults walked on a treadmill at their own pace, both normally and while talking (reciting every other letter of the alphabet), <mark>a dual task that mimics the distractions of everyday walking</mark>. A front camera and a side camera recorded each trial at 30 frames per second, alongside standard clinical measures of mobility and disease severity. In all, <mark>33 people took part (14 healthy older adults, 10 with MS, 9 with PD)</mark>, giving 116 one-minute gait videos.</p>
       <figure><img src="jbhi2022/step1.jpg" alt="Inclusion criteria, gait data acquisition with front and side cameras, and clinical measurements" loading="lazy">
         <figcaption>Inclusion criteria, the two-camera treadmill setup, and the clinical scales recorded (SPPB, EDSS for MS, Hoehn &amp; Yahr for PD).</figcaption></figure>
 
       <h3 id="video"><span class="n">2</span>From video to 3D pose</h3>
-      <p>OpenPose finds 2D body keypoints in every frame: 12 markers (hips, knees, ankles, feet) from the front camera and 8 foot and ankle markers from the side camera. Camera calibration lifts each view into 3D, measured in centimetres from the treadmill, and the two views are fused into one 3D pose per frame.</p>
+      <p>OpenPose finds 2D body keypoints in every frame: 12 markers (hips, knees, ankles, feet) from the front camera and 8 foot and ankle markers from the side camera. Camera calibration lifts each view into 3D, measured in centimetres from the treadmill, and <mark>the two views are fused into one 3D pose per frame</mark>.</p>
       <figure><img src="jbhi2022/step2.jpg" alt="OpenPose 2D pose estimation, transformation to 3D space and multi-view fusion" loading="lazy">
         <figcaption>2D pose estimation in each camera, transformation to 3D, and multi-view fusion into more than 99,000 3D poses.</figcaption></figure>
 
       <h3 id="features"><span class="n">3</span>Gait features</h3>
-      <p>Heel strikes, found from the height of the right heel and checked against the treadmill&rsquo;s own record, split the walking into 2,430 strides. Each stride is described two ways: 91 summary features (range, variability and left&ndash;right asymmetry of the body coordinates, plus frames per stride) for traditional classifiers, and a 20-step sequence of 36 coordinates for deep-learning models.</p>
+      <p>Heel strikes, found from the height of the right heel and checked against the treadmill&rsquo;s own record, <mark>split the walking into 2,430 strides</mark>. Each stride is described two ways: 91 summary features (range, variability and left&ndash;right asymmetry of the body coordinates, plus frames per stride) for traditional classifiers, and a 20-step sequence of 36 coordinates for deep-learning models.</p>
       <figure><img src="jbhi2022/step3.jpg" alt="Heel strike identification and validation, post-processing and feature design" loading="lazy">
         <figcaption>Stride segmentation and validation, smoothing and resampling, and the two feature designs.</figcaption></figure>
 
@@ -208,7 +232,7 @@
         <li><b>Subject generalization:</b> test on people the model has never seen.</li>
         <li><b>Task and subject generalization:</b> new people <i>and</i> a new walking task.</li>
       </ul>
-      <p>Each stride is classified, then a majority vote over a person&rsquo;s strides gives their prediction. SHAP explanations, feature importance and ablations show which parts of the gait drive the predictions.</p>
+      <p>Each stride is classified, then <mark>a majority vote over a person&rsquo;s strides gives their prediction</mark>. SHAP explanations, feature importance and ablations show which parts of the gait drive the predictions.</p>
       <figure><img src="jbhi2022/step4.jpg" alt="Classification frameworks, model training, model evaluation and post hoc analysis" loading="lazy">
         <figcaption>The three evaluation frameworks, model training and evaluation (stride-level metrics, then subject-level by majority vote), and post hoc analysis.</figcaption></figure>
 
@@ -220,7 +244,7 @@
 
       <h3 id="validation">Can we trust poses from video?</h3>
       <p>Before predicting disease, we checked the video poses against the instrumented treadmill. For each support phase we compared the centre of pressure measured by the treadmill with the centroid of the base of support formed by the feet as seen on camera, across 2,483 strides and 9,768 valid support phases.</p>
-      <p>The average Euclidean distance between the two was 9.95&nbsp;&plusmn;&nbsp;5.68&nbsp;cm in single support and 8.82&nbsp;&plusmn;&nbsp;5.49&nbsp;cm in double support, with almost no systematic offset sideways or front-to-back. The two measures are not expected to line up exactly, but their agreement supports the validity of the camera-based 3D poses.</p>
+      <p>The average Euclidean distance between the two was 9.95&nbsp;&plusmn;&nbsp;5.68&nbsp;cm in single support and 8.82&nbsp;&plusmn;&nbsp;5.49&nbsp;cm in double support, with almost no systematic offset sideways or front-to-back. The two measures are not expected to line up exactly, but <mark>their agreement supports the validity of the camera-based 3D poses</mark>.</p>
 
       <h3 id="prediction">Predicting MS and PD</h3>
       <p>Best model in each setting, at the level of individual people (healthy older adults vs. MS vs. PD):</p>
@@ -233,25 +257,25 @@
           <tr><td>Task and subject generalization<small>new people in a new task</small></td><td>1D CNN</td><td class="num">79.3%</td><td class="num">0.93</td></tr>
         </tbody>
       </table>
-      <p>Deep-learning models working directly on pose sequences did best when the model had to handle new people. The results suggest that inexpensive camera-based systems could help screen for neurological gait disorders, for example at home or in clinics far from specialists.</p>
+      <p><mark>Deep-learning models working directly on pose sequences did best</mark> when the model had to handle new people. The results suggest that <mark>inexpensive camera-based systems could help screen for neurological gait disorders</mark>, for example at home or in clinics far from specialists.</p>
     </section>
 
 <section id="analysis">
   <h2>Analysis</h2>
-  <p><b>Which body parts matter?</b> An ablation that adds body regions one at a time (feet, then ankles, then knees, then hips) improved accuracy at every step, so the best models use the whole lower body. Permutation feature importance then shuffles one joint at a time and measures how much the model&rsquo;s AUC drops: the bigger the drop, the more that joint matters.</p>
+  <p><b>Which body parts matter?</b> An ablation that adds body regions one at a time (feet, then ankles, then knees, then hips) improved accuracy at every step, <mark>so the best models use the whole lower body</mark>. Permutation feature importance then shuffles one joint at a time and measures how much the model&rsquo;s AUC drops: the bigger the drop, the more that joint matters.</p>
   <div class="two-fig">
     <figure><img src="jbhi2022/fi.jpg" alt="Permutation feature importance per joint in task generalization" loading="lazy">
-      <figcaption><b>Fig. 2.</b> Permutation feature importance in task generalization (AUC after shuffling each joint). The knees matter most, followed by the heels and big toes; the left hip matters least.</figcaption></figure>
+      <figcaption><b>Fig. 2.</b> Permutation feature importance in task generalization (AUC after shuffling each joint). <mark>The knees matter most</mark>, followed by the heels and big toes; the left hip matters least.</figcaption></figure>
     <figure><img src="jbhi2022/fig3.jpg" alt="Permutation feature importance per joint in subject and task-subject generalization" loading="lazy">
-      <figcaption><b>Fig. 3.</b> Permutation feature importance for new people (AUC after shuffling, relative to the original). The right knee and hip, then both little toes, matter most. For new people in a new task (triangles), every joint matters.</figcaption></figure>
+      <figcaption><b>Fig. 3.</b> Permutation feature importance for new people (AUC after shuffling, relative to the original). <mark>The right knee and hip, then both little toes, matter most</mark>. For new people in a new task (triangles), every joint matters.</figcaption></figure>
   </div>
 
   <p style="margin-top:22px"><b>Explaining predictions.</b> SHAP shows how each feature pushes a single stride&rsquo;s prediction towards one class or another. We also checked whether the model&rsquo;s mistakes line up with how physically fit people are, using the Short Physical Performance Battery (SPPB, from 0 to 12, where higher means less frail).</p>
   <div class="two-fig">
     <figure><img src="jbhi2022/shap.jpg" alt="SHAP multi-output decision plot for one stride classified as MS" loading="lazy">
-      <figcaption><b>Fig. 4.</b> SHAP decision plot for one randomly chosen stride, correctly classified as MS (probability 0.95) by the best task-subject generalization model. Knee coordinates drive the prediction most.</figcaption></figure>
+      <figcaption><b>Fig. 4.</b> SHAP decision plot for one randomly chosen stride, correctly classified as MS (probability 0.95) by the best task-subject generalization model. <mark>Knee coordinates drive the prediction most</mark>.</figcaption></figure>
     <figure><img src="jbhi2022/fig5.jpg" alt="Ternary plot of predicted class probabilities for each person, coloured by SPPB score" loading="lazy">
-      <figcaption><b>Fig. 5.</b> Each person&rsquo;s predicted probabilities (subject generalization, walking) placed on a triangle, coloured by SPPB. Frailer healthy adults tend to be mistaken for MS, fitter people with MS for healthy, and MS and PD are hard to tell apart.</figcaption></figure>
+      <figcaption><b>Fig. 5.</b> Each person&rsquo;s predicted probabilities (subject generalization, walking) placed on a triangle, coloured by SPPB. <mark>Frailer healthy adults tend to be mistaken for MS, fitter people with MS for healthy</mark>, and MS and PD are hard to tell apart.</figcaption></figure>
   </div>
 </section>
 
