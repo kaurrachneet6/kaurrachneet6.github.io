@@ -39,9 +39,12 @@
     .authors sup,.affil sup{font-size:12px;color:var(--muted);margin-left:1px}
     .affil{font-size:16.5px;color:var(--muted);margin:0 0 12px}
     .pubvenue{font-size:17.5px;color:#2c3248;margin:0 0 22px;line-height:1.5}
-    .pubvenue .also-list{margin-top:4px}
-    .pubvenue .also-list span{display:block}
-    .pubvenue .also-list span:last-child{margin-top:4px}
+/* "also presented at" and invited talk: two small labelled lists side by side */
+.venuebox{display:inline-flex;flex-wrap:wrap;justify-content:center;gap:10px 34px;margin:12px auto 0;text-align:left}
+.vb-label{font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#8a7a5c;margin-bottom:4px}
+.venuebox ul{list-style:none;margin:0;padding:0}
+.venuebox li{position:relative;padding-left:14px;font-size:15px;line-height:1.55;color:var(--muted)}
+.venuebox li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:#b9a6d9}
     .pubvenue .also{font-size:16px;color:var(--muted)}
     .btns{display:flex;flex-wrap:wrap;justify-content:center;gap:9px}
     .btn{display:inline-flex;align-items:center;gap:7px;background:#1f2330;color:#fff;border-radius:999px;padding:8px 16px 8px 13px;font-size:14.5px;font-weight:600}
@@ -169,12 +172,20 @@
   <p class="affil"><sup>1</sup>University of Illinois at Urbana-Champaign &nbsp;&nbsp; <sup>2</sup>University of Alabama at Birmingham</p>
   <div class="pubvenue">
     <div><i>IEEE Transactions on Biomedical Engineering (TBME)</i>, 2021</div>
-    <div class="also also-list">Also presented at
-      <span>Grace Hopper Celebration 2020</span>
-      <span>IEEE EMBS Conference on Neural Engineering (NER) 2019</span>
-      <span>Illinois Geometry Lab Poster Session, Department of Mathematics, UIUC, 2019</span>
-      <span>Invited talk at the ISE Graduate Seminar, UIUC, 2020</span>
-    </div>
+<div class="venuebox">
+  <div class="vb-col">
+    <div class="vb-label">Also presented at</div>
+    <ul>
+      <li>Grace Hopper Celebration 2020</li>
+      <li>IEEE EMBS Conference on Neural Engineering (NER) 2019</li>
+      <li>Illinois Geometry Lab Poster Session, Department of Mathematics, UIUC, 2019</li>
+    </ul>
+  </div>
+  <div class="vb-col">
+    <div class="vb-label">Invited talk</div>
+    <ul><li>ISE Graduate Seminar, UIUC, 2020</li></ul>
+  </div>
+</div>
   </div>
   <div class="btns">
     <a class="btn" href="https://ieeexplore.ieee.org/abstract/document/9311191" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>Paper</a>
