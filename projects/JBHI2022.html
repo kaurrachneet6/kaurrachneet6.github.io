@@ -1,232 +1,267 @@
-<html>
-  <head>
-	  	<link rel="shortcut icon" type="image/png" href="./icon.png" />
-		<title>A Vision-Based Framework for Predicting Multiple Sclerosis and Parkinson's Disease Gait Dysfunctions—A Deep Learning Approach</title>
-  </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vision-Based Gait Framework for MS and PD | Rachneet Kaur</title>
+  <meta name="description" content="A vision-based framework for predicting multiple sclerosis and Parkinson's disease gait dysfunctions from multi-view camera video, using deep learning. IEEE JBHI 2023.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#1a1a2e;--muted:#5d6273;--line:#ececf0;--blue:#1772d0;--blue-bg:#eef4fb;--gold:#e2c79a;--gold-ink:#8a5a00;--gold-bg:#fbf1dc}
+    html{background:#fff;color-scheme:light;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+    body{margin:0;font-family:"Figtree",Helvetica,Arial,sans-serif;color:var(--ink);line-height:1.6;font-size:16.5px}
+    a{color:var(--blue);text-decoration:none}
+    a:hover{text-decoration:underline}
+    [id]{scroll-margin-top:24px}
 
-  <body>
-    <br>
-          <center>
-          	<span style="font-size:38px">A Vision-Based Framework for Predicting Multiple Sclerosis and Parkinson's Disease Gait Dysfunctions — A Deep Learning Approach<br></span>
-			  <br>
-	  		  <table align=center width=700px>
-	  			  <tr>
-					  <td align=center>
-						  <span style="font-size:25px">
-					      <strong>Rachneet Kaur</strong>,
-					      <a href="https://www.researchgate.net/profile/Zizhang-Chen"  style="text-decoration: none">Zizhang Chen</a>,
-					      <a href="https://scholar.google.com/citations?user=jht3pRcAAAAJ&hl=en" style="text-decoration: none">Robert Motl</a>,
-						<a href="https://ahs.illinois.edu/hernandez"  style="text-decoration: none">Manuel Hernandez</a>,
-					      <a href="https://ise.illinois.edu/directory/profile/r-sowers"  style="text-decoration: none">Richard Sowers</a>
-						  </span>
-					  </td>
-				  </tr>
-				  <tr>
-					  <td align="center">
-						  <span style="font-size:22px">
-							  University of Illinois at Urbana-Champaign
-						  </span>
-						  <br>
-						  <span style="font-size:25px">
-							  <a href="https://www.embs.org/tbme/" style="text-decoration: none">IEEE Transactions on Biomedical Engineering <em>(TBME)</em>, 2020</a>
-						  </span>
-						  <br>
-						  <br>
-					  </td>
-				  </tr>
-			  </table>
+    /* back link to the homepage */
+    .crumb{max-width:1080px;margin:0 auto;padding:18px 24px 0;font-size:13.5px}
+    .crumb a{color:var(--muted)}
+    .crumb a:hover{color:var(--blue)}
 
-	  		  <table align=center width=600px>
-	  			  <tr>
-	  	              <td align=center width=140px>
-	  					<center>
-	  						<span style="font-size:22px"><a href='https://github.com/kaurrachneet6/GML4MS/tree/GML4MS-v1.0' style="text-decoration: none" target="_blank"> [Code]</a></span>
-		  		  		</center>
-		  		  	  </td>
-	  	              
-	  	              <td align=center width=150px>
-	  					<center>
-	  						<span style="font-size:22px"><a href='./EMBC2020_BF_ML_slides_pdf.pdf' style="text-decoration: none" target="_blank"> [Slides]</a></span>
-		  		  		</center>
-		  		  	  </td>
- 
-<!-- 		  		  	  <td align=center width=200px>
-	  					<center>
-	  						<span style="font-size:22px"><a href='https://youtu.be/r8cfduagJf4' style="text-decoration: none" target="_blank"> [Teaser Video]</a></span>
-		  		  		</center>
-		  		  	  </td>
-					   -->
-					  <td align=center width=200px>
-	  					<center>
-	  						<span style="font-size:22px"><a href='https://www.youtube.com/watch?v=r8cfduagJf4&ab_channel=IllinoisDept.ofMath' style="text-decoration: none" target="_blank"> [Video]</a></span>
-		  		  		</center>
-		  		  	  </td>
+    /* ---------- hero ---------- */
+    .hero{max-width:900px;margin:0 auto;padding:34px 24px 10px;text-align:center}
+    .venue{display:inline-flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-bottom:16px}
+    .chip{font-size:12px;font-weight:600;border-radius:4px;padding:2px 9px;line-height:1.6;white-space:nowrap}
+    .chip.blue{color:var(--blue);background:var(--blue-bg)}
+    .chip.gold{color:var(--gold-ink);background:var(--gold-bg)}
+    h1{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:clamp(28px,4.2vw,42px);line-height:1.15;letter-spacing:-.4px;margin:0 0 6px;color:#1e2a44}
+    .subtitle{font-family:"Newsreader",Georgia,serif;font-weight:500;font-size:clamp(19px,2.4vw,24px);color:#4a5068;margin:0 0 20px}
+    .authors{font-size:17px;margin:0 0 4px}
+    .authors a{color:var(--blue);margin:0 6px;white-space:nowrap}
+    .authors .me{font-weight:700}
+    .affil{font-size:15px;color:var(--muted);margin:0 0 22px}
+    .btns{display:flex;flex-wrap:wrap;justify-content:center;gap:9px}
+    .btn{display:inline-flex;align-items:center;gap:7px;background:#1f2330;color:#fff;border-radius:999px;padding:8px 16px 8px 13px;font-size:14.5px;font-weight:600}
+    .btn:hover{background:#363b4d;text-decoration:none}
+    .btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
-	  	              <td align=center width=100px>
-	  					<center>
-	  						<span style="font-size:22px"><a href='https://ieeexplore.ieee.org/abstract/document/9311191' style="text-decoration: none" target="_blank"> [Paper]</a></span>
-		  		  		</center>
-		  		  	  </td>
+    /* teaser */
+    .teaser{max-width:1080px;margin:30px auto 0;padding:0 24px}
+    .teaser img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:10px}
+    .cap{font-size:14.5px;color:var(--muted);text-align:center;margin:12px auto 0;max-width:820px;line-height:1.5}
+    .cap b{color:var(--ink)}
 
-		  		  	 </tr>
-	  			  <tr>
-			  </table>
-          </center>
-	  <br>
-		<table align=center width=800px>
-				<tr><td><center><h1>Abstract</h1></center></td></tr>  
-			  <tr>
-				  <td style="font-size:15pt; text-align:justify">
-					  <strong>Objective:</strong> Multiple Sclerosis (MS) is a neurological condition which widely affects people 50-60 years of age. While clinical presentations of MS are highly heterogeneous, mobility limitations are one of the most frequent symptoms. This study examines a machine learning (ML) framework for identifying MS through spatiotemporal and kinetic gait features. 
-					  <br>
-				         <strong>Methods:</strong> In this study, gait data during self-paced walking on an instrumented treadmill from 20 persons with MS and 20 age, weight, height, and gender-matched healthy older adults (HOA) were obtained. We explored two strategies to normalize data and minimize dependence on subject demographics; size-normalization (standard body size-based normalization) and regress-normalization (regression-based normalization using scaling factors derived by regressing gait features on multiple subject demographics); and proposed an ML based methodology to classify individual strides of older persons with MS (PwMS) from healthy controls. We generalized both across different walking tasks and subjects. 
-					  <br>
-					  <strong>Results:</strong> We observed that regress-normalization improved the accuracy of identifying pathological gait using ML when compared to size-normalization . When generalizing from comfortable walking to walking while talking, gradient boosting machine achieved the optimal subject classification accuracy and AUC of 94.3% and 1.0, respectively and for subject generalization, a multilayer perceptron resulted in the best accuracy and AUC of 80% and 0.86, respectively, both with regression-normalized data. 
-					  <br>
-					  <strong>Conclusion:</strong> The integration of gait data and ML may provide a viable patient-centric approach to aid clinicians in monitoring MS. 
-					  <br>
-					  <strong>Significance:</strong> The results of this study have future implications for the way regression normalized gait features may be clinically used to design ML-based disease prediction strategies and monitor disease progression in PwMS.
-				  </td>
-			  </tr>
-	  </table>
+    /* key numbers */
+    .stats{max-width:900px;margin:34px auto 0;padding:0 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .stat{text-align:center;border:1px solid var(--line);border-radius:10px;padding:14px 8px 12px;background:linear-gradient(180deg,#fff,#fafbfd)}
+    .stat b{display:block;font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:30px;line-height:1.05;color:#1e2a44}
+    .stat span{display:block;font-size:13px;color:var(--muted);margin-top:5px;line-height:1.35}
 
-          <table align=center width=850px>
-  			  <tr>
-				  <td>
-					  <br>
-					  <center>
-							<img class="round" width="480" height="620" src="./Accelerometer_EMBC2020_image"/>
-					  
-				  <div style='width: 700px; text-align: center;'> 
-					  <b>Figure:</b> Filtered acceleration coordinates. Comparing 10 seconds of x, y, z-acceleration coordinates from the two accelerometers at hip (H) and knee (K) for a subject with low (A) and high (B) balance.
-				</div>
-				  </center>	  
-				<br>
-				  </td>
-			  </tr>
-	</table>
-<!-- 			  <tr>
-				  <td>
-					  <br>
-					  <center>
-							<img class="round" width="900px" src="./FloorPlan229_physics__15__video.gif"/>
-					  </center>
-					  <br>
-				  </td>
-			  </tr> -->
-  		  </table>
+    /* ---------- body: sticky contents + sections ---------- */
+    .layout{max-width:1080px;margin:40px auto 0;padding:0 24px 70px;display:grid;grid-template-columns:170px minmax(0,1fr);gap:40px}
+    .toc{position:sticky;top:24px;align-self:start;font-size:13.5px;border:1px solid var(--line);border-radius:10px;padding:12px 6px 10px}
+    .toc .t{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#9a9aa8;padding:0 10px 6px}
+    .toc a{display:block;color:var(--muted);padding:4px 10px;border-radius:6px;border-left:2px solid transparent}
+    .toc a.sub{padding-left:22px;font-size:12.5px;color:#8a8e9c}
+    .toc a:hover{background:#f6f7f9;text-decoration:none;color:var(--ink)}
+    .toc a.on{color:var(--blue);background:var(--blue-bg);border-left-color:var(--blue)}
+    main{min-width:0;max-width:820px}
+    section{margin-bottom:46px}
+    h2{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:28px;color:#1e2a44;margin:0 0 14px;padding-bottom:5px;border-bottom:2px solid var(--gold);display:inline-block;line-height:1.2}
+    h3{font-size:18px;font-weight:700;margin:28px 0 8px;color:#1e2a44}
+    h3 .n{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--blue-bg);color:var(--blue);font-size:13px;margin-right:8px;vertical-align:1px}
+    p{margin:0 0 12px}
+    .abstract{text-align:justify;hyphens:auto}
+    figure{margin:14px 0 6px}
+    figure img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:8px}
+    figure figcaption{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.5}
+    ul.tight{margin:0 0 12px;padding-left:22px}
+    ul.tight li{margin:3px 0}
 
-          <hr>
+    /* results table */
+    table.res{width:100%;border-collapse:collapse;font-size:15px;margin:6px 0 10px}
+    table.res th,table.res td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+    table.res th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#8a8e9c;font-weight:600;border-bottom:2px solid var(--line)}
+    table.res td.num{font-weight:700;white-space:nowrap;color:#1e2a44}
+    table.res td small{display:block;color:var(--muted);font-size:13px}
 
-<!--   		  <table align=center width=850px>
-	  		  <tr><td><center><h1>SYNC-Policies</h1></center></td></tr>
-			  <tr>
-	  		  	<td style="font-size:15pt; text-align:justify">
-					Previous multi-agent RL methods consist of a communicative backbone followed by a single marginal policy per agent. This limits the joint policy that these methods can capture. The joint policy is a rank one matrix, particularly, the outer product of the marginal policies of the two agents. For the general case of <i>N</i> agents, this is a rank one tensor.
-					<span style="font-size:28px">
-						$$\Pi_{\text{marginal}} = \pi^1\otimes\cdots \otimes \pi^N$$
-					</span>
-					We leverage the communication band to move beyond this rank one joint policy. SYNC policies weave
-					<i>m</i> marginal policies per agent using synchronized sampling (details in the paper). This leads to a more expressive joint policy as a mixture of marginal policies. For the <i>N</i> agent setup, the joint policy becomes:
-					<span style="font-size:28px">
-						$$\Pi_{\text{SYNC}} = \sum_{j=1}^m \alpha_j \cdot \pi^1_{j} \otimes \ldots \otimes \pi^N_{j}$$
-					</span>
-	  		    </td>
-	  		  </tr>
-			  <tr>
-				  <td>
-					  <center>
-							<img class="round" width="600px" src="./sync_policies.png"/>
-					  </center>
-				  </td>
-			  </tr>
-			</table> -->
-<!--   		  <br> -->
-<!-- 		  <hr> -->
-			<table align=center width=800px>
-				<tr><td><center><h1>Explanatory video</h1></center></td></tr>
-				<tr>
-					<td style="font-size:15pt; text-align:justify">
-						<center>
-							A detailed video, corresponding slides: <a href='./EMBC2020_BF_ML_slides_pdf.pdf' target="_blank"> [Detailed slides]</a>.
-						</center>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<center>
-							<iframe width="560" height="315" src="https://www.youtube.com/embed/r8cfduagJf4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						</center>
-					</td>
-				</tr>
-			</table>
-			<br>
-			<hr>
-<!-- 			<table align=center width=800px>
-				<tr><td><center><h1>Qualitative Results</h1></center></td></tr>
-				<tr>
-					<td style="font-size:15pt; text-align:justify">
-						<span>
-							This video highlighting policy roll-outs of marginal policies vs. SYNC-policies. Additionally, we include a way to <i>experience</i> what the agents 'tell' each other (enable audio for this clip).
-						</span>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<center>
-							<iframe width="560" height="315" src="https://www.youtube.com/embed/I_Evs5Bol6k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						</center>
-					</td>
-				</tr>
-			</table>
-			<br>
-			<hr> -->
+    /* press */
+    .press{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:22px;align-items:start}
+    .press img{width:100%;border-radius:8px;display:block}
+    .press .credit{font-size:12.5px;color:#999;margin-top:6px}
+    .press ul{list-style:none;margin:0;padding:0}
+    .press li{padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.4}
+    .press li:first-child{border-top:0;padding-top:0}
+    .press li span{display:block;font-size:13px;color:var(--muted)}
 
+    /* bibtex */
+    .bib{position:relative;background:#f7f8fa;border:1px solid var(--line);border-radius:8px;padding:14px 16px;font:13.5px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre;overflow-x:auto;color:#333}
+    .copy{position:absolute;top:8px;right:8px;font:600 12px "Figtree",sans-serif;border:1px solid #d5e3f3;background:#fff;color:var(--blue);border-radius:5px;padding:4px 9px;cursor:pointer}
+    .copy:hover{background:var(--blue-bg)}
 
+    footer{border-top:1px solid var(--line);text-align:center;font-size:13px;color:#999;padding:22px 24px 30px}
 
-			<table align=center width=800px>
-				<tr><td><center><h1>References</h1></center></td></tr>
-				<tr>
-					<td style="font-size:15pt; text-align:justify">
-						<span>
-							Rachneet Kaur, Zizhang Chen, Robert Motl, Manuel Enrique Hernandez, Richard Sowers. <b>Predicting Multiple Sclerosis from Gait Fynamics Using an Instrumented Treadmill – A Machine Learning Approach</b>. In IEEE Transactions on Biomedical Engineering <i>(TBME)</i>, 2020 <a href="../Data/TBME2020.bib" target="_blank" style="font-size:15pt;">[BibTex]</a> <a href="../Data/TBME2020.txt" target="_blank" style="font-size:15pt;">[Text]</a>
-						</span>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<center>
-							<a href="https://ieeexplore.ieee.org/document/9175871">
-								<img class="round" width= "200" src="./TBME2020_thumbnail.PNG"/>
-							</a>
-						</center>
-					</td>
-				</tr>
-			</table>
+    @media (max-width:860px){
+      .layout{grid-template-columns:1fr;gap:0}
+      .toc{display:none}
+      .stats{grid-template-columns:repeat(2,1fr)}
+      .press{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
 
-  		  <br>
-		  <hr>
+<div class="crumb"><a href="../index.html">&larr; Rachneet Kaur</a> &nbsp;/&nbsp; <a href="../publications.html">Publications</a></div>
 
-			<table align=center width=900px>
-				<tr><td><center><h1>Acknowledgements</h1></center></td></tr>
-				<tr>
-					<td style="font-size:15pt; text-align:justify">
-						<span>
-							The authors would like to thank Gioella Chaparro and other members of the <a href="http://mfp.kch.illinois.edu/">Mobility and Fall Prevention Research Lab</a> for their assistance with data collection and the participants in this study for their contributions.
-							RK is thankful to William Chittenden for the William A. Chittenden Award.
-						</span>
-					</td>
-				</tr>
-			</table>
+<header class="hero">
+  <div class="venue">
+    <span class="chip blue">IEEE Journal of Biomedical and Health Informatics, 2023</span>
+    <span class="chip gold">Top 50 IEEE-JBHI article</span>
+    <span class="chip gold">NeurIPS 2021 WiML Workshop</span>
+  </div>
+  <h1>A Vision-Based Framework for Predicting Multiple Sclerosis and Parkinson&rsquo;s Disease Gait Dysfunctions</h1>
+  <p class="subtitle">A Deep Learning Approach</p>
+  <p class="authors">
+    <a class="me" href="../index.html">Rachneet Kaur</a>
+    <a href="https://scholar.google.com/citations?user=jht3pRcAAAAJ&amp;hl=en" target="_blank" rel="noopener">Robert W. Motl</a>
+    <a href="https://ise.illinois.edu/directory/profile/r-sowers" target="_blank" rel="noopener">Richard Sowers</a>
+    <a href="https://ahs.illinois.edu/hernandez" target="_blank" rel="noopener">Manuel E. Hernandez</a>
+  </p>
+  <p class="affil">University of Illinois at Urbana-Champaign</p>
+  <div class="btns">
+    <a class="btn" href="https://ieeexplore.ieee.org/abstract/document/9896159" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>Paper</a>
+    <a class="btn" href="https://github.com/kaurrachneet6/Vision-Based-Gait-Analysis-Framework-for-Predicting-Multiple-Sclerosis" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9 19c-4 1.5-4-2-6-2.5M15 21v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Code</a>
+    <a class="btn" href="https://drive.google.com/file/d/16vZI1DUZeblEbu3YhRrH9wTwVzlZgSpH/view?usp=sharing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4M8 20h8"/></svg>Slides</a>
+    <a class="btn" href="https://drive.google.com/file/d/1EOG8tQ2jumf6PKml-llCtCBzBDUd-_jn/view?usp=sharing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>Poster</a>
+    <a class="btn" href="#bibtex"><svg viewBox="0 0 24 24"><path d="M7 8l-4 4 4 4M17 8l4 4-4 4M14 5l-4 14"/></svg>BibTeX</a>
+  </div>
+</header>
 
-		<hr>
-        <table style="font-size:14px" align=center>
-        <tr>
-        <td>
-            Website adapted from <a href="https://deanplayerljx.github.io/tabvcr/">Jingxiang</a>, <a href="https://richzhang.github.io/colorization">Richard</a> and <a href="https://pathak22.github.io/modular-assemblies/">Deepak</a>.
-        </td>
-        </tr>
-        </table>
-              
+<div class="teaser">
+  <img src="JBHI2022_graphical_abstract.jpeg" alt="Overview of the framework: experimental design, gait video processing, gait feature design and prediction models" loading="eager">
+  <p class="cap"><b>Overview.</b> Two ordinary cameras film people walking on a treadmill. We turn the video into 3D body keypoints, cut it into strides, and compare 16 machine-learning and deep-learning models at telling apart the gait of people with MS, people with Parkinson&rsquo;s disease and healthy older adults.</p>
+</div>
+
+<div class="stats">
+  <div class="stat"><b>2</b><span>everyday digital cameras (front and side)</span></div>
+  <div class="stat"><b>&gt;99K</b><span>fused 3D poses from 2,430 strides</span></div>
+  <div class="stat"><b>16</b><span>machine-learning and deep-learning models compared</span></div>
+  <div class="stat"><b>0.93</b><span>AUC on new people walking in a new task</span></div>
+</div>
+
+<div class="layout">
+  <nav class="toc" aria-label="Contents">
+    <div class="t">Contents</div>
+    <a href="#abstract">Abstract</a>
+    <a href="#method">Method</a>
+    <a class="sub" href="#design">Study design</a>
+    <a class="sub" href="#video">Video to 3D pose</a>
+    <a class="sub" href="#features">Gait features</a>
+    <a class="sub" href="#models">Prediction models</a>
+    <a href="#results">Results</a>
+    <a href="#press">In the news</a>
+    <a href="#bibtex">BibTeX</a>
+  </nav>
+
+  <main>
+    <section id="abstract">
+      <h2>Abstract</h2>
+      <p class="abstract">This study examined the effectiveness of a vision-based framework for multiple sclerosis (MS) and Parkinson&rsquo;s disease (PD) gait dysfunction prediction. We collected gait video data from multi-view digital cameras during self-paced walking from MS, PD patients and age, weight, height and gender-matched healthy older adults (HOA). We then extracted characteristic 3D joint keypoints from the collected videos. In this work, we proposed a data-driven methodology to classify strides in persons with MS (PwMS), persons with PD (PwPD) and HOA that may generalize across different walking tasks and subjects. We presented a comprehensive quantitative comparison of 16 diverse traditional machine and deep learning (DL) algorithms. When generalizing from comfortable walking (W) to walking-while-talking (WT), multi-scale residual neural network achieved perfect accuracy and AUC for classifying individuals with a given gait disorder; for subject generalization in W trials, residual neural network resulted in the highest accuracy and AUC of <b>78.1%</b> and 0.87 (resp.), and 1D convolutional neural network (CNN) had highest accuracy of <b>75%</b> in WT trials. Finally, when generalizing over new subjects in different tasks, again 1D CNN had the top classification accuracy and AUC of <b>79.3%</b> and 0.93 (resp.). This work is the first attempt to apply and demonstrate the potential of DL with a multi-view digital camera-based gait analysis framework for neurological gait dysfunction prediction. This study suggests the viability of inexpensive vision-based systems for diagnosing certain neurological disorders.</p>
+    </section>
+
+    <section id="method">
+      <h2>Method</h2>
+
+      <h3 id="design"><span class="n">1</span>Study design</h3>
+      <p>People with MS (mild to moderate disability), people with PD (mild to moderate severity, on medication) and matched healthy older adults walked on a treadmill at their own pace, both normally and while talking (reciting every other letter of the alphabet), a dual task that mimics the distractions of everyday walking. A front camera and a side camera recorded each trial, alongside standard clinical measures of mobility and disease severity.</p>
+      <figure><img src="jbhi2022/step1.jpg" alt="Inclusion criteria, gait data acquisition with front and side cameras, and clinical measurements" loading="lazy">
+        <figcaption>Inclusion criteria, the two-camera treadmill setup, and the clinical scales recorded (SPPB, EDSS for MS, Hoehn &amp; Yahr for PD).</figcaption></figure>
+
+      <h3 id="video"><span class="n">2</span>From video to 3D pose</h3>
+      <p>OpenPose finds 2D body keypoints in every frame: 12 markers (hips, knees, ankles, feet) from the front camera and 8 foot and ankle markers from the side camera. Camera calibration lifts each view into 3D, measured in centimetres from the treadmill, and the two views are fused into one 3D pose per frame.</p>
+      <figure><img src="jbhi2022/step2.jpg" alt="OpenPose 2D pose estimation, transformation to 3D space and multi-view fusion" loading="lazy">
+        <figcaption>2D pose estimation in each camera, transformation to 3D, and multi-view fusion into more than 99,000 3D poses.</figcaption></figure>
+
+      <h3 id="features"><span class="n">3</span>Gait features</h3>
+      <p>Heel strikes, found from the height of the right heel and checked against the treadmill&rsquo;s own record, split the walking into 2,430 strides. Each stride is described two ways: 91 summary features (range, variability and left&ndash;right asymmetry of the body coordinates, plus frames per stride) for traditional classifiers, and a 20-step sequence of 36 coordinates for deep-learning models.</p>
+      <figure><img src="jbhi2022/step3.jpg" alt="Heel strike identification and validation, post-processing and feature design" loading="lazy">
+        <figcaption>Stride segmentation and validation, smoothing and resampling, and the two feature designs.</figcaption></figure>
+
+      <h3 id="models"><span class="n">4</span>Prediction models</h3>
+      <p>We compared 16 models, from traditional classifiers on summary features to convolutional and recurrent networks on pose sequences, in three settings of increasing difficulty:</p>
+      <ul class="tight">
+        <li><b>Task generalization:</b> train on normal walking, test on walking while talking.</li>
+        <li><b>Subject generalization:</b> test on people the model has never seen.</li>
+        <li><b>Task and subject generalization:</b> new people <i>and</i> a new walking task.</li>
+      </ul>
+      <p>Each stride is classified, then a majority vote over a person&rsquo;s strides gives their prediction. SHAP explanations, feature importance and ablations show which parts of the gait drive the predictions.</p>
+      <figure><img src="jbhi2022/step4.jpg" alt="Classification frameworks, model training, model evaluation and post hoc analysis" loading="lazy">
+        <figcaption>The three evaluation frameworks, model training and evaluation (stride-level metrics, then subject-level by majority vote), and post hoc analysis.</figcaption></figure>
+    </section>
+
+    <section id="results">
+      <h2>Results</h2>
+      <p>Best model in each setting, at the level of individual people (healthy older adults vs. MS vs. PD):</p>
+      <table class="res">
+        <thead><tr><th>Setting</th><th>Best model</th><th>Accuracy</th><th>AUC</th></tr></thead>
+        <tbody>
+          <tr><td>Task generalization<small>train on walking, test on walking while talking</small></td><td>Multi-scale residual network</td><td class="num">100%</td><td class="num">1.00</td></tr>
+          <tr><td>Subject generalization, walking<small>new people</small></td><td>Residual network</td><td class="num">78.1%</td><td class="num">0.87</td></tr>
+          <tr><td>Subject generalization, walking while talking<small>new people</small></td><td>1D CNN</td><td class="num">75%</td><td class="num">&ndash;</td></tr>
+          <tr><td>Task and subject generalization<small>new people in a new task</small></td><td>1D CNN</td><td class="num">79.3%</td><td class="num">0.93</td></tr>
+        </tbody>
+      </table>
+      <p>Deep-learning models working directly on pose sequences did best when the model had to handle new people. The results suggest that inexpensive camera-based systems could help screen for neurological gait disorders, for example at home or in clinics far from specialists.</p>
+    </section>
+
+    <section id="press">
+      <h2>In the news</h2>
+      <div class="press">
+        <div>
+          <img src="jbhi2022/lab.jpg" alt="Richard Sowers, Rachneet Kaur and Manuel Hernandez in the lab" loading="lazy">
+          <div class="credit">Richard Sowers, Rachneet Kaur and Manuel Hernandez. Photo by Fred Zwicky, University of Illinois.</div>
+        </div>
+        <ul>
+          <li><a href="https://news.illinois.edu/view/6367/1252470548" target="_blank" rel="noopener">Team uses digital cameras, machine learning to predict neurological disease</a><span>Illinois News Bureau; also Carle Illinois College of Medicine, EurekAlert!, Medical Xpress</span></li>
+          <li><a href="https://parkinsonsnewstoday.com/news/at-home-cameras-monitor-gait-speed-parkinsons-diagnosis/" target="_blank" rel="noopener">At-home digital cameras monitor gait, may speed diagnosis</a><span>Parkinson&rsquo;s News Today</span></li>
+          <li><a href="https://multiplesclerosisnewstoday.com/news-posts/2022/10/13/gait-analysis-tool-correctly-ids-ms-patients-video-recordings/" target="_blank" rel="noopener">New gait analysis tool found to correctly ID MS patients in videos</a><span>Multiple Sclerosis News Today</span></li>
+          <li><a href="https://www.thebrighterside.news/post/researchers-use-digital-cameras-machine-learning-to-predict-neurological-disease/" target="_blank" rel="noopener">Researchers use digital cameras, machine learning to predict neurological disease</a><span>The Brighter Side of News</span></li>
+          <li><a href="https://www.medilogy.it/html/news/video-e-ai-per-la-diagnosi-di-malattie-neurologiche.asp" target="_blank" rel="noopener">Video e AI per la diagnosi di malattie neurologiche</a><span>Medilogy (Italian)</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="bibtex">
+      <h2>BibTeX</h2>
+      <div class="bib"><button class="copy" type="button">Copy</button><code id="bibtext">@article{kaur2023vision,
+  title   = {A Vision-Based Framework for Predicting Multiple Sclerosis and
+             Parkinson's Disease Gait Dysfunctions -- A Deep Learning Approach},
+  author  = {Kaur, Rachneet and Motl, Robert W and Sowers, Richard and
+             Hernandez, Manuel E},
+  journal = {IEEE Journal of Biomedical and Health Informatics},
+  volume  = {27},
+  number  = {1},
+  pages   = {190--201},
+  year    = {2023},
+  doi     = {10.1109/JBHI.2022.3208077}
+}</code></div>
+    </section>
+  </main>
+</div>
+
+<footer>&copy; Rachneet Kaur &middot; <a href="../index.html">Home</a> &middot; <a href="../publications.html">All publications</a></footer>
+
+<script>
+/* copy BibTeX */
+document.querySelector(".copy").addEventListener("click", function () {
+  var b = this; navigator.clipboard.writeText(document.getElementById("bibtext").textContent).then(function () {
+    b.textContent = "Copied"; setTimeout(function () { b.textContent = "Copy"; }, 1500);
+  });
+});
+/* highlight the section in view in the contents */
+(function () {
+  var links = [].slice.call(document.querySelectorAll(".toc a"));
+  var secs = links.map(function (a) { return document.querySelector(a.getAttribute("href")); });
+  function f() {
+    var y = window.scrollY + 120, i = 0;
+    secs.forEach(function (s, k) { if (s && s.offsetTop <= y) i = k; });
+    links.forEach(function (a, k) { a.classList.toggle("on", k === i); });
+  }
+  window.addEventListener("scroll", f, { passive: true }); f();
+})();
+</script>
 </body>
 </html>
