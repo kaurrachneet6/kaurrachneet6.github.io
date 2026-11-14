@@ -236,11 +236,11 @@
         <figcaption>Stride segmentation and validation, smoothing and resampling, and the two feature designs.</figcaption></figure>
 
       <h3 id="models"><span class="n">4</span>Prediction models</h3>
-      <p>We compared 16 models, from traditional classifiers on summary features to convolutional and recurrent networks on pose sequences, in three settings of increasing difficulty:</p>
+      <p>We compared 16 models, from traditional classifiers on summary features to convolutional and recurrent networks on pose sequences, in <mark>three settings of increasing difficulty</mark>:</p>
       <ul class="tight">
-        <li><b>Task generalization:</b> train on normal walking, test on walking while talking.</li>
-        <li><b>Subject generalization:</b> test on people the model has never seen.</li>
-        <li><b>Task and subject generalization:</b> new people <i>and</i> a new walking task.</li>
+        <li><b><mark>Task generalization</mark>:</b> train on normal walking, test on walking while talking.</li>
+        <li><b><mark>Subject generalization</mark>:</b> test on people the model has never seen.</li>
+        <li><b><mark>Task and subject generalization</mark>:</b> new people <i>and</i> a new walking task.</li>
       </ul>
       <p>We classify each stride, then <mark>a majority vote over a person&rsquo;s strides gives their prediction</mark>. We used SHAP explanations, feature importance and ablations to show which parts of the gait drive the predictions.</p>
       <figure><img src="jbhi2022/step4.jpg" alt="Classification frameworks, model training, model evaluation and post hoc analysis" loading="lazy">
