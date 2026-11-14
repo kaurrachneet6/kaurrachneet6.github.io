@@ -116,6 +116,9 @@
 
     /* bibtex */
     .bib{position:relative;background:#f7f8fa;border:1px solid var(--line);border-radius:8px;padding:14px 16px;font:13.5px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre;overflow-x:auto;color:#333}
+    .bibpop{max-width:740px;margin:16px auto 0;text-align:left}
+    .bibpop .bib{box-shadow:0 6px 18px -10px rgba(0,0,0,.25)}
+    .btn[aria-expanded="true"]{background:#363b4d}
     .copy{position:absolute;top:8px;right:8px;font:600 12px "Figtree",sans-serif;border:1px solid #d5e3f3;background:#fff;color:var(--blue);border-radius:5px;padding:4px 9px;cursor:pointer}
     .copy:hover{background:var(--blue-bg)}
 
@@ -156,8 +159,9 @@
     <a class="btn" href="https://github.com/kaurrachneet6/Vision-Based-Gait-Analysis-Framework-for-Predicting-Multiple-Sclerosis" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9 19c-4 1.5-4-2-6-2.5M15 21v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Code</a>
     <a class="btn" href="https://drive.google.com/file/d/16vZI1DUZeblEbu3YhRrH9wTwVzlZgSpH/view?usp=sharing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4M8 20h8"/></svg>Slides</a>
     <a class="btn" href="https://drive.google.com/file/d/1EOG8tQ2jumf6PKml-llCtCBzBDUd-_jn/view?usp=sharing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>Poster</a>
-    <a class="btn" href="#bibtex"><svg viewBox="0 0 24 24"><path d="M7 8l-4 4 4 4M17 8l4 4-4 4M14 5l-4 14"/></svg>BibTeX</a>
+    <a class="btn" href="#bibtex" id="bibbtn" aria-expanded="false" aria-controls="bibpop"><svg viewBox="0 0 24 24"><path d="M7 8l-4 4 4 4M17 8l4 4-4 4M14 5l-4 14"/></svg>BibTeX</a>
   </div>
+  <div class="bibpop" id="bibpop" hidden><div class="bib"><button class="copy" type="button">Copy</button><code></code></div></div>
 </header>
 
 <div class="teaser">
@@ -320,12 +324,24 @@
 <footer><a href="../index.html">Home</a> &middot; <a href="../publications.html">All publications</a><br><span style="font-size:12px">Page design inspired by <a href="https://nerfies.github.io/" target="_blank" rel="noopener">Nerfies</a>.</span></footer>
 
 <script>
-/* copy BibTeX */
-document.querySelector(".copy").addEventListener("click", function () {
-  var b = this; navigator.clipboard.writeText(document.getElementById("bibtext").textContent).then(function () {
-    b.textContent = "Copied"; setTimeout(function () { b.textContent = "Copy"; }, 1500);
+/* copy BibTeX (both the pop-up panel and the BibTeX section) */
+var bibText = document.getElementById("bibtext").textContent;
+document.querySelector("#bibpop code").textContent = bibText;
+document.querySelectorAll(".copy").forEach(function (b) {
+  b.addEventListener("click", function () {
+    navigator.clipboard.writeText(bibText).then(function () {
+      b.textContent = "Copied"; setTimeout(function () { b.textContent = "Copy"; }, 1500);
+    });
   });
 });
+/* the BibTeX button opens the citation right under the buttons instead of jumping to the bottom */
+(function () {
+  var btn = document.getElementById("bibbtn"), pop = document.getElementById("bibpop");
+  btn.addEventListener("click", function (e) {
+    e.preventDefault();
+    var open = pop.hidden; pop.hidden = !open; btn.setAttribute("aria-expanded", open);
+  });
+})();
 /* highlight the section in view in the contents */
 (function () {
   var links = [].slice.call(document.querySelectorAll(".toc a"));
