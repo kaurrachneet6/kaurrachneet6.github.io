@@ -200,6 +200,8 @@
     <a class="sub" href="#validation">Pose validation</a>
     <a class="sub" href="#prediction">Prediction</a>
     <a href="#analysis">Analysis</a>
+    <a class="sub" href="#bodyparts">Body parts</a>
+    <a class="sub" href="#explain">Explaining predictions</a>
     <a href="#press">In the news</a>
     <a href="#bibtex">BibTeX</a>
   </nav>
@@ -292,7 +294,8 @@
 
 <section id="analysis">
   <h2>Analysis</h2>
-  <p><b>Which body parts matter?</b> An ablation that adds body regions one at a time (feet, then ankles, then knees, then hips) improved accuracy at every step, <mark>so the best models use the whole lower body</mark>. Permutation feature importance then shuffles one joint at a time and measures how much the model&rsquo;s AUC drops: the bigger the drop, the more that joint matters.</p>
+  <h3 id="bodyparts"><span class="n">1</span>Which body parts matter?</h3>
+  <p>An ablation that adds body regions one at a time (feet, then ankles, then knees, then hips) improved accuracy at every step, <mark>so the best models use the whole lower body</mark>. Permutation feature importance then shuffles one joint at a time and measures how much the model&rsquo;s AUC drops: the bigger the drop, the more that joint matters.</p>
   <div class="two-fig">
     <figure><img src="jbhi2022/fi.jpg" alt="Permutation feature importance per joint in task generalization" loading="lazy">
       <figcaption><b>Fig. 2.</b> Permutation feature importance in task generalization (AUC after shuffling each joint). <mark>The knees matter most</mark>, followed by the heels and big toes; the left hip matters least.</figcaption></figure>
@@ -300,7 +303,8 @@
       <figcaption><b>Fig. 3.</b> Permutation feature importance for new people (AUC after shuffling, relative to the original). <mark>The right knee and hip, then both little toes, matter most</mark>. For new people in a new task (triangles), every joint matters.</figcaption></figure>
   </div>
 
-  <p style="margin-top:22px"><b>Explaining predictions.</b> SHAP shows how each feature pushes a single stride&rsquo;s prediction towards one class or another. We also checked whether the model&rsquo;s mistakes line up with how physically fit people are, using the Short Physical Performance Battery (SPPB, from 0 to 12, where higher means less frail).</p>
+  <h3 id="explain"><span class="n">2</span>Explaining predictions</h3>
+  <p>SHAP shows how each feature pushes a single stride&rsquo;s prediction towards one class or another. We also checked whether the model&rsquo;s mistakes line up with how physically fit people are, using the Short Physical Performance Battery (SPPB, from 0 to 12, where higher means less frail).</p>
   <div class="two-fig">
     <figure><img src="jbhi2022/shap.jpg" alt="SHAP multi-output decision plot for one stride classified as MS" loading="lazy">
       <figcaption><b>Fig. 4.</b> SHAP decision plot for one randomly chosen stride, correctly classified as MS (probability 0.95) by the best task-subject generalization model. <mark>Knee coordinates drive the prediction most</mark>.</figcaption></figure>
