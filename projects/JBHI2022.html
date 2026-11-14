@@ -33,7 +33,9 @@
     .authors{font-size:17px;margin:0 0 4px}
     .authors a{color:var(--blue);margin:0 6px;white-space:nowrap}
     .authors .me{font-weight:700}
-    .affil{font-size:15px;color:var(--muted);margin:0 0 22px}
+    .affil{font-size:15px;color:var(--muted);margin:0 0 12px}
+    .pubvenue{font-size:16px;color:#2c3248;margin:0 0 22px;line-height:1.5}
+    .pubvenue .also{font-size:14.5px;color:var(--muted)}
     .btns{display:flex;flex-wrap:wrap;justify-content:center;gap:9px}
     .btn{display:inline-flex;align-items:center;gap:7px;background:#1f2330;color:#fff;border-radius:999px;padding:8px 16px 8px 13px;font-size:14.5px;font-weight:600}
     .btn:hover{background:#363b4d;text-decoration:none}
@@ -115,9 +117,8 @@
 
 <header class="hero">
   <div class="venue">
-    <span class="chip blue">IEEE Journal of Biomedical and Health Informatics, 2023</span>
+    <span class="chip blue">IEEE JBHI 2023</span>
     <span class="chip gold">Top 50 IEEE-JBHI article</span>
-    <span class="chip gold">NeurIPS 2021 WiML Workshop</span>
   </div>
   <h1>A Vision-Based Framework for Predicting Multiple Sclerosis<br class="wide"> and Parkinson&rsquo;s Disease Gait Dysfunctions</h1>
   <p class="subtitle">A Deep Learning Approach</p>
@@ -128,6 +129,10 @@
     <a href="https://ahs.illinois.edu/hernandez" target="_blank" rel="noopener">Manuel E. Hernandez</a>
   </p>
   <p class="affil">University of Illinois at Urbana-Champaign</p>
+  <div class="pubvenue">
+    <div><i>IEEE Journal of Biomedical and Health Informatics</i>, vol. 27, no. 1, 2023</div>
+    <div class="also">Also presented at the NeurIPS 2021 Women in Machine Learning (WiML) Workshop</div>
+  </div>
   <div class="btns">
     <a class="btn" href="https://ieeexplore.ieee.org/abstract/document/9896159" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>Paper</a>
     <a class="btn" href="https://github.com/kaurrachneet6/Vision-Based-Gait-Analysis-Framework-for-Predicting-Multiple-Sclerosis" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9 19c-4 1.5-4-2-6-2.5M15 21v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Code</a>
@@ -201,27 +206,15 @@
       <figure><img src="jbhi2022/step4.jpg" alt="Classification frameworks, model training, model evaluation and post hoc analysis" loading="lazy">
         <figcaption>The three evaluation frameworks, model training and evaluation (stride-level metrics, then subject-level by majority vote), and post hoc analysis.</figcaption></figure>
 
-      <p>The deep-learning models fall into three families, all reading a stride as a sequence of body-coordinate features over time:</p>
-      <figure><img src="jbhi2022/cnn.jpg" alt="Basic and bottleneck residual blocks, residual neural network and multiscale residual neural network" loading="lazy">
-        <figcaption><b>Convolutional networks.</b> Basic and bottleneck residual blocks (left), the residual network with positional encoding (top right), and the multi-scale residual network, which runs two branches with different kernel sizes in parallel (bottom right).</figcaption></figure>
-      <figure><img src="jbhi2022/tcn.jpg" alt="Dilated causal convolution, TCN residual block and the full temporal convolutional network" loading="lazy">
-        <figcaption><b>Temporal convolutional network.</b> Dilated causal convolutions with dilations 1, 2, 4 and 8 (left), one TCN residual block (middle), and the full network of 10 blocks (right).</figcaption></figure>
-      <figure><img src="jbhi2022/rnn.jpg" alt="RNN, LSTM and GRU cells and the corresponding recurrent networks" loading="lazy">
-        <figcaption><b>Recurrent networks.</b> RNN, LSTM and GRU cells (top) and the stacked networks built from them (bottom).</figcaption></figure>
+      <p>The 16 models are nine traditional classifiers (logistic regression, linear and RBF support vector machines, decision tree, random forest, AdaBoost, XGBoost, gradient boosting and a multilayer perceptron) and seven deep-learning models: convolutional (1D CNN, residual network, multi-scale residual network, temporal convolutional network) and recurrent (RNN, LSTM, GRU).</p>
     </section>
 
     <section id="results">
       <h2>Results</h2>
 
       <h3 id="validation">Can we trust poses from video?</h3>
-      <div class="side-fig">
-        <figure><img src="jbhi2022/bos.jpg" alt="Base of support and its centroid through the phases of a gait cycle" loading="lazy">
-          <figcaption>Base of support (green) and its centroid (&times;) through single- and double-support phases of the gait cycle.</figcaption></figure>
-        <div>
-          <p>Before predicting disease, we checked the video poses against the instrumented treadmill. For each support phase we compared the centre of pressure measured by the treadmill with the centre of the base of support formed by the feet as seen on camera.</p>
-          <p>Across 2,483 strides and 9,768 support phases, the two agreed closely: on average they were within about half a centimetre of each other, with a spread of 3&ndash;9&nbsp;cm. The measures are not identical, but this agreement shows the camera-based poses are reliable enough to build on.</p>
-        </div>
-      </div>
+      <p>Before predicting disease, we checked the video poses against the instrumented treadmill. For each support phase we compared the centre of pressure measured by the treadmill with the centroid of the base of support formed by the feet as seen on camera, across 2,483 strides and 9,768 valid support phases.</p>
+      <p>The average Euclidean distance between the two was 9.95&nbsp;&plusmn;&nbsp;5.68&nbsp;cm in single support and 8.82&nbsp;&plusmn;&nbsp;5.49&nbsp;cm in double support, with almost no systematic offset sideways or front-to-back. The two measures are not expected to line up exactly, but their agreement supports the validity of the camera-based 3D poses.</p>
 
       <h3 id="prediction">Predicting MS and PD</h3>
       <p>Best model in each setting, at the level of individual people (healthy older adults vs. MS vs. PD):</p>
@@ -242,9 +235,9 @@
       <p><b>Which body parts matter?</b> An ablation that adds body regions one at a time (feet, then ankles, then knees, then hips) improved accuracy at every step, so the best models use the whole lower body.</p>
       <div class="two-fig">
         <figure><img src="jbhi2022/fi.jpg" alt="Permutation feature importance per joint, as stride-level AUC after shuffling that joint" loading="lazy">
-          <figcaption><b>Permutation feature importance</b> (task generalization). Each bar is the model&rsquo;s AUC after shuffling one joint; lower means that joint matters more. The knees matter most, followed by the heels and big toes.</figcaption></figure>
+          <figcaption><b>Fig. 2. Permutation feature importance</b> (task generalization). Each bar is the model&rsquo;s AUC after shuffling one joint; lower means that joint matters more. The knees matter most, followed by the heels and big toes.</figcaption></figure>
         <figure><img src="jbhi2022/shap.jpg" alt="SHAP multi-output decision plot for one stride classified as MS" loading="lazy">
-          <figcaption><b>SHAP explanation</b> for one randomly chosen stride, correctly classified as MS by the best cross-generalization model. Knee coordinates drive the prediction most.</figcaption></figure>
+          <figcaption><b>Fig. 4. SHAP explanation</b> for one randomly chosen stride, correctly classified as MS by the best task-subject generalization model. Knee coordinates drive the prediction most.</figcaption></figure>
       </div>
     </section>
 
