@@ -54,7 +54,8 @@ window.PUBLICATIONS = [
     authors: "Hanoz Bhathena, Parin Rajesh Jhaveri, Rohan Mittal, Prateek Singh, Aymen Kallala, Rachneet Kaur, Yiqiao Jin, Zhen Zeng, Adwait Ratnaparkhi, Denis Kochedykov",
     venue: "Annual Meeting of the Association for Computational Linguistics, Industry Track",
     links: [["PDF", "https://aclanthology.org/2026.acl-industry.134.pdf"],
-            ["arXiv", "https://arxiv.org/abs/2606.04231"]]
+            ["arXiv", "https://arxiv.org/abs/2606.04231"],
+            ["Webpage", "projects/MMBIZRAG2026.html"]]
   },
   {
     year: 2026, type: "conference", tag: "LREC 2026", selected: true,
@@ -63,7 +64,8 @@ window.PUBLICATIONS = [
     authors: "Elizabeth Fons*, Elena Kochkina*, Rachneet Kaur, Zhen Zeng, Berowne Hlavaty, Charese Smiley, Svitlana Vyetrenko, Manuela Veloso",
     venue: "15th Language Resources and Evaluation Conference",
     links: [["PDF", "http://www.lrec-conf.org/proceedings/lrec2026/pdf/2026.lrec2026-1.305.pdf"],
-            ["arXiv", "https://arxiv.org/abs/2507.00718"]]
+            ["arXiv", "https://arxiv.org/abs/2507.00718"],
+            ["Webpage", "projects/LREC2026.html"]]
   },
 
   /* ---------------- 2025 ---------------- */
@@ -77,6 +79,7 @@ window.PUBLICATIONS = [
     notes: ["Also presented at NeurIPS Workshop on Adaptive Foundation Models, 2024"],
     links: [["PDF", "https://aclanthology.org/2025.acl-long.1008.pdf"],
             ["arXiv", "https://arxiv.org/abs/2411.13451"],
+            ["Webpage", "projects/ADAPTAGENT2025.html"],
             ["Slides", "https://drive.google.com/file/d/1L2pzL8NAhrTUBbg5zYlfTGuz7kQFw2zc/view?usp=sharing"],
             ["Poster", "https://drive.google.com/file/d/1_CX9dIgDlwESJ-L2ngJ0Mf13_AUeDRZH/view?usp=sharing"],
             ["Video", "https://underline.io/lecture/121382-adaptagent-adapting-multimodal-web-agents-with-few-shot-learning-from-human-demonstrations"]],
@@ -93,6 +96,7 @@ window.PUBLICATIONS = [
     notes: ["Also presented at NeurIPS Workshop on Time Series in the Age of Large Models, 2024"],
     links: [["PDF", "https://aclanthology.org/2025.acl-long.1557.pdf"],
             ["arXiv", "https://arxiv.org/abs/2407.06533"],
+            ["Webpage", "projects/LETSC2025.html"],
             ["Slides", "https://drive.google.com/file/d/1Vi_fJ81NxMtiUtVKslsmzLrRHQdbulDJ/view?usp=sharing"],
             ["Poster", "https://drive.google.com/file/d/1PUJFqz2a76b9Ryuq9aQfQReFaGggHXDu/view?usp=sharing"],
             ["Video", "https://underline.io/lecture/123303-lets-c-leveraging-text-embedding-for-time-series-classification"]]
@@ -103,7 +107,8 @@ window.PUBLICATIONS = [
     title: "LAW: Legal Agentic Workflows for Custody and Fund Services Contracts",
     authors: "William Watson, Nicole Cho, Nishan Srishankar, Zhen Zeng, Lucas Cecchi, Daniel Scott, Suchetha Siddagangappa, Rachneet Kaur, Tucker Balch, Manuela Veloso",
     venue: "31st International Conference on Computational Linguistics, Industry Track",
-    links: [["PDF", "https://aclanthology.org/2025.coling-industry.50.pdf"]]
+    links: [["PDF", "https://aclanthology.org/2025.coling-industry.50.pdf"],
+            ["Webpage", "projects/LAW2025.html"]]
   },
   {
     year: 2025, type: "preprint", tag: "arXiv 2025",
@@ -124,6 +129,7 @@ window.PUBLICATIONS = [
     notes: ["Also presented at ICML Workshop on Data-centric Machine Learning Research: Datasets for Foundation Models, 2024"],
     links: [["PDF", "https://aclanthology.org/2024.emnlp-main.1204.pdf"],
             ["arXiv", "https://arxiv.org/abs/2404.16563"],
+            ["Webpage", "projects/EMNLP2024.html"],
             ["Slides", "https://drive.google.com/file/d/1qQSvOom7xjhzk38tSuje3DnRLYKOWvw5/view?usp=sharing"],
             ["Poster", "https://drive.google.com/file/d/1xG2PWuTHwKz5xKS6IIxi6eZyCE_w0S0n/view?usp=sharing"],
             ["Video", "https://underline.io/lecture/108161-evaluating-large-language-models-on-time-series-feature-understanding-a-comprehensive-taxonomy-and-benchmark"]]
@@ -138,6 +144,7 @@ window.PUBLICATIONS = [
     notes: ["Also presented at JPMorgan Chase & Co. AI Summit, 2023"],
     links: [["PDF", "https://dl.acm.org/doi/abs/10.1145/3677052.3698690"],
             ["arXiv", "https://arxiv.org/abs/2504.11441"],
+            ["Webpage", "projects/TADACAP2024.html"],
             ["Slides", "https://drive.google.com/file/d/1w1z4tigs_8DN3jSyt5NTBOaqJ5-6xgsX/view?usp=sharing"]]
   },
   {
@@ -219,6 +226,7 @@ window.PUBLICATIONS = [
     notes: ["Also presented at JPMorgan Chase & Co. AI Summit, 2023 (Best Presentation award)"],
     links: [["PDF", "https://dl.acm.org/doi/10.1145/3604237.3626905"],
             ["arXiv", "https://arxiv.org/abs/2403.11047"],
+            ["Webpage", "projects/PIXELS2023.html"],
             ["Slides", "https://drive.google.com/file/d/1SsU3orgavbooFA2Oda0IhbfiJ_HIyGB2/view?usp=sharing"]],
     media: [{ t: "Spectrograms & Vision Transformers for (Financial) Time Series Forecasting",
               s: [["Medium, Part 1", "https://medium.com/correll-lab/spectrograms-vision-transformers-for-time-series-forecasting-929163fd8c52"],

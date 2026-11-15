@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LETS-C | Rachneet Kaur</title>
+  <meta name="description" content="LETS-C: off-the-shelf text embeddings of time series plus a small CNN and MLP head beat 27 baselines on time series classification with 14.5% of the trainable parameters. ACL 2025.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#1a1a2e;--muted:#5d6273;--line:#ececf0;--blue:#1772d0;--blue-bg:#eef4fb;--gold:#e2c79a;--gold-ink:#8a5a00;--gold-bg:#fbf1dc}
+    html{background:#fff;color-scheme:light;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+    body{margin:0;font-family:"Figtree",Helvetica,Arial,sans-serif;color:var(--ink);line-height:1.6;font-size:16.5px}
+    a{color:var(--blue);text-decoration:none}
+    a:hover{text-decoration:underline}
+    [id]{scroll-margin-top:24px}
+
+    /* back link to the homepage */
+    .crumb{max-width:1100px;margin:0 auto;padding:18px 24px 0;font-size:13.5px}
+    .crumb a{color:var(--muted)}
+    .crumb a:hover{color:var(--blue)}
+
+    /* ---------- hero ---------- */
+    .hero{max-width:900px;margin:0 auto;padding:34px 24px 10px;text-align:center}
+    .venue{display:inline-flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-bottom:16px}
+    .chip{font-size:12px;font-weight:600;border-radius:4px;padding:2px 9px;line-height:1.6;white-space:nowrap}
+    .chip.blue{color:var(--blue);background:var(--blue-bg)}
+    .chip.gold{color:var(--gold-ink);background:var(--gold-bg)}
+    .chip.purple{color:#6b46a8;background:#f1ebf8}   /* also presented at */
+    h1{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:clamp(24px,2.6vw,31px);line-height:1.25;letter-spacing:-.3px;margin:0 -80px 18px;color:#1e2a44;text-wrap:balance}
+    @media (max-width:1100px){ h1{margin:0 0 6px} h1 br.wide{display:none} }  /* narrow screens: let the title wrap naturally */
+    .subtitle{font-family:"Newsreader",Georgia,serif;font-weight:500;font-size:clamp(19px,2.4vw,24px);color:#4a5068;margin:0 0 20px}
+    .authors{font-size:18px;margin:0 0 4px}
+    .authors a{color:var(--blue);margin:0 6px;white-space:nowrap}
+    .authors .me{font-weight:700}
+    .authors span{white-space:nowrap;margin:0 6px}
+    .authors span a{margin:0}
+    .authors sup,.affil sup{font-size:12px;color:var(--muted);margin-left:1px}
+    .affil{font-size:16.5px;color:var(--muted);margin:0 0 12px}
+    .pubvenue{font-size:17.5px;color:#2c3248;margin:0 0 22px;line-height:1.5}
+/* "also presented at" and invited talk: two small labelled lists side by side */
+.venuebox{display:inline-flex;flex-wrap:wrap;justify-content:center;gap:10px 34px;margin:12px auto 0;text-align:left}
+.vb-label{font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#8a7a5c;margin-bottom:4px}
+.venuebox ul{list-style:none;margin:0;padding:0}
+.venuebox li{position:relative;padding-left:14px;font-size:15px;line-height:1.55;color:var(--muted)}
+.venuebox li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:#b9a6d9}
+    .pubvenue .also{font-size:16px;color:var(--muted)}
+    .btns{display:flex;flex-wrap:wrap;justify-content:center;gap:9px}
+    .btn{display:inline-flex;align-items:center;gap:7px;background:#1f2330;color:#fff;border-radius:999px;padding:8px 16px 8px 13px;font-size:14.5px;font-weight:600}
+    .btn:hover{background:#363b4d;text-decoration:none}
+    .btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+    /* teaser */
+    .overview{margin:0 0 34px}
+    .teaser{max-width:900px;margin:30px auto 0;padding:0 24px}
+    .teaser img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:10px}
+    .cap{font-size:14.5px;color:var(--muted);text-align:center;margin:12px auto 0;max-width:820px;line-height:1.5}
+    .cap b{color:var(--ink)}
+
+    /* key numbers */
+    .stats{max-width:900px;margin:34px auto 0;padding:0 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .stat{text-align:center;border:1px solid var(--line);border-radius:10px;padding:14px 8px 12px;background:linear-gradient(180deg,#fff,#fafbfd)}
+    .stat b{display:block;font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:30px;line-height:1.05;color:#1e2a44}
+    .stat span{display:block;font-size:13px;color:var(--muted);margin-top:5px;line-height:1.35}
+
+    /* ---------- body: sticky contents + sections ---------- */
+    /* reading column centred on the page (under the title); the contents box sits in the left margin */
+    .layout{margin:40px auto 0;padding:0 24px 70px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,820px) minmax(0,1fr);gap:36px}
+    .toc{grid-column:1;justify-self:end;width:170px;position:sticky;top:24px;align-self:start;font-size:13.5px;border:1px solid var(--line);border-radius:10px;padding:12px 6px 10px}
+    .toc .t{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#9a9aa8;padding:0 10px 6px}
+    .toc a{display:block;color:var(--muted);padding:4px 10px;border-radius:6px;border-left:2px solid transparent}
+    .toc a.sub{padding-left:22px;font-size:12.5px;color:#8a8e9c}
+    .toc a:hover{background:#f6f7f9;text-decoration:none;color:var(--ink)}
+    .toc a.on{color:var(--blue);background:var(--blue-bg);border-left-color:var(--blue)}
+    main{grid-column:2;min-width:0;max-width:820px}
+    section{margin-bottom:46px}
+    h2{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:28px;color:#1e2a44;margin:0 0 14px;padding-bottom:5px;border-bottom:2px solid var(--gold);display:inline-block;line-height:1.2}
+    h3{font-size:18px;font-weight:700;margin:28px 0 8px;color:#1e2a44}
+    h3 .n{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--blue-bg);color:var(--blue);font-size:13px;margin-right:8px;vertical-align:1px}
+    p{margin:0 0 12px}
+    .abstract{text-align:left;hyphens:manual}
+    figure{margin:14px 0 6px}
+    figure img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:8px}
+    figure figcaption{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.5}
+    ul.tight{margin:0 0 12px;padding-left:22px}
+    ul.tight li{margin:3px 0}
+
+    /* figure beside text, and two figures side by side */
+    .side-fig{display:grid;grid-template-columns:minmax(0,0.8fr) minmax(0,1.2fr);gap:24px;align-items:start}
+    .side-fig figure{margin-top:4px}
+    .two-fig{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+    @media (max-width:700px){ .side-fig,.two-fig{grid-template-columns:1fr} }
+
+    /* soft highlighter for the key phrases, so a quick read still gets the story */
+    mark{color:#1a1a2e;font-weight:500;padding:.05em .28em;margin:0 -.12em;border-radius:.5em .25em;
+      -webkit-box-decoration-break:clone;box-decoration-break:clone;
+      background:linear-gradient(104deg,rgba(255,214,102,0) .9%,rgba(255,214,102,.55) 2.4%,rgba(255,221,128,.38) 6%,rgba(255,221,128,.22) 93%,rgba(255,214,102,.5) 96%,rgba(255,214,102,0) 98%),
+                 linear-gradient(183deg,rgba(255,221,128,0) 0%,rgba(255,221,128,.28) 8%,rgba(255,221,128,0) 15%)}
+    figcaption mark{color:#3d4152}
+
+    /* core contributions */
+    .contrib{list-style:none;margin:6px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .contrib li{border:1px solid var(--line);border-radius:10px;padding:14px 16px 13px;background:linear-gradient(180deg,#fff,#fafbfd);font-size:15px;line-height:1.5}
+    .contrib b{display:block;font-size:15.5px;color:#1e2a44;margin-bottom:3px}
+    .contrib .k{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--blue-bg);color:var(--blue);font-size:12px;font-weight:700;margin-right:7px;vertical-align:1px}
+    @media (max-width:700px){ .contrib{grid-template-columns:1fr} }
+
+    /* results takeaways and the full-tables drop-down */
+    ul.takeaways{margin:4px 0 16px;padding-left:20px}
+    ul.takeaways li{margin:5px 0}
+    details.fulltables{margin:4px 0 16px;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+    details.fulltables summary{cursor:pointer;font-size:14.5px;font-weight:600;color:var(--blue)}
+    details.fulltables[open] summary{margin-bottom:6px}
+    details.fulltables figure img{border:0;border-radius:0}
+
+    /* results table */
+    table.res{width:100%;border-collapse:collapse;font-size:15px;margin:6px 0 10px}
+    table.res th,table.res td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+    table.res th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#8a8e9c;font-weight:600;border-bottom:2px solid var(--line)}
+    table.res td.num{font-weight:700;white-space:nowrap;color:#1e2a44}
+    table.res td small{display:block;color:var(--muted);font-size:13px}
+
+    /* press */
+    .press{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:22px;align-items:start}
+    .press img{width:100%;border-radius:8px;display:block}
+    .press .credit{font-size:12.5px;color:#999;margin-top:6px}
+    .press ul{list-style:none;margin:0;padding:0}
+    .press li{padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.4}
+    .press li:first-child{border-top:0;padding-top:0}
+    .press li span{display:block;font-size:13px;color:var(--muted)}
+
+    /* bibtex */
+    .bib{position:relative;background:#f7f8fa;border:1px solid var(--line);border-radius:8px;padding:14px 16px;font:13.5px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre;overflow-x:auto;color:#333}
+    .bibpop{max-width:740px;margin:16px auto 0;text-align:left}
+    .bibpop .bib{box-shadow:0 6px 18px -10px rgba(0,0,0,.25)}
+    .btn[aria-expanded="true"]{background:#363b4d}
+    .copy{position:absolute;top:8px;right:8px;font:600 12px "Figtree",sans-serif;border:1px solid #d5e3f3;background:#fff;color:var(--blue);border-radius:5px;padding:4px 9px;cursor:pointer}
+    .copy:hover{background:var(--blue-bg)}
+
+    footer{border-top:1px solid var(--line);text-align:center;font-size:13px;color:#999;padding:22px 24px 30px}
+
+    @media (max-width:1300px){ .toc{display:none} .layout{grid-template-columns:minmax(0,1fr) minmax(0,820px) minmax(0,1fr);gap:0} }  /* no room for the contents box beside the text */
+    @media (max-width:860px){
+      .layout{grid-template-columns:1fr;gap:0}
+      main{grid-column:1}
+      .toc{display:none}
+      .stats{grid-template-columns:repeat(2,1fr)}
+      .press{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+<div class="crumb"><a href="../index.html">&larr; Rachneet Kaur</a> &nbsp;/&nbsp; <a href="../publications.html">Publications</a></div>
+
+<header class="hero">
+  <div class="venue">
+    <span class="chip blue">ACL 2025</span>
+    <span class="chip purple">NeurIPS 2024 Workshop</span>
+  </div>
+  <h1>LETS-C: Leveraging Text Embedding<br class="wide"> for Time Series Classification</h1>
+  <p class="authors">
+    <span><a class="me" href="../index.html">Rachneet Kaur</a></span>
+    <span>Zhen Zeng</span>
+    <span>Tucker Balch</span>
+    <span>Manuela Veloso</span>
+  </p>
+  <p class="affil">J.P. Morgan AI Research</p>
+  <div class="pubvenue">
+    <div><i>63rd Annual Meeting of the Association for Computational Linguistics (ACL)</i>, Vienna, 2025</div>
+    <div class="venuebox">
+      <div class="vb-col">
+        <div class="vb-label">Also presented at</div>
+        <ul>
+          <li>NeurIPS Workshop on Time Series in the Age of Large Models, 2024</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="btns">
+    <a class="btn" href="https://aclanthology.org/2025.acl-long.1557.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>Paper</a>
+    <a class="btn" href="https://arxiv.org/abs/2407.06533" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 14l2 2 4-4"/></svg>arXiv</a>
+    <a class="btn" href="https://underline.io/lecture/123303-lets-c-leveraging-text-embedding-for-time-series-classification" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3z"/></svg>Video</a>
+    <a class="btn" href="https://drive.google.com/file/d/1Vi_fJ81NxMtiUtVKslsmzLrRHQdbulDJ/view?usp=sharing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4M8 20h8"/></svg>Slides</a>
+    <a class="btn" href="https://drive.google.com/file/d/1PUJFqz2a76b9Ryuq9aQfQReFaGggHXDu/view?usp=sharing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>Poster</a>
+    <a class="btn" href="#bibtex" id="bibbtn" aria-expanded="false" aria-controls="bibpop"><svg viewBox="0 0 24 24"><path d="M7 8l-4 4 4 4M17 8l4 4-4 4M14 5l-4 14"/></svg>BibTeX</a>
+  </div>
+  <div class="bibpop" id="bibpop" hidden><div class="bib"><button class="copy" type="button">Copy</button><code></code></div></div>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Contents">
+    <div class="t">Contents</div>
+    <a href="#abstract">Abstract</a>
+    <a href="#contributions">Contributions</a>
+    <a href="#method">Method</a>
+    <a class="sub" href="#embed">Embedding a time series</a>
+    <a class="sub" href="#head">Fusion and a small head</a>
+    <a href="#results">Results</a>
+    <a class="sub" href="#accuracy">Accuracy</a>
+    <a class="sub" href="#efficiency">Efficiency</a>
+    <a href="#analysis">Analysis</a>
+    <a href="#bibtex">BibTeX</a>
+  </nav>
+
+  <main>
+    <figure class="overview"><img src="letsc2025/fig1.jpg" alt="Left: a text embedding model turns a sentence into a vector. Right: LETS-C formats a time series as digits, embeds it with a frozen text embedding model, adds it to the series and classifies with a small CNN and MLP head" loading="eager">
+      <figcaption><b>Fig. 1. LETS-C.</b> Just as a text embedding model turns a sentence into a vector (left), LETS-C <mark>writes a time series as text and embeds it</mark> with a frozen model (right). The embedding is <mark>added to the series</mark> and fed to a <mark>small trainable CNN and MLP head</mark>.</figcaption></figure>
+
+    <section id="abstract">
+      <h2>Abstract</h2>
+      <p class="abstract">Recent advancements in language modeling have shown promising results when applied to time series data. In particular, fine-tuning pretrained large language models (LLMs) for time series classification tasks has achieved state-of-the-art (SOTA) performance on standard benchmarks. However, these LLM-based models have a significant drawback due to the large model size, with the number of trainable parameters in the millions. In this paper, we propose an alternative approach to leveraging the success of language modeling in the time series domain. Instead of fine-tuning LLMs, we utilize a <mark>text embedding model to embed time series</mark> and then pair the embeddings with a <mark>simple classification head composed of convolutional neural networks (CNN) and multilayer perceptron (MLP)</mark>. We conducted extensive experiments on a well-established time series classification benchmark. We demonstrated LETS-C not only <mark>outperforms the current SOTA in classification accuracy</mark> but also offers a lightweight solution, <mark>using only 14.5% of the trainable parameters</mark> on average compared to the SOTA model. Our findings suggest that leveraging text embedding models to encode time series data, combined with a simple yet effective classification head, offers a promising direction for achieving high-performance time series classification while maintaining a lightweight model architecture.</p>
+    </section>
+
+    <section id="contributions">
+      <h2>Core contributions</h2>
+      <ul class="contrib">
+        <li><b><span class="k">1</span>Text embeddings for time series</b>The first work to use off-the-shelf text embedding models for time series classification.</li>
+        <li><b><span class="k">2</span>State of the art</b>Highest average accuracy (76.2%) on 10 UEA benchmark datasets, ahead of 27 baselines.</li>
+        <li><b><span class="k">3</span>Lightweight</b>On average just 14.5% of the trainable parameters of the previous best model, OneFitsAll.</li>
+        <li><b><span class="k">4</span>Embeddings separate classes</b>Series from the same class get more similar embeddings than series from different classes.</li>
+        <li><b><span class="k">5</span>Works with other embedders</b>Open-source embedding models also beat the previous state of the art.</li>
+        <li><b><span class="k">6</span>Shrinks gracefully</b>The classification head can be made much smaller with little loss in accuracy.</li>
+      </ul>
+    </section>
+
+    <section id="method">
+      <h2>Method</h2>
+
+      <h3 id="embed"><span class="n">1</span>Embedding a time series</h3>
+      <p>Each channel of a series is <mark>min-max normalized</mark> and written as text with <mark>digit-space formatting</mark> (for example, 0.645 becomes &ldquo;6 4&rdquo;), so that every digit gets its own token. OpenAI&rsquo;s <mark>text-embedding-3-large</mark> then turns each channel into a 3,072-dimensional vector. The embedding model stays frozen and each series is embedded only once.</p>
+
+      <h3 id="head"><span class="n">2</span>Fusion and a small head</h3>
+      <p>The embedding is <mark>added element-wise to the normalized series</mark>, like a residual connection, so both the raw values and the learned representation reach the classifier. A <mark>lightweight head of 1D convolutions and an MLP</mark> predicts the class. The head is kept deliberately simple to test how much the embeddings alone contribute.</p>
+    </section>
+
+    <section id="results">
+      <h2>Results</h2>
+
+      <h3 id="accuracy"><span class="n">1</span>Accuracy</h3>
+      <ul class="takeaways">
+        <li><mark>Best on average:</mark> 76.2% accuracy and the most first places (40% of datasets) among 28 models.</li>
+        <li><mark>Strongest on hard datasets:</mark> large gains on EthanolConcentration (very long series) and PEMS-SF (963 channels).</li>
+      </ul>
+      <table class="res">
+        <thead><tr><th>Accuracy (%)</th><th>LETS-C</th><th>OneFitsAll<small>LLM-based</small></th><th>TimesNet</th><th>ROCKET</th></tr></thead>
+        <tbody>
+          <tr><td>EthanolConcentration</td><td class="num"><b>52.9</b></td><td class="num">34.2</td><td class="num">35.7</td><td class="num">45.2</td></tr>
+          <tr><td>PEMS-SF</td><td class="num"><b>93.1</b></td><td class="num">87.9</td><td class="num">89.6</td><td class="num">75.1</td></tr>
+          <tr><td>SelfRegulationSCP2</td><td class="num"><b>62.8</b></td><td class="num">59.4</td><td class="num">57.2</td><td class="num">53.3</td></tr>
+          <tr><td>Heartbeat</td><td class="num"><b>78.0</b></td><td class="num">77.2</td><td class="num"><b>78.0</b></td><td class="num">75.6</td></tr>
+          <tr><td><b>Average over 10 datasets</b></td><td class="num"><b>76.2</b></td><td class="num">74.0</td><td class="num">73.6</td><td class="num">72.5</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:14px;color:var(--muted)">Selected datasets from Table 1 of the paper, which compares all 27 baselines on all 10 datasets.</p>
+
+      <h3 id="efficiency"><span class="n">2</span>Efficiency</h3>
+      <ul class="takeaways">
+        <li><mark>About 7&times; fewer trainable parameters:</mark> 0.22 million on average for LETS-C versus 2.39 million for OneFitsAll.</li>
+        <li><mark>One-time embedding cost:</mark> each series is embedded once, unlike fine-tuning an LLM.</li>
+      </ul>
+    </section>
+
+    <section id="analysis">
+      <h2>Analysis</h2>
+      <ul class="takeaways">
+        <li><mark>Embeddings already separate classes:</mark> cosine similarity is higher within a class than between classes, which explains the accuracy boost.</li>
+        <li><mark>Not tied to one model:</mark> e5-mistral, gte-large and nomic-embed also beat the previous state of the art.</li>
+        <li><mark>Small heads still work:</mark> many datasets keep over 95% of their accuracy with a fraction of the parameters.</li>
+        <li><mark>Both inputs matter:</mark> using only the embedding or only the raw series is worse than adding them together.</li>
+      </ul>
+      <figure><img src="letsc2025/fig2.jpg" alt="Heatmaps of within- and between-class cosine similarity for JapaneseVowels and SpokenArabicDigits, and a plot of accuracy retained against parameters retained" loading="lazy">
+        <figcaption><b>Fig. 2.</b> Left and middle: embeddings are <mark>most similar within a class</mark> (the diagonal) on JapaneseVowels and SpokenArabicDigits. Right: <mark>accuracy retained as the head shrinks</mark>.</figcaption></figure>
+    </section>
+
+    <section id="bibtex">
+      <h2>BibTeX</h2>
+      <div class="bib"><button class="copy" type="button">Copy</button><code id="bibtext">@inproceedings{kaur2025letsc,
+  title     = {LETS-C}: Leveraging Text Embedding for Time Series
+               Classification},
+  author    = {Kaur, Rachneet and Zeng, Zhen and Balch, Tucker and
+               Veloso, Manuela},
+  booktitle = {Proceedings of the 63rd Annual Meeting of the Association
+               for Computational Linguistics (Volume 1: Long Papers)},
+  pages     = {32365--32399},
+  year      = {2025},
+  publisher = {Association for Computational Linguistics},
+  url       = {https://aclanthology.org/2025.acl-long.1557}
+}</code></div>
+    </section>
+  </main>
+</div>
+
+<footer><a href="../index.html">Home</a> &middot; <a href="../publications.html">All publications</a><br><span style="font-size:12px">Figures from the paper, licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>. Page design inspired by <a href="https://nerfies.github.io/" target="_blank" rel="noopener">Nerfies</a>.</span></footer>
+
+<script>
+/* copy BibTeX (both the pop-up panel and the BibTeX section) */
+var bibText = document.getElementById("bibtext").textContent;
+document.querySelector("#bibpop code").textContent = bibText;
+document.querySelectorAll(".copy").forEach(function (b) {
+  b.addEventListener("click", function () {
+    navigator.clipboard.writeText(bibText).then(function () {
+      b.textContent = "Copied"; setTimeout(function () { b.textContent = "Copy"; }, 1500);
+    });
+  });
+});
+/* the BibTeX button opens the citation right under the buttons instead of jumping to the bottom */
+(function () {
+  var btn = document.getElementById("bibbtn"), pop = document.getElementById("bibpop");
+  btn.addEventListener("click", function (e) {
+    e.preventDefault();
+    var open = pop.hidden; pop.hidden = !open; btn.setAttribute("aria-expanded", open);
+  });
+})();
+/* highlight the section in view in the contents */
+(function () {
+  var links = [].slice.call(document.querySelectorAll(".toc a"));
+  var secs = links.map(function (a) { return document.querySelector(a.getAttribute("href")); });
+  function f() {
+    var y = window.scrollY + 120, i = 0;
+    secs.forEach(function (s, k) { if (s && s.offsetTop <= y) i = k; });
+    links.forEach(function (a, k) { a.classList.toggle("on", k === i); });
+  }
+  window.addEventListener("scroll", f, { passive: true }); f();
+})();
+</script>
+</body>
+</html>
