@@ -1,224 +1,344 @@
-<html>
-  <head>
-	  	<link rel="shortcut icon" type="image/png" href="./icon.png" />
-		<title>Using Virtual Reality to Examine the Neural and Physiological Anxiety-Related Responses to Balance-Demanding Target-Reaching Leaning Tasks</title>
-  </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Balance Function and Anxiety | Rachneet Kaur</title>
+  <meta name="description" content="A virtual reality height-and-perturbation test-bed with EKG, EMG and EEG shows that people with better balance show lower anxiety. IEEE BIBM 2019.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#1a1a2e;--muted:#5d6273;--line:#ececf0;--blue:#1772d0;--blue-bg:#eef4fb;--gold:#e2c79a;--gold-ink:#8a5a00;--gold-bg:#fbf1dc}
+    html{background:#fff;color-scheme:light;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+    body{margin:0;font-family:"Figtree",Helvetica,Arial,sans-serif;color:var(--ink);line-height:1.6;font-size:16.5px}
+    a{color:var(--blue);text-decoration:none}
+    a:hover{text-decoration:underline}
+    [id]{scroll-margin-top:24px}
 
-  <body>
-    <br>
-          <center>
-          	<span style="font-size:38px">Using Virtual Reality to Examine the Neural and <br> Physiological Anxiety-Related Responses to <br> Balance-Demanding Target-Reaching Leaning Tasks <br></span>
-			  <br>
-	  		  <table align=center width=700px>
-	  			  <tr>
-					  <td align=center>
-						  <span style="font-size:25px">
-							  <a href="https://kaurrachneet6.github.io/">Rachneet Kaur</a>,
-							  <a>Rongyi Sun</a>,
-							  <a href="https://neuroscience.illinois.edu/profile/liranz2">Liran Ziegelman</a>,
-							  <br> <a href="https://ise.illinois.edu/directory/profile/r-sowers">Richard Sowers</a>,
-							  <a href="https://mfp.hk.illinois.edu/">Manuel Hernandez</a>
-						  </span>
-					  </td>
-				  </tr>
-				  <tr>
-					  <td align="center">
-						  <span style="font-size:22px">
-							  University of Illinois at Urbana-Champaign
-						  </span>
-						  <br>
-						  <span style="font-size:25px">
-							  <a href="https://ieeexplore.ieee.org/document/9035020">IEEE Humanoids 2019</a>
-						  </span>
-						  <br>
-						  <br>
-					  </td>
-				  </tr>
-			  </table>
+    /* back link to the homepage */
+    .crumb{max-width:1100px;margin:0 auto;padding:18px 24px 0;font-size:13.5px}
+    .crumb a{color:var(--muted)}
+    .crumb a:hover{color:var(--blue)}
 
-	  		  <table align=center width=600px>
-	  			  <tr>
-	  	              <td align=center width=140px>
-	  					<center>
-	  						<span style="font-size:22px"><a href='https://github.com/kaurrachneet6' target="_blank"> [Code]</a></span>
-		  		  		</center>
-		  		  	  </td>
-	  	              
-	  	              <td align=center width=150px>
-	  					<center>
-	  						<span style="font-size:22px"><a href='./EMBC2020_BF_ML_slides_pdf.pdf' target="_blank"> [Slides]</a></span>
-		  		  		</center>
-		  		  	  </td>
- 
-<!-- 		  		  	  <td align=center width=200px>
-	  					<center>
-	  						<span style="font-size:22px"><a href='https://youtu.be/EnYwCX5E9gk' target="_blank"> [Teaser Video]</a></span>
-		  		  		</center>
-		  		  	  </td> -->
-					  
-					  <td align=center width=200px>
-	  					<center>
-	  						<span style="font-size:22px"><a href='https://www.youtube.com/watch?v=5nKx9IGo3SA&feature=youtu.be&ab_channel=HernandezLab' target="_blank"> [Video]</a></span>
-		  		  		</center>
-		  		  	  </td>
+    /* ---------- hero ---------- */
+    .hero{max-width:900px;margin:0 auto;padding:34px 24px 10px;text-align:center}
+    .venue{display:inline-flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-bottom:16px}
+    .chip{font-size:12px;font-weight:600;border-radius:4px;padding:2px 9px;line-height:1.6;white-space:nowrap}
+    .chip.blue{color:var(--blue);background:var(--blue-bg)}
+    .chip.gold{color:var(--gold-ink);background:var(--gold-bg)}
+    .chip.purple{color:#6b46a8;background:#f1ebf8}   /* also presented at */
+    h1{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:clamp(24px,2.6vw,31px);line-height:1.25;letter-spacing:-.3px;margin:0 -80px 18px;color:#1e2a44;text-wrap:balance}
+    @media (max-width:1100px){ h1{margin:0 0 6px} h1 br.wide{display:none} }  /* narrow screens: let the title wrap naturally */
+    .subtitle{font-family:"Newsreader",Georgia,serif;font-weight:500;font-size:clamp(19px,2.4vw,24px);color:#4a5068;margin:0 0 20px}
+    .authors{font-size:18px;margin:0 0 4px}
+    .authors a{color:var(--blue);margin:0 6px;white-space:nowrap}
+    .authors .me{font-weight:700}
+    .authors span{white-space:nowrap;margin:0 6px}
+    .authors span a{margin:0}
+    .authors sup,.affil sup{font-size:12px;color:var(--muted);margin-left:1px}
+    .affil{font-size:16.5px;color:var(--muted);margin:0 0 12px}
+    .pubvenue{font-size:17.5px;color:#2c3248;margin:0 0 22px;line-height:1.5}
+/* "also presented at" and invited talk: two small labelled lists side by side */
+.venuebox{display:inline-flex;flex-wrap:wrap;justify-content:center;gap:10px 34px;margin:12px auto 0;text-align:left}
+.vb-label{font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#8a7a5c;margin-bottom:4px}
+.venuebox ul{list-style:none;margin:0;padding:0}
+.venuebox li{position:relative;padding-left:14px;font-size:15px;line-height:1.55;color:var(--muted)}
+.venuebox li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:#b9a6d9}
+    .pubvenue .also{font-size:16px;color:var(--muted)}
+    .btns{display:flex;flex-wrap:wrap;justify-content:center;gap:9px}
+    .btn{display:inline-flex;align-items:center;gap:7px;background:#1f2330;color:#fff;border-radius:999px;padding:8px 16px 8px 13px;font-size:14.5px;font-weight:600}
+    .btn:hover{background:#363b4d;text-decoration:none}
+    .btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
-	  	              <td align=center width=100px>
-	  					<center>
-	  						<span style="font-size:22px"><a href='https://ieeexplore.ieee.org/document/9035020' target="_blank"> [Paper]</a></span>
-		  		  		</center>
-		  		  	  </td>
+    /* teaser */
+    .overview{margin:0 0 34px}
+    .teaser{max-width:900px;margin:30px auto 0;padding:0 24px}
+    .teaser img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:10px}
+    .cap{font-size:14.5px;color:var(--muted);text-align:center;margin:12px auto 0;max-width:820px;line-height:1.5}
+    .cap b{color:var(--ink)}
 
-		  		  	 </tr>
-	  			  <tr>
-			  </table>
-          </center>
-	  <br>
-		<table align=center width=800px>
-				<tr><td><center><h1>Abstract</h1></center></td></tr>  
-			  <tr>
-				  <td style="font-size:15pt; text-align:justify">
-					 We examine the feasibility and effectiveness of a virtual reality (VR) based experimental setup to monitor and modify the neural and physiological anxiety-related responses to balance-demanding target-reaching whole body leaning tasks. In our system, electroencephalography (EEG) and electrocardiography (EKG) signals are used to analyze the subjects' real-time neural and cardiac activities, respectively, while subjects perform accuracy-constrained whole body movements as quickly and as accurately as possible in high fall-risk VR conditions. Salient features of neural and cardiac responses are analyzed to monitor anxiety-related changes in subjects during the performance of balance-demanding tasks. Validation of the proposed framework, integrating VR and sensor-based monitoring, may pave the way to smart and intuitive human-robot or brain-computer interface systems that can detect anxiety in human users during the performance of demanding motor tasks. The application of linear and radial basis function support vector machine classifiers suggest good performance in detecting anxiety using power of the alpha band from F3 and F4 channels of the EEG head cap. Our results suggest that frontal alpha asymmetry (FAA) may be used as bio-marker for quantifying both trait and state anxiety, and further conclude that state anxiety is correlated with motor task performance.
-				  </td>
-			  </tr>
-	  </table>
+    /* key numbers */
+    .stats{max-width:900px;margin:34px auto 0;padding:0 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .stat{text-align:center;border:1px solid var(--line);border-radius:10px;padding:14px 8px 12px;background:linear-gradient(180deg,#fff,#fafbfd)}
+    .stat b{display:block;font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:30px;line-height:1.05;color:#1e2a44}
+    .stat span{display:block;font-size:13px;color:var(--muted);margin-top:5px;line-height:1.35}
 
-          <table align=center width=850px>
-  			  <tr>
-				  <td>
-					  <br>
-					  <center>
-							<img class="round" width="480" height="620" src="./Accelerometer_EMBC2020_image"/>
-					  
-				  <div style='width: 700px; text-align: center;'> 
-					  <b>Figure:</b> Filtered acceleration coordinates. Comparing 10 seconds of x, y, z-acceleration coordinates from the two accelerometers at hip (H) and knee (K) for a subject with low (A) and high (B) balance.
-				</div>
-				  </center>	  
-				<br>
-				  </td>
-			  </tr>
-	</table>
-<!-- 			  <tr>
-				  <td>
-					  <br>
-					  <center>
-							<img class="round" width="900px" src="./FloorPlan229_physics__15__video.gif"/>
-					  </center>
-					  <br>
-				  </td>
-			  </tr> -->
-  		  </table>
+    /* ---------- body: sticky contents + sections ---------- */
+    /* reading column centred on the page (under the title); the contents box sits in the left margin */
+    .layout{margin:40px auto 0;padding:0 24px 70px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,820px) minmax(0,1fr);gap:36px}
+    .toc{grid-column:1;justify-self:end;width:170px;position:sticky;top:24px;align-self:start;font-size:13.5px;border:1px solid var(--line);border-radius:10px;padding:12px 6px 10px}
+    .toc .t{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#9a9aa8;padding:0 10px 6px}
+    .toc a{display:block;color:var(--muted);padding:4px 10px;border-radius:6px;border-left:2px solid transparent}
+    .toc a.sub{padding-left:22px;font-size:12.5px;color:#8a8e9c}
+    .toc a:hover{background:#f6f7f9;text-decoration:none;color:var(--ink)}
+    .toc a.on{color:var(--blue);background:var(--blue-bg);border-left-color:var(--blue)}
+    main{grid-column:2;min-width:0;max-width:820px}
+    section{margin-bottom:46px}
+    h2{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:28px;color:#1e2a44;margin:0 0 14px;padding-bottom:5px;border-bottom:2px solid var(--gold);display:inline-block;line-height:1.2}
+    h3{font-size:18px;font-weight:700;margin:28px 0 8px;color:#1e2a44}
+    h3 .n{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--blue-bg);color:var(--blue);font-size:13px;margin-right:8px;vertical-align:1px}
+    p{margin:0 0 12px}
+    .abstract{text-align:left;hyphens:manual}
+    figure{margin:14px 0 6px}
+    figure img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:8px}
+    figure figcaption{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.5}
+    ul.tight{margin:0 0 12px;padding-left:22px}
+    ul.tight li{margin:3px 0}
 
-          <hr>
+    /* figure beside text, and two figures side by side */
+    .side-fig{display:grid;grid-template-columns:minmax(0,0.8fr) minmax(0,1.2fr);gap:24px;align-items:start}
+    .side-fig figure{margin-top:4px}
+    .two-fig{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+    @media (max-width:700px){ .side-fig,.two-fig{grid-template-columns:1fr} }
 
-<!--   		  <table align=center width=850px>
-	  		  <tr><td><center><h1>SYNC-Policies</h1></center></td></tr>
-			  <tr>
-	  		  	<td style="font-size:15pt; text-align:justify">
-					Previous multi-agent RL methods consist of a communicative backbone followed by a single marginal policy per agent. This limits the joint policy that these methods can capture. The joint policy is a rank one matrix, particularly, the outer product of the marginal policies of the two agents. For the general case of <i>N</i> agents, this is a rank one tensor.
-					<span style="font-size:28px">
-						$$\Pi_{\text{marginal}} = \pi^1\otimes\cdots \otimes \pi^N$$
-					</span>
-					We leverage the communication band to move beyond this rank one joint policy. SYNC policies weave
-					<i>m</i> marginal policies per agent using synchronized sampling (details in the paper). This leads to a more expressive joint policy as a mixture of marginal policies. For the <i>N</i> agent setup, the joint policy becomes:
-					<span style="font-size:28px">
-						$$\Pi_{\text{SYNC}} = \sum_{j=1}^m \alpha_j \cdot \pi^1_{j} \otimes \ldots \otimes \pi^N_{j}$$
-					</span>
-	  		    </td>
-	  		  </tr>
-			  <tr>
-				  <td>
-					  <center>
-							<img class="round" width="600px" src="./sync_policies.png"/>
-					  </center>
-				  </td>
-			  </tr>
-			</table> -->
-<!--   		  <br> -->
-<!-- 		  <hr> -->
-			<table align=center width=800px>
-				<tr><td><center><h1>Explanatory video</h1></center></td></tr>
-				<tr>
-					<td style="font-size:15pt; text-align:justify">
-						<center>
-							A detailed video, corresponding slides: <a href='./EMBC2020_BF_ML_slides_pdf.pdf' target="_blank"> [Detailed slides]</a>.
-						</center>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<center>
-							<iframe width="560" height="315" src="https://www.youtube.com/embed/5nKx9IGo3SA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						</center>
-					</td>
-				</tr>
-			</table>
-			<br>
-			<hr>
-<!-- 			<table align=center width=800px>
-				<tr><td><center><h1>Qualitative Results</h1></center></td></tr>
-				<tr>
-					<td style="font-size:15pt; text-align:justify">
-						<span>
-							This video highlighting policy roll-outs of marginal policies vs. SYNC-policies. Additionally, we include a way to <i>experience</i> what the agents 'tell' each other (enable audio for this clip).
-						</span>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<center>
-							<iframe width="560" height="315" src="https://www.youtube.com/embed/I_Evs5Bol6k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						</center>
-					</td>
-				</tr>
-			</table>
+    /* soft highlighter for the key phrases, so a quick read still gets the story */
+    mark{color:#1a1a2e;font-weight:500;padding:.05em .28em;margin:0 -.12em;border-radius:.5em .25em;
+      -webkit-box-decoration-break:clone;box-decoration-break:clone;
+      background:linear-gradient(104deg,rgba(255,214,102,0) .9%,rgba(255,214,102,.55) 2.4%,rgba(255,221,128,.38) 6%,rgba(255,221,128,.22) 93%,rgba(255,214,102,.5) 96%,rgba(255,214,102,0) 98%),
+                 linear-gradient(183deg,rgba(255,221,128,0) 0%,rgba(255,221,128,.28) 8%,rgba(255,221,128,0) 15%)}
+    figcaption mark{color:#3d4152}
 
-			<br>
-			<hr> -->
+    /* core contributions */
+    .contrib{list-style:none;margin:6px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .contrib li{border:1px solid var(--line);border-radius:10px;padding:14px 16px 13px;background:linear-gradient(180deg,#fff,#fafbfd);font-size:15px;line-height:1.5}
+    .contrib b{display:block;font-size:15.5px;color:#1e2a44;margin-bottom:3px}
+    .contrib .k{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--blue-bg);color:var(--blue);font-size:12px;font-weight:700;margin-right:7px;vertical-align:1px}
+    @media (max-width:700px){ .contrib{grid-template-columns:1fr} }
 
+    /* results takeaways and the full-tables drop-down */
+    ul.takeaways{margin:4px 0 16px;padding-left:20px}
+    ul.takeaways li{margin:5px 0}
+    details.fulltables{margin:4px 0 16px;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+    details.fulltables summary{cursor:pointer;font-size:14.5px;font-weight:600;color:var(--blue)}
+    details.fulltables[open] summary{margin-bottom:6px}
+    details.fulltables figure img{border:0;border-radius:0}
 
+    /* results table */
+    table.res{width:100%;border-collapse:collapse;font-size:15px;margin:6px 0 10px}
+    table.res th,table.res td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+    table.res th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#8a8e9c;font-weight:600;border-bottom:2px solid var(--line)}
+    table.res td.num{font-weight:700;white-space:nowrap;color:#1e2a44}
+    table.res td small{display:block;color:var(--muted);font-size:13px}
 
-			<table align=center width=800px>
-				<tr><td><center><h1>References</h1></center></td></tr>
-				<tr>
-					<td style="font-size:15pt; text-align:justify">
-						<span>
-							Yang Hu*, Alka Bishnoi*, Rachneet Kaur, Richard Sowers, Manuel E Hernandez. <b>Exploration of Machine Learning to Identify Community Dwelling Older Adults with Balance Dysfunction Using Short Duration Accelerometer Data</b>. In <i>IEEE EMBC</i> 2020 <a href="../Data/Accelerometer_EMBC2020.bib" target="_blank" style="font-size:15pt;">[Bibtex]</a>
-						</span>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<center>
-							<a href="https://ieeexplore.ieee.org/document/9175871">
-								<img class="round" width= "200" src="./Accelerometer_EMBC2020_thumbnail.png"/>
-							</a>
-						</center>
-					</td>
-				</tr>
-			</table>
+    /* press */
+    .press{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:22px;align-items:start}
+    .press img{width:100%;border-radius:8px;display:block}
+    .press .credit{font-size:12.5px;color:#999;margin-top:6px}
+    .press ul{list-style:none;margin:0;padding:0}
+    .press li{padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.4}
+    .press li:first-child{border-top:0;padding-top:0}
+    .press li span{display:block;font-size:13px;color:var(--muted)}
 
-  		  <br>
-		  <hr>
+    /* bibtex */
+    .bib{position:relative;background:#f7f8fa;border:1px solid var(--line);border-radius:8px;padding:14px 16px;font:13.5px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre;overflow-x:auto;color:#333}
+    .bibpop{max-width:740px;margin:16px auto 0;text-align:left}
+    .bibpop .bib{box-shadow:0 6px 18px -10px rgba(0,0,0,.25)}
+    .btn[aria-expanded="true"]{background:#363b4d}
+    .copy{position:absolute;top:8px;right:8px;font:600 12px "Figtree",sans-serif;border:1px solid #d5e3f3;background:#fff;color:var(--blue);border-radius:5px;padding:4px 9px;cursor:pointer}
+    .copy:hover{background:var(--blue-bg)}
 
-			<table align=center width=900px>
-				<tr><td><center><h1>Acknowledgements</h1></center></td></tr>
-				<tr>
-					<td style="font-size:15pt; text-align:justify">
-						<span>
-							We would like to thank all of the subjects who participated in this study. We would also like to thank Yanqing Lyu, Nicole Cho and members of the <a href="http://mfp.kch.illinois.edu/">Mobility and Fall Prevention Lab</a> for their contributions to the study, and the Campus Research Board for financial support of this work. RK is thankful to William Chittenden for the William A. Chittenden Award.
-						</span>
-					</td>
-				</tr>
-			</table>
+    footer{border-top:1px solid var(--line);text-align:center;font-size:13px;color:#999;padding:22px 24px 30px}
 
-		<hr>
-        <table style="font-size:14px" align=center>
-        <tr>
-        <td>
-            Website adapted from <a href="https://deanplayerljx.github.io/tabvcr/">Jingxiang</a>, <a href="https://richzhang.github.io/colorization">Richard</a> and <a href="https://pathak22.github.io/modular-assemblies/">Deepak</a>.
-        </td>
-        </tr>
+    @media (max-width:1300px){ .toc{display:none} .layout{grid-template-columns:minmax(0,1fr) minmax(0,820px) minmax(0,1fr);gap:0} }  /* no room for the contents box beside the text */
+    @media (max-width:860px){
+      .layout{grid-template-columns:1fr;gap:0}
+      main{grid-column:1}
+      .toc{display:none}
+      .stats{grid-template-columns:repeat(2,1fr)}
+      .press{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+<div class="crumb"><a href="../index.html">&larr; Rachneet Kaur</a> &nbsp;/&nbsp; <a href="../publications.html">Publications</a></div>
+
+<header class="hero">
+  <div class="venue">
+    <span class="chip blue">IEEE BIBM 2019</span>
+    <span class="chip purple">Oral</span>
+    <span class="chip purple">BMES 2019</span>
+  </div>
+  <h1>Using Virtual Reality to Examine the Correlation<br class="wide"> between Balance Function and Anxiety in Stance</h1>
+  <p class="authors">
+    <span>Rongyi Sun<sup>1*</sup></span>
+    <span><a class="me" href="../index.html">Rachneet Kaur</a><sup>2*</sup></span>
+    <span><a href="https://neuroscience.illinois.edu/profile/liranz2" target="_blank" rel="noopener">Liran Ziegelman</a><sup>3</sup></span>
+    <span>Shuo Yang<sup>4</sup></span>
+    <span><a href="https://ise.illinois.edu/directory/profile/r-sowers" target="_blank" rel="noopener">Richard Sowers</a><sup>2</sup></span>
+    <span><a href="https://mfp.hk.illinois.edu/" target="_blank" rel="noopener">Manuel E. Hernandez</a><sup>5</sup></span>
+  </p>
+  <p class="affil">University of Illinois at Urbana-Champaign: <sup>1</sup>Molecular &amp; Cellular Biology and Psychology &nbsp;&nbsp; <sup>2</sup>Industrial &amp; Enterprise Systems Engineering &nbsp;&nbsp; <sup>3</sup>Neuroscience &nbsp;&nbsp; <sup>5</sup>Kinesiology &amp; Community Health<br><sup>4</sup>Beijing Normal University &nbsp;&nbsp; <sup>*</sup>Equal contribution</p>
+  <div class="pubvenue">
+    <div><i>IEEE International Conference on Bioinformatics and Biomedicine (BIBM)</i>, 2019</div>
+    <div class="venuebox">
+      <div class="vb-col">
+        <div class="vb-label">Also presented at</div>
+        <ul>
+          <li>Biomedical Engineering Society (BMES) Annual Meeting, 2019</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="btns">
+    <a class="btn" href="https://ieeexplore.ieee.org/document/8983331" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>Paper</a>
+    <a class="btn" href="https://drive.google.com/file/d/1c4Hzfsq9tmAsYx3BTGVRNVzdC7R1heYo/view?usp=sharing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4M8 20h8"/></svg>Slides</a>
+    <a class="btn" href="#bibtex" id="bibbtn" aria-expanded="false" aria-controls="bibpop"><svg viewBox="0 0 24 24"><path d="M7 8l-4 4 4 4M17 8l4 4-4 4M14 5l-4 14"/></svg>BibTeX</a>
+  </div>
+  <div class="bibpop" id="bibpop" hidden><div class="bib"><button class="copy" type="button">Copy</button><code></code></div></div>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Contents">
+    <div class="t">Contents</div>
+    <a href="#abstract">Abstract</a>
+    <a href="#contributions">Contributions</a>
+    <a href="#method">Method</a>
+    <a class="sub" href="#setup">VR heights and balance test</a>
+    <a class="sub" href="#markers">Anxiety markers</a>
+    <a href="#results">Results</a>
+    <a class="sub" href="#body">Heart and muscles</a>
+    <a class="sub" href="#selfreport">Everyday anxiety</a>
+    <a class="sub" href="#eeg">Predicting balance from EEG</a>
+    <a href="#bibtex">BibTeX</a>
+    <a href="#acknowledgments">Acknowledgments</a>
+  </nav>
+
+  <main>
+    <figure class="overview"><img src="bibm2019/fig1.jpg" alt="Conceptual map: stress leads to trait and state anxiety, measured by PROMIS, HRV, CCI and EEG, each related to SOT balance scores" loading="eager">
+      <figcaption><b>Fig. 1. Conceptual map.</b> Four markers of anxiety (the <mark>PROMIS questionnaire, heart rate variability, ankle muscle co-contraction and frontal EEG</mark>) are each compared with <mark>balance function, measured by the sensory organization test (SOT)</mark>.</figcaption></figure>
+
+    <section id="abstract">
+      <h2>Abstract</h2>
+      <p class="abstract">We study the <mark>interaction between balance function and anxiety in humans via a virtual reality based experimental setup</mark>, fundamentally designed to examine postural control and neurological feedback during balance-demanding height and perturbation shifts, while in quiet stance. In this work, sensory organization balance test (SOT) was utilized to quantify the balance function in subjects, and the salient features of the recorded <mark>electrocardiogram (EKG), electromyogram (EMG) and electroencephalography (EEG) signals</mark> described the subject&rsquo;s physiological anxiety-related responses. Also, patient-reported outcomes measurement information system (PROMIS) trait anxiety questionnaire was adopted to indicate the self-assessed trait anxiety scores by the subjects. Our statistical analysis indicates that <mark>subjects with higher SOT scores encounter a lower heart rate variability during baseline recording relative to the experimental trials and lower co-contraction index of the ankle dorsiflexion</mark> (during the experimental trials), suggesting a lower anxiety state. A similar trend was further observed via the self-reported PROMIS questionnaire responses, estimating anxiety experienced in daily life. Additionally, we utilize <mark>machine learning to describe the predictability of balance function states via the relative &alpha;-band power from the frontal channels</mark> of the recorded EEG signals as descriptive features characterizing anxiety. The discussed trends analytically demonstrate the potential for adopting balance function to anticipate anxiety, especially in stressful environments involving postural threats.</p>
+    </section>
+
+    <section id="contributions">
+      <h2>Core contributions</h2>
+      <ul class="contrib">
+        <li><b><span class="k">1</span>Safe postural threat</b>Virtual heights and drops of up to 7.5 m, plus real platform tilts, while people stand still.</li>
+        <li><b><span class="k">2</span>Four views of anxiety</b>Heart (HRV), muscles (ankle co-contraction), brain (frontal EEG) and a self-report questionnaire.</li>
+        <li><b><span class="k">3</span>Better balance, calmer heart</b>People with higher balance scores showed significantly smaller drops in heart rate variability under threat.</li>
+        <li><b><span class="k">4</span>Better balance, less stiffening</b>They also co-contracted their left ankle muscles significantly less.</li>
+        <li><b><span class="k">5</span>Matches everyday anxiety</b>People with lower balance scores reported feeling anxious more often in daily life.</li>
+        <li><b><span class="k">6</span>Balance from brain signals</b>Frontal EEG alpha power classified low versus high balance function with an F1 score of 0.83.</li>
+      </ul>
+    </section>
+
+    <section id="method">
+      <h2>Method</h2>
+
+      <h3 id="setup"><span class="n">1</span>VR heights and balance test</h3>
+      <p><mark>Six healthy young adults</mark> first took the <mark>sensory organization test</mark> (SOT) on a NeuroCom force plate, 18 trials that measure how well a person uses vision, the inner ear and body sense to stay steady. They then stood still in an HTC Vive headset while the virtual platform <mark>rose or the floor around it dropped to 2.5, 5 or 7.5 m</mark>, each for 30 seconds; in two of four trials, the platform also <mark>tilted their toes down by 10 degrees</mark>. People above the median SOT score formed the higher-balance group.</p>
+      <figure><img src="bibm2019/fig2.jpg" alt="Setup: VR system, VR headset, EEG cap and recorder, EKG and EMG sensors, force plates and NeuroCom system" loading="lazy" style="max-width:520px;margin-inline:auto;display:block">
+        <figcaption><b>Fig. 2.</b> The data collection setup, with VR headset, 64-channel EEG cap, EKG and EMG sensors, and the NeuroCom force plates.</figcaption></figure>
+
+      <h3 id="markers"><span class="n">2</span>Anxiety markers</h3>
+      <p>From <mark>EKG</mark>, we detected R peaks and computed heart rate variability; a larger drop from the relaxed baseline to the VR trials signals more anxiety. From <mark>EMG</mark> on eight lower-leg muscles, we computed the <mark>co-contraction index</mark> of the ankle, since people stiffen their ankles when afraid of falling. From <mark>EEG</mark>, after ICA cleaning, we took power in each frequency band from 16 frontal channels. Each participant also completed the <mark>PROMIS trait anxiety questionnaire</mark>.</p>
+    </section>
+
+    <section id="results">
+      <h2>Results</h2>
+
+      <h3 id="body"><span class="n">1</span>Heart and muscles</h3>
+      <ul class="takeaways">
+        <li><mark>Heart rate variability:</mark> the higher-balance group had a significantly smaller change from baseline over all trials and over trials without tilts (p &lt; 0.01), with a trend in tilt trials (p = 0.06).</li>
+        <li><mark>Ankle stiffening:</mark> the higher-balance group had significantly lower left-leg co-contraction in every condition (p &lt; 0.01).</li>
+      </ul>
+      <figure>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+          <img src="bibm2019/fig4.jpg" alt="Change in HRV for higher and lower SOT groups over all trials" loading="lazy">
+          <img src="bibm2019/fig7.jpg" alt="Left-leg co-contraction index for higher and lower SOT groups over all trials" loading="lazy">
+        </div>
+        <figcaption><b>Figs. 4 and 7.</b> Over all trials, the higher-balance group (left in each plot) shows a <mark>smaller change in heart rate variability</mark> (left panel) and <mark>less ankle co-contraction</mark> (right panel). Bars are 95% confidence intervals.</figcaption></figure>
+      <details class="fulltables">
+        <summary>Show the statistical tests (paper Tables I and II)</summary>
+        <table class="res">
+          <thead><tr><th>Mann&ndash;Whitney test, p-value</th><th>All trials</th><th>With tilts</th><th>Without tilts</th></tr></thead>
+          <tbody>
+            <tr><td>Change in heart rate variability</td><td class="num">&lt; 0.01</td><td class="num">0.06</td><td class="num">&lt; 0.01</td></tr>
+            <tr><td>Left-leg co-contraction index</td><td class="num">&lt; 0.01</td><td class="num">&lt; 0.01</td><td class="num">&lt; 0.01</td></tr>
+          </tbody>
         </table>
-              
+      </details>
+
+      <h3 id="selfreport"><span class="n">2</span>Everyday anxiety</h3>
+      <ul class="takeaways">
+        <li><mark>Lower balance, more anxious days:</mark> the lower-balance group reported feeling anxious about 33% of the time versus 8% for the higher-balance group (p = 0.05).</li>
+      </ul>
+      <figure><img src="bibm2019/fig10.jpg" alt="Self-reported proportion of time with anxiety against SOT score" loading="lazy" style="max-width:480px;margin-inline:auto;display:block">
+        <figcaption><b>Fig. 10.</b> Self-reported share of time spent anxious against balance (SOT) score: <mark>higher scores, less anxiety</mark>.</figcaption></figure>
+
+      <h3 id="eeg"><span class="n">3</span>Predicting balance from EEG</h3>
+      <ul class="takeaways">
+        <li><mark>Two channels again suffice:</mark> random forest and AdaBoost using alpha power from F3 and F4 reached an F1 score of 0.83 on held-out data.</li>
+        <li><mark>Small sample:</mark> with six participants, these are early trends that need a larger study.</li>
+      </ul>
+      <table class="res">
+        <thead><tr><th>Classifier</th><th>EEG features</th><th>F1 score (test)</th></tr></thead>
+        <tbody>
+          <tr><td>Random forest</td><td>Alpha, F3 &amp; F4</td><td class="num">0.83</td></tr>
+          <tr><td>AdaBoost</td><td>Alpha, F3 &amp; F4</td><td class="num">0.83</td></tr>
+          <tr><td>SVM, linear</td><td>All bands, 16 frontal channels</td><td class="num">0.83</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="bibtex">
+      <h2>BibTeX</h2>
+      <div class="bib"><button class="copy" type="button">Copy</button><code id="bibtext">@inproceedings{sun2019using,
+  title     = {Using Virtual Reality to Examine the Correlation between
+               Balance Function and Anxiety in Stance},
+  author    = {Sun, Rongyi and Kaur, Rachneet and Ziegelman, Liran and
+               Yang, Shuo and Sowers, Richard and Hernandez, Manuel E},
+  booktitle = {2019 IEEE International Conference on Bioinformatics
+               and Biomedicine (BIBM)},
+  pages     = {1633--1640},
+  year      = {2019},
+  doi       = {10.1109/BIBM47256.2019.8983331}
+}</code></div>
+    </section>
+
+    <section id="acknowledgments">
+      <h2>Acknowledgments</h2>
+      <p>We would like to thank all the subjects who collaborated with their time and data for the study, research assistants from the Mobility and Fall Prevention Research Lab who assisted with data collection, and JUMP ARCHES for financial support.</p>
+    </section>
+  </main>
+</div>
+
+<footer><a href="../index.html">Home</a> &middot; <a href="../publications.html">All publications</a><br><span style="font-size:12px">Figures from the paper, &copy; 2019 IEEE. Page design inspired by <a href="https://nerfies.github.io/" target="_blank" rel="noopener">Nerfies</a>.</span></footer>
+
+<script>
+/* copy BibTeX (both the pop-up panel and the BibTeX section) */
+var bibText = document.getElementById("bibtext").textContent;
+document.querySelector("#bibpop code").textContent = bibText;
+document.querySelectorAll(".copy").forEach(function (b) {
+  b.addEventListener("click", function () {
+    navigator.clipboard.writeText(bibText).then(function () {
+      b.textContent = "Copied"; setTimeout(function () { b.textContent = "Copy"; }, 1500);
+    });
+  });
+});
+/* the BibTeX button opens the citation right under the buttons instead of jumping to the bottom */
+(function () {
+  var btn = document.getElementById("bibbtn"), pop = document.getElementById("bibpop");
+  btn.addEventListener("click", function (e) {
+    e.preventDefault();
+    var open = pop.hidden; pop.hidden = !open; btn.setAttribute("aria-expanded", open);
+  });
+})();
+/* highlight the section in view in the contents */
+(function () {
+  var links = [].slice.call(document.querySelectorAll(".toc a"));
+  var secs = links.map(function (a) { return document.querySelector(a.getAttribute("href")); });
+  function f() {
+    var y = window.scrollY + 120, i = 0;
+    secs.forEach(function (s, k) { if (s && s.offsetTop <= y) i = k; });
+    links.forEach(function (a, k) { a.classList.toggle("on", k === i); });
+  }
+  window.addEventListener("scroll", f, { passive: true }); f();
+})();
+</script>
 </body>
 </html>
