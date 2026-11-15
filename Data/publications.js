@@ -31,6 +31,7 @@ window.PUBLICATIONS = [
     badges: ["NeurIPS 2025 Workshop Oral"],
     links: [["PDF", "https://aclanthology.org/2026.acl-long.843.pdf"],
             ["arXiv", "https://arxiv.org/abs/2510.04514"],
+            ["Webpage", "projects/CHARTAGENT2026.html"],
             ["Slides", "https://drive.google.com/file/d/1OYQCQDBNmMGkQEwc9grvLxQXUau_gq67/view?usp=sharing"],
             ["Poster", "https://drive.google.com/file/d/1zMNfstQ8HJazS4ooTWrSETKRjksJAC3Y/view?usp=sharing"]]
   },
