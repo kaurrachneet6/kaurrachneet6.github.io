@@ -989,6 +989,9 @@ html{scroll-behavior:smooth}
   .aw-one .aw-name{flex:0 0 auto}
   .aw-one .aw-note{flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis}
   .aw-one .aw-note:before{content:"·";color:#bbb;margin-right:6px}
+  .aw-one li.aw-wrap>div{display:block;white-space:normal}  /* this row may wrap so the full note shows */
+  .aw-one li.aw-wrap .aw-name,.aw-one li.aw-wrap .aw-note{display:inline}
+  .aw-one li.aw-wrap .aw-note:before{margin:0 6px 0 8px}
   @media (max-width:700px){.aw-one li>div{display:block;white-space:normal}.aw-one .aw-note:before{content:none}}
   .aw-ic svg{width:11px;height:11px;fill:none;stroke:#6b46a8;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
 </style>
@@ -999,7 +1002,7 @@ html{scroll-behavior:smooth}
 </tbody></table>
 <!-- One-line awards (Option D). The original two-line list below is kept for now. -->
 <ul class="aw-list aw-one">
-    <li><span class="aw-year">2025</span><div><div class="aw-name"><span class="aw-logo"><img src="Images/logos/jpm.png" alt="J.P. Morgan Chase"></span>JPMorgan Chase &amp; Co. Prolific Inventor</div><div class="aw-note">for innovative contributions</div></div></li>
+    <li class="aw-wrap"><span class="aw-year">2025</span><div><div class="aw-name"><span class="aw-logo"><img src="Images/logos/jpm.png" alt="J.P. Morgan Chase"></span>JPMorgan Chase &amp; Co. Prolific Inventor</div><div class="aw-note">for innovative contributions and a high number of patent applications</div></div></li>
     <li><span class="aw-year">2023</span><div><div class="aw-name"><span class="aw-logo"><img src="Images/logos/jpm.png" alt="J.P. Morgan Chase"></span>Best Presentation Award, JPMorgan Chase AI Summit</div><div class="aw-note"><i>From Pixels to Predictions</i></div></div></li>
     <li><span class="aw-year">2023</span><div><div class="aw-name"><span class="aw-logo aw-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg></span><a href="https://ieeexplore.ieee.org/xpl/topAccessedArticles.jsp?punumber=6221020&amp;topArticlesDate=January%202023" target="_blank" rel="noopener">Top 50 most popular IEEE-JBHI articles</a></div><div class="aw-note">vision-based gait framework</div></div></li>
     <li><span class="aw-year">2021</span><div><div class="aw-name"><span class="aw-logo"><img src="Images/logos/uiuc_mark.png" alt="University of Illinois"></span><a href="https://ise.illinois.edu/newsroom/2021-grad-awards" target="_blank" rel="noopener">Sharp Outstanding Graduate Student Award, UIUC ISE</a></div><div class="aw-note">one a year; <a href="https://youtu.be/MVa2HqaPe1c?si=kgFpWZjmcJaD3TfS" target="_blank" rel="noopener">video</a></div></div></li>
